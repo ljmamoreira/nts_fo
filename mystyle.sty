@@ -1,0 +1,133 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mystyle}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[portuges]{babel}
+\usepackage[a4paper]{geometry}
+\addto\captionsportuges{\renewcommand{\contentsname}{\'Indice}}
+\usepackage[font=small,format=plain,labelfont=bf,up,textfont=sl,up]{caption}  
+\usepackage{amsmath,amssymb,tikz,graphicx,pgfplots,etoolbox,icomma,fancyhdr}
+\usepackage{wrapfig,url}
+
+
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\rhead{}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+\pgfplotsset{compat=1.8}
+
+\usetikzlibrary{%
+    calc,
+    intersections,
+    decorations.markings,
+    shapes,
+    hobby,
+    3d
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%simple macros
+\newcommand{\kel}{\ensuremath{\frac{1}{4\pi\epsilon_0}}}
+\newcommand{\grad}{\text{grad}\,}
+\renewcommand{\div}{\text{div}\,}
+\newcommand{\rot}{\text{rot}\,}
+
+\newcommand{\td}[2]{%
+    \frac{\text{d} #1}{\text{d} #2}
+}
+\newcommand{\pd}[2]{%
+    \frac{\partial #1}{\partial #2}
+}
+\newcommand{\he}{\hat e}
+\newcommand{\lineend}{\unskip\parfillskip 0pt \par}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Environment for examples
+\newcounter{exarec}[section]
+\newcounter{exampi}[section]
+\setcounter{exarec}{0}
+\renewcommand{\theexampi}{\thesection.\arabic{exampi}}
+\newenvironment{examples}
+{%
+    \vspace{2mm}\hrule\vspace{1mm}%
+    \bgroup\small\sffamily%
+    \begin{list}
+        {\textbf{Exemplo \theexampi:}}%
+        {%
+           \usecounter{exampi}
+           \setcounter{exampi}{\value{exarec}}
+           \setlength{\itemsep}{1.0em}
+        }%
+}
+{%
+    \samepage%
+    \end{list}
+    \setcounter{exarec}{\value{exampi}}%
+    \vspace{1mm}\hrule\vspace{2mm}\egroup%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\tikzexternalize[prefix=figs/tikzexternalized/]
+
+\newcommand{\tikzAngleOfLine}{\tikz@AngleOfLine}
+  \def\tikz@AngleOfLine(#1)(#2)#3{%
+  \pgfmathanglebetweenpoints{%
+    \pgfpointanchor{#1}{center}}{%
+    \pgfpointanchor{#2}{center}}
+  \pgfmathsetmacro{#3}{\pgfmathresult}%
+  }
+
+\tikzset{
+  % style to add an arrow in the middle of a path
+  mid arrow/.style={postaction={decorate,decoration={
+        markings,
+        mark=at position .45 with {\arrow[#1]{stealth}}
+      }}},
+}
+
+\newlength{\indentsp}
+\renewcommand*{\thefootnote}{(\arabic{footnote})}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%No number on part titlepages
+\makeatletter
+\renewcommand\part{%
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+  \thispagestyle{empty}%   % Original »plain« replaced by »emptyx
+  \if@twocolumn
+    \onecolumn
+    \@tempswatrue
+  \else
+    \@tempswafalse
+  \fi
+  \null\vfil
+  \secdef\@part\@spart}
+\makeatother
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%tobedone command
+\newcommand{\tobedone}[1]{%
+    \par\noindent
+    {\sffamily\textbf{POR ESCREVER}\ifstrempty{#1}{}{: #1}}
+    \par
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput

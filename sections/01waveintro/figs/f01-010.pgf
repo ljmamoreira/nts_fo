@@ -1,0 +1,9 @@
+\begin{tikzpicture}
+    \begin{axis}[domain=-20:20,ymin=-2,ymax=3, samples=200, axis lines=none]
+        \addplot [very thick] {0.5*cos(deg(x))*exp(-x*x/20)};
+        \node at (axis cs:0,0.9) {Movimento da onda};
+        \draw [->] (axis cs:-8,0.7) -- (axis cs:8,0.7);
+        \draw [<->] (axis cs:0,-0.4) -- (axis cs:0,0.4);
+        \node [text width=3cm, align=center] at (axis cs:0,-0.8) {Movimento das moléculas do fluido};
+    \end{axis}
+\end{tikzpicture}

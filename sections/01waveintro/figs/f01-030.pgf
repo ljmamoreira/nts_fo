@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+  \small
+  \begin{axis}[domain=0:4,
+               samples=150,
+               xmin=0, xmax=4,
+               no marks,
+               xlabel=$x$\,(m), ylabel=$\psi$,
+               xtick={0,1,2,3,4},
+               minor x tick num={3}]
+               \addplot [black,thick] {0.75*cos(deg(2*pi*x/1.5))}
+            node [ pos=0.1, sloped, fill=white,inner sep=1] {$t=0\,s$};
+        \addplot [black, dashed, thick]{0.75*cos(deg(2*pi*(x/1.5-0.15/1.0))}
+            node [pos=0.13, sloped, fill=white,inner sep=1] {$t=0,15\,s$};
+        \addplot [black, dotted, thick]{0.75*cos(deg(2*pi*(x/1.5-0.30/1.0))}
+            node [pos=0.18, sloped, fill=white,inner sep=1] {$t=0,30\,s$};
+  \end{axis}
+\end{tikzpicture}
