@@ -163,7 +163,7 @@ ideias que serão discutidas a seguir.
     (veja a Figura~\ref{fig:oof020}).
     \begin{figure}[htb]
         {\centering
-            %\includegraphics{figs/oof020.png}
+            \includegraphics{sections/01waveintro/figs/oof020.png}
             \caption{Onda de som e movimento das moléculas de ar.%
                 \label{fig:oof020}}
 
@@ -241,46 +241,106 @@ representada nos dois instantes inicial e final que delimitam esse intervalo.
     $x$.\label{fig:01-020}}
 \end{figure}
 No instante inicial $t_1$, a perturbação está localizada numa região próxima da
-origem perto da origem; no instante final $t_2$ já se encontra deslocada para a
+origem; no instante final $t_2$ já se encontra deslocada para a
 direita. A função de onda tem representações gráficas diferentes em instantes
 diferentes, ou seja: depende do tempo.
 
 Nas condições representadas na Figura~\ref{fig:01-020}, a forma da perturbação
 altera-se enquanto ela se propaga. Este comportamento é muito frequente (o som
-vai-se alterando com a distância\footnote{O exemplo mais barulhento deste efeito
-    nota-se com trovões: o trovão de um relâmpago que ``cai'' perto de nós
-    parece um estalo muito intenso, súbito e breve; o de um afastado é aquele
+vai-se alterando com a distância\footnote{Um exemplo muito barulhento deste
+  efeito nota-se com trovões: o trovão de um relâmpago que ``cai'' perto de nós
+  parece um estalo muito intenso, súbito e breve; o de um afastado é aquele
 típico ribombar grave e prolongado.}, por exemplo), mas são também frequentes
 propagações ondulatórias sem aterações da forma do impulso (por exemplo, na
 propagação da luz através do vácuo). As propagações sem alteração de forma são
 mais simples e, por isso, é nessas que nos iremos concentrar. Veremos mais à
 frente que o formalismo que vai ser desenvolvido pode ainda ser aplicado a
-propagações com alteração de forma.
+propagações com alteração de forma. 
 
-Consideremos então um sinal ondulatório que se propaga com velocidade $v$ ao
-longo do eixo dos $x$, sem se alterar a sua forma. Isto significa que a função
-matemática que descreve a forma do sinal num dado instante apenas sofre uma
-translação por $\delta x=v\delta t$ como resultado da propagação da onda durante
-um intervalo de tempo com duração $\delta t$. Assim sendo, podemos escrever
+Vamos, para já, estudar o caso unidimensional (em que a função de onda depende
+de apenas uma coordenada espacial, $x$, e do tempo), com menor complexidade
+matemática. Consideremos então um sinal ondulatório que se propaga com
+velocidade $v$ ao longo do eixo dos $x$, sem se alterar a sua forma, com função
+de onda $\psi(x,t)$. Dizer que a onda se propaga sem alteração da forma é
+equivalente a dizer que os valores que a função de onda apresenta num num dado
+instante são, num intervalo de tempo $\delta t$, todos deslocados ao longo da
+reta dos $x$, sofrendo uma translação, igual para todos, de $v\delta t$. Seja
+$\psi_0(x)=\psi(x,t_0=0)$ a forma da função de onda no instante $t_0=0$. De
+acordo com o que acabámos de dizer, o valor que esta função toma num ponto
+particular qualquer $x_0$ é transportado, no intervalo de tempo $\delta
+t=t-t_0=t$, para o ponto $x=x_0+v\delta t$. Ou seja,
 \begin{equation*}
-    \psi(x,t) = \psi(x-v(t-t_0),t_0).
+  \psi(x_0+v\delta t,\,t)=\psi_0(x_0),
 \end{equation*}
-Escolhendo uma origem temporal adequada $t_0=0$, e notando que não é necessário
-explicitar esse instante inicial fixado previamente, concluímos que a função de
-onda de um sinal ondulatório que se propaga com velocidade $v$ sem modificação
-da forma deve ter a forma geral
+expressão que, escrita em função da coordenada $x$ do ponto final (e tendo em
+conta a escolha $t_0=0$), se pode também escrever como
 \begin{equation*}
-    \psi(x,t)=\psi(x-vt).
+  \psi(x,t)=\psi_0(x-vt).
 \end{equation*}
 
-Seja $z=x-vt$. Então $\psi(x-vt)=\psi(z)$ e temos
+Deduzimos esta igualdade considerando apenas que a função $\psi$ depende de $x$ e
+$t$ de tal modo que os seus valores se movem de ponto para ponto, sem alteração
+de forma, com o passar do tempo. Ela é, assim, satisfeita por todas as funções
+com aquele comportamento. A Figura~\ref{fig:f060} mostra exemplos de uma
+propagação com e sem alteração de forma.
+\begin{figure}[htb]
+  {\centering
+    \begin{tikzpicture}
+      \small
+      \begin{axis}[domain=-2:10,
+                   height=6cm,
+                   width=8cm,
+                   ymax=1.2,
+                   xmin=-2,
+                   xmax=10,
+                   yticklabels={},
+                   xlabel=$x$ (m)
+                   ]
+        \addplot [samples=150,thick] {exp(-(0.5*x)^2};
+        \addplot [samples=150,dashed, thick] {exp(-(0.5*x-1)^2)};
+        \addplot [samples=150, dotted, thick] {exp(-(0.5*x-2)^2)};
+        \node at (axis cs:0.9,1.05) [rotate=30] {$t=0$};
+        \node at (axis cs:3.2,1.05) [rotate=30] {$t=1\,$s};
+        \node at (axis cs:5.2,1.05) [rotate=30] {$t=2\,$s};
+      \end{axis}
+      \begin{axis}[xshift=7.5cm,
+                   domain=-2:10,
+                   height=6cm,
+                   width=8cm,
+                   ymax=1.2,
+                   xmin=-2,
+                   xmax=10,
+                   yticklabels={},
+                   xlabel=$x$ (m)
+                 ]
+        \addplot [samples=150,thick] {exp(-(0.5*x)^2};
+        \addplot [samples=150,dashed,thick] {exp(-(0.5*x-1)^2/1.5)/1.25};
+        \addplot [samples=150,dotted,thick] {exp(-(0.5*x-2)^2/3.0)/1.50};
+        \node at (axis cs:0.9,1.05) [rotate=30] {$t=0$};
+        \node at (axis cs:3.2,0.85) [rotate=30] {$t=1\,$s};
+        \node at (axis cs:5.2,0.75) [rotate=30] {$t=2\,$s};
+      \end{axis}
+    \end{tikzpicture}\par
+  }
+  \caption{No gráfico da esquerda, está representada a função $\exp[-(x/2-t)^2]$
+    (SI)
+    nos instantes $t=0$, $t=1$\,s e $t=2$\,s. A perturbação descrita por esta
+    onda propaga-se sem alteração de forma com velocidade $v=2$\,m/s. No grafico
+    da direita, representa-se a função $exp[-(0,5x-t)^2/(1,5t)]/(1+t/4)$ (SI),
+    nos mesmos instantes. Esta função, claramente, propaga-se com alteração de
+    forma: à medida que o tempo passa, a sua amplitude vai diminuindo e a sua
+  largura vai aumentando.\label{fig:f060}}
+\end{figure}
+
+Consideremos uma perturbação que se propaga sem alteração de forma com função de
+onda $\psi(x,t)=\psi(x-vt)$. Seja $z=x-vt$. Então $\psi(x-vt)=\psi(z)$ e temos
 \begin{align*}
-    \pd{\psi}{x}&=\pd{z}{x}\td{\psi}{z}=\td{\psi}{z}&
-    \frac{\partial^2\psi}{\partial x^2}&=\pd{z}{x}\td{}{z}\left(\pd{\psi}{x}
-        \right)=\frac{\text{d}^2\psi}{\text{d}z^2}\\
-    \pd{\psi}{t}&=\pd{z}{t}\td{\psi}{z}=-v\td{\psi}{z}&
-    \frac{\partial^2\psi}{\partial t^2}&=\pd{z}{t}\td{}{z}\left(\pd{\psi}{t}
-        \right)=v^2\frac{\text{d}^2\psi}{\text{d}z^2}
+    \pd{\psi}{x}&=\pd{z}{x}\td{\psi_0}{z}=\td{\psi_0}{z}&
+    \frac{\partial^2\psi}{\partial x^2}&=\pd{z}{x}\td{}{z}\left(\pd{\psi_0}{x}
+        \right)=\frac{\text{d}^2\psi_0}{\text{d}z^2}\\
+    \pd{\psi}{t}&=\pd{z}{t}\td{\psi_0}{z}=-v\td{\psi_0}{z}&
+    \frac{\partial^2\psi}{\partial t^2}&=\pd{z}{t}\td{}{z}\left(\pd{\psi_0}{t}
+        \right)=v^2\frac{\text{d}^2\psi_0}{\text{d}z^2}
 \end{align*}
 Comparando as duas igualdades do lado direito concluímos que
 \begin{equation}\label{eq:waveq}
@@ -288,12 +348,12 @@ Comparando as duas igualdades do lado direito concluímos que
         \frac{1}{v^2} \frac{\partial^2\psi}{\partial t^2}.
 \end{equation}
 Esta é a equação diferencial satisfeita pelas funções de onda das ondas
-unidimensionais que se propagam sem alterações de forma, com velocidade $v$ ao
-longo do eixo dos $x$. Chama-se, apropriadamente, \emph{equação de onda
-unidimensional.}
-Os fenómenos ondulatórios atrás referidos (com a exceção das ondas das bancadas
-de estádio), quando reduzidos a uma dimensão, são descritos através funções de
-onda que satisfazem a equação de onda unidimensional.
+unidimensionais que se propagam sem alterações de forma, com velocidade
+constante $v$ ao longo do eixo dos $x$. Chama-se, apropriadamente, \emph{equação
+de onda unidimensional.} Os fenómenos ondulatórios atrás referidos (com a
+exceção das ondas das bancadas de estádio, que são regidas por uma dinâmica mais
+social do que física), quando reduzidos a uma dimensão, são descritos através
+funções de onda que satisfazem a equação de onda unidimensional.
 
 
 
@@ -305,8 +365,8 @@ uma\footnote{Isto é,
 a_1\pd{\psi_1}{x}+a_2\pd{\psi_2}{x}+\ldots+a_n\pd{\psi_n}{x}.$}, então a soma
 de duas soluções (ou a combinação linear de qualquer número de soluções) da
 equação de onda é ainda uma solução da equação de onda. A esta propriedade das
-ondas chama-se \emph{Princípio da sobreposição.} Em termos práticos, isto
-segnifica que quando numa região do espaço coincidem duas ondas com a mesma
+ondas chama-se \emph{princípio de sobreposição.} Em termos práticos, isto
+significa que quando numa região do espaço coincidem duas ondas com a mesma
 natureza $\psi_1(x,y,z,t)$ e $\psi_2(x,y,z,t)$, o valor da perturbação
 ondulatória resultante é igual, em cada ponto e em cada instante, à soma das
 duas, isto é,
@@ -314,7 +374,7 @@ duas, isto é,
 \psi(x,y,z,t)=\psi_1(x,y,z,t)+\psi_2(x,y,z,t).
 \end{equation*}
 
-\subsection{Ondas harmónicas}
+\section{Ondas harmónicas}
 As funções de onda podem ser (e muito frequentemente são) extraordinariamente
 complexas. Mas é possível estabelecer propriedades muito gerais das ondas
 considerando apenas funções de onda com forma relativamente simples. De um ponto
@@ -331,10 +391,10 @@ seja, que são o seno ou o cosseno) da posição e do tempo. Considerando, para
 simplificar, apenas ondas unidimensionais (isto é, que dependem de apenas uma
 coordenada espacial e do tempo), uma onda sinusoidal é dada pela
 expressão geral
-\begin{equation*}
+\begin{equation}\label{eq:hwav}
     \psi(x,t)=A\cos\left(2\pi\left[\frac{x}{\lambda}\pm \frac{t}{T}\right]+
             \phi_0\right)
-\end{equation*}
+\end{equation}
 Nesta equação $x$ e $t$ representam, respetivamente, a posição e o tempo. Os
 parâmetros  constantes que aparecem no lado direito têm os nomes
 \emph{amplitude} ($A$), \emph{comprimento de onda} ($\lambda$), \emph{período}
@@ -342,9 +402,12 @@ parâmetros  constantes que aparecem no lado direito têm os nomes
 dá-se o nome de \emph{fase} da onda harmónica. Os argumentos das funções
 transcendentes (como é o caso da função cosseno) devem ser adimensionais; assim,
 a fase de uma onda não tem dimensões, pelo que $\lambda$ deve ser um comprimento
-e $T$ um tempo. O teor dimensional da amplitude é igual ao da função de onda e
-depende, como já vimos, da natureza da onda; frequentemente é um comprimento,
-mas pode também ter outras dimensões.
+e $T$ um tempo. A amplitude tem as dimensões da funcção de onda e, assim,
+depende, da natureza da onda; pode ser um comprimento (como nas ondas do mar ou
+nas vibrações de uma corda esticada, mas pode também ter outras dimensões.
+Quando se trata de ondas de luz, usa-se normalmente o campo elétrico para
+descrever a perturbação e, portanto, a amplitude exprime-se nas unidades do
+campo, volt por metro.
 
 Vejamos o significado e o efeito de cada um destes parâmetros\footnote{O que já
 a seguir se segue pode, \emph{e deve,} ser experimentado com uma calculadora
@@ -396,7 +459,7 @@ que queremos descrever se anulasse (por exemplo) no instante inicial e na
 origem, escolheríamos $\phi=\pi/2$. Para uma dada onda, podemos sempre escolher
 $\phi=0$ definindo de forma conveniente as origens espacial e temporal.
  
-A \emph{frequência} de um onda harmónica é o número de máximos da onda que
+A \emph{frequência} de uma onda harmónica é o número de máximos da onda que
 atingem um determinado ponto por unidade de tempo. Assim, a frequência é o
 inverso do período:
 \begin{equation*}
@@ -404,223 +467,447 @@ inverso do período:
 \end{equation*}
 A frequência exprime-se no SI em \emph{ciclos por segundo,} grandeza a que se dá
 o nome de \emph{hertz} (Hz).
-Outro parâmetro relacionado é a \emph{frequência angular,} que representa também
-a rapidez com que a onda varia no tempo, mas agora em radianos por unidade de
-tempo:
+
+Frequentemente, a função de onda harmónica encontra-se parametrizada numa forma
+alternativa à apresentada na eq.~\eqref{eq:hwav}:
 \begin{equation*}
-\omega = 2\pi f= \frac{2\pi}{T}.
+  \psi(x,t)=A\cos\left(kx\pm\omega t+\phi_0\right).
 \end{equation*}
+Os parâmetros $k$ e $\omega$, chamados respetivamente \emph{vetor de
+onda}\footnote{Mas em discussões unidimensionais é mais comum a designação de
+\emph{número de onda.}} e \emph{frequência angular,} relacionam\-\mbox{-se} com o
+comprimento de onda e com o período como
+\begin{align*}
+  k&=\frac{2\pi}{\lambda}&\omega=\frac{2\pi}{T}=2\pi f.
+\end{align*}
+O primeiro destes parâmetros representa a taxa espacial de variação da fase
+(\emph{quanto é que a fase varia por unidade de comprimento, num dado instante});
+a segunda, representa a taxa temporal de variação da fase (\emph{quanto é que a
+fase varia por unidade de tempo, num dado local}).
 
 Podemos calcular facilmente a velocidade de propagação de uma onda harmónica
 dividindo o seu comprimento de onda pelo tempo que ela demora a percorrer essa
 distância, ou seja, pelo seu período:
 \begin{equation*}
-v=\frac{\lambda}{T} = \lambda f.
+  v=\frac{\lambda}{T} = \lambda f=\frac{\omega}{k}.
 \end{equation*}
 
-
-\subsection{Intensidade de uma onda harmónica}
-As ondas transportam energia. Este facto torna-se óbvio quando consideramos
-ondas mecâ\-nicas (ou seja, vibrações coletivas de meios materiais) e constatamos
-que é necessária energia para colocar em vibração as várias porções do meio
-atingidas pela onda. De onde vem esta energia? Em última análise, essa energia é
-fornecida pela fonte e transportada pela onda que a distribui pelos vários
-pontos por onde se propaga.
-
-Chama-se \emph{intensidade} de uma onda à energia que ela transporta, por
-unidade de tempo e de área. A intensidade de uma onda é sempre proporcional ao
-quadrado da sua amplitude, o que se compreende facilmente para o caso das ondas
-mecânicas, uma vez que a energia potencial elástica (e são forças elásticas as
-responsáveis pela propagação destas ondas) é proporcional ao quadrado da
-amplitude do movimento. Mas esta proporcionalidade entre a intensidade de uma
-onda e o quadrado da sua amplitude é válida para qualquer tipo de ondas,
-incluindo as ondas eletromagnéticas, ou seja, a luz.
-
-\subsection{Sobreposição de ondas harmónicas com iguais comprimento de onda e
-período}
-\label{sec:sobrpos}
-Sejam $\psi_1(x,t)$ e $\psi_2(x,t)$ duas ondas harmónicas com comprimento de
-onda $\lambda$ e período $T$, que se propagam no sentido positivo do eixo dos
-$x$, dadas por
+\section{Representação complexa de ondas harmónicas}
+\subsection{Números complexos}
+Seja \iu~um número não real a que chamamos \emph{unidade imaginária,} definido
+como
 \begin{align*}
-\psi_1(x,t)&=A_1\cos\left(\Theta(x,t)+\phi_1\right)\\
-\psi_2(x,t)&=A_2\cos\left(\Theta(x,t)+\phi_2\right),
+  \iu&=\sqrt{-1}&\iu^2&=-1.
 \end{align*}
-onde, para aligeirar a notação, se introduziu o símbolo
-$\Theta\equiv\Theta(x,t)=2\pi(x/\lambda-t/T)$. De acordo com o princípio da
-sobreposição, a resultante da sobreposição destas duas ondas é uma onda com
-expressão geral
-\begin{align*}
-\psi(x,t)&=\psi_1(x,t)+\psi_2(x,t)\\
-&=A_1\cos(\Theta+\phi_1)+A_2\cos(\Theta+\phi_2)
-\end{align*}
-Usando aqui a igualdade trigonométrica
-$\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$, esta expressão
-pode reescrever-se como
+Chamamos \emph{número imaginário} ao produto da unidade imaginária por um número
+real e \emph{número complexo} à soma de um número real e de um número
+imaginário:
+\begin{alignat*}{3}
+  \iu a,  &&\quad   a\in\mathbb{R} & \qquad &&\text{número imaginário}\\
+  a+\iu b,&&\quad a,b\in\mathbb{R} & \qquad &&\text{número complexo}
+\end{alignat*}
+O conjunto de todos os números complexos representa-se pelo símbolo
+$\mathbb{Z}$. Dado um número complexo ${z}=a+\iu b$, chamamos \emph{parte
+real} à sua parcela real e \emph{parte imaginária} ao número real que é
+multiplicado pela unidade imaginária:
 \begin{equation*}
-\psi(x,t)=(A_1\cos\phi_1+A_2\cos\phi_2)\cos\Theta-
-(A_1\sin\phi_1+A_2\sin\phi_2)\sin\Theta.
+  {z}=a+\iu b,\quad a,b\in\mathbb{R} \quad \Rightarrow
+  \begin{cases}
+    \Re( z) &= a\qquad\text{parte real de } z\\
+    \Im( z) &= b\qquad\text{parte imaginária de } z
+  \end{cases}
 \end{equation*}
-Introduzimos agora dois números reais, $A$ e $\phi$, definidos como
-\begin{align*}
-A\cos\phi&=A_1\cos\phi_1+A_2\cos\phi_2\\
-A\sin\phi&=A_1\sin\phi_1+A_2\sin\phi_2.
-\end{align*}
-Substituindo acima e de novo usando a igualdade trigonométrica para o cosseno da
-soma de dois ângulos, obtemos
-\begin{equation*}
-\psi(x,t)=A\cos\left(\Theta+\phi\right)=
-A\cos\left(2\pi\left[\frac{x}{\lambda}-\frac{t}{T}\right]+\phi\right).
-\end{equation*}
-Assim, concluímos que a sobreposição de duas ondas harmónicas com iguais período
-e comprimento de onda é ainda uma onda harmónica, com o mesmo período e com o
-mesmo comprimento de onda, com amplitude e constante de fase que dependem das amplitudes
-e das constantes de fase de cada uma das ondas que se sobrepõem.
 
-Os números reais $A$ e $\phi$ (a amplitude e a constante de fase da onda
-resultante) satisfazem as equações
+O \emph{complexo conjugado} de um número complexo é o número complexo que se
+obtém ao trocar o sinal à sua parte imaginária:
+\begin{equation*}
+   z = a+\iu b,\qquad a,b\in\mathbb{R}:\qquad  z^*=a-\iu b.
+\end{equation*}
+
+Um número complexo tem dois graus de liberdade reais independentes (as suas
+partes real e imaginária). Nesse aspeto, é como um vetor de um espaço
+bidimensional e, nesse sentido, pode ser representado como um ponto num plano
+chamado \emph{plano complexo} (ou \emph{plano de Argand}), cujas coordenadas
+cartesianas são as partes real e imaginária do número
+\begin{figure}[htb]
+  {\centering
+    \begin{tikzpicture}
+      \draw [->] (-0.5,0) -- +(3.55,0) node[right] {$\Re( z)$};
+      \draw [->] (0,-0.5) -- +(0,2.5) node[right] {$\Im( z)$};
+      \fill (30:2.5) circle(0.05) coordinate (z) node[above right]
+        {$ z=a+\iu b$};
+        \draw [thin, dashed] (0,0) -| (z) -- (z) -- (z)-|(0,0);
+        \draw (0,0) --(z) node [midway, above, sloped] {$| z|$};
+        \draw (30:1.0) arc(30:0:1.0) node [above,xshift=5mm]{$\Arg( z)$};
+    \end{tikzpicture}\par
+  }
+  \caption{Plano de Argand. Cada número complexo é representado por um ponto
+    cujas coordenadas cartesianas são as suas partes real e
+  imaginária.\label{fig:argplane}}
+\end{figure}
+O \emph{módulo} de um número complexo é a distância que o separa da origem no
+plano complexo, ou seja,
+\begin{equation*}
+   z = a+\iu b \Rightarrow | z|= \sqrt{a^2+b^2}=\sqrt{z\,z^*}.
+\end{equation*}
+Chama-se \emph{argumento} de um número complexo ao ângulo que o segmento que o
+une à origem no plano complexo faz com o eixo real. Assim,
+\begin{equation*}
+   z = a+\iu b \Rightarrow \Arg( z)=\arctan\frac{b}{a},\quad
+  \text{(mas atenção aos sinais e quadrantes).}
+\end{equation*}
+O módulo e o argumento de um número complexo podem, assim, ser vistos como as
+coordenadas polares dos pontos que representam os números complexos no plano
+complexo.
+
+\subsection{Operações algébricas elementares}
+As operações algébricas com números complexos seguem as mesmas regras que as
+operações com números reais, complementadas com a da definição da unidade
+imaginária, $\iu^2=-1$. Assim, dados $ u=a+\iu b$ e $ z=c+\iu d$,
+\begin{description}
+  \item[produto com um real]
+    \begin{align*}
+      \text{se }x\in\mathbb{R},\ x u&=x(a+\iu b)=xa+\iu xb;
+    \end{align*}
+  \item[adição/subtração] 
+    \begin{align*}
+       u\pm z &= (a+\iu b)\pm(c+\iu d) = (a\pm c) + \iu(b\pm d);
+    \end{align*}
+  \item[multiplicação]
+    \begin{align*}
+       u \,  z &= (a+\iu b)(c+\iu d)=\\
+                           &=ac+\iu ad+ \iu bc+\iu^2 bd=(ac-bd)+\iu(ad+bc);
+    \end{align*}
+  \item [divisão] esta operação faz-se em dois passos: multiplica-se o numerador
+    e o denominador pelo complexo conjudado do denominador; deste modo,
+    transforma-se o denominador num número real (o quadrado do módulo do
+    denominador original) e usa-se a primeira regra para completar o cálculo:
+    \begin{align*}
+      \frac{ u}{ z} &= 
+        \frac{ u}{ z}\frac{ z^*}{ z^*}=
+        \frac{ u  z^*}{|z|^2}\\
+        &=\frac{(ac+bd)+\iu(bc-ad)}{c^2+d^2}
+    \end{align*}
+\end{description}
+
+\subsection{Fórmula de Euler}
+Considere a função complexa de uma variável real ($t\in\mathbb{R}$)
+\begin{equation*}
+  f(t) = \text{e}^{-\iu t}\left(\cos t+\iu \sin t\right),\qquad f(0)=1.
+\end{equation*}
+A derivada de $f$,
+\begin{equation*}
+  f'(t) = -\iu\e^{-\iu t}(\cos t+\iu \sin t)+
+  \e^{-\iu t}(-\sin t+\iu \cos t)=0,
+\end{equation*}
+é identicamete nula, pelo que $f(t)$ é uma função constante. Uma vez que
+$f(0)=1$, concluímos que $f(t)=1\ \forall t$, ou seja,
+\begin{equation*}
+  \e^{\iu t}=\cos t+i\sin t.
+\end{equation*}
+Esta fórmula chama-se \emph{Fórmula de Euler}.
+
+Usando a fórmula de Euler é possível uma outra representação dos números
+complexos. Dado um número complexo arbitrário $ z=a+\iu b$, considere-se o
+número $ u = | z|\exp\left[\iu\Arg( z)\right]$. De
+acordo com a fórmula de Euler, 
 \begin{align*}
-A\cos\phi&=A_1\cos\phi_1+A_2\cos\phi_2\\
-A\sin\phi&=A_1\sin\phi_1+A_2\sin\phi_2.
+  \Re( u)&=| z|\cos[\Arg( z)]=a\\
+  \Im( u)&=| z|\sin[\Arg( z)]=b,
 \end{align*}
-Elevando estas duas equações ao quadrado, somando os resultados e usando a
-igualdade fundamental da trigonometria, obtemos para $A$ a expressão
+ou seja, os dois números $ z$ e $ u$ são iguais e as duas expressões
+$a+\iu b$ e $| z|\exp(\iu\theta)$, com
+$| z|=\sqrt{a^2+b^2}$ e $\theta=\arctan(b/a)$, são representações
+equivalentes desse número.
+
+\subsection{A representação de funções harmónicas}
+A representação complexa de funções harmónicas consiste em fazer a substituição
 \begin{equation*}
-A^2=A_1^2 + A_2^2 + 2A_1A_2(\cos\phi_1\cos\phi_2+\sin\phi_1\sin\phi_2)
+  \cos\phi \rightarrow \e^{\iu \phi}.
 \end{equation*}
-Mas a combinação entre parentesis é igual a $\cos(\phi_1-\phi_2)$, que é a
-diferença de fase das duas ondas. A amplitude da sobreposição pode então
-escrever-se como\footnote{Já agora, é fácil nesta altura demonstrar que a
-quantidade real $A$ existe mesmo (até aqui, apenas podíamos garantir que $A^2$
-existe. Mas, se acontecer $A^2<0$, então $A$ não pode ser
-real.) Com efeito, uma vez que $\cos\delta\phi=\cos(\phi_1-\phi_2)\geq-1$,
-segue-se que $A_1^2+A_2^2+2A_1A_2\cos\delta\phi\geq
-A_1^2+A_2^2-2A_1A_2=(A_1-A_2)^2\geq 0$. Logo, $A^2\geq0$, ou seja, $A\in
-\mathbb{R}$.}
+Claro que, nesta substituição, estamos a introduzir uma quantidade imaginária
+($\iu\sin\phi$) que não estava presente na expressão inicial. Mas, em muitos
+cálculos com interesse na física, essa parte imaginária ilegitimamente
+introduzida não afeta a parte real, que representa a variável física relevante.
+Nessas condições, não incorremos em erro com este procedimento, desde que no
+final tomemos a parte real do resultado, descartando assim a parte imaginária
+que não nos interessa. Assim, no caso da função de onda, iremos frequentemente
+representá-la como
 \begin{equation*}
-A=\sqrt{A_1^2+A_2^2+2A_1A_2\cos\delta\phi}.
+  \psi(x,t)\stackrel{!}{=}A\e^{\iu(kx\pm\omega t+\phi_0)}
 \end{equation*}
-%
-A constante de fase da onda resultante pode agora também ser facilmente
-calculada através de
+onde o símbolo $\stackrel{!}{=}$ indica que apenas a parte real da expressão no
+lado direito deve ser considerada na igualdade. Daqui para a frente, esse
+cuidado será subentendido, pelo que não voltaremos a usar este símbolo.
+
+A representação complexa é usada porque simplifica imenso algumas operações
+analíticas. Por exemplo, as derivações em ordem a $t$ ou em ordem a $x$
+traduzem-se simplesmente na multiplicação por um fator:
 \begin{align*}
-\cos\phi&=\frac{A_1\cos\phi_1+A_2\cos\phi_2}{A}&
-\sin\phi&=\frac{A_1\sin\phi_1+A_2\sin\phi_2}{A}.
+  \pd{}{t}\psi(x,t)&=\pm\iu\omega\psi(x,t)\\
+  \pd{}{x}\psi(x,t)&=\iu k\psi(x,t).
 \end{align*}
 
-\subsection{Interferência construtiva e destrutiva}
-\label{sec:condint}
-Acabámos de demonstrar que a amplitude da sobreposição de duas ondas harmónicas
-com o mesmo comprimento de onda e o mesmo período depende não só das amplitudes
-de cada uma, mas também da diferença de fase entre elas. Chamam especial atenção
-dois casos particularmente interessantes:
-\begin{itemize}
-\item \textbf{Interferência construtiva}\\
-Quando a diferença entre as fases das duas ondas é um múltiplo inteiro de $2\pi$,
-isto é, quando
-\begin{equation*}
-\delta\phi = 2k\pi,\quad k=0,\pm1,\pm2,\ldots,
-\end{equation*}
-o seu cosseno vale um, e assim a amplitude da sobreposição resulta
-\begin{equation*}
-A=\sqrt{A_1^2 + A_2^2+2A_1A_2}=\sqrt{(A_1+A_2)^2}=A_1+A_2.
-\end{equation*}
-Ou seja, quando a diferença de fase é um múltiplo inteiro de $2\pi$ a amplitude
-da sobre\-posição é igual à soma das amplitudes das duas ondas que se sobrepõem;
-as duas ondas reforçam-se mutuamente resultando uma onda de amplitude maior do
-que a de qualquer das duas. Dizemos nestas condições que as duas ondas estão
-\emph{em fase} e que \emph{interferem construtivamente.}
-\item \textbf{Interferência destrutiva}\\
-Quando a diferença entre as fases das duas ondas é um múltiplo semi-inteiro de
-$2\pi$, ou seja, quando
-\begin{equation*}
-\delta\phi = 2\left(k+\frac{1}{2}\right)\pi,\quad k=0,\pm1,\pm2,\ldots,
-\end{equation*}
-então o seu cosseno vale agora $-1$ e obtemos para a amplitude da sobreposição
-\begin{equation*}
-A=\sqrt{A_1^2 + A_2^2 - 2A_1A_2} = \sqrt{(A_1-A_2)^2}=\left|A_1-A_2\right|.
-\end{equation*}
-Agora, verifica-se que a amplitude da sobreposição das duas ondas é menor do que
-a maior das duas; as duas ondas interferem atenuando-se. Dizemos agora que as
-duas ondas se encontram em \emph{oposição de fase} e que \emph{interferem
-destrutivamente.}
-\end{itemize}
-Note-se que a atenuação que ocorre quando há interferência destrutiva pode ser
-total. Se as amplitudes das duas ondas que interferem forem iguais, e se elas
-estiverem em oposição de fase, então a amplitude resultante é nula: a onda
-resultante não existe.
+A representação complexa de funções periódicas é válida em problemas lineares,
+isto é, aqueles em que \emph{não} se ocorrem produtos das funções representadas.
+O estudo que vamos fazer é dessa categoria.
 
-Vimos que o valor da constante de fase de uma onda é, no essencial, fixado
-por nós arbitrariamente, já que depende da escolha que fazemos para a posição da
-origem do sistema de coordenadas e para o isntante que consideramos inicial.
-Nessa medida, a constante de fase parece não ter um significado físico muito
-relevante. É verdade, mas o mesmo não se pode dizer da \emph{diferença de fase}
-de duas ondas (e, se elas tiverem o mesmo comprimento de onda e a mesma
-frequência, essa diferença é igual à diferença entre as suas constantes de
-fase). O resultado da sobreposição de duas ondas depende dramaticamente da
-diferença entre as suas fases. Ou seja, a diferença entre as duas irrelevâncias
-é muitíssimo relevante.
+\section{Ondas em três dimensões. Frentes de onda}
+Até agora, considerámos apenas ondas unidimensionais, isto é, cuja fase depende
+apenas de uma coordenada e do tempo. Estas ondas são apropriadas para descrever
+alguns fenómenos, como as ondas de vibração numa mola eástica, as ondas
+transversais de vibração nas cordas das guitarras, ou a propagação do som num
+tubo estreito, como uma mangueira ou uma flauta. Mas a fase das ondas de luz
+proveniente de uma lâmpada depende das três coordenadas espaciais $x$, $y$ e
+$z$. Como descrever ondas 3D como estas?
 
-\subsection{Diferença entre as fases de uma onda em dois pontos do seu trajeto}
-\label{sec:dfidx}
-Uma vez que a diferença de fase desempenha um papel tão importante nos fenómenos
-de interferência, é importante saber calculá-la em diferentes situações.
-Frequentemente, a diferença de fase entre as duas ondas resulta de terem
-percorrido caminhos com comprimento diferente e, assim, é importante saber
-calcular a variação na fase de uma onda de um ponto para outro. 
-Sejam $x_1$ e $x_2$ as coordenadas de dois pontos no eixo dos $x$ e consideremos
-uma onda harmónica genérica que se propaga segundo esse eixo, dada por
-\begin{equation*}
-\psi(x,t)=A\
-    cos\left(2\pi\left[\frac{x}{\lambda}-\frac{t}{T}\right]+\phi\right).
-\end{equation*}
-A fase que esta onda apresenta nos dois pontos num dado instante é
-\begin{align*}
-\phi_1&=2\pi\left(\frac{x_1}{\lambda}-\frac{t}{T}\right)+\phi\\
-\phi_2&=2\pi\left(\frac{x_2}{\lambda}-\frac{t}{T}\right)+\phi.
-\end{align*}
-A variação de fase é, então,
-\begin{equation*}
-\delta\phi=\phi_2-\phi_1=2\pi\frac{x_2-x_1}{\lambda}.
-\end{equation*}
+
 
 \subsection{Frentes de onda}
-Até agora, sempre que foi necessário entrar em detalhes matemáticos,
-considerámos ondas unidimensionais, ou seja, ondas cuja função só depende de uma
-coordenada espacial e do tempo. No essencial, isso será suficiente neste estudo,
-mas, em grande medida para introduzir alguns termos de uso corrente, devemos
-agora analisar as ondas no espaço tridimensional.
+\subsubsection*{Superfícies de nível de funções do espaço}
+As funções contínuas de duas variáveis $x$ e $y$ podem ser caracterizadas pelas
+chamadas \emph{curvas de nível}, linhas do plano $xy$ nas quais a função tem
+valor uniforme. Encontramos estas curvas em cartas topográficas para indicar a
+altitude do terreno, ou em cartas meteorológicas, normalmente para representar a
+pressão atmosférica ou a temperatura. Do mesmo modo, as funções de três
+variáveis $x$, $y$ e $z$ são caraterizadas por \emph{superfícies de nível,}
+formadas por pontos onde a função apresenta um mesmo valor. Por exemplo, as
+superfícies de nível do potencial gravítico na vizinhança da superfície
+terrestre ($U=g(z-z_0$) são planos horizontais; as da intensidade luminosa
+(veremos mais tarde como se define, mas para já serve uma noção intuitiva) em
+torno da chama de uma vela têm forma aproximadamente esférica, com centro na
+chama.
 
-Os pontos do espaço onde a função de onda tem a mesma fase definem linhas (para
-ondas definidas num espaço bidimensional, como as ondas do mar, ou as vibrações
-da pele de um tambor) ou superfícies, para as ondas definidas no espaço usual do
-dia a dia (que tem três dimensões). Essas regiões do espaço onde a fase de uma
-onda tem o mesmo valor chamam-se \emph{frentes de onda}\footnote{Na praia,
-chamamos \emph{onda} às frentes de onda para as quais a função de onda tem um
-máximo. São também frentes de onda os intervalos entre as ``ondas'', aquelas
-regiões onde o ``vale'' da onlulação atinge a sua profundidade máxima.}. As
-frentes de onda das ondas que se formam na superfície de um lago calmo quando
+\subsubsection*{Frentes de onda são superfícies de nível da função de onda}
+A função de onda $\psi(x,y,z,t)$ de um fenómeno ondulatório é tambem uma função
+do espaço. Chamamos às suas superfícies de nível \emph{frentes de onda.} Como a
+onda se propaga (ou seja, mais matematicamente, como a função de onda depende
+também do tempo $t$) as suas superfícies de nível (ou seja, as frentes de onda)
+vão-se modificando, deformando, ampliando, deslocando, à medida que o tempo
+passa.
+
+As frentes de onda das ondas que se formam na superfície de um lago calmo quando
 nela cai uma pedra têm forma circular, com centro no ponto da superfície onde a
 pedra caiu; as das ondas de choque de uma explosão aérea têm forma esférica, com
-centro no ponto onde a explosão se deu; as das ondas de som produzidas por uma
-fonte sonora muito afastada são também esféricas, mas o seu raio é tão elevado
-que, para muitos efeitos, é como se fossem planas (tal como a superfície da
-Terra: é esférica mas, quase sempre, pensamos nela como plana). A
-Figura~\ref{fig:oof040} ilustra algumas frentes de onda de uma onda plana.
+centro no ponto onde a explosão se deu; as das ondas de luz produzidas por uma
+fonte luminosa muito afastada são também esféricas, mas o seu raio é tão elevado
+que, para muitos efeitos, é como se fossem planas\footnote{Tal como a superfície
+  da Terra: é esférica mas, como o seu raio (6400\,km) é muito maior do que as
+  distâncias a que estamos acostumados no dia a dia, quase sempre pensamos nela
+como plana.}. Qualificamos frequentemente as ondas com a forma das suas frentes
+de onda; assim, chamamos ondas esféricas às que têm frentes de onda esférica,
+ondas planas aquelas cujas frentes de onda são planas, etc. A
+Figura~\ref{fig:oof040} ilustra algumas porções de frentes de onda de uma onda
+plana (à esquerda) e de frentes de onda de uma onda esférica (à direita).
 \begin{figure}[htb]
-{\centering
-%\includegraphics{figs/oof040.png}
-\caption{Diferentes frentes de onda (ou a mesma frente, representada em
-instantes diferentes) de uma onda plana que se propaga na direção do eixo dos
-$x$.\label{fig:oof040}}
+  {\centering
+    \tdplotsetmaincoords{60}{125}
+    \begin{tikzpicture}[tdplot_main_coords]
+      \small
+      \coordinate (O) at (0, 0, 0);
 
-}
+      \draw[-latex] (O) -- (1.5, 0, 0);
+      \draw[-latex] (O) -- (0, 1.5, 0) node[pos = 1.1] {\(y\)};
+      \draw[-latex] (O) -- (0, 0, 1.5) node[pos = 1.1] {\(z\)};
+
+      \foreach \x in {0.0, 0.5, 1.0, 1.5} {%
+        \draw[fill=gray!50, opacity = .8]
+              (\x, -1, -0.9) -- (\x,  1, -1)
+           -- (\x,  1,  1) -- (\x, -1,  0.9) -- cycle;}
+      \draw [-latex] (1.5,0,0) -- (3.5,0,0) node[pos = 1.15] {\(x\)};
+      \draw [-latex] (1.0,-1.1,1.1) -- (2.0, -1.1, 1.1) node [left] {$\vec v$};
+    \end{tikzpicture}
+    \hspace{1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{tikzpicture}[x=(225:0.707cm),y=(0:1cm),z=(90:1cm), >=stealth]
+      \tikzset{cs/3d/.code args={#1:#2:#3}{%
+      \pgfpointxyz{(#1)*sin(#2)*cos(#3)}{(#1)*sin(#2)*sin(#3)}{(#1)*cos(#2)}}}
+      \tikzdeclarecoordinatesystem{3d}{\tikzset{cs/3d={#1}}}%     
+      \tikzset{spherical patch/.style args={#1:#2:#3:#4}{insert path={
+      [smooth, samples=20, line join=round]
+      plot [domain=0:#3] (3d cs:{#4}:{#1+\x}:{#2}) --
+      plot [domain=0:#3] (3d cs:{#4}:{#1+#3}:{#2+\x}) --
+      plot [domain=#3:0] (3d cs:{#4}:{#1+\x}:{#2+#3}) --
+      plot [domain=#3:0] (3d cs:{#4}:{#1}:{#2+\x}) -- cycle}}}
+      \small
+      \draw [->] (0,0)--(225:0.707cm) node[pos=1.2]{$x$};
+      \draw [->] (0,0)--(90:1cm) node[pos=1.2]{$z$};
+      \def\k{75} \def\j{90}
+      \foreach \i [evaluate={\z=30/(\i+1); \p=\i; \q=(\i+1);}] in {0, 1, 2, 3}{
+        \draw [-] (3d cs:\p:\j:\k) -- (3d cs:\q:\j:\k);
+          \foreach \t in {0,...,\i}\foreach \a in {0,...,\i}
+            \draw [gray, fill=gray!50, fill opacity=0.75, 
+                   spherical patch={75+\t*\z:60+\a*\z:\z:\q}];
+      }
+      \draw [->] (3d cs:4:\j:\k) -- (3d cs:5:\j:\k) node[pos=1.1]{$\vec v$};  
+      \def\k{85} \def\j{80}
+      \draw [->] (3d cs:4:\j:\k) -- (3d cs:5:\j:\k) node[pos=1.1]{$\vec v$};  
+      \def\k{65} \def\j{100}
+      \draw [->] (3d cs:4:\j:\k) -- (3d cs:5:\j:\k) node[pos=1.1]{$\vec v$};  
+    \end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \caption{Diferentes frentes de onda (ou a mesma frente, representada em
+      instantes diferentes) de uma onda plana que se propaga na direção do eixo
+      dos $x$ (à esquerda). À direita apresentam-se diferentes frentes de onda
+      (ou a mesma frente de onda em diferentes instantes de uma onda esférica.
+      Note que em diferentes pontos da frente de onda de ma onda esférica, a
+      direção de propagação é diferente. ({\small\textsf{A imagem da direita foi
+          adaptada de uma apresentada num post no \LaTeX{} Stack Exchange,
+          disponível em
+      \protect\url{http://tex.stackexchange.com/questions/262015/drawing-wave-propagation-using-tikz}}.})
+      \label{fig:oof040}}\par
+  }
 \end{figure}
 Note-se que cada porção da frente de onda propaga-se na direcção que lhe é
-perpendicular. Assim, a Figura~\ref{fig:oof040} pode também interpretar-se como
-uma representação da \emph{mesma} frente de onda, em diferentes instantes.
+perpendicular. Assim, as duas representações na Figura~\ref{fig:oof040} podem
+também interpretar-se como representações das \emph{mesmas} frentes de onda, em
+diferentes instantes.
 
-\subsection{Princípio de Huygens}
+\subsection{Função de onda de ondas planas harmónicas}
+As ondas planas têm frentes de onda planas. Por definição de frente de onda, o
+valor da função de onda em todos os pontos de uma mesma frente de onda é
+o mesmo. Então, a função de onda depende do espaço apenas pela variação com a
+posição \emph{ao longo} da direção perpendicular às frentes de onda, ou seja, ao
+longo da direção de propagação.
+
+Consideremos uma onda plana harmónica com comprimento de onda $\lambda$,
+frequência angular $\omega$, constante de fase $\phi_0$ e amplitude $A$, e seja
+$\hat k$ um vetor unitário com a direção e sentido da propagação. Dizer que
+onda é plana e que a orientação da propagação é a do versor $\hat k$ significa
+dizer que as suas frentes de onda são planas, perpendiculares a $\hat k$ e que
+o seu movimento tem a orientação de $\hat k$. Logo, como discutimos no parágrafo
+anterior, a função de onda depende do espaço apenas pela dependência da
+coordenada orientada ao longo de $\hat k$. Seja $s$ essa coordenada (ver a
+Figura~\ref{fig:f050}).  Por outro lado, dizer que esta onda é harmónica
+significa que tem uma forma geral que se pode escrever como
+\begin{equation}\label{eq:eq0}
+  \psi(x,y,z,t)=A\cos\left(ks-\omega t+\phi_0\right),
+\end{equation}
+com $k=2pi/\lambda$. Seja $P$ um ponto de uma das frentes de onda, e
+$\vec r=(x,y,z)$ o seu vetor posição. O valor da coordenada $s$ para este ponto
+é facilmente calculado como
+\begin{figure}[htb]
+  {\centering
+    \begin{tikzpicture}
+      \small
+      \draw[thin,->] (-0.2,0) -- (0.75,0) node[below] {$x$};
+      \draw[thin,->] (0,-0.2) -- (0,0.75) node[left] {$y$};
+      \coordinate (o) at (0,0);
+
+      \foreach \d in {2.5, 3.0, 2.0} {
+        \draw [thick,gray,name path=wf](10:\d)+(100:1.35)--+(280:0.8);
+      }
+
+      \path [name path=r] (o) -- (35:3);
+      \path [name intersections={of=r and wf}];
+      \coordinate (p) at (intersection-1);
+      \draw [->] (o) -- ($(o)!0.99!(p)$) node[shift={(-2mm,0.5mm)}] {$\vec r$};
+      \draw [->] (p) --+(10:0.85) node [yshift=-0.4cm] {$\vec k$};
+      \draw [thin, dashed] (p) --+ (35:0.75);
+
+      \draw (o)+(10:0.6) arc(10:35:0.6) node [shift={(2.0mm,-0.5mm)}]{$\theta$};
+      \draw (p)+(10:0.6) arc(10:35:0.6) node [xshift=2.5mm]{$\theta$};
+      \draw [thin, ->] (o) -- (10:3.5) node [above] {$s$};
+    \end{tikzpicture}\par
+  }
+  \caption{\label{fig:f050}Onda plana monocromática que se propaga na direção de
+    um vetor unitário $\hat k$. O eixo coordenado da coordenada $s$ está
+    orientado segundo a direção de propagação. Em cada frente de onda, o valor
+  de $s$ é uniforme.}
+\end{figure}
+\begin{equation*}
+  s = r\cos\theta = \hat k\cdot\vec r,
+\end{equation*}
+onde $\theta$ é o ângulo entre $\vec r$ e $\vec k$.  Definindo o vetor (já não
+unitário) $\vec k=2\pi/\lambda\,\hat k$, chamado \emph{vetor de onda}, o produto
+$ks$ que aparece na expressão da fase na eq.~\eqref{eq:eq0} pode então
+escrever-se como função das coordenadas do ponto $P$ na forma
+\begin{equation*}
+  ks=k\hat k\cdot \vec r=\vec k\cdot\vec r.
+\end{equation*}
+Por fim, substituindo na eq.~\eqref{eq:eq0}, obtemos a forma geral de uma onda
+plana harmónica com vetor de propagação $\vec k$:
+\begin{equation} \label{eq:plwav}
+\psi(x,y,z,t)=A\cos(\vec k\cdot\vec r-\omega t+\phi_0)
+\end{equation}
+
+Como exercício, considere o caso em que a onda se propaga ao longo do eixo dos
+$x$. Como as frentes de onda são perpendiculares à direção de propagação, elas
+devem ser planos paralelos ao plano $yz$, planos com $x$ constante. Então a fase
+(que é constante em cada frente de onda) só pode depender de $x$\footnote{A
+  coordenada que neste problema está alinhada com a direção de propagação é a
+coordenada $x$. $x$ desempenha agora o papel da coordenada $s$.}, ou seja,
+tratando-se de uma onda harmónica, a função de onda fica com a forma da
+eq.~\eqref{eq:hwav}. Considere agora a expressão da eq.~\eqref{eq:plwav}; dado
+que $\vec k$ tem a orientação da propagação (recorde que estamos a considerar em
+que ela se faz segundo o sentido do eixo dos $x$), a única componente não nula
+deste vetor é a primeira, que deve ter o valor $k=2\pi/\lambda$. Isto é, $\vec
+k=(k,0,0)$; logo, $\vec k\cdot\vec r=kx$.  Substituindo este resultado na
+expressão da eq.~\eqref{eq:plwav} obtemos justamente a forma unidimensional das
+ondas harmónicas da eq.~\eqref{eq:hwav}.
+
+Naturalmente, a versão desta função de onda em representação complexa é
+\begin{equation}\label{eq:phwfexp}
+  \psi(\vec r,t)=A\e^{\iu(\vec k\cdot \vec r-\omega t+\phi_0)}.
+\end{equation}
+
+\subsubsection{Equação de onda para ondas planas em três dimensões}
+De acordo com a discussão precedente, ondas planas que se propagam na direção de
+um vetor $\vec k$ têm frentes de onda perpendiculares a $\vec k$ e, assim sendo,
+a sua dependência da posição $\vec r$ é feita através da combinação $\vec
+k\cdot\vec r$. Se, para além de serem planas, se movem uniformemente sem
+alteração da sua forma, então as coordenadas $\vec r$ e o tempo aparecem na
+expressão da função de onda na combinação $\vec r-\vec vt$. Juntando tudo,
+concluímos que uma onda plana que se propaga sem alteração de forma com
+velocidade uniforme $\vec v$ na direção de um vetor $\vec k$ tem uma função de
+onda com uma forma geral do tipo
+\begin{equation*}
+  \psi(\vec r,t)=\psi\left(\vec k\cdot[\vec r-\vec vt]\right),
+\end{equation*}
+onde $\vec v$ e $\vec k$ têm a mesma orientação. Seja agora $u=\vec k\cdot[\vec
+r-\vec vt]$. É fácil verificar as igualdades
+\begin{align*}
+  \pd{\psi}{x_i}&=k_i\td{\psi}{u}&
+  \pdd{\psi}{x_i}&=k_i^2\tdd{\psi}{u}\\
+  \pd{\psi}{t}&=-kv\td{\psi}{u}&
+  \pdd{\psi}{t}&=(kv)^2\tdd{\psi}{u},
+\end{align*}
+onde se usou a notação $x_i,\ i=1,2,3$ para representar as componentes do vetor
+posição, e de modo semelhante para as do vetor $\vec k$. Comparando as duas
+igualdades no lado direito (e notando que $k^2=k_1^2+k_2^2+k_3^2$, concluímos
+\begin{equation*}
+  \sum_{i=1}^3\pdd{\psi}{x_i}=\frac{1}{v^2}\pdd{\psi}{t},
+\end{equation*}
+ou seja, na notação que temos usado,
+\begin{equation}\label{eq:weq3d}
+  \pdd{\psi}{x}+\pdd{\psi}{y}+\pdd{\psi}{z}=\frac{1}{v^2}\pdd{\psi}{t}.
+\end{equation}
+Esta é a equação diferencial que todas as ondas planas que se propagam com
+velocidade uniforme sem alteração de forma devem satisfazer. Fica como exercício
+demonstrar que as ondas planas harmónicas das eqs.~\eqref{eq:plwav}
+e~\eqref{eq:phwfexp} satisfazem a equação de onda~\eqref{eq:weq3d}.
+
+A soma das duplas derivadas de uma função em ordem às coordenadas cartesianas
+(que aparece no lado esquerdo da equação de onda) chama-se \emph{laplaciano}
+dessa função:
+\begin{equation*}
+  \lap f(x,y,z)=\pdd{f}{x}+\pdd{f}{y}+\pdd{f}{z} = \vec\nabla^2 f.
+\end{equation*}
+Por isso, a eq.~\eqref{eq:weq3d} escreve-se também, frequentemente, como
+\begin{equation}\label{eq:plweq3d}
+  \lap \psi=\frac{1}{v^2}\pdd{\psi}{t}\qquad\text{ou}\qquad
+  \vec\nabla^2\psi=
+  \frac{1}{v^2}\pdd{\psi}{t}
+\end{equation}
+
+
+
+\subsection{Ondas esféricas}
+\tobedone{}
+
+
+
+\section{Princípio de Huygens}
 Na propagação de uma onda, a causa directa para que a perturbação ondulatória se
 manifeste num dado ponto é que ela se tenha manifestado nos pontos vizinhos. Por
 outras palavras, a fonte da perturbação ondulatória num dado local é a própria
@@ -636,14 +923,17 @@ compreender os fenómenos em que a natureza ondulatória da luz se manifesta e q
 constituem o assunto deste capítulo.
 
 
-\subsection{Ondas --- Resumo}
+\newpage
+\section{Introdução às ondas --- Resumo}
 \begin{itemize}
 \item
     Função de onda de ondas harmónicas unidimensionais:
-    \begin{equation*}
-    \psi(x,t)=A\cos\left(2\pi\left[\frac{x}{\lambda}\pm\frac{t}{T}\right]+
-                \phi\right),
-    \end{equation*}
+    \begin{align*}
+      \psi(x,t)&=A\cos\left(2\pi\left[\frac{x}{\lambda}\pm\frac{t}{T}\right]+
+                \phi_0\right)\\
+               &=A\cos\left(kx\pm\omega t+\phi_0\right)\\
+               &=Ae^{\iu (kx\pm\omega t+\phi_0)}
+    \end{align*}
     com
     \begin{center}
     \begin{tabular}{c|l|l|l}
@@ -660,33 +950,41 @@ constituem o assunto deste capítulo.
         \parbox[t]{0.3\textwidth}{\rule{0mm}{4ex}Intervalo de tempo entre a
         passagem, num ponto fixo, de dois máximos da função de onda sucessivos}
     \\
-    $\phi$&Constante de fase&Adimensional&
+    $\phi_0$&Constante de fase&Adimensional&
         \parbox[t]{0.3\textwidth}{\rule{0mm}{4ex}Fase da função de onda na
-        origem do sistema de coordenadas, no instante $t=0$}\\[5ex]
+        origem do sistema de coordenadas, no instante $t=0$}\\
+    $k$&Vetor de onda&
+        \parbox[t]{0.2\textwidth}{Inverso do comprimento}&
+        \parbox[t]{0.3\textwidth}{\rule{0mm}{4ex}Taxa espacial de variação da fase,
+        expressa em $\text{rad}/\text{m}$}\\
+    $\omega$&Frequência angular &
+        \parbox[t]{0.2\textwidth}{Inverso do tempo}&
+        \parbox[t]{0.3\textwidth}{\rule{0mm}{4ex}Taxa temporal de variação da
+        fase, expressa em rad/s}
+        \\
+        &Fase& Adimensional &\parbox[t]{0.3\textwidth}{\rule{0mm}{4ex}%
+          Argumento da função trigonométrica ou exponencial}
+    \\[3ex]
     \hline
     \end{tabular}
     \end{center}
-\item Frequência de uma onda harmónica: \\
-Frequência: $f=1/T$. Unidades: ciclos por segundo ou Hz (hertz).\\
-Frequância angular: $\omega = 2\pi f=2\pi/T$. Unidades: rad/s ou s$^{-1}$
+  \item Frequência: $f=1/T$. Unidades: ciclos por segundo ou Hz (hertz);
+    representa a taxa de variação temporal da fase, expressa em ciclos por
+    segundo.
+    \begin{align*}
+      f&=\frac{1}{T}&\omega&=\frac{2\pi}{T}&k&=\frac{2\pi}{\lambda}
+    \end{align*}
 \item Velocidade de propagação de uma onda harmónica:
 \begin{equation*}
-v=\frac{\lambda}{T}=\lambda f=\lambda \omega/2\pi
+v=\frac{\lambda}{T}=\lambda f=\lambda \omega/2\pi=\frac\omega k
 \end{equation*}
-\item Condições especiais de interferência: \\
-Interferência construtiva: $\delta\phi=2k\pi,\quad k=0,\pm1,\pm2,\ldots$\\
-Interferência destrutiva: $\delta\phi=2(k+1/2)\pi,\quad k=0,\pm1,\pm2,\ldots$
+\item Ondas planas em 3D:
+  \begin{align*}
+    \psi(\vec r,t)&=A\cos(\vec k\cdot \vec r-\omega t+\phi_0)\\
+                  &=A\e^{\iu(\vec k\cdot \vec r-\omega t+\phi_0)}
+  \end{align*}
+  O vetor de onda $\vec k$ tem a direção e o sentido da propagação da onda. O
+  seu módulo é $k=\|\vec k\|=2\pi/\lambda$.
 
-\item Diferença entre as fases de uma onda harmónica em dois pontos do seu
-trajeto a uma distância $d$ um do outro:
-\begin{equation*}
-\delta \phi = 2\pi\frac{d}{\lambda}.
-\end{equation*}
-\item Intensidade de uma onda: energia transportada pela onda por unidade de
-    tempo e de área (densidade do fluxo de potência). É sempre proporcional ao
-    quadrado da sua amplitude:
-    \begin{equation*}
-        I\alpha A^2
-    \end{equation*}
 \end{itemize}
 

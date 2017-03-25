@@ -1,0 +1,152 @@
+\chapter{Sobreposição de ondas}
+\textsl{{\sffamily(Versão: \today)}}
+
+\subsection{Sobreposição de ondas harmónicas com iguais comprimento de onda e
+período}
+\label{sec:sobrpos}
+Sejam $\psi_1(x,t)$ e $\psi_2(x,t)$ duas ondas harmónicas com comprimento de
+onda $\lambda$ e período $T$, que se propagam no sentido positivo do eixo dos
+$x$, dadas por
+\begin{align*}
+\psi_1(x,t)&=A_1\cos\left(\Theta(x,t)+\phi_1\right)\\
+\psi_2(x,t)&=A_2\cos\left(\Theta(x,t)+\phi_2\right),
+\end{align*}
+onde, para aligeirar a notação, se introduziu o símbolo
+$\Theta\equiv\Theta(x,t)=2\pi(x/\lambda-t/T)$. De acordo com o princípio da
+sobreposição, a resultante da sobreposição destas duas ondas é uma onda com
+expressão geral
+\begin{align*}
+\psi(x,t)&=\psi_1(x,t)+\psi_2(x,t)\\
+&=A_1\cos(\Theta+\phi_1)+A_2\cos(\Theta+\phi_2)
+\end{align*}
+Usando aqui a igualdade trigonométrica
+$\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$, esta expressão
+pode reescrever-se como
+\begin{equation*}
+\psi(x,t)=(A_1\cos\phi_1+A_2\cos\phi_2)\cos\Theta-
+(A_1\sin\phi_1+A_2\sin\phi_2)\sin\Theta.
+\end{equation*}
+Introduzimos agora dois números reais, $A$ e $\phi$, definidos como
+\begin{align*}
+A\cos\phi&=A_1\cos\phi_1+A_2\cos\phi_2\\
+A\sin\phi&=A_1\sin\phi_1+A_2\sin\phi_2.
+\end{align*}
+Substituindo acima e de novo usando a igualdade trigonométrica para o cosseno da
+soma de dois ângulos, obtemos
+\begin{equation*}
+\psi(x,t)=A\cos\left(\Theta+\phi\right)=
+A\cos\left(2\pi\left[\frac{x}{\lambda}-\frac{t}{T}\right]+\phi\right).
+\end{equation*}
+Assim, concluímos que a sobreposição de duas ondas harmónicas com iguais período
+e comprimento de onda é ainda uma onda harmónica, com o mesmo período e com o
+mesmo comprimento de onda, com amplitude e constante de fase que dependem das amplitudes
+e das constantes de fase de cada uma das ondas que se sobrepõem.
+
+Os números reais $A$ e $\phi$ (a amplitude e a constante de fase da onda
+resultante) satisfazem as equações
+\begin{align*}
+A\cos\phi&=A_1\cos\phi_1+A_2\cos\phi_2\\
+A\sin\phi&=A_1\sin\phi_1+A_2\sin\phi_2.
+\end{align*}
+Elevando estas duas equações ao quadrado, somando os resultados e usando a
+igualdade fundamental da trigonometria, obtemos para $A$ a expressão
+\begin{equation*}
+A^2=A_1^2 + A_2^2 + 2A_1A_2(\cos\phi_1\cos\phi_2+\sin\phi_1\sin\phi_2)
+\end{equation*}
+Mas a combinação entre parentesis é igual a $\cos(\phi_1-\phi_2)$, que é a
+diferença de fase das duas ondas. A amplitude da sobreposição pode então
+escrever-se como\footnote{Já agora, é fácil nesta altura demonstrar que a
+quantidade real $A$ existe mesmo (até aqui, apenas podíamos garantir que $A^2$
+existe. Mas, se acontecer $A^2<0$, então $A$ não pode ser
+real.) Com efeito, uma vez que $\cos\delta\phi=\cos(\phi_1-\phi_2)\geq-1$,
+segue-se que $A_1^2+A_2^2+2A_1A_2\cos\delta\phi\geq
+A_1^2+A_2^2-2A_1A_2=(A_1-A_2)^2\geq 0$. Logo, $A^2\geq0$, ou seja, $A\in
+\mathbb{R}$.}
+\begin{equation*}
+A=\sqrt{A_1^2+A_2^2+2A_1A_2\cos\delta\phi}.
+\end{equation*}
+%
+A constante de fase da onda resultante pode agora também ser facilmente
+calculada através de
+\begin{align*}
+\cos\phi&=\frac{A_1\cos\phi_1+A_2\cos\phi_2}{A}&
+\sin\phi&=\frac{A_1\sin\phi_1+A_2\sin\phi_2}{A}.
+\end{align*}
+
+\subsection{Interferência construtiva e destrutiva}
+\label{sec:condint}
+Acabámos de demonstrar que a amplitude da sobreposição de duas ondas harmónicas
+com o mesmo comprimento de onda e o mesmo período depende não só das amplitudes
+de cada uma, mas também da diferença de fase entre elas. Chamam especial atenção
+dois casos particularmente interessantes:
+\begin{itemize}
+\item \textbf{Interferência construtiva}\\
+Quando a diferença entre as fases das duas ondas é um múltiplo inteiro de $2\pi$,
+isto é, quando
+\begin{equation*}
+\delta\phi = 2k\pi,\quad k=0,\pm1,\pm2,\ldots,
+\end{equation*}
+o seu cosseno vale um, e assim a amplitude da sobreposição resulta
+\begin{equation*}
+A=\sqrt{A_1^2 + A_2^2+2A_1A_2}=\sqrt{(A_1+A_2)^2}=A_1+A_2.
+\end{equation*}
+Ou seja, quando a diferença de fase é um múltiplo inteiro de $2\pi$ a amplitude
+da sobre\-posição é igual à soma das amplitudes das duas ondas que se sobrepõem;
+as duas ondas reforçam-se mutuamente resultando uma onda de amplitude maior do
+que a de qualquer das duas. Dizemos nestas condições que as duas ondas estão
+\emph{em fase} e que \emph{interferem construtivamente.}
+\item \textbf{Interferência destrutiva}\\
+Quando a diferença entre as fases das duas ondas é um múltiplo semi-inteiro de
+$2\pi$, ou seja, quando
+\begin{equation*}
+\delta\phi = 2\left(k+\frac{1}{2}\right)\pi,\quad k=0,\pm1,\pm2,\ldots,
+\end{equation*}
+então o seu cosseno vale agora $-1$ e obtemos para a amplitude da sobreposição
+\begin{equation*}
+A=\sqrt{A_1^2 + A_2^2 - 2A_1A_2} = \sqrt{(A_1-A_2)^2}=\left|A_1-A_2\right|.
+\end{equation*}
+Agora, verifica-se que a amplitude da sobreposição das duas ondas é menor do que
+a maior das duas; as duas ondas interferem atenuando-se. Dizemos agora que as
+duas ondas se encontram em \emph{oposição de fase} e que \emph{interferem
+destrutivamente.}
+\end{itemize}
+Note-se que a atenuação que ocorre quando há interferência destrutiva pode ser
+total. Se as amplitudes das duas ondas que interferem forem iguais, e se elas
+estiverem em oposição de fase, então a amplitude resultante é nula: a onda
+resultante não existe.
+
+Vimos que o valor da constante de fase de uma onda é, no essencial, fixado
+por nós arbitrariamente, já que depende da escolha que fazemos para a posição da
+origem do sistema de coordenadas e para o isntante que consideramos inicial.
+Nessa medida, a constante de fase parece não ter um significado físico muito
+relevante. É verdade, mas o mesmo não se pode dizer da \emph{diferença de fase}
+de duas ondas (e, se elas tiverem o mesmo comprimento de onda e a mesma
+frequência, essa diferença é igual à diferença entre as suas constantes de
+fase). O resultado da sobreposição de duas ondas depende dramaticamente da
+diferença entre as suas fases. Ou seja, a diferença entre as duas irrelevâncias
+é muitíssimo relevante.
+
+\subsection{Diferença entre as fases de uma onda em dois pontos do seu trajeto}
+\label{sec:dfidx}
+Uma vez que a diferença de fase desempenha um papel tão importante nos fenómenos
+de interferência, é importante saber calculá-la em diferentes situações.
+Frequentemente, a diferença de fase entre as duas ondas resulta de terem
+percorrido caminhos com comprimento diferente e, assim, é importante saber
+calcular a variação na fase de uma onda de um ponto para outro. 
+Sejam $x_1$ e $x_2$ as coordenadas de dois pontos no eixo dos $x$ e consideremos
+uma onda harmónica genérica que se propaga segundo esse eixo, dada por
+\begin{equation*}
+\psi(x,t)=A\
+    cos\left(2\pi\left[\frac{x}{\lambda}-\frac{t}{T}\right]+\phi\right).
+\end{equation*}
+A fase que esta onda apresenta nos dois pontos num dado instante é
+\begin{align*}
+\phi_1&=2\pi\left(\frac{x_1}{\lambda}-\frac{t}{T}\right)+\phi\\
+\phi_2&=2\pi\left(\frac{x_2}{\lambda}-\frac{t}{T}\right)+\phi.
+\end{align*}
+A variação de fase é, então,
+\begin{equation*}
+\delta\phi=\phi_2-\phi_1=2\pi\frac{x_2-x_1}{\lambda}.
+\end{equation*}
+
+

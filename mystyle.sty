@@ -7,7 +7,7 @@
 \addto\captionsportuges{\renewcommand{\contentsname}{\'Indice}}
 \usepackage[font=small,format=plain,labelfont=bf,up,textfont=sl,up]{caption}  
 \usepackage{amsmath,amssymb,tikz,graphicx,pgfplots,etoolbox,icomma,fancyhdr}
-\usepackage{wrapfig,url}
+\usepackage{wrapfig,url,tikz-3dplot}
 
 
 \setlength{\headheight}{14pt}
@@ -30,16 +30,35 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %simple macros
+\let\oldvec\vec
+\renewcommand{\vec}[1]{\smash{\oldvec#1}}
 \newcommand{\kel}{\ensuremath{\frac{1}{4\pi\epsilon_0}}}
 \newcommand{\grad}{\text{grad}\,}
 \renewcommand{\div}{\text{div}\,}
 \newcommand{\rot}{\text{rot}\,}
+\newcommand{\lap}{\text{lap}\,}
+\newcommand{\iu}{\ensuremath{\text{i}\mkern1mu}}
+\renewcommand{\deg}{\ensuremath{^{\circ}}}
+
+\renewcommand{\Re}{\text{Re}}
+\renewcommand{\Im}{\text{Im}}
+\newcommand{\Arg}{\text{Arg}}
+\newcommand{\e}{\text{e}}
 
 \newcommand{\td}[2]{%
     \frac{\text{d} #1}{\text{d} #2}
 }
+\newcommand{\tdd}[2]{%
+    \frac{\text{d}^2 #1}{\text{d} #2^2}
+}
 \newcommand{\pd}[2]{%
     \frac{\partial #1}{\partial #2}
+}
+\newcommand{\pdd}[2]{%
+    \frac{\partial^2 #1}{\partial #2^2}
+}
+\newcommand{\cpdd}[3]{%
+    \frac{\partial^2 #1}{\partial #2\partial #3}
 }
 \newcommand{\he}{\hat e}
 \newcommand{\lineend}{\unskip\parfillskip 0pt \par}
