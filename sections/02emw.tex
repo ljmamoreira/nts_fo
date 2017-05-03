@@ -495,7 +495,7 @@ comprimento que o campo elétrico, e com a mesma fase também. Para além disso,
 módulos das amplitudes do campo magnético e do campo elétrico estão também
 relacionados. Uma vez que $\vec E_0$ e $\vec k$ são perpendiculares, o módulo do
 produto vetorial é igual ao produto dos módulos dos dois vetores e, assim,
-\begin{equation}
+\begin{equation}\label{eq:b0e0}
   B_0 = \frac{k}{\omega}E_0=\frac{E_0}{c},
 \end{equation}
 onde $c$ representa a velocidade de propagação da onda.
@@ -524,7 +524,7 @@ coincidente com o eixo dos $y$.
         }
         % Labels
         \node[above right] at (0,1,0) {$\vec{E}$};
-        \node[below] at (0,0,1) {$\vec{B}$};
+        \node[above] at (0,0,1) {$\vec{B}$};
       \end{tikzpicture}\par
     }
     \caption{Onda eletromagnética plana e harmónica que se propaga no sentido
@@ -534,19 +534,167 @@ coincidente com o eixo dos $y$.
 \end{figure}
 
 \section{O vetor de Poynting e a irradiância}
-\begin{equation*}
+O campo elétromagnético armazena e transporta energia. Isto é, é necessário
+dispender energia para criar os campos elétrico e/ou magnético definidos numa
+região do espaço e esses campos podem transportar energia para outras regiões do
+espaço. 
+
+O transporte de energia pelo campo é completamente caracterizado pelo
+\emph{vetor de Poynting,}
+\begin{equation}
   \vec S=\frac{1}{\mu_0}\vec E\times\vec B.
+\end{equation}
+A orientação deste vetor é a do fluxo de energia; o seu módulo é a quantidade de
+energia transportada por unidade de tempo e de área perpendicular a esse fluxo.
+
+Numa onda de luz, o módulo do vetor de Poynting oscila com frequência muito
+elevada, e por isso é mais informativo tomar médias temporais. A
+\emph{irradiância} (ou \emph{densidade de fluxo radiante}) é uma destas médias.
+Define-se como a potência (energia por unidade de tempo) transferida por unidade
+de área e é o valor médio do módulo do vetor de Poynting ao longo de um período
+da sua oscilação.
+
+Numa onda harmónica plana como as que estudámos na secção anterior, os dois
+campos $\vec E$ e $\vec B$ são perpendiculares. Assim, o módulo do vetor de
+Poynting é dado por
+\begin{align*}
+  S&=\|\vec S\|=\frac{1}{\mu_0}EB=
+  \frac{E_0B_0}{\mu_0}\cos^2\left(\vec k\cdot\vec r-\omega t+\phi_0\right)\\
+  &=
+  \frac{E^2_0}{\mu_0c}\cos^2\left(\vec k\cdot\vec r-\omega t+\phi_0\right),
+\end{align*}
+onde $E_0$ e $B_0$ representam respetivamente os módulos das amplitudes dos
+campos elétrico e magnético e se usou a igualdade~\eqref{eq:b0e0}. Note-se que
+não podemos aqui usar a representação complexa, porque a expressão envolve um
+produto de duas funções trignométricas; ocorre aqui, por isso, a ``infeção'' da
+parte real da representação (com significado físico) pela sua parte imaginária
+(aqui irrelevante) que foi referida na secção secção~\ref{sec:complexharm}.  O
+valor médio desta função calculado ao longo de um período é
+\begin{equation*}
+  I=\overline S=\frac{1}{T}\int_{0}^TS(t)dt=\frac{E_0^2}{\mu_0cT}
+  \int_0^T\cos^2\left(\vec k\cdot\vec r-\omega t+\phi_0\right)dt.
 \end{equation*}
-\tobedone{}
+Mas $\cos^2\theta=(1+\cos2\theta)/2$; então,
+\begin{equation*}
+  I=\frac{E_0^2}{2\mu_0cT}
+  \int_0^T\left[1+\cos2\left(\vec k\cdot\vec r-\omega t+\phi_0\right)\right]dt.
+\end{equation*}
+O integral da primeira parcela é, simplesmente, $T$; o segundo, sendo o integral
+da função cosseno ao longo de um período completo, anula-se. Então, resulta por
+fim
+\begin{equation}
+  I=\frac{E_0^2}{2\mu_0c}=\frac{1}{2}\epsilon_0cE_0^2.
+\end{equation}
 
-\section{Polarização}
-\tobedone{}
 
-\section{Fotões}
-\tobedone{}
 
 \section{O espetro eletromagnético}
-\tobedone{}
+A luz é então uma onda eletromagnética. Mas nem todas as ondas eletromagnéticas
+são luz (visível). Os nosso sistema visual (olhos e cérebro) produz sensações
+visuais quando na retina incidem ondas eletromagnéticas com comprimento de onda
+compreendido entre cerca de 400\,nm e 700\,nm (os valores exatos variam de
+pessoa para pessoa). Mas podem produzir-se ondas eletromagnéticas com
+comprimentos muito maiores ou menores do que os desta gama.
+
+O \emph{espetro eletromagnético} é o conjunto de todos os valores possíveis para
+o comprimento de onda (e, portanto, para a frequência) das ondas
+eletromagnéticas. Tanto o comprimento de onda como a frequência tomam valores
+reais positivos mas, mais de resto, arbitrários. Damos nomes diferentes a
+radiação eletromagnética com comprimento de onda em diferentes zonas do
+espectro, para facilitar a comunicação. Assim, por ordem crescente de
+comprimento de onda, falamos de \emph{raios gama,} \emph{raios X,}
+\emph{raios ultravioletas,} \emph{luz visível}, \emph{raios infravermelhos,}
+\emph{microondas} e \emph{ondas de rádio.} Estas designações têm justificações
+essencialmente históricas, e não têm fronteiras muito bem definidas: em certos
+contextos diz-se que um determinado comprimento de onda corresponde a raios gama
+que, noutro contexto, poderia ser classificado como raios X. De forma
+aproximada, as diferentes gamas estão indicadas na Figura~\ref{fig:elmgspec}.
+\begin{figure}[htb]
+  {\centering
+    \begin{tikzpicture}
+      \small
+      \def\d{6}
+      \draw [->] (-\d, 0.5) -- (\d,0.5) node [yshift=3mm]{$\lambda$ (m)};
+      \draw [<-] (-\d,-0.5) node [yshift=-4mm]{$f$ (Hz)} -- (\d,-0.5);
+      \foreach \i/\lbl [evaluate=\i as \x using -(\d-1) + 0.2*(\d-1)*(11+\i)] in
+            {-11/ , -10/ , -9/$10^{-9}$,
+              -8/ ,  -7/ , -6/$10^{-6}$,
+              -5/ ,  -4/ , -3/$10^{-3}$,
+              -2/ , -1/
+            }{\draw (\x,0.5) -- +(0,0.1) node [above] {\lbl};}
+
+      \node at(-5.5,0) {R-$\gamma$};
+      \draw [dashed] (-5,-0.5) --+(0,1);
+      \node at ( -4,0) {R-X};
+      \draw [dashed] (-3,-0.5) --+(0,1);
+      \node at ( -1.69,0) {UV};
+      \draw [dashed] (-0.39,-0.5) --+(0,1);
+      \draw [dashed] (-0.15,-0.5) --+(0,1);
+      \node at (0.93,0) {IV};
+      \draw [dashed] ( 2,-0.5) --+(0,1);
+      \node at (3.5,0) {$\mu$O};
+      \draw [dashed] ( 5,-0.5) --+(0,1);
+      \node at (5,0) [right]{Rádio};
+      \node at (-0.26,0) [rotate=90,scale=0.7] {Visível};
+
+      \foreach \x/\f in { -4.52/ , -3.52/$10^{18}$, -2.52/ ,
+                          -1.52/ , -0.52/$10^{15}$,  0.48/ ,
+                           1.48/ ,  2.48/$10^{12}$,  3.48/ ,
+                           4.48/ ,  5.48/$10^9$} {
+        \draw (\x,-0.5) --+(0,-0.1) node [below]{\f};
+      }
+      
+    \end{tikzpicture}
+    \caption{O espectro eletromagnético.\label{fig:elmgspec}}\par
+  }
+\end{figure}
+Como se pode verificar nesta figura, a parte do espectro eletromagnético a que
+os nossos olhos são sensíveis, aquilo a que chamamos luz visível, é uma fatia
+estreita de comprimentos de onda.
+
+Dentro da gama visível, diferentes comprimentos produzem esstímulos visuais que
+correspodem a diferentes sensações de cor. Considerando uma ordem crescente de
+comprimentos de onda temos sucessivamente sensações visuais correspondentes às
+cores violeta, azul, verde, amarelo, laranja e vermelho.
 
 
+
+\section{Fotões}
+Em 1900, o estudo da radiação térmica levou Plank a sugerir que as trocas de
+energia entre a matéria e a radiação são inerentemente discretizadas, no sentido
+em que quando um corpo emite ou absorve radiação, a energia envolvida no
+processo é sempre um múltiplo inteiro de uma quantidade básica, chamada
+\emph{quantum} de energia, proporcional à frequência da radiação emitida ou
+absorvida. Em 1905, Einstein explicou esta discretização das trocas de energia
+entre a matéria e a radiação, considerando que a própria radiação existia
+apenas numa forma discretizada, como grãos ou partículas de luz com energia
+proporcional à sua frequência. A hipótese corpuscular de Newton voltou assim a
+emergir, mas agora numa forma híbrida, já que a teoria ondulatória, suportada
+pelas equações de Maxwell, não foi abandonada.
+
+As partículas de luz (ou seja, os fotões) têm aspetos particulares que as
+distinguem dos corpos materiais mais vulgares. Em primeiro lugar, movem-se
+sempre com velocidade igual à velocidade da luz no vazio,
+$c=1/\sqrt{\epsilon_0\mu_0}$; depois, têm massa nula; e a sua energia cinética
+depende apenas da frequência da radiação:
+\begin{equation*}
+    \varepsilon=hf.
+\end{equation*}
+A constante de proporcionalidade chama-se \emph{constante de Plank} e tem o
+valor $h\simeq6,626\times10^{-3}$\,J\,s.
+
+Numa abordagem corpuscular, consideramos que são os fotões os responsáveis pelo
+transforte de energia num feixe de radiação. Nesse caso, eles devem ser em
+quantidade apropriada para promover esse transporte. Assim, deve verificar-se
+que a irradiância do feixe (energia transportada por unidade de tempo e de área)
+deve ser igual à densidade de fluxo de fotões (fotões por unidade de tempo e de
+área), multiplicada pela energia de cada fotão, ou seja, para radiação
+monocromática,
+\begin{equation}
+    I=hfn,
+\end{equation}
+onde $n$ representa a densidade de fluxo de fotões.
+
+
+\section*{Ondas eletromagnéticas --- Resumo}
 

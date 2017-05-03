@@ -621,6 +621,7 @@ $| z|=\sqrt{a^2+b^2}$ e $\theta=\arctan(b/a)$, são representações
 equivalentes desse número.
 
 \subsection{A representação de funções harmónicas}
+\label{sec:complexharm}
 A representação complexa de funções harmónicas consiste em fazer a substituição
 \begin{equation*}
   \cos\phi \rightarrow \e^{\iu \phi}.
@@ -648,9 +649,17 @@ traduzem-se simplesmente na multiplicação por um fator:
   \pd{}{x}\psi(x,t)&=\iu k\psi(x,t).
 \end{align*}
 
-A representação complexa de funções periódicas é válida em problemas lineares,
-isto é, aqueles em que \emph{não} se ocorrem produtos das funções representadas.
-O estudo que vamos fazer é dessa categoria.
+A representação complexa de funções periódicas é válida desde que não se
+realizem operações em que a parte imaginária da representação (que é descartada
+no final) ``infeta'' a parte real (que se toma no final dos cálculos como
+resultado). As operações válidas incluem o produto com funções ou números reais, a adição e
+subtração com funções ou números complexos e as derivações e integrações em
+variáveis reais. As inválidas incluem produtos com números ou funções complexas.
+No estudo das ondas em geral, e da ótica em particular, as operações mais
+frequentemente realizadas são da primeira espécie, ``legais''. Quando for
+necessário realizar cálculos envolvendo operações ``ilegais'', teremos que
+reverter para a representação trignométrica. (Sempre que isso acontecer nestes
+apontamentos, será feita a devida chamada de atenção.)
 
 \section{Ondas em três dimensões. Frentes de onda}
 Até agora, considerámos apenas ondas unidimensionais, isto é, cuja fase depende
