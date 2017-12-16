@@ -1,6 +1,7 @@
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=0.8]
 \small
 \draw[very thick, domain=-5:5, variable=\x,samples=150] plot ({\x}, {cos(\x*250)*exp(-\x*\x*0.3)});
 \draw [->] (-1.5,1.2) -- (1.5,1.2) node[midway,above]{Movimento da onda};
-\draw [<->] (0,0.9) -- (0,-0.9) node[below, text width=3.5cm, align=center] {Movimento das molÃ©culas do lÃ­quido};
+\draw [<->] (0,0.9) -- (0,-0.9) node[below, text width=3.5cm, align=center]
+    {Movimento das moléculas do líquido};
 \end{tikzpicture}
