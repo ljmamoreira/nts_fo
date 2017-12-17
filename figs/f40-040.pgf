@@ -1,0 +1,30 @@
+\begin{tikzpicture}
+\small
+\coordinate(F) at (-3,0);
+\draw [very thick] (F) circle(1mm) node[yshift=0.5cm]{$F$};
+\draw [very thin, dotted] (0,0) -- (7,0);
+\draw [line width=1mm] (0,-1) -- (0,-0.5) (0,-0.3) -- (0,0.3) (0,0.5) -- (0,2);
+\draw [name path=s,line width=1mm] (6.5,-1) -- +(0,3);
+\coordinate (O) at (0,0) node [left] {$O$};
+\node at (6.5,0) [below right] {$O'$};
+
+\path [name path=r] (0,0) -- (15:7);
+
+\path [name intersections={of=r and s, by=P}];
+\draw [dashed](O) -- (P) node [above left]{$P$};
+\draw (15:2.5) arc (15:0:2.5) node [above right]{$\theta$};
+\draw (0,-0.4) -- (P) node [pos=0.7, below]{$s_2$};
+\draw (0,0.4) -- (P) node [pos=0.6, above]{$s_1$};
+
+\draw [<->] (0.1,-0.9) -- (6.4,-0.9) node [midway,fill=white] {$d$};
+
+\foreach \r in {0.7,0.9,1.1,1.3,1.5} {
+\draw [gray] (F)+(-30:\r) arc (-30:30:\r);
+}
+\draw [->] (-2.2,0)--(-1.2,0);
+
+\draw[<->] (7,0.1) coordinate(x) -- (x|-P) node [midway, fill=white]{$y$};
+\draw [<->] (-0.75,-0.4) --(-0.75,0.4) node[midway,fill=white] {$a$};
+\draw [thin, dotted] (0,-0.4) -- +(-0.9,0);
+\draw [thin, dotted] (0,0.4) -- +(-0.9,0);
+\end{tikzpicture}
