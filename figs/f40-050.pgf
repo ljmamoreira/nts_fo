@@ -1,0 +1,29 @@
+\usetikzlibrary{decorations.markings,intersections}
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position .5 with {\arrow{>}}},postaction={decorate}}}
+\tikzset{-<-/.style={decoration={
+  markings,
+  mark=at position .5 with {\arrow{<}}},postaction={decorate}}}
+\begin{tikzpicture}
+\fill [gray!10](-0.8,-1.) rectangle(0.8,1.25);
+\draw [name path=s2, thick] (0.8,-1.) -- +(0,2.25);
+\draw [name path=s1, thick] (-0.8,-1.) -- +(0,2.25);
+\node at (-1.2,1.1) {$n_1$};
+\node at (0.1,1.1) {$n_2$};
+\node at (1.2,1.1) {$n_3$};
+
+\coordinate(p1) at (-0.8,0.5);
+\draw [-<-](p1) --+(155:1.5) node[below] {$r_0$};
+\draw [->-](p1) --+(205:1.5) node[above]{$r_1$};
+\path[name path=r](p1)--+(-7:2.2);
+\path[name intersections={of=s2 and r, by=p2}];
+\draw [->-] (p1)--(p2) node [pos=0.3,above] {$r'_1$};
+\draw [->,dashed] (p2)--+(-30:0.8);
+
+\path [name path=r](p2) --+(187:2.2);
+\path[name intersections={of=s1 and r, by=p3}];
+\draw [->-](p2)--(p3) node[pos=0.3,below]{$r'_2$};
+\draw [->-] (p3) -- +(205:1.5) node[below]{$r_2$};
+\draw [->,dashed] (p3)--+(-7:0.6);
+\end{tikzpicture}
