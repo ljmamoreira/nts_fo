@@ -49,8 +49,9 @@ dois vetores:
 
 Define-se também o \emph{produto vetorial} ou \emph{produto externo} de vetores.
 Como o próprio nome indica, o produto vetorial de dois vetores é ainda um
-vetor\footnote{Ao contrário do produto escalar de vetores que, como acabámos de
-ver, é... Um escalar.}. A norma do produto escalar de dois vetores é o produto
+vetor.%\footnote{Ao contrário do produto escalar de vetores que, como acabámos de
+%ver, é... Um escalar.}.
+A norma do produto escalar de dois vetores é o produto
 das suas normas e do seno do ângulo entre eles:
 \begin{equation}
   \|\vec a\times\vec b\|=ab\sin\theta;
@@ -108,6 +109,56 @@ como o determinante da matriz simbólica (verifique):
   \end{bmatrix}.
 \end{equation}
 
+O produto vetorial não é comutativo (é anticomutativo, como vimos) e também não
+é associativo. O produto vetorial de três vetores satisfaz as igualdades
+\begin{equation}\label{eq:tcp}
+\begin{split}
+\vec a\times(\vec b\times\vec c)&=\vec b(\vec a\cdot\vec c)-(\vec a\cdot\vec
+b)\vec c\\
+(\vec a\times\vec b)\times\vec c&=\vec b(\vec a\cdot\vec c)-\vec a(\vec
+b\cdot\vec c)
+\end{split}
+\end{equation}
+
+\subsection{Áreas de paralelogramos e volumes de paralelipípedos}
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+%\small
+\coordinate(O) at (0,0);
+\coordinate(a) at (2,0);
+\coordinate(b) at (0.5,1.2);
+\coordinate(ab) at (2.5,1.2);
+\fill [gray!20] (O) -- (a) -- (ab) -- (b) --cycle;
+\draw [very thick, ->] (O) --(a) node[right]{$\vec a$};
+\draw [very thick, ->] (O) --(b) node[shift={(2mm,-4mm)}]{$\vec b$};
+\draw [thick] (a) -- (ab) -- (b);
+\draw [dashed] (O) -- (O|-b) --(b);
+\draw [dashed] (a) -- (a|-b);
+\begin{scope}
+\clip (b)--(O) --(a);
+\draw (O) circle (0.5cm) node[shift={(7mm,4mm)}] {$\theta$};
+\end{scope}
+\end{tikzpicture}
+\hfill
+\begin{minipage}[t]{0.8\textwidth}
+Consideremos a área do paralelogramo formado por dois vetores $\vec a$ e $\vec
+b$ (ver a figura ao lado). Seja $\theta$ o ângulo entre os dois vetores.
+Claramente, aquela área é igual à do retângulo com base $a=\|\vec a\|$ e altura
+$b\sin\theta$, igual à do paralelogramo inicial. A área considerada é pois
+\end{minipage}
+\begin{equation}
+A=ab\sin\theta=\|\vec a\times\vec b\|.
+\end{equation}
+
+Consideremos agora um terceiro vetor $\vec c$, não coplanar com $\vec a$ e $\vec
+b$. Seja $\phi$ o ângulo entre $\vec c$ e a normal ao plano definido pelos
+vetores $\vec a$ e $\vec b$. Com um argumento semelhante ao que acabámos de
+usar para calcular a área de um paralelogramo, prova-se que o volume deste
+paralelipípedo é
+\begin{equation}
+V=b\cos\phi A = c \|\vec a\times\vec b\| \cos\phi=
+\left|\vec c\cdot\vec a\times\vec b\right|.
+\end{equation}
+
 \section{Operadores diferenciais}
 As equações de Maxwell são quatro equações às derivadas parciais dos campos
 elétrico e magnético que traduzem localmente\footnote{Isto é, como igualdades
@@ -119,13 +170,24 @@ os operadores diferenciais divergência e rotacional, que vamos agora,
 rapidamente, recordar.
 
 \section*{Divergência de um campo vetorial}
-A divergência de um campo vetorial é um escalar igual ao fluxo do campo por
-unidade de volume.  De um modo talvez mais intuitivo (mas muito menos preciso),
-podemos dizer que é a \emph{``quantidade'' de campo que ``sai''} desse ponto por
-unidade de volume.  
+A divergência de um campo vetorial é um escalar igual ao fluxo do campo atrvés
+de uma superfície fechada por unidade de volume.  De um modo talvez mais
+intuitivo (mas muito menos preciso), podemos dizer que é a \emph{``quantidade''
+de campo que ``sai''} desse ponto por unidade de volume. A
+Figura~\ref{fig:10-020} ilustra este significado intuitivo da divergência de um
+campo vetorial.
+\begin{figure}[htb]
+  {\centering
+    \input{figs/f10-020.pgf}\par
+  }
+  \caption{À esquerda, exemplo de um campo com divergência positiva no ponto
+  $P$; à direita o campo tem divergência negativa no ponto
+  $Q$.\label{fig:10-020}}
+\end{figure}
 
-Pode demonstrar-se (mas não o faremos aqui) que, usando
-coordenadas cartesianas, a divergência de um campo vetorial $\vec V$ é dada por
+
+Pode demonstrar-se (mas não o faremos aqui) que, usando coordenadas cartesianas,
+a divergência de um campo vetorial $\vec V$ é dada por
 \begin{equation}\label{eq:divcart}
   \div\vec V=\pd{V_x}{x} + \pd{V_y}{y}+\pd{V_z}{z}.
 \end{equation}
@@ -139,6 +201,17 @@ o produto escalar de nabla e $\vec V$:
   \div\vec V=\vec\nabla\cdot\vec V.
 \end{equation}
 
+Em coodenadas polares cilíndricas $(r,\,\varphi,\,z)$, a divergência de um campo
+vetorial $\vec V=V_r\he_r+V_\varphi\he_\varphi+V_z\he_z$ tem a forma
+\begin{equation}
+\div\vec V=\frac{1}{r}\pd{(rV_r)}{r}+\pd{V_\varphi}{\varphi}+\pd{A_z}{z}
+\end{equation}
+e, em coordenadas polares esféricas $(r,\,\theta,\,\varphi)$, 
+\begin{equation}
+\div \vec A=\frac{1}{r^2}\pd{(r^2A_r)}{r}+
+    \frac{1}{r\sin\theta}\pd{}{\theta}(A_\theta\sin\theta)+
+    \frac{1}{r\sin\theta}\pd{A_\varphi}{\theta}
+\end{equation}
 
 \section*{Rotacional de um campo vetorial}
 O rotacional de um campo vetorial é um vetor igual à circulação do campo por
@@ -159,6 +232,23 @@ Em termos do símbolo vetorial nabla, fica, mais sucintamente,
   \rot\vec V=\vec\nabla\times\vec V.
 \end{equation}
 
+Usando a primeira das igualdades da eq.~\eqref{eq:tcp}, encontramos uma
+expressão para o rotacional do rotacional de um campo vetorial, que será útil
+quando estuidarmos as ondas eletromagnéticas:
+\begin{align}
+\rot\rot \vec A&=\vec\nabla\times\vec\nabla\times\vec V=
+\vec \nabla(\vec\nabla\cdot\vec V)-\nabla^2\vec V\nonumber\\
+&=\grad\div \vec V-\lap\vec V,
+\end{align}
+onde $\lap\vec A$ representa o \emph{laplaciano} do campo vetorial$\vec V$, um
+operador diferencial de segunda ordem, igual à soma das duplas derivadas não
+cruzadas do campo,
+\begin{equation}
+\lap X =
+\pdd{F}{x}+
+\pdd{F}{y}+
+\pdd{F}{z},\qquad\text{para qualquer função escalar ou vetorial $F$}
+\end{equation}
 {\small%
   Feita esta abreviadíssima explicação sobre os operadores $\div$ e $\rot$,
   talvez não seja pior referir alguns factos mais básicos da ``vida secreta
@@ -190,7 +280,7 @@ Em termos do símbolo vetorial nabla, fica, mais sucintamente,
   fazem cada uma das derivações:
   \begin{equation*}
     \cpdd{f}{x}{y}=
-    \cpdd{f}{y}{x},\qquad\text{Qualquer que seja a função $f$}
+    \cpdd{f}{y}{x},\qquad\text{qualquer que seja a função $f$}
   \end{equation*}
 }
 

@@ -1,0 +1,11 @@
+\begin{tikzpicture}
+	\small
+	\coordinate(P) at (-2,0);
+	\coordinate(Q) at (2,0);
+	\foreach \q in {0,30, 60, 90, 120,150,180,210,240,270,300,330} {
+		\draw [->-] (P) -- +(\q:1cm);
+		\draw [-<-] (Q) -- +(\q:1cm);
+	};
+	\node at (P) [shift={(3mm,-3mm)}, fill=white,inner sep=2pt]{$P$};
+	\node at (Q) [shift={(3mm,-3mm)}, fill=white,inner sep=2pt]{$Q$};
+\end{tikzpicture}
