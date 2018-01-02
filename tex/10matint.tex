@@ -1,5 +1,8 @@
 \chapter{Preâmbulo matemático}
+\textsl{{\sffamily(Versão: \today)}}
+
 \section{Produto escalar e produto vetorial de vetores}
+\subsection*{Produto escalar ou interno}
 Dados dois vetores, define-se o seu \emph{produto escalar} (ou \emph{produto
 interno}) como o escalar que se obtém multiplicando os módulos dos dois vetores
 e o cosseno do ângulo entre eles. Assim, se $\vec a$ e $\vec b$ forem os dois
@@ -47,10 +50,10 @@ dois vetores:
   \vec a\cdot\vec b=a_xb_x+a_yb_y+a_zb_z.
 \end{equation}
 
+\subsection*{Produto vetorial ou externo}
 Define-se também o \emph{produto vetorial} ou \emph{produto externo} de vetores.
 Como o próprio nome indica, o produto vetorial de dois vetores é ainda um
-vetor.%\footnote{Ao contrário do produto escalar de vetores que, como acabámos de
-%ver, é... Um escalar.}.
+vetor.
 A norma do produto escalar de dois vetores é o produto
 das suas normas e do seno do ângulo entre eles:
 \begin{equation}
@@ -120,7 +123,7 @@ b\cdot\vec c)
 \end{split}
 \end{equation}
 
-\subsection{Áreas de paralelogramos e volumes de paralelipípedos}
+\subsection*{Áreas de paralelogramos e volumes de paralelipípedos}
 \begin{tikzpicture}[baseline=(current bounding box.north)]
 %\small
 \coordinate(O) at (0,0);
@@ -159,6 +162,336 @@ V=b\cos\phi A = c \|\vec a\times\vec b\| \cos\phi=
 \left|\vec c\cdot\vec a\times\vec b\right|.
 \end{equation}
 
+\section{Sistemas de coordenadas e bases de vetores}
+Um sistema de coordenadas é uma forma de especificar numericamente a posição de
+cada ponto no espaço. Porque o espaço em que nos movemos é tridimensional (as
+porções do espaço podem ter largura, comprimento e altura), são em geral necessários
+três números (três coordenadas) para definir completamente a posição de cada
+ponto. Em certas situações, a posição dos objetos considerados pode estar
+constrangida de algum modo e, por isso, bastarem dois (como a latitude e a
+longitude de um ponto na superfície da Terra) ou apenas um (o \emph{quilómetro}
+onde se dá um acidente numa autoestrada) para a especificar; nestes
+casos, o espaço considerado é apenas bi- ou unidimensional.
+
+O sistema de coordenadas usado em cada problema é definido como for considerado
+mais conveniente. Qualquer problema pode ser analizado com qualquer sistema de
+coordenadas, mas a complexidade algébrica da análise pode ser muito diferente
+usando diferentes sistemas.
+
+Os sistemas mais frequentemente usados em física (mas de modo algum os únicos)
+são os seguintes (veja a Figura~\ref{fig:10-015}):
+\begin{itemize}
+\item\textbf{coordenadas cartesianas $(x,\,y,\,z)$}\\
+    O sistema de coordenadas mais familiar é o das coordenadas cartesianas.
+    Escolhido um ponto (a origem) e três direções perpendiculares entre si (os
+    \emph{eixos coordenados} das coordenadas $x$, $y$ e $z$, indicamos a posição
+    de um ponto dado pelas distâncias que o separam de cada um dos planos
+    definidos por cada par de eixos coordenados, eventualmente afetadas de um
+    sinal para indicar de que lado de cada plano se encontra o ponto.
+\item\textbf{coordenadas polares esféricas $(r,\,\theta,\,\phi)$}\\
+    Outro sistema muito usual é o das coordenadas polares esféricas. A posição
+    de um ponto é indicada pela sua distância à origem, pelo ângulo (chamado
+    \emph{ângulo polar}) que o seu vetor posição faz com o eixo dos $z$ (que toma
+    o nome de \emph{eixo polar} no sistema das coordenadas esféricas) e pelo
+    ângulo (\emph{ângulo azimutal})  que a projeção do seu vetor posição no
+    plano $xy$ (plano \emph{equatorial}) faz com o eixo dos $x$.
+\item\textbf{coordenadas polares cilíndricas $(\rho,\,z,\,\phi)$}\\
+    De certa maneira, o sistema de coordenadas polares cilíndricas é um misto
+    das coordenadas cartesianas e das coordenadas polares esféricas. Neste
+    sistema de coordenadas usa-se a distância do ponto ao eixo dos $z$ (atenção:
+    é a distância ao eixo, não a distância à origem), a própria coordenada
+    cartesiana $z$ e o ângulo azimutal para especificar a sua posição.
+\end{itemize}
+\begin{figure}[htb]
+{\centering
+\tdplotsetmaincoords{65}{120}
+%
+\pgfmathsetmacro{\rvec}{0.9}
+\pgfmathsetmacro{\thetavec}{30}
+\pgfmathsetmacro{\phivec}{50}
+%
+\begin{tikzpicture}[scale=3,tdplot_main_coords]
+    % Cartesian
+    \begin{scope}[xshift=-1.5cm]
+        \coordinate (O) at (0,0,0);
+        \draw[->] (O) -- (0.5,0,0);  %x
+        \draw[->] (O) -- (0,0.5,0);  %y
+        \draw[->] (O) -- (0,0,0.88); %z
+
+        \tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+        \draw[-stealth] (O) -- (P) node[above right] {$P$};
+        \draw [thin, dashed] (O) -- (Pxy);
+        \draw [thin, dashed] (P) -- (Pxy);
+        \draw [thin, dashed] (P) -- (Pz) node[left]{$z$};
+        \draw [thin, dashed] (Px) node [above] {$x$} --(Pxy)--(Py) node[above]
+        {$y$};
+    \end{scope}
+    % Polar Spherical
+    \begin{scope}
+        \coordinate (O) at (0,0,0);
+        \draw[->] (O) -- (0.5,0,0);  %x
+        \draw[->] (O) -- (0,0.5,0);  %y
+        \draw[->] (O) -- (0,0,0.88); %z
+
+        \tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+        \draw[-stealth] (O) -- (P) node[above right] {$P$}
+            node [pos=0.7, shift={(0.0,0.05,-0.25)}] {$r$};
+        \draw [thin, dashed] (O) -- (Pxy);
+        \draw [thin, dashed] (P) -- (Pxy);
+        \draw [thin, dashed] (P) -- (Pz);
+        %\draw [thin, dashed] (Px) --(Pxy)--(Py);
+
+        \tdplotdrawarc[thin]{(O)}{0.25}{0}{\phivec}{anchor=north}{$\phi$}
+        \tdplotsetthetaplanecoords{\phivec}
+        \tdplotdrawarc[tdplot_rotated_coords,thin]{(0,0,0)}{0.4}{0}%
+            {\thetavec}{anchor=south,xshift=1.5}{$\theta$}
+    \end{scope}
+    % Polar Cilyndrical
+    \begin{scope}[xshift=1.5cm]
+        \coordinate (O) at (0,0,0);
+        \draw[->] (O) -- (0.5,0,0);  %x
+        \draw[->] (O) -- (0,0.5,0);  %y
+        \draw[->] (O) -- (0,0,0.88); %z
+
+        \tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+        \draw[-stealth] (O) -- (P) node[above right] {$P$};
+        \draw [thin, dashed] (O) -- (Pxy);
+        \draw [thin, dashed] (P) -- (Pxy);
+        \draw [thin, dashed] (P) -- (Pz) node[left]{$z$} node
+        [midway,shift={(2pt,5pt)}]{$\rho$};
+       % \draw [thin, dashed] (Px) --(Pxy)--(Py);
+
+        \tdplotdrawarc[thin]{(O)}{0.25}{0}{\phivec}{anchor=north}{$\phi$}
+        \tdplotsetthetaplanecoords{\phivec}
+    \end{scope}
+\end{tikzpicture}\par
+}
+\caption{Coordenadas cartesianas $(x,\,y,\,z)$ (à esquerda), coordenadas polares
+esféricas $(r,\,\theta,\,\phi)$ (ao centro) e coordenadas polares cilíndricas
+$(\rho,\,z,\,\phi)$ (à direita).\label{fig:10-015}}
+\end{figure}
+
+Quando lidamos com variáveis vetoriais, é conveniente dispormos de \emph{bases}
+de vetores, que usamos para as descrever. Por exemplo, o vetor aceleração da
+gravidade perto da superfície da Terra tem direção vertical, é dirigido para
+baixo e o seu módulo é 9,8\,m/s$^2$. Escolhendo uma base formada por dois
+versores (vetores com norma unitária) horizontais $\he_x$ e $\he_y$ e um
+terceiro vetor $\he_z$ vertical, orientado para cima, podemos resumir esta
+descrição na expressão $\smash{\vec g=-9,8\,\text{m/s}^2}\,\he_z$ ou
+$\smash{\vec g=(0,\,0,\,-9,8\,\text{m/s}^2)}$, usando outra notação habitual.
+Qualquer destas notações só fica definida depois de estar escolhida a base
+usada. 
+
+Este problema da escolha da base é independente do da escolha do sistema de
+coordenadas. Ainda assim, é usual escolherem-se os vetores que formam a base
+vetorial paralelos, em cada ponto, aos eixos coordenados\footnote{Isto é, às
+direções em que apenas uma das coordenadas varia.} nesse ponto, caso em
+que chamamos à base assim definida base do sistema de coordenadas usado.
+Assim, concretizando para o sistema de coordenadas cartesiano, mais familiar,
+escolhemos o versor $\he_x$ da base das coordenadas cartesianas orientado na
+direção em que a coordenada $x$ aumenta, ficando as restantes ($y$ e $z$)
+constantes, e repetindo a lógica para os restantes vetores $\he_y$ e $\he_z$. Do
+mesmo modo, o versor $\he_r$ da base das coordenadas esféricas tem, em cada
+ponto, a direção em que a coordenada $r$ aumenta sem variarem as coordenadas
+$\theta$ ou $\phi$. Tem pois a direção radial. A Figura~\ref{fig:10-016} ilustra
+as orientações dos vetores das bases dos três sistemas de coordenadas referidos.
+\begin{figure}[htb]
+{\centering
+\tdplotsetmaincoords{65}{120}
+%
+\pgfmathsetmacro{\rvec}{0.9}
+\pgfmathsetmacro{\thetavec}{30}
+\pgfmathsetmacro{\phivec}{50}
+%
+\begin{tikzpicture}[scale=3,tdplot_main_coords]
+    % Cartesian
+    \begin{scope}[xshift=-1.5cm]
+        \coordinate (O) at (0,0,0);
+        \draw[->] (O) -- (0.5,0,0);  %x
+        \draw[->] (O) -- (0,0.5,0);  %y
+        \draw[->] (O) -- (0,0,0.88); %z
+
+        \tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+        \draw[-stealth] (O) -- (P);
+        \draw [thin, dashed] (O) -- (Pxy);
+        \draw [thin, dashed] (P) -- (Pxy);
+        \draw [thin, dashed] (P) -- (Pz) node[left]{$z$};
+        \draw [thin, dashed] (Px) node [above] {$x$} --(Pxy)--(Py) node[above]
+        {$y$};
+        \draw [thick,->] (P) -- +(0,0,0.2) node[above]{$\hat e_z$};
+        \draw [thick,->] (P) -- +(0,0.2,0) node[right]{$\hat e_y$};
+        \draw [thick,->] (P) -- +(0.28,0,0) node[left]{$\hat e_x$};
+    \end{scope}
+    % Polar Spherical
+    \begin{scope}
+        \coordinate (O) at (0,0,0);
+        \draw[->] (O) -- (0.5,0,0);  %x
+        \draw[->] (O) -- (0,0.5,0);  %y
+        \draw[->] (O) -- (0,0,0.88); %z
+
+        \tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+        \draw[-stealth] (O) -- (P)
+            node [pos=0.7, shift={(0.0,0.05,-0.25)}] {$r$};
+        \draw [thin, dashed] (O) -- (Pxy);
+        \draw [thin, dashed] (P) -- (Pxy);
+        \draw [thin, dashed] (P) -- (Pz);
+        %\draw [thin, dashed] (Px) --(Pxy)--(Py);
+
+        \tdplotdrawarc[thin]{(O)}{0.25}{0}{\phivec}{anchor=north}{$\phi$}
+        \tdplotsetthetaplanecoords{\phivec}
+        \tdplotdrawarc[tdplot_rotated_coords,thin]{(0,0,0)}{0.4}{0}%
+            {\thetavec}{anchor=south,xshift=1.5}{$\theta$}
+        \tdplotsetrotatedcoords{\phivec}{\thetavec}{0}
+        \tdplotsetrotatedcoordsorigin{(P)}
+        \draw[thick,tdplot_rotated_coords,->] (0,0,0)
+            -- (.15,0,0) node[right]{$\hat u_\theta$};
+        \draw [thick,tdplot_rotated_coords,->] (0,0,0) -- (0,0.14,0)
+            node[right]{$\hat u_\phi$};
+        \draw [thick,tdplot_rotated_coords,->] (0,0,0) -- (0,0,0.25)
+            node[above]{$\hat u_r$};
+    \end{scope}
+    % Polar Cilyndrical
+    \begin{scope}[xshift=1.5cm]
+        \coordinate (O) at (0,0,0);
+        \draw[->] (O) -- (0.5,0,0);  %x
+        \draw[->] (O) -- (0,0.5,0);  %y
+        \draw[->] (O) -- (0,0,0.88); %z
+
+        \tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+        \draw[-stealth] (O) -- (P);
+        \draw [thin, dashed] (O) -- (Pxy);
+        \draw [thin, dashed] (P) -- (Pxy);
+        \draw [thin, dashed] (P) -- (Pz) node[left]{$z$} node
+            [midway,shift={(-1pt,-6pt)}]{$\rho$};
+
+        \draw [thick,->] (P) --+(0,0,0.17) node[above]{$\hat e_z$};
+        \draw [thick,->] (P) -- ($ (P)!-0.15cm!(Pz) $) node [right]{$\hat
+        e_\rho$};
+        \tdplotdrawarc[thin]{(O)}{0.25}{0}{\phivec}{anchor=north}{$\phi$}
+        \tdplotsetthetaplanecoords{\phivec}
+
+        \tdplotsetrotatedcoords{\phivec}{\thetavec}{0}
+        \tdplotsetrotatedcoordsorigin{(P)}
+        \draw [thick,tdplot_rotated_coords,->] (0,0,0) -- (0,0.14,0)
+            node[right]{$\hat u_\phi$};
+    \end{scope}
+\end{tikzpicture}\par
+}
+\caption{Bases dos três sistemas de coordenadas mais usuais: cartesiano
+(esquerda), polar esférico (centro), polar
+cilíndrico(direita).\label{fig:10-016}}
+\end{figure}
+Note-se que as orientações dos vetores da base de um sistema de coordenadas não
+são, em geral, constantes. Antes pelo contrário, elas são, normalmente, funções da
+posição. Por exemplo, a orientação do vetor $\he_r$ da base das coordenadas
+polares é, como já se disse, radial. A direção radial é a da linha que une a
+origem ao ponto considerado; logo, depende de ponto para ponto. A principal
+excepção a esta regra geral é a dos vetores da base das coordenadas cartesianas:
+$\he_x$, $\he_y$ e $\he_z$ mantêm as suas orientações inalteradas em todos os
+pontos do espaço.
+
+
+\section{Derivadas de funções da posição e do tempo}
+Na análise de problemas físicos lidamos frequentemente com variáveis que
+dependem da posição e do tempo. Estas funções podem ser escalares, como a
+temperatura numa barra metálica ou a pressão atmoesférica na vizinhança da
+trajetória de um avião a jato, ou vetoriais, como a velocidade da água num canal
+ou o campo elétrico perto de uma sistema de cargas.
+
+A posição de um ponto no espaço normal em que nos movemos fica especificada
+indicando as suas coordenadas $(x,\,y,\,z)$\footnote{$(x,\,y,\,z)$ representa,
+habitualmente, as familiares coordenadas \emph{cartesianas} dos pontos do
+espaço. Há muitas outras possibilidades de especificar a posição dos pontos, ou
+seja, muitos outros sistemas de coordenadas e, em muitas situações, mais
+práticos do que as coordenadas cartesianas.}. Assim, uma função da posição é, em
+geral, uma função de várias variáveis.
+
+Representamos uma função da posição com a notação $f(x,y,z)$, referindo
+explicitamente as coordenadas\footnote{Mais uma vez, usam-se as coordenadas
+cartesianas, apenas como exemplo.} do ponto onde se calcula a função, ou $f(\vec
+r)$, identificando essa posição pelo seu vetor posição $\vec r$. As duas
+notações são usadas nestes apontamentos.
+
+
+\subsection{Derivadas direcionais}
+A derivada de uma função real de uma variável real num ponto é, recordemos, a
+taxa de variação dessa função nesse ponto, isto é, o quociente entre o acréscimo
+(infinitesimal) da função e o correspondente acréscimo (infinitesimal também)
+da variável,
+\begin{equation}\label{eq:dfdx}
+f'(x) = \lim_{\delta x\rightarrow0} \frac{f(x+\delta x)-f(x)}{\delta x}.
+\end{equation}
+Este conceito pode generalizar-se para funções da posição (de várias variáveis,
+como vimos), mas temos que ter em conta que a variável é agora a posição e,
+partindo de um dado ponto, podem considerar-se acréscimos (pequenas variações)
+dessa variável em diferentes direções: em vez de $x+\delta x$, devemos agora
+considerar $\smash{\vec r+\delta \vec r}$ e ter presente que este acréscimo
+$\smash{\delta \vec r}$ é caracterizado por uma grandeza, mas também por uma
+orientação. Por isso, uma ``adaptação à letra'' da eq.~\eqref{eq:dfdx},
+\begin{equation}\label{eq:dfdvr}
+f'(\vec r)=\lim_{\|\delta \vec r\|\rightarrow 0}
+    \frac{f(\vec r+\delta \vec r)-f(\vec r)}{\|\delta \vec r\|},
+\end{equation}
+deve ser cuidadosamente interpretada porque o valor de uma taxa de variação
+assim definida depende da direção em que se toma o ``acréscimo'' da variável
+$\delta\vec r$. Na verdade, uma função de várias variáveis (e, em particular,
+uma função da posição como as que nos interessam) não tem apenas uma derivada
+num dado ponto, tem antes um número infinito de derivadas, uma por cada direção
+a partir desse ponto. Somos assim conduzidos à noção de \emph{derivada
+direcional} de uma função de várias variáveis. Dada uma função da posição
+$f(\vec r)$, a sua derivada direcional num dado ponto $\vec r_0$, segundo uma
+dada direção identificada como a do versor $\hat u$, é a taxa de variação da
+função quando o ponto de aplicação se desloca infinitesimalmente ao longo da
+direção considerada:\footnote{Note que esta expressão é equivalente à
+eq.~\eqref{eq:dfdvr}, tendo-se apenas escrito a variação da posição
+$\smash{\delta \vec r}$ na forma $\smash{\delta\vec r=\delta\!s\,\hat u}$, para
+distinguir mais claramente as características norma ($\delta s$) e orientação
+$\hat u$ do acréscimo $\delta\vec r=s\hat{u}$.}
+\begin{equation}\label{eq:ddir}
+f'_{\hat u}(\vec r_0)=\lim_{\delta s\rightarrow0}
+\frac{f(\vec r_0+\delta s\,\hat u)-f(\vec r_0)}{\delta s}.
+\end{equation}
+
+O denominador na eq.~\eqref{eq:ddir} é o módulo de um deslocamento: $\delta
+s=\|\delta s\,\hat u\|$. Ou seja, fisicamente é uma distância. As derivadas
+direcionais de uma função têm pois as dimensões da própria função por unidade de
+distância. Por exemplo, o campo elétrico é uma derivada direcional do potencial
+eletrostático, cuja unidade no SI é o volt (V); então, as unidades SI do campo
+elétrico são o volt por metro (V/m).
+
+\subsection{Derivadas parciais}
+Seja $f(\vec r,\,t)$ uma
+função contínua qualquer (pode mesmo ser escalar ou vetorial) da posição $\vec
+r=(x,\,y,\,z)$ e do tempo $t$. Dado um ponto com vetor posição $\vec
+r_0=(x_0,\,y_0,\,z_0)$ e um instante $t_0$, podemos formar os seguintes limites,
+semelhantes aos que definem a noção de derivada
+\begin{align*}
+\pd{H}{x}&=\lim_{\delta x\rightarrow0}
+\frac{H(x_0+\delta x,\,y_0,\,z_0,\,t_0)- H(x_0,\,y_0,\,z_0,\,t_0)}{\delta x}\\
+\pd{H}{y}&=\lim_{\delta y\rightarrow0}
+\frac{H(x_0,\,y_0+\delta y,\,z_0,\,t_0)- H(x_0,\,y_0,\,z_0,\,t_0)}{\delta y}\\
+\pd{H}{z}&=\lim_{\delta z\rightarrow0}
+\frac{H(x_0,\,y_0,\,z_0+\delta z,\,t_0)- H(x_0,\,y_0,\,z_0,\,t_0)}{\delta z}\\
+\pd{H}{t}&=\lim_{\delta t\rightarrow0}
+\frac{H(x_0,\,y_0,\,z_0,\,t_0+\delta t)- H(x_0,\,y_0,\,z_0,\,t_0)}{\delta t}.
+\end{align*}
+Estes limites chamam-se \emph{derivadas parciais} da função $f$ em ordem
+a $x$, $y$, $z$ e $t$, respetivamente.
+
+Quando se usa um sistema de coordenadas cartesiano, as derivadas parciais em
+ordem a cada coordenada coincidem com as derivadas direcionais segundo a direção
+coordenada correspondente, isto é
+\begin{align*}
+\pd{f}{x}&=f'_{\hat e_x}&
+\pd{f}{y}&=f'_{\hat e_y}&
+\pd{f}{z}&=f'_{\hat e_z}
+\end{align*}
+No entanto, como já foi referido, podem usar-se (e usam-se muito frequentemente)
+outros sistemas de coordenadas, e esta relação entre as derivadas parciais e as
+derivadas direcionais segundo os seixos coordenados correspondentes não é sempre
+válida.
+
+
 \section{Operadores diferenciais}
 As equações de Maxwell são quatro equações às derivadas parciais dos campos
 elétrico e magnético que traduzem localmente\footnote{Isto é, como igualdades
@@ -169,7 +502,7 @@ o campo magnético), a lei de Faraday e a lei de Ampère. Estas equações envol
 os operadores diferenciais divergência e rotacional, que vamos agora,
 rapidamente, recordar.
 
-\section*{Divergência de um campo vetorial}
+\subsection*{Divergência de um campo vetorial}
 A divergência de um campo vetorial é um escalar igual ao fluxo do campo atrvés
 de uma superfície fechada por unidade de volume.  De um modo talvez mais
 intuitivo (mas muito menos preciso), podemos dizer que é a \emph{``quantidade''
@@ -213,7 +546,7 @@ e, em coordenadas polares esféricas $(r,\,\theta,\,\varphi)$,
     \frac{1}{r\sin\theta}\pd{A_\varphi}{\theta}
 \end{equation}
 
-\section*{Rotacional de um campo vetorial}
+\subsection*{Rotacional de um campo vetorial}
 O rotacional de um campo vetorial é um vetor igual à circulação do campo por
 unidade de área. A sua direção é a perpendicular ao plano onde a circulação tem
 o valor máximo. Em termos intuitivos (mas terivelmente imprecisos), o rotacional
