@@ -174,7 +174,7 @@ onde se dá um acidente numa autoestrada) para a especificar; nestes
 casos, o espaço considerado é apenas bi- ou unidimensional.
 
 O sistema de coordenadas usado em cada problema é definido como for considerado
-mais conveniente. Qualquer problema pode ser analizado com qualquer sistema de
+mais conveniente. Qualquer problema pode ser analisado com qualquer sistema de
 coordenadas, mas a complexidade algébrica da análise pode ser muito diferente
 usando diferentes sistemas.
 
@@ -189,18 +189,22 @@ são os seguintes (veja a Figura~\ref{fig:10-015}):
     definidos por cada par de eixos coordenados, eventualmente afetadas de um
     sinal para indicar de que lado de cada plano se encontra o ponto.
 \item\textbf{coordenadas polares esféricas $(r,\,\theta,\,\phi)$}\\
-    Outro sistema muito usual é o das coordenadas polares esféricas. A posição
-    de um ponto é indicada pela sua distância à origem, pelo ângulo (chamado
-    \emph{ângulo polar}) que o seu vetor posição faz com o eixo dos $z$ (que toma
-    o nome de \emph{eixo polar} no sistema das coordenadas esféricas) e pelo
-    ângulo (\emph{ângulo azimutal})  que a projeção do seu vetor posição no
-    plano $xy$ (plano \emph{equatorial}) faz com o eixo dos $x$.
+    Outro sistema muito usual é o das coordenadas polares esféricas. Escolhida a
+    origem, uma direção que a contém (o eixo \emph{polar} e um plano que contem
+    o eixo (plano de referência azimutal), a posição
+    de um ponto é indicada pela sua distância à origem $r$ , pelo ângulo (chamado
+    \emph{ângulo polar}) que a linha que o une à origem faz com o eixo polar
+    $\theta$ e pelo ângulo (\emph{ângulo azimutal}) que essa linha faz com o
+    plano de referência azimutal $\phi$.
 \item\textbf{coordenadas polares cilíndricas $(\rho,\,z,\,\phi)$}\\
     De certa maneira, o sistema de coordenadas polares cilíndricas é um misto
-    das coordenadas cartesianas e das coordenadas polares esféricas. Neste
-    sistema de coordenadas usa-se a distância do ponto ao eixo dos $z$ (atenção:
-    é a distância ao eixo, não a distância à origem), a própria coordenada
-    cartesiana $z$ e o ângulo azimutal para especificar a sua posição.
+    das coordenadas cartesianas e das coordenadas polares esféricas. Com nas
+    coordenadas esféricas, escolhe-se uma origem, um eixo polar e um plano de
+    referência azimutal; a partir daí, usa-se a distância $\rho$ do ponto ao
+    eixo polar (atenção: é a distância ao eixo, não a distância à origem), a
+    a distância $z$ do ponto ao plano perpendicular a esse eixo que contém a
+    origem (corresponde à coordenada cartesiana $z$ se tomarmos o eixo polar
+    como eixo dos $z$) e o ângulo azimutal para especificar a sua posição.
 \end{itemize}
 \begin{figure}[htb]
 {\centering
@@ -270,6 +274,24 @@ são os seguintes (veja a Figura~\ref{fig:10-015}):
 esféricas $(r,\,\theta,\,\phi)$ (ao centro) e coordenadas polares cilíndricas
 $(\rho,\,z,\,\phi)$ (à direita).\label{fig:10-015}}
 \end{figure}
+
+Escolhendo para eixo polar o eixo da coordenada cartesiana $z$ e o plano de
+referência polar coincidente com o plano $zx$, as relações entre as coordenadas
+cartesianas e as coordenadas polares (esféricas e cilíndricas) é 
+\begin{align*}
+x&=r\sin\theta\cos\phi&
+    r&=\sqrt{x^2+y^2+z^2}\hspace{2.0cm}&
+    x&=\rho\cos\phi&
+    \rho&=\sqrt{x^2+y2}\\
+y&=r\sin\theta\sin\phi&
+    \theta&=\arccos\frac{z}{r}&
+    y&=\rho\sin\phi&
+    \phi&=\arctan\frac{y}{x}
+    \\
+    z&=r\cos\theta&
+    \phi&=\arctan\frac{y}{x}&
+    z&=z&
+\end{align*}
 
 Quando lidamos com variáveis vetoriais, é conveniente dispormos de \emph{bases}
 de vetores, que usamos para as descrever. Por exemplo, o vetor aceleração da
@@ -344,11 +366,11 @@ as orientações dos vetores das bases dos três sistemas de coordenadas referid
         \tdplotsetrotatedcoords{\phivec}{\thetavec}{0}
         \tdplotsetrotatedcoordsorigin{(P)}
         \draw[thick,tdplot_rotated_coords,->] (0,0,0)
-            -- (.15,0,0) node[right]{$\hat u_\theta$};
+            -- (.15,0,0) node[right]{$\hat e_\theta$};
         \draw [thick,tdplot_rotated_coords,->] (0,0,0) -- (0,0.14,0)
-            node[right]{$\hat u_\phi$};
+            node[right]{$\hat e_\phi$};
         \draw [thick,tdplot_rotated_coords,->] (0,0,0) -- (0,0,0.25)
-            node[above]{$\hat u_r$};
+            node[above]{$\hat e_r$};
     \end{scope}
     % Polar Cilyndrical
     \begin{scope}[xshift=1.5cm]
@@ -373,7 +395,7 @@ as orientações dos vetores das bases dos três sistemas de coordenadas referid
         \tdplotsetrotatedcoords{\phivec}{\thetavec}{0}
         \tdplotsetrotatedcoordsorigin{(P)}
         \draw [thick,tdplot_rotated_coords,->] (0,0,0) -- (0,0.14,0)
-            node[right]{$\hat u_\phi$};
+            node[right]{$\hat e_\phi$};
     \end{scope}
 \end{tikzpicture}\par
 }
@@ -389,6 +411,71 @@ origem ao ponto considerado; logo, depende de ponto para ponto. A principal
 excepção a esta regra geral é a dos vetores da base das coordenadas cartesianas:
 $\he_x$, $\he_y$ e $\he_z$ mantêm as suas orientações inalteradas em todos os
 pontos do espaço.
+
+
+\section{Funções de várias variáveis e derivação parcial}
+Seja $f(v_1,\,v_2,\,\ldots,v_N)$ uma função contínua de $N$ variáveis $v_1$,
+$v_2$, \ldots, $v_N$. Por \emph{função} entendemos apenas uma aplicação
+puramente matemática sem qualquer significado físico, uma regra de cálculo
+para a determinação de um \emph{resultado} (o \emph{valor} da função) a partir
+dos valores das variáveis $v_1$, $v_2$, \ldots, $v_N$. Por exemplo, 
+$f(a,\,b)=2a+\exp(a-b)$ é uma função contínua das variáveis $a$ e $b$. Dizemos
+que uma função é contínua no sentido em que se as variáveis $v_k$ sofrerem
+\emph{pequenas} variações, a função irá também variar apenas
+\emph{ligeiramente}\footnote{Esta noção de continuidade é absurdamente
+imprecisa, mas o seu significado intuitivo é aqui suficiente.}.
+
+Tratando-se de uma função contínua, a sua variação, 
+\begin{equation*}
+\delta f=f(v_1+\delta v_1,\,v_2+\delta v_2,\,\ldots,\,v_N+\delta v_N)-
+f(v_1,\,v_2,\,\ldots,\,v_N),
+\end{equation*}
+quando as variáveis de que depende sofrem variações $\delta v_1$, $\delta v_2$,
+\ldots, $\delta v_N$ deve ser, em primeira ordem de aproximação, uma combinação
+linear das variações das variáveis,
+\begin{equation}\label{eq:dfp}
+\delta f\simeq A_1\delta v_1+A_2\delta v_2+\ldots+A_N\delta v_N,
+\end{equation}
+onde os coeficientes $A_k=A_k(v_1,\,\ldots,\,v_N)$ são funções das variáveis
+$v_1$, $v_2$, etc., mas não dos seus acréscimos $\delta v_1$, $\delta v_2$, etc.
+Consideremos uma situação em que todos os acréscimos excepto o da primeira
+variável $v_1$ se anulam, isto é,
+\begin{align*}
+\delta v_1&\neq0&\delta v_2&=\delta v_3=\ldots=\delta v_N=0.
+\end{align*}
+A igualdade aproximada da eq.~\eqref{eq:dfp} reduz-se então a 
+\begin{equation*}
+\delta f\simeq f(v_1+\delta v_1,\,v_2,\,\ldots,\,v_N)-
+    f(v_1,\,v_2,\,\ldots,\,v_N)= A_1\delta v_1,
+\end{equation*}
+de onde se obtem uma expressão aproximada para o coeficiente $A_1$:
+\begin{equation*}
+A_1\simeq
+    \frac{f(v_1+\delta v_1,\,v_2,\,\ldots,\,v_N)
+              -f(v_1,\,v_2,\,\ldots,\,v_N)}{\delta v_1}.
+\end{equation*}
+No limite $\delta v_1\rightarrow0$, o erro da aproximação deve anular-se, e o
+coeficiente $A_1$ fica dado por
+\begin{equation*}
+A_1=\lim_{\delta v_1\rightarrow0}
+    \frac{f(v_1+\delta v_1,\,v_2,\,\ldots,\,v_N)
+              -f(v_1,\,v_2,\,\ldots,\,v_N)}{\delta v_1}.
+\end{equation*}
+O objeto assim definido é uma taxa de variação da função, ou seja, é uma
+derivada da função $f$, chamada \emph{derivada parcial de $f$ em ordem a $v_1$}
+e é normalmente representada com a notação $\partial f/\partial v_1$. De modo
+semelhante definimos as restantes derivadas parciais da função $f$:
+\begin{equation}
+    \pd{f}{v_k} = \lim_{\delta v_k\rightarrow0}
+    \frac{f(v_1,\,\ldots,\,v_k+\delta v_k,\,\ldots,\,v_N)-
+        f(v_1,\,\ldots,\,v_N)}{\delta v_k},\qquad k=1,\,\ldots,\,N.
+\end{equation}
+Usando estas definições podemos dar uma forma mais informativa à
+eq.~\eqref{eq:dfp}:
+\begin{equation}\label{df}
+\delta f(v_1,\,v_2,\,\ldots,\,v_N)=\pd{f}{v_1}\delta v_1+\pd{f}{v_2}\delta v_2
+    +\ldots+ \pd{f}{v_N}\delta v_N.
+\end{equation}
 
 
 \section{Derivadas de funções da posição e do tempo}
@@ -422,12 +509,12 @@ da variável,
 f'(x) = \lim_{\delta x\rightarrow0} \frac{f(x+\delta x)-f(x)}{\delta x}.
 \end{equation}
 Este conceito pode generalizar-se para funções da posição (de várias variáveis,
-como vimos), mas temos que ter em conta que a variável é agora a posição e,
-partindo de um dado ponto, podem considerar-se acréscimos (pequenas variações)
-dessa variável em diferentes direções: em vez de $x+\delta x$, devemos agora
-considerar $\smash{\vec r+\delta \vec r}$ e ter presente que este acréscimo
-$\smash{\delta \vec r}$ é caracterizado por uma grandeza, mas também por uma
-orientação. Por isso, uma ``adaptação à letra'' da eq.~\eqref{eq:dfdx},
+portanto), mas temos que ter em conta que a variável independente é agora a
+posição e, partindo de um dado ponto, podem considerar-se acréscimos (pequenas
+variações) dessa variável em diferentes direções: em vez de $x+\delta x$,
+devemos agora considerar $\smash{\vec r+\delta \vec r}$ e ter presente que este
+acréscimo $\smash{\delta \vec r}$ é caracterizado por uma grandeza, mas também
+por uma orientação. Por isso, uma ``adaptação à letra'' da eq.~\eqref{eq:dfdx},
 \begin{equation}\label{eq:dfdvr}
 f'(\vec r)=\lim_{\|\delta \vec r\|\rightarrow 0}
     \frac{f(\vec r+\delta \vec r)-f(\vec r)}{\|\delta \vec r\|},
