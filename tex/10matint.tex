@@ -472,7 +472,7 @@ semelhante definimos as restantes derivadas parciais da função $f$:
 \end{equation}
 Usando estas definições podemos dar uma forma mais informativa à
 eq.~\eqref{eq:dfp}:
-\begin{equation}\label{df}
+\begin{equation}\label{eq:df}
 \delta f(v_1,\,v_2,\,\ldots,\,v_N)=\pd{f}{v_1}\delta v_1+\pd{f}{v_2}\delta v_2
     +\ldots+ \pd{f}{v_N}\delta v_N.
 \end{equation}
@@ -500,7 +500,7 @@ r)$, identificando essa posição pelo seu vetor posição $\vec r$. As duas
 notações são usadas nestes apontamentos.
 
 
-\subsection{Derivadas direcionais}
+\subsection{Derivadas direcionais de funções escalares}
 A derivada de uma função real de uma variável real num ponto é, recordemos, a
 taxa de variação dessa função nesse ponto, isto é, o quociente entre o acréscimo
 (infinitesimal) da função e o correspondente acréscimo (infinitesimal também)
@@ -545,6 +545,39 @@ direcionais de uma função têm pois as dimensões da própria função por uni
 distância. Por exemplo, o campo elétrico é uma derivada direcional do potencial
 eletrostático, cuja unidade no SI é o volt (V); então, as unidades SI do campo
 elétrico são o volt por metro (V/m).
+
+\subsection{Gradiente de uma função escalar}
+Seja dada uma função cotínua da posição $f(\vec r)$ expressa em coordenadas
+cartesianas, $f(\vec r)=f(x,y,z)$. Consideremos a sua variação num deslocamento
+infinitesimal $\smash{\delta\vec r}$ ao longo da direção de um versor $\hat u$,
+partindo de um ponto $P=(x_0,y_0,z_0)$. De acordo com a definição de derivada
+direcional da eq.~\eqref{eq:ddir}, a variação de $f$ neste deslocamento é
+\begin{equation}\label{eq:ddgrad1}
+  \delta f = f'_{\hat u}(P)\,\delta s,
+\end{equation}
+onde $\smash{\delta s=\|\delta \vec r\|}$ é o comprimento do deslocamento
+  $\smash{\delta \vec r}$.
+Por outro lado, de acordo com a eq.~\eqref{eq:df}, essa mesma variação é dada
+por
+\begin{equation*}
+  \delta f= \pd{f}{x}\delta x+ \pd{f}{y}\delta y+ \pd{f}{z}\delta z;
+\end{equation*}
+mas $\delta x$, $\delta y$ e $\delta z$ são as componentes cartesianas do vetor
+deslocamento, que considerámos na direção do versor $\hat u$, ou seja
+\begin{equation*}
+  \delta x = (\delta \vec r)_x=(\delta s\hat u)_x=\delta s u_x,
+\end{equation*}
+onde $u_x$ representa a componente cartesiana do versor $\hat u$ segundo a
+direção $x$. Procedendo da mesma maneira para as restantes componentes, obtemos
+\begin{equation*}
+  \delta f=\left( \pd{f}{x}u_x+ \pd{f}{y}u_y+ \pd{f}{z}u_z \right)\delta s.
+\end{equation*}
+Comparando esta igualdade com a da eq.~\eqref{eq:ddgrad1} uma expressão para o
+cálculo da derivada direcional de uma função expressa em coordenadas
+cartesianas:
+\begin{equation}
+  f'_{\hat u}= u_x\pd{f}{x}+ u_y\pd{f}{y}+ u_z\pd{f}{z}.
+\end{equation}
 
 \subsection{Derivadas parciais}
 Seja $f(\vec r,\,t)$ uma
