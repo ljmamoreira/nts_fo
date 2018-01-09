@@ -18,7 +18,6 @@ o ângulo entre eles for menor que 90\deg), negativo (se for maior que 90\deg) o
 nulo (se os dois vetores forem perpendiculares). Verifica-se também
 que este produto é comutativo, isto é, $\vec a\cdot\vec b=\vec b\cdot\vec a$.
 
-
 Sejam respetivamente $(a_x,\,a_y,\,a_z)$ e $(b_x,\,b_y,\,b_z)$ as componentes
 dos vetores $\vec a$ e $\vec b$ relativamente a alguma base ortonormada
 pré-escolhida, formada por versores (vetores com norma 1) $\he_x$, $\he_y$ e
@@ -46,7 +45,7 @@ da base consigo próprio é 1 (porque o módulo dos versores é 1 e o cosseno do
 \end{align*}
 Substituindo em cima, obtemos uma forma alternativa para o produto escalar de
 dois vetores:
-\begin{equation}
+\begin{equation}\label{eq:dprod}
   \vec a\cdot\vec b=a_xb_x+a_yb_y+a_zb_z.
 \end{equation}
 
@@ -413,7 +412,7 @@ $\he_x$, $\he_y$ e $\he_z$ mantêm as suas orientações inalteradas em todos os
 pontos do espaço.
 
 
-\section{Funções de várias variáveis e derivação parcial}
+\section{Funções de várias variáveis e derivadas parciais}
 Seja $f(v_1,\,v_2,\,\ldots,v_N)$ uma função contínua de $N$ variáveis $v_1$,
 $v_2$, \ldots, $v_N$. Por \emph{função} entendemos apenas uma aplicação
 puramente matemática sem qualquer significado físico, uma regra de cálculo
@@ -476,6 +475,31 @@ eq.~\eqref{eq:dfp}:
 \delta f(v_1,\,v_2,\,\ldots,\,v_N)=\pd{f}{v_1}\delta v_1+\pd{f}{v_2}\delta v_2
     +\ldots+ \pd{f}{v_N}\delta v_N.
 \end{equation}
+
+Na prática, o cálculo das derivadas parciais de uma função de várias variáveis é
+tão simples como o do cálculo da derivada de uma função de uma só variável.
+Quando calculamos a derivada parcial em ordem a uma das variáveis de que depende
+a função, tomamos todas as restantes variáveis como se fossem constantes. Assim,
+por exemplo, dada a função $f(x,y)=xy$, temos
+\begin{align*}
+f(x,y)&=xy&\pd{f}{x}&=y,&\pd{f}{y}=x.
+\end{align*}
+
+\begin{examples}
+\item Calcule as derivadas parciais da fução distância à origem
+$r=\sqrt{x^2+y^2+z^2}$ relativamente às coordenadas cartesianas $x$, $y$ e $z$.
+\\
+Por exemplo, 
+\begin{align*}
+\pd{r}{x}&=\pd{}{x}\left(x^2+y^2+z^2\right)^{1/2}=
+    \frac{1}{2}\left(x^2+y^2+z^2\right)^{-1/2}\;\pd{x^2}{x}
+=\frac{x}{\sqrt{x^2+y^2+z^2}}=\frac{x}{r}.
+\end{align*}
+de igual modo se verifica que
+\begin{align*}
+\pd{r}{y}&=\frac{y}{r}& \pd{r}{z}&=\frac{z}{r}
+\end{align*}
+\end{examples}
 
 
 \section{Derivadas de funções da posição e do tempo}
@@ -548,68 +572,64 @@ elétrico são o volt por metro (V/m).
 
 \subsection{Gradiente de uma função escalar}
 Seja dada uma função cotínua da posição $f(\vec r)$ expressa em coordenadas
-cartesianas, $f(\vec r)=f(x,y,z)$. Consideremos a sua variação num deslocamento
-infinitesimal $\smash{\delta\vec r}$ ao longo da direção de um versor $\hat u$,
-partindo de um ponto $P=(x_0,y_0,z_0)$. De acordo com a definição de derivada
-direcional da eq.~\eqref{eq:ddir}, a variação de $f$ neste deslocamento é
-\begin{equation}\label{eq:ddgrad1}
-  \delta f = f'_{\hat u}(P)\,\delta s,
+cartesianas, $f(\vec r)=f(x,y,z)$.  A sua variação num deslocamento
+infinitesimal $\smash{\delta\vec r}$ com componentes cartesianas $\delta x$,
+$\delta y$ e $\delta z$ é, de acordo com a eq.~\eqref{eq:df}, dada por
+\begin{equation*}
+  \delta f= \pd{f}{x}\delta x+ \pd{f}{y}\delta y+ \pd{f}{z}\delta z.
+\end{equation*}
+A soma no lado direito desta igualdade é formalmente semelhante à que aparece na
+expressão algébrica do produto escalar da eq.~\eqref{eq:dprod}. Para aproveitar
+essa semelhança, introduzimos o vetor \emph{gradiente de $f$,} cujas componentes
+cartesianas são as derivadas parciais de $f$ relativamente às coordenadas
+cartesianas correspondentes,
+\begin{equation}\label{eq:gradcart}
+\grad f=\pd{f}{x}\he_x+\pd{f}{y}\he_y+\pd{f}{z}\he_z,
 \end{equation}
-onde $\smash{\delta s=\|\delta \vec r\|}$ é o comprimento do deslocamento
-  $\smash{\delta \vec r}$.
-Por outro lado, de acordo com a eq.~\eqref{eq:df}, essa mesma variação é dada
-por
+com o qual a expressão da variação de $f$ se pode escrever como
+\begin{equation}\label{eq:df}
+\delta f = \delta \vec r\cdot\grad f. 
+\end{equation}
+Esta expressão foi deduzida considerando um sistema de coordenadas cartesiano e
+a base correspondente, como é explícito na eq.~\eqref{eq:gradcart}. Mas a sua
+forma é independente do sistema de coordenadas usado. Na verdade, ela é tomada
+como a \emph{definição} do vetor gradiente de uma função da posição $f$, válida
+em qulquer sistema de coordenadas e para qualquer base.
+
+O vetor gradiente de uma função escalar tem um significado geométrico que é
+importante demonstrar. As derivadas direcionais de uma função da posição num
+dado ponto não têm todas o mesmo valor, uma vez que ele depende da direção
+segundo a qual se toma a derivada. Há direções (as tangentes à superfície
+de nível da função nesse ponto) ao longo das quais a função não varia
+apreciavelmente; a derivada direcional da função segundo essas direções é
+aproximadamente nula.  Noutras direções, a função varia sensivelmente de ponto
+para ponto; nessas direções, a derivada direcional tem uma grandeza elevada.
+Consideremos na eq.~\eqref{eq:df} um deslocamento infinitesimal $\smash{d\vec
+r}$ com a direção de um dado versor $\hat u$. Podemos então escrever
+$\smash{d\vec r=ds\,\hat u}$, onde $ds$ representa o módulo do deslocamento,
+isto é, a distância (indinitesimal) entre as posições inicial e final. A
+eq.~\eqref{eq:df} escreve-se então na forma
 \begin{equation*}
-  \delta f= \pd{f}{x}\delta x+ \pd{f}{y}\delta y+ \pd{f}{z}\delta z;
+df=ds\,\hat u\cdot\grad f,
 \end{equation*}
-mas $\delta x$, $\delta y$ e $\delta z$ são as componentes cartesianas do vetor
-deslocamento, que considerámos na direção do versor $\hat u$, ou seja
-\begin{equation*}
-  \delta x = (\delta \vec r)_x=(\delta s\hat u)_x=\delta s u_x,
-\end{equation*}
-onde $u_x$ representa a componente cartesiana do versor $\hat u$ segundo a
-direção $x$. Procedendo da mesma maneira para as restantes componentes, obtemos
-\begin{equation*}
-  \delta f=\left( \pd{f}{x}u_x+ \pd{f}{y}u_y+ \pd{f}{z}u_z \right)\delta s.
-\end{equation*}
-Comparando esta igualdade com a da eq.~\eqref{eq:ddgrad1} uma expressão para o
-cálculo da derivada direcional de uma função expressa em coordenadas
-cartesianas:
+ou seja,
 \begin{equation}
-  f'_{\hat u}= u_x\pd{f}{x}+ u_y\pd{f}{y}+ u_z\pd{f}{z}.
+f'_{\hat u}=\td{f}{s}=\hat u\cdot \grad f.
 \end{equation}
-
-\subsection{Derivadas parciais}
-Seja $f(\vec r,\,t)$ uma
-função contínua qualquer (pode mesmo ser escalar ou vetorial) da posição $\vec
-r=(x,\,y,\,z)$ e do tempo $t$. Dado um ponto com vetor posição $\vec
-r_0=(x_0,\,y_0,\,z_0)$ e um instante $t_0$, podemos formar os seguintes limites,
-semelhantes aos que definem a noção de derivada
-\begin{align*}
-\pd{H}{x}&=\lim_{\delta x\rightarrow0}
-\frac{H(x_0+\delta x,\,y_0,\,z_0,\,t_0)- H(x_0,\,y_0,\,z_0,\,t_0)}{\delta x}\\
-\pd{H}{y}&=\lim_{\delta y\rightarrow0}
-\frac{H(x_0,\,y_0+\delta y,\,z_0,\,t_0)- H(x_0,\,y_0,\,z_0,\,t_0)}{\delta y}\\
-\pd{H}{z}&=\lim_{\delta z\rightarrow0}
-\frac{H(x_0,\,y_0,\,z_0+\delta z,\,t_0)- H(x_0,\,y_0,\,z_0,\,t_0)}{\delta z}\\
-\pd{H}{t}&=\lim_{\delta t\rightarrow0}
-\frac{H(x_0,\,y_0,\,z_0,\,t_0+\delta t)- H(x_0,\,y_0,\,z_0,\,t_0)}{\delta t}.
-\end{align*}
-Estes limites chamam-se \emph{derivadas parciais} da função $f$ em ordem
-a $x$, $y$, $z$ e $t$, respetivamente.
-
-Quando se usa um sistema de coordenadas cartesiano, as derivadas parciais em
-ordem a cada coordenada coincidem com as derivadas direcionais segundo a direção
-coordenada correspondente, isto é
-\begin{align*}
-\pd{f}{x}&=f'_{\hat e_x}&
-\pd{f}{y}&=f'_{\hat e_y}&
-\pd{f}{z}&=f'_{\hat e_z}
-\end{align*}
-No entanto, como já foi referido, podem usar-se (e usam-se muito frequentemente)
-outros sistemas de coordenadas, e esta relação entre as derivadas parciais e as
-derivadas direcionais segundo os seixos coordenados correspondentes não é sempre
-válida.
+Concluímos assim que a derivada direcional de uma função $f$ segundo uma dada
+direção pode ser calculada como o produto interno do gradiente dessa função pelo
+versor da direção em causa. Mas o valor do produto escalar de dois vetores é o
+do produto dos seus módulos pelo cosseno do ângulo entre eles. Representando por
+$\theta$ o ângulo entre $\hat u$ e $\grad f$ e notando que $\|\hat u\|=1$,
+obtemos então
+\begin{equation*}
+f'_{\hat u}=\|\grad f\|\,\cos\theta
+\end{equation*}
+O valor máximo desta expressão ocorre para $\theta=0$, $\cos\theta=1$. Então,
+concluimos que o gradiente de uma função da posição num ponto é um vetor cujo
+módulo é igual ao valor da maior das derivadas direcionais da função nesse ponto
+e cuja orientação é aquela em que a derivada direcional máxima ocorre.
+ 
 
 
 \section{Operadores diferenciais}
