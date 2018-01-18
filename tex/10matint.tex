@@ -189,21 +189,22 @@ são os seguintes (veja a Figura~\ref{fig:10-015}):
     sinal para indicar de que lado de cada plano se encontra o ponto.
 \item\textbf{coordenadas polares esféricas $(r,\,\theta,\,\phi)$}\\
     Outro sistema muito usual é o das coordenadas polares esféricas. Escolhida a
-    origem, uma direção que a contém (o eixo \emph{polar} e um plano que contem
-    o eixo (plano de referência azimutal), a posição
-    de um ponto é indicada pela sua distância à origem $r$ , pelo ângulo (chamado
-    \emph{ângulo polar}) que a linha que o une à origem faz com o eixo polar
-    $\theta$ e pelo ângulo (\emph{ângulo azimutal}) que essa linha faz com o
-    plano de referência azimutal $\phi$.
+    origem, uma direção que a contém (o eixo \emph{polar}) e um plano que contem
+    o eixo (plano de referência azimutal), a posição de um ponto é indicada pela
+    sua distância à origem $r$, pelo ângulo $\theta$ (chamado \emph{ângulo
+    polar}) que a linha que o une à origem faz com o eixo polar e pelo ângulo
+    $\phi$ (\emph{ângulo azimutal}) que essa linha faz com o plano de referência
+    azimutal.
 \item\textbf{coordenadas polares cilíndricas $(\rho,\,z,\,\phi)$}\\
     De certa maneira, o sistema de coordenadas polares cilíndricas é um misto
     das coordenadas cartesianas e das coordenadas polares esféricas. Com nas
     coordenadas esféricas, escolhe-se uma origem, um eixo polar e um plano de
     referência azimutal; a partir daí, usa-se a distância $\rho$ do ponto ao
     eixo polar (atenção: é a distância ao eixo, não a distância à origem), a
-    a distância $z$ do ponto ao plano perpendicular a esse eixo que contém a
+    distância $z$ do ponto ao plano perpendicular a esse eixo que contém a
     origem (corresponde à coordenada cartesiana $z$ se tomarmos o eixo polar
-    como eixo dos $z$) e o ângulo azimutal para especificar a sua posição.
+    como eixo dos $z$) e o ângulo azimutal $\phi$ para especificar a sua
+    posição.
 \end{itemize}
 \begin{figure}[htb]
 {\centering
@@ -277,7 +278,7 @@ $(\rho,\,z,\,\phi)$ (à direita).\label{fig:10-015}}
 Escolhendo para eixo polar o eixo da coordenada cartesiana $z$ e o plano de
 referência polar coincidente com o plano $zx$, as relações entre as coordenadas
 cartesianas e as coordenadas polares esféricas (colunas da esquerda) e
-cilíndricas (colunas da direita) é 
+cilíndricas (colunas da direita) são
 \begin{align}
 x&=r\sin\theta\cos\phi&
     r&=\sqrt{x^2+y^2+z^2}\hspace{2.0cm}&
@@ -448,7 +449,7 @@ simplificar a sua formulação e resolução. Vejamos alguns exemplos.
   Em coordenadas cartesianas ($x,\,y,\,z)$ com origem também no centro do Sol, a
   mesma função da posição assume a forma
   \begin{equation*}
-    V(x,y,z)=-G\frac{M}{\sqrt{x^2,y^2,z^2}}.
+    V(x,y,z)=-G\frac{M}{\sqrt{x^2+y^2+z^2}}.
   \end{equation*}
   Claramente, o potencial gravitacional solar (ou de outro corpo qulquer com
   forma esférica) tem uma expressão mais simples em coordenadas esféricas do que
