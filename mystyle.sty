@@ -7,7 +7,7 @@
 \addto\captionsportuges{\renewcommand{\contentsname}{\'Indice}}
 \usepackage[font=small,format=plain,labelfont=bf,up,textfont=sl,up]{caption}  
 \usepackage{amsmath,amssymb,tikz,graphicx,pgfplots,etoolbox,icomma,fancyhdr}
-\usepackage{url,tikz-3dplot,wrapfig}
+\usepackage{url,tikz-3dplot,wrapfig,mdframed}
 
 
 \setlength{\headheight}{14pt}
@@ -81,8 +81,11 @@
 \renewcommand{\theexampi}{\thesection.\arabic{exampi}}
 \newenvironment{examples}
 {%
-    \vspace{2mm}\hrule\vspace{1mm}%
+   % \vspace{2mm}\hrule\vspace{1mm}%
     \bgroup\small\sffamily%
+    \strut\hfill
+    \begin{mdframed}[linewidth=1pt,leftmargin=0mm,backgroundcolor=gray!10,
+        rightline=false,innerleftmargin=-3mm]
     \begin{list}
         {\textbf{Exemplo \theexampi:}}%
         {%
@@ -94,8 +97,10 @@
 {%
     \samepage%
     \end{list}
+    \end{mdframed}
     \setcounter{exarec}{\value{exampi}}%
-    \vspace{1mm}\hrule\vspace{2mm}\egroup%
+    %\vspace{1mm}\hrule\vspace{2mm}
+    \egroup%
 }
 
 

@@ -276,32 +276,33 @@ $(\rho,\,z,\,\phi)$ (à direita).\label{fig:10-015}}
 
 Escolhendo para eixo polar o eixo da coordenada cartesiana $z$ e o plano de
 referência polar coincidente com o plano $zx$, as relações entre as coordenadas
-cartesianas e as coordenadas polares (esféricas e cilíndricas) é 
-\begin{align*}
+cartesianas e as coordenadas polares esféricas (colunas da esquerda) e
+cilíndricas (colunas da direita) é 
+\begin{align}
 x&=r\sin\theta\cos\phi&
     r&=\sqrt{x^2+y^2+z^2}\hspace{2.0cm}&
     x&=\rho\cos\phi&
-    \rho&=\sqrt{x^2+y2}\\
+    \rho&=\sqrt{x^2+y2}\nonumber\\
 y&=r\sin\theta\sin\phi&
     \theta&=\arccos\frac{z}{r}&
     y&=\rho\sin\phi&
-    \phi&=\arctan\frac{y}{x}
+    \phi&=\arctan\frac{y}{x}\label{eq:polarcoords}
     \\
     z&=r\cos\theta&
     \phi&=\arctan\frac{y}{x}&
-    z&=z&
-\end{align*}
+    z&=z&\nonumber
+\end{align}
 
 Quando lidamos com variáveis vetoriais, é conveniente dispormos de \emph{bases}
-de vetores, que usamos para as descrever. Por exemplo, o vetor aceleração da
-gravidade perto da superfície da Terra tem direção vertical, é dirigido para
-baixo e o seu módulo é 9,8\,m/s$^2$. Escolhendo uma base formada por dois
-versores (vetores com norma unitária) horizontais $\he_x$ e $\he_y$ e um
-terceiro vetor $\he_z$ vertical, orientado para cima, podemos resumir esta
-descrição na expressão $\smash{\vec g=-9,8\,\text{m/s}^2}\,\he_z$ ou
-$\smash{\vec g=(0,\,0,\,-9,8\,\text{m/s}^2)}$, usando outra notação habitual.
-Qualquer destas notações só fica definida depois de estar escolhida a base
-usada. 
+de vetores, que usamos para as descrever. Por exemplo, a aceleração da
+gravidade é uma variável vetorial que, perto da superfície da Terra, tem direção
+vertical, dirigida para baixo e o seu módulo tem o valor 9,8\,m/s$^2$.
+Escolhendo uma base formada por dois versores (vetores com norma unitária)
+horizontais $\he_x$ e $\he_y$ e um terceiro vetor $\he_z$ vertical, orientado
+para cima, podemos resumir esta descrição na expressão $\smash{\vec
+g=-9,8\,\text{m/s}^2}\,\he_z$ ou $\smash{\vec g=(0,\,0,\,-9,8\,\text{m/s}^2)}$,
+usando outra notação habitual.  Qualquer destas notações só fica definida depois
+de estar escolhida a base usada. 
 
 Este problema da escolha da base é independente do da escolha do sistema de
 coordenadas. Ainda assim, é usual escolherem-se os vetores que formam a base
@@ -411,6 +412,70 @@ excepção a esta regra geral é a dos vetores da base das coordenadas cartesian
 $\he_x$, $\he_y$ e $\he_z$ mantêm as suas orientações inalteradas em todos os
 pontos do espaço.
 
+\subsection{Porque usar coordenadas não cartesianas}
+Já disse que o sistema de coordenadas a usar é escolhido como se julgar mais
+conveniente. Qualquer problema resolúvel usando um sistema de coordenadas pode
+ser resolvido usando outro qualquer. Mas as propriedades de simetria do problema
+podem, escolhendo apropriadamente o sistema de coordenadas, ser exploradas para
+simplificar a sua formulação e resolução. Vejamos alguns exemplos.
+\begin{examples}
+\item A forma de uma superfície esférica com raio $a$ e centro na origem, em
+  coordenadas cartesinas e em coordenadas esféricas.\\
+  Os pontos da superfície esférica estão todos à mesma distância do centro, ou
+  seja, da origem do sistema de coordenadas. Assim, em coordenadas esféricas
+  dizemos que a superfície é formada pelos pontos do conjunto
+  \begin{equation*}
+    S=\{(r,\theta,\phi): r=a\};
+  \end{equation*}
+  em coordenadas cartesianas, a distância à origem é dada por
+  $r=\sqrt{x^2+y^2+z^2}$, de forma que o conjunto dos pontos que formam a
+  superfície é agora definido como
+  \begin{equation*}
+    S=\{(x,y,z): \sqrt{x^2+y^2+z^2}=a\}.
+  \end{equation*}
+  A descrição em coordenadas esféricas é muito mais simples.
+\item
+  Potencial gravitacional do Sol.\\
+  O potencial gravitacional do Sol é, nos pontos exteriores ao próprio Sol,
+  proporcional à massa solar e inversamente proporcional à distância ao seu
+  centro. Em coordenadas esféricas $(r,\,\theta,\,\phi)$ com origem no centro do
+  Sol, a expressão matemática desta função é
+  \begin{equation*}
+    V(r,\theta,\phi)=-G\frac{M}{r},
+  \end{equation*}
+  onde $G$ é uma constante universal (constante da gravitação universal) e $M$ a
+  massa solar.\\
+  Em coordenadas cartesianas ($x,\,y,\,z)$ com origem também no centro do Sol, a
+  mesma função da posição assume a forma
+  \begin{equation*}
+    V(x,y,z)=-G\frac{M}{\sqrt{x^2,y^2,z^2}}.
+  \end{equation*}
+  Claramente, o potencial gravitacional solar (ou de outro corpo qulquer com
+  forma esférica) tem uma expressão mais simples em coordenadas esféricas do que
+  em coordenadas cartesianas, porque a própiar função tem simetria esférica.
+\item
+  Campo elétrico gerado por um fio retilíneo infinitamente comprido,
+  uniformemente carregado.\\
+  Um fio retilíneo de comprimento infinito, uniformemente carregado, gera, nos
+  pontos à sua volta, um campo elétrico com direção radial (isto é, em cada
+  ponto perpendicular à direção do fio, distribuído em torno do fio como os
+  raios de uma roda de bicicleta se distribuem em torno do seu eixo), com uma
+  intensidade inversamente proporcional à distância ao fio. Em coordenadas
+  polares cilíndricas $(\rho,z,\phi)$ com eixo polar coincidente com o fio
+  carregado, a expressão do campo é
+  \begin{equation*}
+    \vec E(\rho,z,\phi)=\frac{1}{2\pi\epsilon_0}\frac{\lambda}{\rho}\he_\rho,
+  \end{equation*}
+  onde $\lambda$ é a densidade linear de carga e $\epsilon_0$ é uma constante
+  universal (permitividade elétrica do vacuo).
+  Em coordenadas cartesianas com o eixo dos $zz$ coincidente com o fio
+  carregado, temos
+  \begin{equation*}
+    \vec E(x,y,z)=\frac{\lambda}{2\pi\epsilon_0}\frac{x\he_x+y\he_y}{x^2+y^2}.
+  \end{equation*}
+  Mais uma vez, as coordenadas cartesianas não permitem a descrição mais simples
+  simples possível.
+\end{examples}
 
 \section{Funções de várias variáveis e derivadas parciais}
 Seja $f(v_1,\,v_2,\,\ldots,v_N)$ uma função contínua de $N$ variáveis $v_1$,
@@ -501,6 +566,117 @@ de igual modo se verifica que
 \end{align*}
 \end{examples}
 
+\section{Vetor deslocamento em coordenadas não cartesianas}
+Consideremos um ponto do espaço que se desloca.  Nesse deslocamento, as
+coordenadas da sua posição vão variando, naturalmente. Usando coordenadas
+cartesianas e a respetiva base, a expressão da variação do vetor posição como
+função das variações das coordenadas é particularmente simples:
+\begin{equation*}
+  \delta \vec r= \delta x\he_x+\delta y\he_y+\delta z\he_z.
+\end{equation*}
+Vejamos agora como exprimir esta variação do vetor posição usando sistemas de
+coordenadas arbitrários. Antes, porém, vamos introduzir a notação alternativa
+seguinte para as coordenadas cartesianas:
+\begin{align*}
+  x_1&=x&\he_1&=\he_x\\
+  x_2&=y&\he_2&=\he_y\\
+  x_3&=z&\he_3&=\he_z.
+\end{align*}
+Esta notação permite escrever muitas expressões de forma mais compacta. Por
+exemplo,
+\begin{equation}\label{eq:drcart}
+  \delta\vec r= \delta x\he_x+\delta y\he_y+\delta z\he_z
+  =x_1\he_1+ x_2\he_2+ x_3\he_3=\sum_{i=1}^3x_i\he_i.
+\end{equation}
+
+Introduzindo-se um outro sistema de coordenadas $(v_1, v_2, v_3)$, podemos
+escrever, usando a regra da derivação da fução composta,
+\begin{equation*}
+\delta x_i=\sum_{j=1}^3\delta v_j\pd{x_i}{v_j},
+\end{equation*}
+de forma que
+\begin{equation}\label{eq:drmixcoords}
+  \delta\vec r=\sum_{i=1}^3\delta x_i\he_i=\sum_{i=1}^3\sum_{j=1}^3\delta v_j
+  \pd{x_i}{v_j}\he_i=\sum_{j=1}^3\delta v_j\vec w_j,
+\end{equation}
+onde se introduziram os vetores
+\begin{equation*}
+  \vec w_j=\sum_{i=1}^3\pd{x_i}{v_j}\he_i,\qquad j=1,\,2,\,3.
+\end{equation*}
+A igualdade final na expressão da eq.~\eqref{eq:drmixcoords} mostra que o vetor
+$\vec w_j$ tem a direção em que a coordenada correspondente $v_j$ aumenta quando
+as restantes não sofrem variações. Ou seja, tem a direção coordenada da
+coordenada $v_j$. Sejam $h_j$ os módulos destes vetores, isto é,
+\begin{align*}
+  h_j&=\|\vec w_j\|=
+  \left\|\sum_{i=1}^3\pd{x_i}{v_j}\he_i\right\|=
+  \sqrt{\sum_{i=1}^3\left(\pd{x_i}{v_j}\right)^2},\qquad j=1,\,2,\,3.
+\end{align*}
+Então os versores
+\begin{equation*}
+  \hat u_j=\frac{\vec w_j}{h_j}
+\end{equation*}
+são os que formam a base do sistema de coordenadas $(v_1,v_2,v_3)$. No novo
+sistema de coordenadas, a expressão do deslocamento, que em coordenadas
+cartesianas se escreve como na eq.~\eqref{eq:drcart}, toma então a forma
+\begin{equation}\label{eq:drncart}
+  \delta\vec r = \sum_{j=1}^3\delta v_jh_j\hat u_j.
+\end{equation}
+\begin{examples}
+\item Deslocamento em coordenadas polares esféricas\\
+\label{ex:drsph}
+Dada a relação entre as coordenadas cartesianas e as polares esféricas (ver as
+coluna da esquerda da eq.~\eqref{eq:polarcoords}, temos
+\begin{align*}
+\pd{x}{r}&=\sin\theta\cos\phi &
+\pd{x}{\theta}&=r\cos\theta\cos\phi &
+\pd{x}{\phi}&=-r\sin\theta\sin\phi\\
+\pd{y}{r}&=\sin\theta\sin\phi &
+\pd{y}{\theta}&=r\cos\theta\sin\phi &
+\pd{y}{\phi}&=r\sin\theta\cos\phi\\
+\pd{z}{r}&=\cos\theta&
+\pd{z}{\theta}&=-r\sin\theta&
+\pd{z}{\phi}&=0
+\end{align*}
+Assim,
+\begin{align*}
+\vec\omega_r&=\sum_{i=1}^3\pd{x_i}{r}\he_i=
+\pd{x}{r}\he_x+
+\pd{y}{r}\he_y+
+\pd{z}{r}\he_z\\
+&=\sin\theta\cos\phi\,\he_x+\sin\theta\sin\phi\,\he_y+\cos\theta\,\he_z.
+\end{align*}
+De igual modo,
+\begin{align*}
+\vec w_\theta&=
+    r\cos\theta\cos\phi\,\he_x+r\cos\theta\sin\phi\,\he_y-r\sin\theta\,\he_z\\
+\vec w_\phi&= -r\sin\theta\sin\phi\,\he_x+r\sin\theta\cos\phi\,\he_y.
+\end{align*}
+Os módulos destes vetores são
+\begin{align*}
+h_r&=\|\vec w_r\|=1 &
+h_\theta &=\|\vec w_\theta\|=r &
+h_\phi&=\|\vec m_\phi\|=r\sin\theta.
+\end{align*}
+Os versores da base das coordenadas polares esféricas são então
+\begin{align*}
+\hat u_r&=\vec w_r=
+    \sin\theta\cos\phi\he_x+\sin\theta\sin\phi\,\he_y+\cos\theta\,\he_z\\
+\hat u_\theta&=\frac{1}{r}\vec w_\theta=
+    \cos\theta\cos\phi\he_x+\cos\theta\sin\phi\,\he_y-\sin\theta\,\he_z\\
+\hat u_\phi&=\frac{1}{r\sin\theta}\vec w_\phi=
+    -sin\phi\he_x+\cos\phi\,\he_y
+\end{align*}
+Por fim, o vetor deslocamento escreve-se
+\begin{equation*}
+\delta\vec r = \delta r\hat u_r+ r\delta\theta\hat
+u_\theta+r\sin\theta\delta\phi\hat u_\phi.
+\end{equation*}
+
+\item Deslocamento em coordenadas polares cilíndricas\\
+Fica como exercício.
+\end{examples}
+
 
 \section{Derivadas de funções da posição e do tempo}
 Na análise de problemas físicos lidamos frequentemente com variáveis que
@@ -570,7 +746,7 @@ distância. Por exemplo, o campo elétrico é uma derivada direcional do potenci
 eletrostático, cuja unidade no SI é o volt (V); então, as unidades SI do campo
 elétrico são o volt por metro (V/m).
 
-\subsection{Gradiente de uma função escalar}
+\subsection{Gradiente de uma função escalar e operador nabla}
 Seja dada uma função cotínua da posição $f(\vec r)$ expressa em coordenadas
 cartesianas, $f(\vec r)=f(x,y,z)$.  A sua variação num deslocamento
 infinitesimal $\smash{\delta\vec r}$ com componentes cartesianas $\delta x$,
@@ -587,7 +763,7 @@ cartesianas correspondentes,
 \grad f=\pd{f}{x}\he_x+\pd{f}{y}\he_y+\pd{f}{z}\he_z,
 \end{equation}
 com o qual a expressão da variação de $f$ se pode escrever como
-\begin{equation}\label{eq:df}
+\begin{equation}\label{eq:df2}
 \delta f = \delta \vec r\cdot\grad f. 
 \end{equation}
 Esta expressão foi deduzida considerando um sistema de coordenadas cartesiano e
@@ -607,8 +783,8 @@ para ponto; nessas direções, a derivada direcional tem uma grandeza elevada.
 Consideremos na eq.~\eqref{eq:df} um deslocamento infinitesimal $\smash{d\vec
 r}$ com a direção de um dado versor $\hat u$. Podemos então escrever
 $\smash{d\vec r=ds\,\hat u}$, onde $ds$ representa o módulo do deslocamento,
-isto é, a distância (indinitesimal) entre as posições inicial e final. A
-eq.~\eqref{eq:df} escreve-se então na forma
+isto é, a distância (infinitesimal) entre as posições inicial e final. A
+eq.~\eqref{eq:df2} escreve-se então na forma
 \begin{equation*}
 df=ds\,\hat u\cdot\grad f,
 \end{equation*}
@@ -625,12 +801,95 @@ obtemos então
 \begin{equation*}
 f'_{\hat u}=\|\grad f\|\,\cos\theta
 \end{equation*}
-O valor máximo desta expressão ocorre para $\theta=0$, $\cos\theta=1$. Então,
-concluimos que o gradiente de uma função da posição num ponto é um vetor cujo
-módulo é igual ao valor da maior das derivadas direcionais da função nesse ponto
-e cuja orientação é aquela em que a derivada direcional máxima ocorre.
+O valor máximo desta expressão ocorre para $\theta=0$, $\cos\theta=1$. Ou seja,
+o gradiente de uma função da posição num ponto é um vetor cujo módulo é igual ao
+valor da maior das derivadas direcionais da função nesse ponto e cuja orientação
+é aquela em que a derivada direcional máxima ocorre.
  
+Para além do gradiente, é conveniente considerar outras variáveis relacionadas
+com derivadas espaciais de funções de várias variáveis, que estudaremos a
+seguir. Acontece que todas essas variáveis podem ser expressas de forma simples
+e familiar introduzindo um operador vetorial diferencial chamado \emph{nabla},
+expresso em coordenadas cartesianas como
+\begin{equation}
+\vec \nabla = \he_x\pd{}{x}+ \he_y\pd{}{y}+ \he_z\pd{}{z}.
+\end{equation}
+Introduzido este símbolo, o gradiente de uma função escalar $f$ escreve-se
+simplesmente como
+\begin{equation*}
+\grad f=\vec \nabla f.
+\end{equation*}
 
+\begin{examples}
+\item Gradiente da função $f(x,y,z)=\exp(-x^2-y^2-z^2)$\\
+\label{ex:gausgrad}
+As derivadas parciais desta função em ordem às coordenadas cartesianas $x$, $y$
+e $z$ são
+\begin{align*}
+\pd{f}{x}&=-2xf&
+\pd{f}{y}&=-2yf&
+\pd{f}{z}&=-2zf;
+\end{align*}
+então
+\begin{equation*}
+\grad f=-2f(x,y,z)(x\he_x+y\he_y+z\he_z)=-2f(x,y,z)\vec r.
+\end{equation*}
+\end{examples}
+
+\subsection{Gradiente em coordenadas não cartesianas}
+Em geral o gradiente de uma função escalar da posição $f(\vec r)$ define-se
+através da igualdade da eq.~\eqref{eq:df2}. Usando coordenadas arbitrárias (não
+necessariamente cartesianas) $(v_1,v_2,v_3)$, o vetor deslocamento é dado pela
+eq.~\eqref{eq:drncart}, pelo que, em geral, a eq.~\eqref{eq:df2} escreve-se como
+\begin{equation}\label{eq:gradncart1}
+\delta f=\sum_{j=1}^3\delta v_kh_k\hat u_k\cdot\grad f=
+\sum_{j=1}^3\delta v_jh_j(\grad f)_j,
+\end{equation}
+onde se introduziram as componentes $(\grad f)_j=\hat u_k\cdot\grad f$ do vetor
+gradiente de $f$ relativamente à base das coordenadas $(v_1,v_2,v_3)$. Por outro
+lado, a variação da função $f$ resultante das variações das coordenadas $v_j$
+pode ser escrita simplesmente como
+\begin{equation}
+\delta f=\sum_{j=1}^3\delta v_j\pd{f}{v_j}.
+\end{equation}
+Comparando esta igualdade com a da eq.~\eqref{eq:gradncart1}, e notando que as
+variações $\delta v_j$ são independentes, obtemos expressões para as componentes
+do vetor gradiente relativamente à base dos versores $\hat u_j$:
+\begin{equation*}
+    (\grad f)_j=\frac{1}{h_j}\pd{f}{v_j},
+\end{equation*}
+ou seja,
+\begin{equation}\label{eq:gradncart}
+\grad f=\sum_{j=1}^3\frac{1}{h_j}\pd{f}{v_j}\,\hat u_j.
+\end{equation}
+
+\begin{examples}
+\item Gradiente em coordenadas polares esféricas.\\
+Relembrando os resultados calculados no Exemplo~\ref{ex:drsph}, obtemos
+\begin{equation*}
+\grad f(r,\theta,\phi)=\pd{f}{r}\hat u_r+\frac{1}{r}\pd{f}{\theta}\hat u_\theta
++\frac{1}{r\sin\theta}\pd{f}{\phi}\hat u_\phi.
+\end{equation*}
+
+\item De novo o Exemplo~\ref{ex:gausgrad}, agora em coordenadas polares
+esféricas\\
+Uma vez que $r^2=x^2+y^2+z^2$, a função $f$ do Exemplo~\ref{ex:gausgrad} pode
+escrever-se em coordenadas esféricas como
+\begin{equation*}
+f(\vec r)=\exp(-r^2).
+\end{equation*}
+Aplicando a eq.~\eqref{eq:gradncart} resulta imediatamente
+\begin{equation*}
+\grad f=\pd{f}{r}\hat u_r=-2f(r)(r\hat u_r)=-2f(r)\vec r,
+\end{equation*}
+resultado que está de acordo com o que obtivémos em coorddenadas cartesianas.
+\end{examples}
+
+\section{Integrais de funções vetoriais da posição}
+
+\subsection{Integral de caminho e circulação}
+
+\subsection{Fluxo}
 
 \section{Operadores diferenciais}
 As equações de Maxwell são quatro equações às derivadas parciais dos campos
