@@ -478,6 +478,70 @@ simplificar a sua formulação e resolução. Vejamos alguns exemplos.
   simples possível.
 \end{examples}
 
+\section{Representações gráficas de funções da posição}
+As representações gráficas de funções da posição numa superfície ou no espaço
+são complicadas porque há sempre mais variáveis envolvidas do que dimensões no
+plano onde se desenha a representação. No caso de funções escalares definidas
+numa superfície (por exemplo, a temperatura superficial numa chapa de vidro, a
+espessura da película de água que delimita uma bola de sabão, ou a altitude numa
+região geográfica), a opção mais usual é a de usar um \emph{mapa de cores,} onde
+se faz corresponder diferentes cores a diferentes valores da função; outra
+possibilidade é a da representação por \emph{contornos} ou \emph{linhas de
+nível,} onde se desenham linhas que unem pontos onde a função tem valor (nível)
+constante. A Figura~\ref{fig:plot2d} ilustra estas duas possibilidades.
+\begin{figure}[htb]
+{\centering
+\includegraphics[width=0.4\linewidth]{figs/f10-plot2d-surf}\hspace{5mm}
+\includegraphics[width=0.4\linewidth]{figs/f10-plot2d-cont}\hspace{5mm}
+\par
+}
+\caption{Duas representações gráficas da função $f(x,y)=xy$. À esquerda, por
+mapa de cores; à direita por linhas de nível.\label{fig:plot2d}}
+\end{figure}
+
+Em três dimensões, as linhas de nível são antes \emph{superfícies de nível} e a
+representação gráfica torna-se ainda mais complicada, mas é ainda possível. Por
+exemplo, são usuais as representações das superfícies de nível da função
+probabilidade de presença eletrónica nas orbitais atómicas dos átomos
+hidrogenóides (Figura~\ref{fig:orbitals})
+\begin{figure}[htb]
+{\centering
+\includegraphics[width=0.5\linewidth]{figs/f10-030.jpg}
+\par
+}
+\caption{Representação gráfica de algumas orbitais eletrónicas do átomo de
+hidrogénio. As superfícies desenhadas são superfícies de nível da função (da
+posição) densidade de probabilidade de presença do eletrão. (Imagem retirada de
+\protect\url{http://chemsite.lsrhs.net/bonding/configs.html})%
+\label{fig:orbitals}}
+\end{figure}
+
+A representação gráfica de funções vetoriais (por exemplo, o campo da velocidade
+do escoamento da água num rio, ou o campo elétrico gerado por uma distribuição
+de cargas) é ainda mais difícil porque para além da intensidade da função, deve
+ainda dar-se informação sobre a sua orientação. Uma possibilidade comum é fazer
+uma mapa de setas, onde se desenha uma malha de setinhas que representam a
+função em cada ponto. Mas a opção mais útil e clara é a representação por
+\emph{linhas de força,} linhas que são em cada ponto tangentes à direção da
+função. Nesta representação não é dada uma ideia direta da intensidade da função,
+apenas da sua orientação. Porém, para todas as funções com interesse físico,
+verifica-se que têm maior intensidade nas regiões onde as linhas de força se
+encontram mais próximas umas das outras.  A Figura~\ref{fig:dipole} ilustra as
+linhas de força do campo elétrico gerado por duas cargas de sinal oposto mas
+igual módulo.
+\begin{figure}[htb]
+{\centering
+\includegraphics[width=0.4\textwidth]{figs/f10-dipole.png}
+\par
+}
+\caption{representação por linhas de força do campo elétrico gerado por duas
+cargas de igual módulo e sinal oposto. (Imagem retirada de 
+\protect\url{https://commons.wikimedia.org/wiki/File:VFPt_dipole_electric.svg}.)
+\label{fig:dipole}}
+\end{figure}
+
+
+
 \section{Funções de várias variáveis e derivadas parciais}
 Seja $f(v_1,\,v_2,\,\ldots,v_N)$ uma função contínua de $N$ variáveis $v_1$,
 $v_2$, \ldots, $v_N$. Por \emph{função} entendemos apenas uma aplicação
@@ -863,7 +927,7 @@ ou seja,
 \begin{equation}\label{eq:gradncart}
 \grad f=\sum_{j=1}^3\frac{1}{h_j}\pd{f}{v_j}\,\hat u_j.
 \end{equation}
-
+%\vspace{-5mm}
 \begin{examples}
 \item Gradiente em coordenadas polares esféricas.\\
 Relembrando os resultados calculados no Exemplo~\ref{ex:drsph}, obtemos
@@ -883,7 +947,8 @@ Aplicando a eq.~\eqref{eq:gradncart} resulta imediatamente
 \begin{equation*}
 \grad f=\pd{f}{r}\hat u_r=-2f(r)(r\hat u_r)=-2f(r)\vec r,
 \end{equation*}
-resultado que está de acordo com o que obtivémos em coorddenadas cartesianas.
+resultado que está de acordo com o que obtivémos em coordenadas cartesianas, mas
+que agora foi bastante mais fácil de calcular.
 \end{examples}
 
 \section{Integrais de funções vetoriais da posição}
