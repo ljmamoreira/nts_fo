@@ -413,7 +413,7 @@ excepção a esta regra geral é a dos vetores da base das coordenadas cartesian
 $\he_x$, $\he_y$ e $\he_z$ mantêm as suas orientações inalteradas em todos os
 pontos do espaço.
 
-\subsection{Porque usar coordenadas não cartesianas}
+\subsection*{Porque usar coordenadas não cartesianas}
 Já disse que o sistema de coordenadas a usar é escolhido como se julgar mais
 conveniente. Qualquer problema resolúvel usando um sistema de coordenadas pode
 ser resolvido usando outro qualquer. Mas as propriedades de simetria do problema
@@ -687,6 +687,7 @@ cartesianas se escreve como na eq.~\eqref{eq:drcart}, toma então a forma
 \begin{equation}\label{eq:drncart}
   \delta\vec r = \sum_{j=1}^3\delta v_jh_j\hat u_j.
 \end{equation}
+\vspace{-5mm}
 \begin{examples}
 \item Deslocamento em coordenadas polares esféricas\\
 \label{ex:drsph}
@@ -737,9 +738,9 @@ Por fim, o vetor deslocamento escreve-se
 \delta\vec r = \delta r\hat u_r+ r\delta\theta\hat
 u_\theta+r\sin\theta\delta\phi\hat u_\phi.
 \end{equation*}
-
-\item Deslocamento em coordenadas polares cilíndricas\\
-Fica como exercício.
+%
+%\item Deslocamento em coordenadas polares cilíndricas\\
+%Fica como exercício.
 \end{examples}
 
 
@@ -952,10 +953,311 @@ que agora foi bastante mais fácil de calcular.
 \end{examples}
 
 \section{Integrais de funções vetoriais da posição}
+É possível definir um grande número de propriedades integrais de funções
+vetoriais da posição. Nestes apontamentos focamo-nos nas que terão maior aplicação
+mais à frente: o \emph{integrais de caminho} ao longo de uma curva e o
+\emph{fluxo} através de uma superfície.
 
 \subsection{Integral de caminho e circulação}
+\begin{minipage}[t]{0.7\textwidth}
+Consideremos o trabalho realizado por uma força que depende da posição $\vec
+F(\vec r)$, aplicada numa partícula que se desloca ao longo de uma curva $c$. A
+aplicação direta da fórmula elementar para o cálculo do trabalho nesta situação
+($W=\vec F\cdot\Delta\vec r$) não é,em geral, válida porque o vetor $\vec F(\vec
+r)$ pode variar de ponto para ponto ao longo da trajetória $c$.  Este problema é
+ultrapassado dividindo a trajetória seguida num grande número ($N$) de pequenos 
+\linebreak
+\vspace{-0.65\baselineskip}
+\end{minipage}\hfill
+\begin{tikzpicture}[baseline={([yshift=-1em]current bounding box.north)},
+scale=0.9]
+\small
+\clip(-0.6,-0.6) rectangle(3.9,1.8);
+\draw (0,0) node[left] {$A$} .. controls (1,-1) and (2,2) .. (3.5,1)
+            node[below] {$B$}
+            node [pos=0.8,above] {$c$}
+            coordinate [pos=0.1] (d)
+            coordinate [pos=0.3] (a)
+            coordinate [pos=0.5] (b)
+            coordinate [pos=0.65] (c);
+\draw [->,very thick] (d)--(a) node [below,xshift=2mm]{$\delta\vec r_{k-1}$};
+\draw [->,very thick] (a)--(b) node [below right]{$\delta\vec r_k$};
+\draw [->,very thick] (b)--(c) node [below right]{$\delta\vec r_{k+1}$};
+\draw [very thick, ->] (a) --+(80:1.5) node[left]{$\vec F$};
+\end{tikzpicture}\\
+deslocamentos $\delta\vec r_k$, $k=1,2,\ldots N$. O
+trabalho total realizado pela força $\vec F$ durante o deslocamento ao longo da
+trajetória é igual à soma dos tralbalhos realizados em cada passo $\delta\vec
+r_1$, $\delta \vec r_2$, \ldots Estes passos elementares são escolhidos
+suficientemente pequenos para que se possam desprezar as variações de $\vec
+F(\vec r)$ em cada um e portanto, nestas condições, o trabalho realizado em
+cada porção do deslocamento pode ser calculado com a fórmula básica $\delta
+W_k=\vec F\cdot\delta\vec r_k$.  Uma vez calculadas as contribuições dos
+diferentes deslocamentos elementares, o trabalho total ao longo de todo o
+deslocamento é obtido somando-os
+\begin{equation*}
+W\simeq \sum_{k=1}^N \delta W_k=
+        \sum_{k=1}^N \vec F(\vec r_k)\cdot \delta \vec r_k.
+\end{equation*}
+Esta estimativa é apenas aproximada porque resulta de se desprezarem as
+variações de $\vec F$ no interior de cada um dos pequenos deslocamentos $\delta
+\vec r_k$. Podemos melhorar a aproximação reduzindo o tamanho desses pequenos
+deslocamentos, e aumentando o seu número total $N$. Recuperamos o valor exato
+tomando o limite de um número infinito deslocamentos infinitamente pequenos:
+\begin{equation*}
+W=\lim_{\substack{N\to\infty\\ \delta\vec r_k\to0}}\sum_{k=1}^N \vec F(\vec r_k)\cdot\delta\vec r_k.
+\end{equation*}
+O limite no lado direito desta igualdade chama-se \emph{integral de caminho} da
+função vetorial $\vec F(\vec r)$ ao longo do caminho $c$ e representa-se como
+\begin{equation}
+\int_c\vec F(\vec r)\cdot d\vec r=\lim_{\substack{N\to\infty\\
+\delta\vec r_k\to0}}\sum_{k=1}^N \vec F(\vec r_k)\cdot\delta\vec r_k.
+\end{equation}
+No contexto em que fizemos esta discussão, a função $\vec F$ é uma força e,
+consequentemente, o integral de caminho é o trabalho que ela realiza. Mas a
+noção de integral de caminho pode aplicar-se para qualquer função vetorial da
+posição (velocidade do escoamento de um fluido, campo magnético, etc.).
+
+A curva do espaço ao longo da qual se calcula o integral de caminho pode ser
+fechada, ou seja, começar e acabar num mesmo ponto. Nesses casos, chamamos
+\emph{circulação} ao integral de caminho. Para explicitar que um integral de
+caminho é uma circulação, é costume decorar o símbolo de integral com um
+círculo, como o que se apresenta no primeiro membro da equação seguinte (uma das
+equações de Maxwell do eletromagnetismo):
+\begin{equation*}
+  \oint_c \vec E\cdot d\vec l = -\td{}{t}\int_{S}\vec B\cdot\hat ndS.
+\end{equation*}
+
+O sentido em que se faz o integral de caminho numa curva aberta é normalmente
+fixado pelo que se considera início e fim da própria curva; mas, numa
+circulação, o início e o fim coincidem, de forma que não se pode daí deduzir o
+sentido da integração. Por isso, para concretizar o significado da circlação (e,
+mais prosaicamente, o sinal do resultado) tem que se indicar em que sentido é
+feito o cálculo.
+
+Algumas funções vetoriais têm a particularidade de terem circulação nula,
+qualquer que seja a curva de integração (desde que fechada, bem entendido).
+Essas funções dizem-se \emph{conservativas}\footnote{Esta designação tem ainda
+  que ver com as propriedades de alguns campos de forças: os casos em que as
+  forças têm circulações necessariamente nulas são os casos em que se pode
+aplicar o Princípio da Conservação da Energia Mecânica.}
+
+\subsubsection*{Cálculo de integrais de caminho}
+Em muitas situações importantes, o valor de um integral de caminho pode ser
+deduzido sem serem necessários cálculos. Por exemplo, quando a função integranda
+é uniforme, pode ser posta em evidência no integral, resultando então o simples
+produto escalar com o deslocamento total. Ainda mais simples, se função
+integranda for, em cada ponto, perpendicular à trajetória, o seu produto
+escalar com o elemento de deslocamento é nulo; logo, é igualmente nulo o integral.
+
+Mais em geral, o cálculo do integral de caminho
+\begin{equation*}
+I=\int_c\vec F(\vec r)\cdot d\vec r
+\end{equation*}
+passa por explicitar o produto escalar $\vec F(\vec r)\cdot d\vec r$ (usando a
+fórmula geométrica $\vec F\cdot d\vec r=F dr\cos\theta$, ou a fórmula analítica
+$\vec F\cdot d\vec r=F_xdx+F_ydy+F_zdz$) e por exprimir as variáveis envolvidas
+na expressão resultante como funções de um parâmetro escalar que caracterize a
+posição ao longo do caminho (por exemplo, a distância ao ponto inicial, medida
+ao longo do caminho). Seguem-se alguns exemplos.
+
+\begin{examples}
+\item \label{ex:a} Calcule o valor do integral de caminho da função vetorial
+uniforme $\vec A(\vec r)=\he_x/2+\he_y$ ao longo de uma semicircunferência no
+plano $xy$, com raio $a$ e centro na origem, com início no ponto $A=(a,\,0)$ e
+fim em $B=(-a,\,0)$.\\
+\begin{tikzpicture}[scale=0.7,baseline={([yshift=-10pt]current bounding
+box.north)}]
+\small
+\draw [->](-1.5,0) -- (1.5,0) node [below] {$x$};
+\draw [->] (0,-0.65) -- (0,1.5) node[above]{$y$};
+\draw [thick](1,0) node[below]{$A$} arc (0:180:1) node[below]{$B$} node [pos=0.7,below]{$c$};
+\draw [->] (30:1) --+(0.3,0.6) node [right]{$\vec F$};
+\draw [->] (80:1) --+(0.3,0.6);
+\draw [->] (130:1) --+(0.3,0.6);
+\end{tikzpicture}\hfill
+\begin{minipage}[t]{0.8\linewidth}
+Como a função é uniforme, $\vec A$ pode ser posto em evidência no integral.
+Então
+\begin{align*}
+\int_c\vec A(\vec r)\cdot d\vec r&=\vec A(\vec r)\cdot \int_c d\vec r=\vec
+A\cdot\Delta\vec r= (\he_x/2+\he_y)\cdot(-2a\he_x) =-a.
+\end{align*}
+\end{minipage}
+
+\item
+    Repita o cálculo anterior, mas agora ao longo de outra porção da mesma
+    circunferência, o arco compreendido entre $C=(0,-a)$ e $D=(0,a)$\\
+    \begin{tikzpicture}[scale=0.7,
+                        baseline={([yshift=-10pt]current bounding box.north)}]
+    \small
+    \draw [->](-1.5,0) -- (1.5,0) node [below] {$x$};
+    \draw [->] (0,-0.65) -- (0,1.5) node[above]{$y$};
+    \draw [thick](0,-1) node[left]{$A$} arc (-90:90:1) node[left]{$B$} node
+    [pos=0.3,below]{$e$};
+    \draw [->] (280:1) --+(0.3,0.6);
+    \draw [->] (10:1) --+(0.3,0.6) node [right]{$\vec F$};
+    \draw [->] (80:1) --+(0.3,0.6);
+    \end{tikzpicture}\hfill
+\begin{minipage}[t]{0.8\linewidth}
+O cálculo é semelhante ao do exemplo anterior:
+\begin{align*}
+\int_e\vec A\cdot d\vec r&=\vec A\int_e d\vec r=(\he_x/2+\he_y)\cdot(-2a\he_y)
+=-2a.
+\end{align*}
+\end{minipage}
+\item
+    Mostre que as funções uniformes são conservativas.
+\item Calcule o integral de caminho da função $\vec A=\vec r/2$ ao longo do caminho do
+Exemplo~\ref{ex:a}\\
+\begin{tikzpicture}[scale=0.7,baseline={([yshift=-10pt]current bounding
+box.north)}]
+\small
+\draw [->](-1.5,0) -- (1.5,0) node [below] {$x$};
+\draw [->] (0,-0.65) -- (0,1.5) node[above]{$y$};
+\draw [thick](1,0) node[below]{$A$} arc (0:180:1) node[below]{$B$} node [pos=0.7,below]{$c$};
+\draw [->] (30:1) --+(30:0.5) node [right]{$\vec A$};
+\draw [->] (80:1) --+(70:0.5);
+\draw [->] (130:1) --+(130:0.5);
+\end{tikzpicture}\hfill
+\begin{minipage}[t]{0.8\linewidth}
+A função integranda é, em cada ponto, perpendicular ao caminho de integração.
+Logo, $\vec A\cdot d\vec r=0$, e o integral anula-se também.
+\end{minipage}
+\item
+Agora, um exemplo menos trivial: calcule o integral de caminho da função $\vec
+A=\vec r/2$ do exemplo anterior, ao longo do segmento de reta que une os pontos
+$(0,\,a)$ e $(b,\,0)$, com $a,\,b>0$.\\
+\begin{tikzpicture}[scale=0.7,
+                    baseline={([yshift=-10pt]current bounding box.north)}]
+\small
+\coordinate(O) at (0,0);
+\draw [->](-.25,0) -- (2.0,0) node [right] {$x$};
+\draw [->] (0,-0.25) -- (0,1.25) node[left]{$y$};
+\coordinate (A) at (0,0.75);
+\coordinate (B) at (1.5,0);
+\draw [thick] (0,0.75) node [left]{$a$} -- (1.5,0) node [below]{$b$}
+    coordinate [pos=0.2] (a)
+    coordinate [pos=0.5] (b)
+    coordinate [pos=0.8] (c);
+\draw [->] (a) -- ($ (a)!-0.5!(O) $);
+\draw [->] (b) -- ($ (b)!-0.5!(O) $) node [above] {$\vec A$};
+\draw [->] (c) -- ($ (c)!-0.5!(O) $);
+\draw ($ (B)!7mm!(A) $) arc (180-atan(0.5):180:7mm)
+node [shift={(-4pt,4pt)}] {$\alpha$};
+\end{tikzpicture}\hfill
+\begin{minipage}[t]{0.8\linewidth}
+Seja $\alpha=\arctan(a/b)$ o ângulo entre a direção do caminho de integração e o
+eixo dos $x$. Então, em todos os pontos do caminho de integração, temos
+\begin{align*}
+y&=a-x\tan\alpha & dy&=-\tan\alpha\,dx & d\vec r&=(dx,\,dy)\\
+\vec A&=\frac{\vec r}{2}= \left(\frac{x}{2},\,\frac{y}{2}\right)
+\end{align*}
+\end{minipage}
+Assim sendo, podemos escrever
+\begin{align*}
+\vec A\cdot d\vec r&=\frac{x}{2}dx+\frac{y}{2}dy=\frac{x}{2}dx+
+\frac{a-\tan\alpha\,x}{2}(-\tan\alpha\,dx)\\
+&=\frac{x}{2}\left(1+\tan^2\alpha\right)dx-\frac{a}{2}\tan\alpha\,dx
+\end{align*}
+E, por fim,
+\begin{equation*}
+\int_c\vec A\cdot d\vec r=\int_0^b\left[
+\frac{x}{2}\left(1+\tan^2\alpha\right)-\frac{a}{2}\tan\alpha\right]\,dx=
+\frac{b^2}{4}\left(1+\tan^2\alpha\right)-\frac{ab}{2}\tan\alpha
+=\frac{b^2-a^2}{4}
+\end{equation*}
+Note-se que se escreveu o produto escalar como a soma dos produtos das
+componentes homónimas dos dois vetores $\vec A$ e $d\vec r$ (fórmula analítica)
+e se usou a variável $x$ como parâmetro de posição ao longo do caminho de
+integração.
+\end{examples}
 
 \subsection{Fluxo}
+Dada uma função vetorial uniforme $\vec A$ e uma superfície plana com área
+$\Delta S$ e versor normal $\hat n$, chama-se \emph{fluxo}\footnote{A designação
+\emph{fluxo} vem da mecância de fluidos. No escoamento de um fluido, o
+\emph{fluxo} (no sentido agora definido) da função velocidade do fluido através
+de uma dada superfície é igual ao \emph{fluxo} que a atravessa (no sentido de
+volume de fluido que passa através da superfície por unidade de tempo).}
+de $\vec A$ através da superfície no sentido de $\hat n$ ao produto escalar
+\begin{equation*}
+\Delta \Phi=\vec A\cdot \hat n\,\Delta S.
+\end{equation*}
+Intuitivamente, esta variável dá expressão quantitativa à noção vaga da
+``quantidade de função'' que atravessa a superfície. Com essa noção vaga,
+esperamos que o fluxo seja maior quando a função é mais intensa, ou quando a
+área da superfície considerada aumenta, e ainda quando a função é perpendicular
+à superfície que, assim, consegue ``apanhar'' mais campo.\footnote{Só um
+exemplo: colocamos um tubo de ensaio debaixo de um chuveiro; enchemo-lo mais
+rapidamente se o caudal do chuveiro for intenso (módulo de $\vec A$ elevado), ou
+se a boca do tubo for larga (grande área $S$) ou se virarmos a boca do tubo bem
+na direção dos jatos de água do chuveiro (superfície perpendicular à função).}
+
+Nos casos em que a função não é uniforme e/ou a superfície não é plana,
+aplica-se um procedimento semelhante ao usado para os integrais de caminho:
+divide-se a superfície de integração num grande número de elementos muito
+pequenos, tão pequenos que as variações da função e a curvatura da superfície se
+podem desprezar dentro de cada um. Nesta aproximação (que é exata no limite em
+que o número de elementos de área tende para infinito e eles se tornam
+infinitesimais) podemos aplicar a expressão acima apresentada para calcular o
+fluxo da função através de cada elemento, e somar os vários resultados para
+obter o fluxo total através da superfície. O fluxo de uma função genérica $\vec
+A$ (não necessariamente uniforme) através de uma superfície $S$ (não
+necessariamente plana) fica assim definido como
+\begin{equation*}
+\Phi = \int_S \vec A\cdot\hat n \, dS =
+\lim_{\substack{N\to\infty\\\delta S_k\to0}}
+\sum_{k=1}^N\vec A\cdot\hat n_k\,\delta S_k,
+\end{equation*}
+onde $\hat n$ representa o versor normal à superfície em cada ponto e $\hat n_k$
+o versor normal a cada elemento de área considerado.
+
+\subsubsection*{Cálculo do fluxo}
+Há muitas situações (principalmente em aplicações pedagógicas) em que o cálculo
+do fluxo é particularmente simples. Por exemplo, se a função $\vec A$ for, em
+todos os pontos, tangente à superfície atrvés da qual se calcula o fluxo, o
+resultado é obviamente nulo, uma vez que, sendo tangente à superfície, a função
+$\vec A$ é perpendicular à normal $\hat n$; logo, a função integranda é nula e
+portanto é nulo o integral.
+
+Por outro lado, quando a função é perpendicular à superfície em todos os pontos,
+ela tem a direção da normal. O produto escalar fica então, à parte um sinal
+dependente dos sentidos de $\vec A$ e $\hat n$ igual ao produto das
+normas dos dois vetores envolvidos (e a de $\hat n$ é, por definição, igual a
+1). Nestes casos a fórmula do fluxo reduz-se pois a 
+\begin{equation*}
+\Phi = \int_S A\,dS,\qquad\text{ se $\vec A$ é perpendicular a $S$.}
+\end{equation*}
+
+Outro caso que permite uma grande simplificação é o das funções uniformes.
+Note-se que mesmo sendo $\vec A$ uniforme, a função integranda não é constante
+porque o produto escalar $\vec A\cdot \hat n$ depende de ponto para ponto quando
+a superfície não é plana. Ainda assim, temos:
+\begin{equation*}
+\Phi=\int_S\vec A\cdot\hat n\,dS=\int_S A\cos\theta\,dS=A\int_s\cos\theta\,dS,
+\end{equation*}
+onde $\theta$ é o ângulo entre $\vec A$ e $\hat n$. Mas $dS \cos\theta$ é (à
+parte um sinal eventual dependendo da orientação de $\vec A$ e de $\hat n$) a área
+da projeção do elemento infinitesimal de superfície $dS$ no plano perpendicular
+a $\vec A$. Então, concluímos que o fluxo de uma função uniforme através de uma
+dada superfície é igual ao módulo dessa fução multiplicado pelo valor da área da
+projeção da superfície no plano perpendicular à função:
+\begin{equation*}
+\int_S\vec A\cdot\hat n\,dS= AS_{\text{prj}},\qquad\text{ se $\vec A$ for
+uniforme.}
+\end{equation*}
+
+Mais em geral, e como para os integrais de caminho, é necessário explicitar o
+produto escalar no integrando e exprimir todas as vriáveis como função de duas 
+coordenadas que identifiquem a posição na superfície de integração, após o que
+se realiza a integração (dupla) propriamente dita. Analizam-se a seguir alguns
+exemplos.
+
+\begin{examples}
+\item Fluxo de $\vec r$ através da superfície de um quadrado de lado $a$ situaco
+no plano $xy$, com centro na origem, com os vértices nos eixos coordenados.
+\end{examples}
 
 \section{Operadores diferenciais}
 As equações de Maxwell são quatro equações às derivadas parciais dos campos
