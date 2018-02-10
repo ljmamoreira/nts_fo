@@ -1255,9 +1255,156 @@ se realiza a integração (dupla) propriamente dita. Analizam-se a seguir alguns
 exemplos.
 
 \begin{examples}
-\item Fluxo de $\vec r$ através da superfície de um quadrado de lado $a$ situaco
-no plano $xy$, com centro na origem, com os vértices nos eixos coordenados.
+\item Fluxo de $\vec r$ através da superfície de um quadrado de lado $a$ situado
+no plano $xy$, com centro na origem, com os lados paralelos aos eixos
+coordenados.\\
+\begin{tikzpicture}[scale=0.7,
+                    baseline={([yshift=-10pt]current bounding box.north)}]
+\small
+\draw [fill=gray!50] (-0.5,0,-0.5) -- (0.5,0,-0.5) -- (0.5,0,0.5) --(-0.5,0,0.5) -- cycle; 
+\draw [->] (0,0,0) -- (0,0,1) node [left]{$x$};
+\draw [->] (0,0,0) -- (0,0.8,0) node [left]{$z$};
+\draw [->] (0,0,0) -- (1,0,0) node [below]{$y$};
+\end{tikzpicture}\hfill
+\begin{minipage}[t]{0.85\linewidth}
+Em coordenadas cartesianas a função dada é 
+$\vec r=x\he_x+y\he_y+z\he_z\equiv(x,\,y,\,z)$; mas, nos pontos da superfície
+considerada (situada no plano $xy$) $z=0$, de modo que, para os efeitos pretendidos, podemos
+escrever $\vec r=(x,\,y,\,0)$, isto é, por outras palavras, a função\linebreak 
+\vspace{-0.7\baselineskip}
+\end{minipage}
+dada é tangente à superfície de integração. Assim sendo, o produto escalar
+envolvido no cálculo do fluxo é nulo; logo, o integral anula-se também.
+\item
+    Fluxo de uma função radial $\vec F(\vec r)=F(r)\hat u_r$ através de uma
+    superfície esférica com centro na origem.\\
+    \tdplotsetmaincoords{60}{120}
+    \begin{tikzpicture}[tdplot_main_coords,
+                    baseline={([yshift=-10pt]current bounding box.north)}]
+        \small
+        \pgfmathsetmacro\R{0.7}
+        \coordinate(O) at (0,0,0);
+        \fill [tdplot_screen_coords,ball color=gray!05] circle(\R);
+
+        \pgfmathsetmacro\theta{45}
+        \pgfmathsetmacro\phi{70}
+        \pgfmathsetmacro\dtheta{20}
+        \pgfmathsetmacro\dphi{20}
+        \tdplotsetcoord{P}{\R}{\theta}{\phi}
+        \node at(P) [shift={(-0.7mm,1.4mm)}] {$ds$};
+        \tdplotsetcoord{C}{\R}{\theta+0.5*\dtheta}{\phi+0.5*\dphi}
+        \draw [thick,->] (C) -- ($ (C)!-0.45cm!(O) $) node[below] {$\hat n$};
+        \draw [->] (C) -- ($ (C)!-0.7cm!(O) $) node[below right] {$\vec F$};
+        \tdplotdrawarc[ultra thin]
+                        {(0,0,{\R*cos(\theta)})}{{\R*sin(\theta)}}%
+                        {\phi}{\phi+\dphi}{}{}
+        \tdplotdrawarc[ultra thin]
+                        {(0,0,{\R*cos(\theta+\dtheta)})}{{\R*sin(\theta+\dtheta)}}%
+                        {\phi}{\phi+\dphi}{}{}
+        \tdplotsetthetaplanecoords{\phi}
+        \tdplotdrawarc[tdplot_rotated_coords,ultra thin]
+                        {(O)}{\R}{\theta}{\theta+\dtheta}{}{}
+        \tdplotsetthetaplanecoords{\phi+\dphi}
+        \tdplotdrawarc[tdplot_rotated_coords,ultra thin]
+                        {(O)}{\R}{\theta}{\theta+\dtheta}{}{}
+    \end{tikzpicture}\hfill
+    \begin{minipage}[t]{0.83\linewidth}
+    Como a função é radial (dirigida para o centro), é perpendicular à
+    superfície de integração; assim, $\vec F(\vec r)\cdot\hat n=\pm F(r)$ (o
+    sinal é positivo se o sentido da função for para fora, e negativo se for
+    para dentro. Por outro lado, todos os pontos da superfície estão à mesma
+    distância $r$ do centro; ou seja, o módulo da função $\vec F$ é constante
+    neste\linebreak\vspace{-0.7\baselineskip}
+    \end{minipage}
+    integral e pode por isso ser posto em em evidência. Juntando tudo, temos:
+    \begin{equation*}
+    \int_S\vec F(\vec r)\cdot\hat n\,dS=\int_SF(r)dS=F(r)\int_SdS=4\pi r^2F(r).
+    \end{equation*}
+    \item
+        Cálculo do fluxo da função $\vec F(\vec r)=h\he_z$ ($h$ constante)
+        através da calote semisférica com centro na origem, raio $a$, situada no
+        lado $z>0$.\\
+        \pgfmathsetmacro{\elv}{60}
+        \pgfmathsetmacro{\azi}{120}
+        \tdplotsetmaincoords{\elv}{\azi}
+        \begin{tikzpicture}[scale=0.75,tdplot_main_coords,
+                            baseline={([yshift=-10pt]current bounding box.north)}]
+            \small
+            \pgfmathsetmacro{\R}{2}
+            \draw[thin,->] (0,0,0) -- (1.2*\R,0,0) node[anchor=north east]{$x$};
+            \draw[thin,->] (0,0,0) -- (0,1.2*\R,0) node[anchor=north west]{$y$};
+            \draw[thin,->] (0,0,0) -- (0,0,1.25*\R) node[anchor=south]{$z$};
+
+            \draw ({\R*cos(\azi/2)},{\R*sin(-\azi/2)},0) arc ({-\azi/2}:\azi:\R);
+            \draw (-\R*1cm,0) arc(180:0:\R*1cm);
+            \pgfmathsetmacro{\auxv}{\R*cos(\elv)}
+            \shade[ball color=blue!10!white,opacity=0.2] (\R*1cm,0)
+                arc (0:-180:\R*1cm and \auxv*1cm) arc (180:0:\R*1cm and \R*1cm);
+
+            \pgfmathsetmacro{\T}{30}
+            \pgfmathsetmacro{\P}{50}
+            \pgfmathsetmacro{\dT}{12}
+            \pgfmathsetmacro{\dP}{15}
+            \tdplotsetcoord{A}{\R}{\T}{\P}
+            \tdplotsetcoord{B}{\R}{\T+\dT}{\P}
+            \tdplotsetcoord{C}{\R}{\T+\dT}{\P+\dP}
+            \tdplotsetcoord{D}{\R}{\T}{\P+\dP}
+
+            \draw [thin,densely dashed] (A)--(Axy);
+            \draw [thin,dashed] (B)--(Bxy);
+            \draw [thin,dashed] (C)--(Cxy);
+            \draw [thin,dashed] (D)--(Dxy);
+            \draw [fill=gray!50](Axy)--(Bxy)--(Cxy)--(Dxy) -- cycle;
+            \node at (Bxy) [shift={(0.3,-0.1)}]{$dS\cos\theta$};
+
+            \tdplotdrawarc{((0,0,{\R*cos(\T)})}{{\R*sin(\T)}}{\P}{\P+\dP}{}{}
+            \tdplotdrawarc{((0,0,{\R*cos(\T+\dT)})}{{\R*sin(\T+\dT)}}%
+                {\P}{\P+\dP}{}{}
+            \tdplotsetthetaplanecoords{\P}
+            \tdplotdrawarc[tdplot_rotated_coords] {(0,0,0)}{\R}{\T}{\T+\dT}{}{}
+            \tdplotsetthetaplanecoords{\P+\dP}
+            \tdplotdrawarc[tdplot_rotated_coords]
+                            {(0,0,0)}{\R}{\T}{\T+\dT}{right}{$dS$}
+            \coordinate(O) at (0,0,0);
+            \tdplotsetcoord{P}{\R}{\T+0.5*\dT}{\P+0.5*\dP}
+            \draw [->] (P) -- ($ (P)!-8mm!(O) $) node[below right] {$\hat n$};
+            \draw [thick,->] (P) -- +(0,13mm) node[below right]{$\vec F$};
+
+            \tdplotsetthetaplanecoords{\P+0.5*\dP}
+            \tdplotdrawarc[tdplot_rotated_coords,ultra thin]
+                            {(P)}{0.9}{0}{\T+0.5*\dT}{shift={(0.2,0.2)}}{$\theta$}
+
+            \tdplotsetthetaplanecoords{0}
+            \tdplotdrawarc[ultra thin,tdplot_rotated_coords]{(0,0,0)}{\R}{-5}{5}{}{}
+            \tdplotsetthetaplanecoords{90}
+            \tdplotdrawarc[ultra thin,tdplot_rotated_coords]{(0,0,0)}{\R}{-5}{5}{}{}
+        \end{tikzpicture}
+        \hfill
+        \begin{minipage}[t]{0.72\linewidth}
+        Como a função dada $\vec F$ é uniforme (tem os mesmos módulo e
+        orientação em todos os pontos), a expressão do fluxo pode ser
+        simplificada:
+        \begin{equation*}
+        \Phi=\int_S\vec F\dot\hat n\,dS=\int_S h\cos\theta\,dS=h\int_S\cos\theta\,dS.
+        \end{equation*}
+        Mas $ds\cos\theta$ é a área da projeção do elemento de superfície $dS$
+        no plano $xy$ (o plano perpendicular a $\vec F$. Então o integral em
+        cima é simplesmente igual à área da projeção da calote semiesférica no
+        plano $xy$, ou seja, $\pi a^2$. Então,
+        \begin{equation*}
+        \Phi=\int_S\vec F\cdot\hat n\,dS=\pi a^2 h.
+        \end{equation*}
+        \end{minipage}
 \end{examples}
+
+\subsection{Integrais e testes de avaliação}
+O cálculo de integrais múltiplos pode ser bastante complicado. Mas nos testes
+não serão nunca exigidos integrais difíceis. Mas é importante ter uma ideia
+nítida do que é um integral, o que representam intuitivamente de um ponto de
+vista matemático. Sabido isso, será sempre trivial determinar o valor dos
+integrais com que se confrontarem nos testes. Dito isto, devo ainda acrescentar
+que a melhor maneira de adquirir esta intuição é calcular integrais. Muitos. Dos
+simples e também dos complicados.
 
 \section{Operadores diferenciais}
 As equações de Maxwell são quatro equações às derivadas parciais dos campos
