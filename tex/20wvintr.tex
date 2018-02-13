@@ -2,12 +2,14 @@
 \textsl{{\sffamily(Versão: \today)}}
 
 \noindent
-Neste capítulo, vamos considerar fenómenos óticos que não são descritos pelas
-leis da óptica geométrica: a interferência, a difração e a polarização da luz.
-A descrição e compreensão destes (e doutros) fenómenos é feita com base numa
-teoria sobre a natureza da luz (coisa que até agora preferimos dispensar)
-que, veremos, permite também deduzir as próprias leis da óptica geométrica. É,
-pois, discutindo a natureza da luz que começamos este capítulo.
+Neste capítulo faz-se uma introdução genérica do conceito de onda, e
+introduzem-se as bases para o seu estudo (linguagem, descrições matemáticas e
+propriedades dessas descrições). O conteúdo deste capítulo não é especificamente
+a luz, mas os fenómenos ondulatórios em geral (som, ondas na superfície da água,
+vibrações em sólidos, etc.). Mas não se pense, por isso, que se pode ``saltar''
+diretamente para o Capítulo~3. A menos que o leitor domine já os conceitos e
+métodos aqui introduzidos, os capítulos seguintes serão completamente
+incompreensíveis.
 
 \section{Propagação corpuscular e ondulatória}
 A luz é, claramente, \emph{algo} que se propaga. Mas o que é esse \emph{algo},
@@ -194,7 +196,7 @@ ideias que serão discutidas a seguir.
     oscilações, transversais ao sentido da propagação, e de pequena amplitude em
     compa\-ração com a distância percorrida pela \emph{coisa} que se propaga. Na
     verdade, como nos casos anteriores, a entidade que viaja nesta propagação é
-    a deformação da corda, a curva nela induzida pelo safanão. Também aqui é
+    a deformação da corda, a curva nela induzida pelo safanão. Mais uma vez, é
     necessário introduzir uma função para descrever matematicamente a onda,
     função essa que tem, em cada ponto da corda e em cada instante, o valor do
     desvio da corda, nesse ponto, relativamente à sua forma esticada em repouso
@@ -208,10 +210,10 @@ imediatamente imitados pelos que ocupam as secções contíguas, propagando-se e
 ação coletiva até ao extremo da bancada. Nenhum espetador tem que se levantar e
 correr ao longo da bancada para que ocorra o movimento da ``onda''; cada
 espetador apenas se levanta e se volta a sentar; mas isso é suficiente para que
-``algo'' (a onda) viaje ao longo da bancada. Também aqui uma descrição
-matemática da ``onda'' parte da introdução de uma função do tempo e do espaço,
-função essa cujo valor, em cada ponto e em cada instante, indica se o espetador
-com assento nesse ponto estava, nesse instante, levantado ou sentado.
+``algo'' (a onda) viaje ao longo da bancada. Como nos exemplos anteriores, uma
+descrição matemática da ``onda'' parte da introdução de uma função do tempo e do
+espaço, função essa cujo valor, em cada ponto e em cada instante, indica se o
+espetador com assento nesse ponto estava, nesse instante, levantado ou sentado.
 \end{itemize}
 
 \subsection{A função de onda $\psi(x,y,z,t)$}
@@ -221,145 +223,185 @@ de uma função do tempo e da posição, cujo valor é, em cada instante e em ca
 ponto, o da perturbação que constitui a onda em análise. Essa função chama-se
 \emph{função de onda} e representa-se normalmente pela letra grega $\psi$ (lê-se
 ``psi''). A natureza e propriedades gerais desta função (em particular, as
-unidades em que é expresso o seu valor) depende da natureza da onda: quando ela
-representa um deslocamento (como nas ondulações da superfície dos líquidos ou
-nas ondas em cordas), a função de onda tem dimensões de um comprimento e as suas
-unidades SI são, portanto, o metro; mas quando, por exemplo, ela representa uma
-pressão (como pode ocorrer em ondas de som), então exprime-se, no SI, em pascal.
-As ondas eletromagnéticas (e, portanto, a luz) são descritas normalmente pelas
-variações do campo eléctrico. Então as unidadas SI da função de onda das ondas
-eletromagnéticas são o volt por metro (V/m).
+unidades em que é expresso o seu valor) dependem da natureza da onda: quando a
+função de onda descreve um deslocamento (como nas ondulações da superfície dos
+líquidos ou nas ondas em cordas), a função de onda tem dimensões de distância e
+as suas unidades SI são, portanto, o metro. Mas há muitas situações em que a
+onda é descrita por outras variáveis que não o deslocamento. Por exemplo, nas
+ondas de som em ar, usa-se normalmente a pressão atmosférica para descrever a
+perturbação ondulatória; nesses casos, a função de onda tem dimensões de
+pressão (a unidade SI é o pascal, Pa). Outro exemplo comum é o das ondas
+eletromagnéticas (como a luz) que são descritas pelas variações do campo
+eléctrico; então as dimensões da função de onda são as do campo elétrico, e a
+unidade SI é o volt por metro (V/m).
 
-A Figura~\ref{fig:20-030} mostra um impulso ondulatório que se propaga ao longo
-do eixo dos $x$, durante um intervalo de tempo $\delta t$. A função de onda está
-representada nos dois instantes inicial e final que delimitam esse intervalo.
+Uma onda é então uma perturbação relativamento ao valor médio (ou expectável, ou
+de equilíbrio) de uma função característica de um dado sistema físico, que se
+propaga no espaço. A Figura~\ref{fig:20-030} tenta ilustrar isso mesmo.
 \begin{figure}[htb]
     {\centering
-        \input{figs/f20-030.pgf}\par
+        \begin{tikzpicture}
+            \small
+			\begin{scope}
+            	\draw [->] (-0.4,0) --++(6,0) node [right]{$x$};
+            	\draw [->] (0,-0.2) --++(0,1) node [left]{$\psi$};
+				\pgfmathsetmacro{\t}{0}
+				\draw[domain=\t-0.2:\t+0.5, smooth, samples=30,variable=\x]
+					plot ({\x},{0.8/(0.4*\t+1)*exp(-100/(3*\t+1)*(\x-0.2-\t)^2)});
+				\node at (0.2,0.6) [anchor=west] {$t=t_0$};
+			\end{scope}
+			\begin{scope}[yshift=-1.3cm]
+            	\draw [->] (-0.4,0) --++(6,0) node [right]{$x$};
+            	\draw [->] (0,-0.2) --++(0,1) node [left]{$\psi$};
+				\pgfmathsetmacro{\t}{2}
+				\draw[domain=\t-0.4:\t+0.9, smooth, samples=30,variable=\x]
+					plot ({\x},{0.8/(0.4*\t+1)*exp(-100/(3*\t+1)*(\x-0.2-\t)^2)});
+				\node at (0.2,0.6) [anchor=west] {$t=t_1>t_0$};
+			\end{scope}
+			\begin{scope}[yshift=-2.6cm]
+            	\draw [->] (-0.4,0) --++(6,0) node [right]{$x$};
+            	\draw [->] (0,-0.2) --++(0,1) node [left]{$\psi$};
+				\pgfmathsetmacro{\t}{4}
+				\draw[domain=\t-0.6:\t+1.1, smooth, samples=30,variable=\x]
+					plot ({\x},{0.8/(0.4*\t+1)*exp(-100/(3*\t+1)*(\x-0.2-\t)^2)});
+				\node at (0.2,0.6) [anchor=west] {$t=t_2>t_1$};
+			\end{scope}
+        \end{tikzpicture}\par
     }
-    \caption{Impulso ondulatório que se propaga ao longo do eixo dos
-    $x$.\label{fig:20-030}}
+    \caption{Propagação ao longo do eixo dos $x$ de uma perturbação no valor de
+    uma função $\psi(x,t)$. À medida que o tempo passa, a região do espaço onde
+    a função apresenta valores diferentes do de equilíbrio vai-se deslocando
+    para a direita. A forma da onda neste exemplo não permanece
+    constante: a região onde a perturbação está definida vai-se alargando e o
+    seu valor máximo vai diminuindo.\label{fig:20-030}}
 \end{figure}
-No instante inicial $t_1$, a perturbação está localizada numa região próxima da
-origem; no instante final $t_2$ já se encontra deslocada para a
-direita. A função de onda tem representações gráficas diferentes em instantes
-diferentes, ou seja: depende do tempo.
+Note-se que, se há propagação da perturbação, a função não pode ser constante
+(se o for, tem em cada ponto um valor que não muda de instante para instante, ou
+seja, não há movimento) nem homogénea (se o for, tem o mesmo valor em todos os
+pontos, ou seja, o movimento não é observável). A função de onda deve pois ser
+simultaneamente função da posição e do tempo.
 
-Nas condições representadas na Figura~\ref{fig:20-030}, a forma da perturbação
-altera-se enquanto ela se propaga. Este comportamento é muito frequente (o som
-vai-se alterando com a distância\footnote{Um exemplo muito barulhento deste
-  efeito nota-se com trovões: o trovão de um relâmpago que ``cai'' perto de nós
-  parece um estalo muito intenso, súbito e breve; o de um afastado é aquele
-típico ribombar grave e prolongado.}, por exemplo), mas são também frequentes
-propagações ondulatórias sem aterações da forma do impulso (por exemplo, na
-propagação da luz através do vácuo). As propagações sem alteração de forma são
-mais simples e, por isso, é nessas que nos iremos concentrar. Veremos mais à
-frente que o formalismo que vai ser desenvolvido pode ainda ser aplicado a
-propagações com alteração de forma. 
+\subsection{Equação de onda unidimensional}
+Na propagação de uma onda, a forma da perturbação pode manter-se inalterada,
+verificando-se apenas uma translação dessa perturbação no espaço com o passar do
+tempo, ou pode acontecer que a sua forma se altere. Para dar dois exemplos, um
+sinal luminoso propaga-se no vazio sem sofrer alterações (a menos que percorra
+distâncias cosmologicamente significativas) no trajeto; mas um sinal sonoro
+sofre alterações óbvias enquanto percorre em ar grandes distâncias\footnote{Um
+exemplo muito claro deste efeito nota-se com trovões: o trovão de um relâmpago
+que ``cai'' perto de nós parece um estalo muito intenso, súbito e breve; o de um
+afastado é aquele típico ribombar grave e prolongado.}.  As propagações sem
+alteração de forma são mais simples e, por isso, é nessas que nos iremos
+concentrar. Veremos mais à frente que o formalismo que vai ser desenvolvido pode
+ainda ser aplicado a propagações com alteração de forma. 
 
 Vamos, para já, estudar o caso unidimensional (em que a função de onda depende
 de apenas uma coordenada espacial, $x$, e do tempo), com menor complexidade
-matemática. Consideremos então um sinal ondulatório que se propaga com
-velocidade $v$ ao longo do eixo dos $x$, sem se alterar a sua forma, com função
-de onda $\psi(x,t)$. Dizer que a onda se propaga sem alteração da forma é
-equivalente a dizer que os valores que a função de onda apresenta num num dado
-instante são, num intervalo de tempo $\delta t$, todos deslocados ao longo da
-reta dos $x$, sofrendo uma translação, igual para todos, de $v\delta t$. Seja
-$\psi_0(x)=\psi(x,t_0=0)$ a forma da função de onda no instante $t_0=0$. De
-acordo com o que acabámos de dizer, o valor que esta função toma num ponto
-particular qualquer $x_0$ é transportado, no intervalo de tempo $\delta
-t=t-t_0=t$, para o ponto $x=x_0+v\delta t$. Ou seja,
+matemática. Consideremos então um sinal ondulatório que se propaga sem alteração
+da forma com velocidade\footnote{Por ``velocidade'' ententenda-se aqui
+``componente escalar da velocidade". Isto é, $v_x$ pode ser positivo, caso em
+que a onda se propaga no sentido positivo do eixo dos $x$; ou pode ser negativo,
+quando a onda se propaga no sentido negativo desse mesmo eixo.} $v_x$ ao longo
+do eixo dos $x$, com função de onda $\psi(x,t)$. Dizer que a onda se propaga sem
+alteração da forma é equivalente a dizer que os valores que a função de onda
+apresenta num num dado instante são, num intervalo de tempo $\delta t$, todos
+deslocados ao longo da reta dos $x$, sofrendo uma translação, igual para todos,
+de $v\delta t$. Seja $\psi_0(x)=\psi(x,t_0=0)$ a forma da função de onda no
+instante $t_0=0$. De acordo com o que acabámos de dizer, o valor que esta função
+toma num ponto particular qualquer $x_0$ é transportado, no intervalo de tempo
+$\delta t=t-t_0=t$, para o ponto $x=x_0+v_x\delta t$. Ou seja,
 \begin{equation*}
-  \psi(x_0+v\delta t,\,t)=\psi_0(x_0),
+  \psi(x_0+v_x\delta t,\,t)=\psi_0(x_0),
 \end{equation*}
 expressão que, escrita em função da coordenada $x$ do ponto final (e tendo em
-conta a escolha $t_0=0$), se pode também escrever como
+conta a escolha $t_0=0$), toma a forma
 \begin{equation*}
-  \psi(x,t)=\psi_0(x-vt).
+  \psi(x,t)=\psi_0(x-v_xt).
 \end{equation*}
 
 Deduzimos esta igualdade considerando apenas que a função $\psi$ depende de $x$ e
 $t$ de tal modo que os seus valores se movem de ponto para ponto, sem alteração
 de forma, com o passar do tempo. Ela é, assim, satisfeita por todas as funções
-com aquele comportamento. A Figura~\ref{fig:f060} mostra exemplos de uma
-propagação com e sem alteração de forma.
-\begin{figure}[htb]
-  {\centering
-    \begin{tikzpicture}
-      \small
-      \begin{axis}[domain=-2:10,
-                   height=6cm,
-                   width=8cm,
-                   ymax=1.2,
-                   xmin=-2,
-                   xmax=10,
-                   yticklabels={},
-                   xlabel=$x$ (m)
-                   ]
-        \addplot [samples=150,thick] {exp(-(0.5*x)^2};
-        \addplot [samples=150,dashed, thick] {exp(-(0.5*x-1)^2)};
-        \addplot [samples=150, dotted, thick] {exp(-(0.5*x-2)^2)};
-        \node at (axis cs:0.9,1.05) [rotate=30] {$t=0$};
-        \node at (axis cs:3.2,1.05) [rotate=30] {$t=1\,$s};
-        \node at (axis cs:5.2,1.05) [rotate=30] {$t=2\,$s};
-      \end{axis}
-      \begin{axis}[xshift=7.5cm,
-                   domain=-2:10,
-                   height=6cm,
-                   width=8cm,
-                   ymax=1.2,
-                   xmin=-2,
-                   xmax=10,
-                   yticklabels={},
-                   xlabel=$x$ (m)
-                 ]
-        \addplot [samples=150,thick] {exp(-(0.5*x)^2};
-        \addplot [samples=150,dashed,thick] {exp(-(0.5*x-1)^2/1.5)/1.25};
-        \addplot [samples=150,dotted,thick] {exp(-(0.5*x-2)^2/3.0)/1.50};
-        \node at (axis cs:0.9,1.05) [rotate=30] {$t=0$};
-        \node at (axis cs:3.2,0.85) [rotate=30] {$t=1\,$s};
-        \node at (axis cs:5.2,0.75) [rotate=30] {$t=2\,$s};
-      \end{axis}
-    \end{tikzpicture}\par
-  }
-  \caption{No gráfico da esquerda, está representada a função $\exp[-(x/2-t)^2]$
-    (SI)
-    nos instantes $t=0$, $t=1$\,s e $t=2$\,s. A perturbação descrita por esta
-    onda propaga-se sem alteração de forma com velocidade $v=2$\,m/s. No grafico
-    da direita, representa-se a função $exp[-(0,5x-t)^2/(1,5t)]/(1+t/4)$ (SI),
-    nos mesmos instantes. Esta função, claramente, propaga-se com alteração de
-    forma: à medida que o tempo passa, a sua amplitude vai diminuindo e a sua
-  largura vai aumentando.\label{fig:f060}}
-\end{figure}
+com aquele comportamento.
+
+%A Figura~\ref{fig:f060} mostra exemplos de uma propagação com e sem alteração de
+%forma.
+%\begin{figure}[htb]
+%  {\centering
+%    \begin{tikzpicture}
+%      \small
+%      \begin{axis}[domain=-2:10,
+%                   height=6cm,
+%                   width=8cm,
+%                   ymax=1.2,
+%                   xmin=-2,
+%                   xmax=10,
+%                   yticklabels={},
+%                   xlabel=$x$ (m)
+%                   ]
+%        \addplot [samples=150,thick] {exp(-(0.5*x)^2};
+%        \addplot [samples=150,dashed, thick] {exp(-(0.5*x-1)^2)};
+%        \addplot [samples=150, dotted, thick] {exp(-(0.5*x-2)^2)};
+%        \node at (axis cs:0.9,1.05) [rotate=30] {$t=0$};
+%        \node at (axis cs:3.2,1.05) [rotate=30] {$t=1\,$s};
+%        \node at (axis cs:5.2,1.05) [rotate=30] {$t=2\,$s};
+%      \end{axis}
+%      \begin{axis}[xshift=7.5cm,
+%                   domain=-2:10,
+%                   height=6cm,
+%                   width=8cm,
+%                   ymax=1.2,
+%                   xmin=-2,
+%                   xmax=10,
+%                   yticklabels={},
+%                   xlabel=$x$ (m)
+%                 ]
+%        \addplot [samples=150,thick] {exp(-(0.5*x)^2};
+%        \addplot [samples=150,dashed,thick] {exp(-(0.5*x-1)^2/1.5)/1.25};
+%        \addplot [samples=150,dotted,thick] {exp(-(0.5*x-2)^2/3.0)/1.50};
+%        \node at (axis cs:0.9,1.05) [rotate=30] {$t=0$};
+%        \node at (axis cs:3.2,0.85) [rotate=30] {$t=1\,$s};
+%        \node at (axis cs:5.2,0.75) [rotate=30] {$t=2\,$s};
+%      \end{axis}
+%    \end{tikzpicture}\par
+%  }
+%  \caption{No gráfico da esquerda, está representada a função $\exp[-(x/2-t)^2]$
+%    (SI)
+%    nos instantes $t=0$, $t=1$\,s e $t=2$\,s. A perturbação descrita por esta
+%    onda propaga-se sem alteração de forma com velocidade $v=2$\,m/s. No grafico
+%    da direita, representa-se a função $exp[-(0,5x-t)^2/(1,5t)]/(1+t/4)$ (SI),
+%    nos mesmos instantes. Esta função, claramente, propaga-se com alteração de
+%    forma: à medida que o tempo passa, a sua amplitude vai diminuindo e a sua
+%  largura vai aumentando.\label{fig:f060}}
+%\end{figure}
 
 Consideremos uma perturbação que se propaga sem alteração de forma com função de
-onda $\psi(x,t)=\psi(x-vt)$. Seja $z=x-vt$. Então $\psi(x-vt)=\psi(z)$ e temos
+onda $\psi(x,t)=\psi(x-v_xt)$. Seja $z=x-v_xt$. Então $\psi(x-v_xt)=\psi(z)$ e temos
 \begin{align*}
     \pd{\psi}{x}&=\pd{z}{x}\td{\psi_0}{z}=\td{\psi_0}{z}&
     \frac{\partial^2\psi}{\partial x^2}&=\pd{z}{x}\td{}{z}\left(\pd{\psi_0}{x}
         \right)=\frac{\text{d}^2\psi_0}{\text{d}z^2}\\
-    \pd{\psi}{t}&=\pd{z}{t}\td{\psi_0}{z}=-v\td{\psi_0}{z}&
+    \pd{\psi}{t}&=\pd{z}{t}\td{\psi_0}{z}=-v_x\td{\psi_0}{z}&
     \frac{\partial^2\psi}{\partial t^2}&=\pd{z}{t}\td{}{z}\left(\pd{\psi_0}{t}
-        \right)=v^2\frac{\text{d}^2\psi_0}{\text{d}z^2}
+        \right)=v_x^2\frac{\text{d}^2\psi_0}{\text{d}z^2}
 \end{align*}
 Comparando as duas igualdades do lado direito concluímos que
 \begin{equation}\label{eq:waveq}
     \frac{\partial^2\psi}{\partial x^2} =
-        \frac{1}{v^2} \frac{\partial^2\psi}{\partial t^2}.
+        \frac{1}{v_x^2} \frac{\partial^2\psi}{\partial t^2}.
 \end{equation}
 Esta é a equação diferencial satisfeita pelas funções de onda das ondas
 unidimensionais que se propagam sem alterações de forma, com velocidade
-constante $v$ ao longo do eixo dos $x$. Chama-se, apropriadamente, \emph{equação
+constante $v_x$ ao longo do eixo dos $x$. Chama-se, apropriadamente, \emph{equação
 de onda unidimensional.} Os fenómenos ondulatórios atrás referidos (com a
 exceção das ondas das bancadas de estádio, que são regidas por uma dinâmica mais
 social do que física), quando reduzidos a uma dimensão, são descritos através
 funções de onda que satisfazem a equação de onda unidimensional.
 
 
-
 \subsection{O princípio da sobreposição}
 Uma vez que a derivada (ou a dupla derivada) de uma combinação linear de funções
-é igual a combinação linear correspondente das derivadas de cada
+é igual à combinação linear correspondente das derivadas de cada
 uma\footnote{Isto é,
     $\displaystyle\pd{}{x}(a_1\psi_1+a_2\psi_2+\ldots+a_n\psi_n)=
 a_1\pd{\psi_1}{x}+a_2\pd{\psi_2}{x}+\ldots+a_n\pd{\psi_n}{x}.$}, então a soma
@@ -375,15 +417,28 @@ duas, isto é,
 \end{equation*}
 
 \section{Ondas harmónicas}
-As funções de onda podem ser (e muito frequentemente são) extraordinariamente
-complexas. Mas é possível estabelecer propriedades muito gerais das ondas
-considerando apenas funções de onda com forma relativamente simples. De um ponto
-de vista matemático, esta possibilidade é afirmada pelo teorema de Fourier,
-segundo o qual qualquer função se pode escrever como combinação linear de
-funções sinusoidais. É nessas ondas, com forma simples e bem conhecida, que
-vamos concentrar o nosso estudo. As propriedades de ondas mais complicadas podem
-depois ser deduzidas considerando as sobreposições de ondas sinusoidais que lhes
-são equivalentes.
+As funções de onda podem ter formas muito variadas. Por exemplo, a
+Figura~\ref{fig:20-cello} ilustra a forma como a pressão atmosférica varia com o
+tempo em duas ondas de som, uma produzida por um diapasão, ao outra por um
+violoncelo, ambos a tocar a mesma nota (Lá 4).
+\begin{figure}[htb]
+{\centering
+\includegraphics[width=0.5\linewidth]{figs/f20-cello.png}\par
+}
+\caption{Dependência da pressão atmosférica com o tempo, numa onda de som
+produzida por um diapasão (em cima) e por um violoncelo (em baixo), ambos a
+tocar a nota Lá 4. (Adaptado de
+\protect\url{https://processing.org/tutorials/sound/})\label{fig:20-cello}}
+\end{figure}
+Apesar desta grande diversidade, é possível um tratamento relativamente
+unificado das diferentes formas de onda porque se demonstra que qualquer função
+fisicamente razoável se pode escrever como combinação de funções seno e cosseno.
+A técnica matemática para construir essas sobreposições chama-se análise de
+Fourier. Mais tarde estudaremos essa técnica em algum detalhe mas, para já, é
+suficiente saber que ela existe e que, por isso, basta-nos estudar o
+comportamento e propriedades das funções de onda com forma sinusoidal, pois
+qualquer outra função de onda pode ser construida com sobreposições dessas
+funções.
 
 As ondas sinusoidais (que também são conhecidas como \emph{ondas harmónicas} ou
 \emph{ondas monocro\-máticas}) são aquelas que têm uma dependência sinusoidal (ou
@@ -392,10 +447,12 @@ simplificar, apenas ondas unidimensionais (isto é, que dependem de apenas uma
 coordenada espacial e do tempo), uma onda sinusoidal é dada pela
 expressão geral
 \begin{equation}\label{eq:hwav}
-    \psi(x,t)=A\cos\left(2\pi\left[\frac{x}{\lambda}\pm \frac{t}{T}\right]+
+    \psi(x,t)=A\cos\left(\frac{2\pi}{\lambda}\left[x-v_xt\right]+
             \phi_0\right)
 \end{equation}
-Nesta equação $x$ e $t$ representam, respetivamente, a posição e o tempo. Os
+Nesta equação $x$ e $t$ representam, respetivamente, a posição e o tempo. 
+
+Os
 parâmetros  constantes que aparecem no lado direito têm os nomes
 \emph{amplitude} ($A$), \emph{comprimento de onda} ($\lambda$), \emph{período}
 ($T$) e \emph{constante de fase} ($\phi_0$). Ao valor do argumento do cosseno
@@ -734,7 +791,7 @@ plana (à esquerda) e de frentes de onda de uma onda esférica (à direita).
       \pgfpointxyz{(#1)*sin(#2)*cos(#3)}{(#1)*sin(#2)*sin(#3)}{(#1)*cos(#2)}}}
       \tikzdeclarecoordinatesystem{3d}{\tikzset{cs/3d={#1}}}%     
       \tikzset{spherical patch/.style args={#1:#2:#3:#4}{insert path={
-      [smooth, samples=20, line join=round]
+      [smooth, samples=3, line join=round]
       plot [domain=0:#3] (3d cs:{#4}:{#1+\x}:{#2}) --
       plot [domain=0:#3] (3d cs:{#4}:{#1+#3}:{#2+\x}) --
       plot [domain=#3:0] (3d cs:{#4}:{#1+\x}:{#2+#3}) --
