@@ -315,9 +315,9 @@ $\delta t=t-t_0=t$, para o ponto $x=x_0+v_x\delta t$. Ou seja,
 \end{equation*}
 expressão que, escrita em função da coordenada $x$ do ponto final (e tendo em
 conta a escolha $t_0=0$), toma a forma
-\begin{equation*}
+\begin{equation}\label{eq:constformwave}
   \psi(x,t)=\psi_0(x-v_xt).
-\end{equation*}
+\end{equation}
 
 Deduzimos esta igualdade considerando apenas que a função $\psi$ depende de $x$ e
 $t$ de tal modo que os seus valores se movem de ponto para ponto, sem alteração
@@ -416,7 +416,7 @@ duas, isto é,
 \psi(x,y,z,t)=\psi_1(x,y,z,t)+\psi_2(x,y,z,t).
 \end{equation*}
 
-\section{Ondas harmónicas}
+\section{Ondas sinusoidais}\label{sec:hamonicwaves}
 As funções de onda podem ter formas muito variadas. Por exemplo, a
 Figura~\ref{fig:20-cello} ilustra a forma como a pressão atmosférica varia com o
 tempo em duas ondas de som, uma produzida por um diapasão, ao outra por um
@@ -436,47 +436,51 @@ fisicamente razoável se pode escrever como combinação de funções seno e cos
 A técnica matemática para construir essas sobreposições chama-se análise de
 Fourier. Mais tarde estudaremos essa técnica em algum detalhe mas, para já, é
 suficiente saber que ela existe e que, por isso, basta-nos estudar o
-comportamento e propriedades das funções de onda com forma sinusoidal, pois
-qualquer outra função de onda pode ser construida com sobreposições dessas
-funções.
+comportamento e propriedades das funções de onda com forma sinusoidal (isto é,
+com a forma do seno ou do cosseno), pois qualquer outra função de onda pode ser
+construída com sobreposições dessas funções.
 
-As ondas sinusoidais (que também são conhecidas como \emph{ondas harmónicas} ou
-\emph{ondas monocro\-máticas}) são aquelas que têm uma dependência sinusoidal (ou
-seja, que são o seno ou o cosseno) da posição e do tempo. Considerando, para
-simplificar, apenas ondas unidimensionais (isto é, que dependem de apenas uma
-coordenada espacial e do tempo), uma onda sinusoidal é dada pela
-expressão geral
+Consideremos por enquanto o caso unidimensional, para introduzir pouco a pouco o
+formalismo matemático. As ondas sinusoidais (que também são conhecidas como
+\emph{ondas harmónicas} ou \emph{ondas monocro\-máticas}) unidimensionais são
+funções da posição e do tempo com a forma genérica
 \begin{equation}\label{eq:hwav}
     \psi(x,t)=A\cos\left(\frac{2\pi}{\lambda}\left[x-v_xt\right]+
             \phi_0\right)
 \end{equation}
-Nesta equação $x$ e $t$ representam, respetivamente, a posição e o tempo. 
+Nesta equação $x$ e $t$ representam, respetivamente, a posição e o tempo, e
+$v_x$ a componente escalar da velocidade de propagação da onda.\footnote{Dizer
+que $v_x$ é a componente escalar da velocidade de propagação significa dizer que
+é um número real que pode ser positivo (quando a propagação se faz no sentido
+positivo do eixo dos $x$) ou negativo (quando se faz no sentido oposto).}
+Note-se que esta expressão para uma onda harmónica satisfaz a condição geral das
+ondas que se propagam sem alteração da forma da eq.~\eqref{eq:constformwave}.
 
-Os
-parâmetros  constantes que aparecem no lado direito têm os nomes
-\emph{amplitude} ($A$), \emph{comprimento de onda} ($\lambda$), \emph{período}
-($T$) e \emph{constante de fase} ($\phi_0$). Ao valor do argumento do cosseno
-dá-se o nome de \emph{fase} da onda harmónica. Os argumentos das funções
-transcendentes (como é o caso da função cosseno) devem ser adimensionais; assim,
-a fase de uma onda não tem dimensões, pelo que $\lambda$ deve ser um comprimento
-e $T$ um tempo. A amplitude tem as dimensões da funcção de onda e, assim,
-depende, da natureza da onda; pode ser um comprimento (como nas ondas do mar ou
-nas vibrações de uma corda esticada, mas pode também ter outras dimensões.
-Quando se trata de ondas de luz, usa-se normalmente o campo elétrico para
-descrever a perturbação e, portanto, a amplitude exprime-se nas unidades do
-campo, volt por metro.
+Os parâmetros que caracterizam a função de onda têm os nomes
+\emph{amplitude} ($A$), \emph{comprimento de onda} ($\lambda$), e
+\emph{constante de fase} ($\phi_0$). A propósito, chama-se \emph{fase} da onda
+ao argumento da função trignométrica, ou seja, à função da posição e do tempo
+\begin{equation}\label{eq:harmonicphase}
+\phi(x,t)=\frac{2\pi}{\lambda}(x-v_xt)+\phi_0.
+\end{equation}
+Os argumentos das funções transcendentes (como é o caso da função cosseno) devem
+ser adimensionais; assim, a fase de uma onda não tem dimensões, pelo que
+$\lambda$ deve ser uma distância.  A amplitude tem as dimensões da função de
+onda e, assim, depende da natureza da onda; pode ser uma distância (como nas
+ondas do mar ou nas vibrações de uma corda esticada), mas pode também ter outras
+dimensões, como já foi dito.
 
-Vejamos o significado e o efeito de cada um destes parâmetros\footnote{O que já
-a seguir se segue pode, \emph{e deve,} ser experimentado com uma calculadora
-gráfica. Programe a forma da função de onda substituindo os parâmetros por
-constantes à sua escolha e dando a $t$ um valor fixo; veja o que acontece no
-gráfico quando altera algum dos parâmetros. Para estudar o efeito das variações
-no período $T$, deve dar a $x$ um valor determinado e fazer o gráfico de $\psi$
-como função do tempo.}.
-Na Figura~\ref{fig:20-050} apresentam-se os gráficos de uma função harmónica
+Vejamos o significado e o efeito de cada um destes parâmetros\footnote{O que a
+seguir se afirma pode, \emph{e deve,} ser verificado com uma calculadora
+gráfica ou uma folha de cálculo. Programe a forma da função de onda
+substituindo os parâmetros $A$, $\lambda$, $v_x$ e $\phi_0$ por valores
+constantes à sua escolha e dando a $t$ um valor fixo; veja o que acontece para
+valores de $t$ crescentes; veja o que acontece gráfico quando altera algum dos
+parâmetros.}.
+Na Figura~\ref{fig:20-050} apresentam\--se os gráficos de uma função harmónica
 como função de $x$, em três instantes $t=0$ (linha contínua), $t=0,15$\,s (linha
-a tracejado) e $t=0,3$\,s (linha a ponteado). Na função de onda representada, os
-valores dos parâmetros são $A=0,75$, $\lambda=1,5$\,m, $T=1$\,s e $\phi=0$.
+a tracejado) e $t=0,3$\,s (linha a pontilhado). Na função de onda representada, os
+valores dos parâmetros são $A=0,75$, $\lambda=1,5$\,m, $v_x=1,5$\,m/s e $\phi_0=0$.
 Observando o gráfico, notamos que o valor da amplitude, $0,75$, é o módulo dos
 extremos de variação da função; notamos também que a distância entre os picos
 sucessivos da onda, num determinado instante, tem o valor que atribuímos ao
@@ -486,18 +490,21 @@ comprimento de onda $\lambda$.
     \input{figs/f20-050.pgf}\par
 }
 \caption{Gráficos da função de onda
-$\psi(x,t)=A\cos(2\pi[x/\lambda-t/T]+\phi)$, com $A=0,75$, $\lambda=1,5$, $T=1$
-e $\phi=0$, para $t=0$ (linha a cheio), $t=0,15$\,s (linha a tracejado) e
-$t=0,3$\,s (linha a ponteado).\label{fig:20-050}}
+$\psi(x,t)=A\cos(2\pi[x-v_xt]/\lambda+\phi)$, com $A=0,75$, $\lambda=1,5$,
+$v_x=1,5$\,m/s e $\phi=0$, para $t=0$ (linha a cheio), $t=0,15$\,s (linha a
+tracejado) e $t=0,3$\,s (linha a pontilhado).\label{fig:20-050}}
 \end{figure}
 A figura também mostra que, à medida que o tempo avança, a função de onda
 aparece deslocada cada vez mais para a direita: a perturbação sinusoidal
 \emph{propaga-se}. Quanto tempo decorre entre a passagem de dois máximos
-sucessivos num dado sítio? Da figura, notamos que em 0,3\,s, a onda avança
-0,45\,m, ou seja, ela desloca-se com uma velocidade $v = 0,3/0,45=0,6667$\,m/s.
-Demorará pois 1\,s a percorrer 1,5\,m, isto é, a distância que separa dois picos
-sucessivos. Mas 1\,s é justamente o valor do período $T$. Assim, concluímos o
-seguinte:
+sucessivos num dado sítio? Esse é o intervalo de tempo necessário para a onda
+percorrer uma distância igual ao seu comprimento de onda, ou seja, esperamos que
+tenha o valor $\delta t=\lambda/|v_x|=1,0$\,s. Da figura, notamos que em 0,3\,s,
+a onda avança 0,45\,m; proporcionalmente, avançará 1,5\,m em 1,0\,s, como
+esperávamos. O tempo que decorre entre a chegada a um dado ponto de dois máximos
+sucessivos (ou mínimos sucessivos ou, mais em geral, dois pontos com fase
+equivalente sucessivos) chama-se \emph{período} da onda e é normalmente
+representado com a letra $T$.  Desta análise concluímos o seguinte:
 \begin{itemize}
 \item
     a \emph{amplitude} de uma onda harmónica é o valor máximo dos desvios da
@@ -506,50 +513,108 @@ seguinte:
     o \emph{comprimento de onda} de uma onda harmónica é a distância entre
     máximos sucessivos dessa onda;
 \item
-    o \emph{período} de uma onda harmónica é a duração do intervalo de tempo
-    entre a passagem de dois máximos sucessivos da onda num ponto dado.
+    o \emph{período} $T=\lambda/|v_x|$ de uma onda harmónica é a duração do
+    intervalo de tempo entre a passagem de dois máximos sucessivos da onda num
+    ponto dado.
 \end{itemize}
-Falta discutir o significado da constante de fase. Este parâmetro está
+Falta discutir o significado da constante de fase $\phi_0$. Este parâmetro está
 relacionado com o valor inicial (para $t=0$) da onda na origem (em $x=0$).
-Escolhendo, como fizemos acima, $\phi=0$, resulta $\psi(x=0,t=0)=A$. Caso a onda
+Escolhendo, como fizemos acima, $\phi=0$, resulta $\psi(x=0,\,t=0)=A$. Caso a onda
 que queremos descrever se anulasse (por exemplo) no instante inicial e na
 origem, escolheríamos $\phi=\pi/2$. Para uma dada onda, podemos sempre escolher
-$\phi=0$ definindo de forma conveniente as origens espacial e temporal.
+$\phi=0$ definindo de forma conveniente as origens espacial e temporal. Para
+além disso, podemos escolher a função seno ou a função cosseno na descrição da
+onda, ajustando convenienemente o valor da constante de fase, dado que $\sin
+x=\cos(x-\pi/2),\ \forall x\in \mathbb{R}$. Ou seja, enquanto que a amplitude, o
+comprimento de onda e a velocidade de propagação de uma onda são propriedades da
+onda em si, o valor da constante de fase depende também de escolhas que cada um
+faz mais ou menos arbitrariamente.
  
-A \emph{frequência} de uma onda harmónica é o número de máximos da onda que
+A \emph{frequência} de uma onda sinusoidal é o número de máximos da onda que
 atingem um determinado ponto por unidade de tempo. Assim, a frequência é o
 inverso do período:
 \begin{equation*}
-    f=\frac{1}{T}.
+    f=\frac{1}{T}=\frac{|v_x|}{\lambda}.
 \end{equation*}
 A frequência exprime-se no SI em \emph{ciclos por segundo,} grandeza a que se dá
 o nome de \emph{hertz} (Hz).
 
-Frequentemente, a função de onda harmónica encontra-se parametrizada numa forma
-alternativa à apresentada na eq.~\eqref{eq:hwav}:
+Seja $v=|v_x|$ o módulo da componente escalar da velocidade e $s=v_x/v=\pm1$ o
+seu sinal. Fisicamente, $v$ traduz a rapidez com que a onda se propaga e $s$ o
+sentido em que a propagação se dá. Obviamente, temos
 \begin{equation*}
-  \psi(x,t)=A\cos\left(kx\pm\omega t+\phi_0\right).
+v_x=sv,\qquad\text{ com }s^2=1.
 \end{equation*}
-Os parâmetros $k$ e $\omega$, chamados respetivamente \emph{vetor de
-onda}\footnote{Mas em discussões unidimensionais é mais comum a designação de
-\emph{número de onda.}} e \emph{frequência angular,} relacionam\-\mbox{-se} com o
-comprimento de onda e com o período como
-\begin{align*}
-  k&=\frac{2\pi}{\lambda}&\omega=\frac{2\pi}{T}=2\pi f.
-\end{align*}
-O primeiro destes parâmetros representa a taxa espacial de variação da fase
-(\emph{quanto é que a fase varia por unidade de comprimento, num dado instante});
-a segunda, representa a taxa temporal de variação da fase (\emph{quanto é que a
-fase varia por unidade de tempo, num dado local}).
-
-Podemos calcular facilmente a velocidade de propagação de uma onda harmónica
-dividindo o seu comprimento de onda pelo tempo que ela demora a percorrer essa
-distância, ou seja, pelo seu período:
+Usando estas igualdades na expressão da fase da eq.~\eqref{eq:harmonicphase},
+podemos reescrevê-la como
+\begin{align}
+    \phi(x,t)&=\frac{2\pi}{\lambda}(s^2x-svt)+\phi_0=
+    \frac{2\pi}{\lambda}s(sx-vt)+\phi_0\nonumber\\
+&=s(k_xx-\omega t)+\phi_0,\label{eq:hrmonicphase}
+\end{align}
+onde
+\begin{equation}
+k_x=\frac{2\pi}{\lambda}s
+\end{equation}
+é um número real positivo ou negativo que pode ser interpretado como a
+componente escalar de um vetor que tem o sentido da propagação da onda (o seu
+sinal é igual ao de $v_x$), a que se dá o nome de \emph{vetor de onda}, e
+\begin{equation}
+\omega=\frac{2\pi}{\lambda}v=\frac{2\pi}{T}=2\pi f
+\end{equation}
+é um real positivo chamado \emph{frequência angular}, que mais não é que a
+frequência da onda, expressa em radianos por segundo em vez de em ciclos por
+segundo. Substituindo agora a expressão da fase da eq.~\eqref{eq:hrmonicphase}
+na função de onda da eq.~\eqref{eq:hwav}, obtemos
 \begin{equation*}
-  v=\frac{\lambda}{T} = \lambda f=\frac{\omega}{k}.
+\psi(x,t)=A\cos(s[k_xx-\omega t] +\phi_0),
 \end{equation*}
+e podemos ``deixar cair'' o sinal $s$ ajustando convenientemente
+o valor da constante de fase, resultando uma forma muito usual
+(bastante mais frequente que a da eq.~\eqref{eq:hwav}) da expressão da função de
+onda harmónica sinusoidal:
+\begin{equation}\label{eq:hwav2}
+\psi(x,t)=A\cos([k_xx-\omega t] +\phi_0).
+\end{equation}
 
-\section{Representação complexa de ondas harmónicas}
+Para completar esta já longa secção sobre a representação matemática das funções
+sinusoidais, deixo como exercício a demonstração da equivalência com as
+eqs.~\eqref{eq:hwav} e~\eqref{eq:hwav2} de uma terceira expressão para as ondas
+sinusoidais:
+\begin{equation*}
+\psi(x,t) = A\cos\left(2\pi\left[\frac{x}{\lambda}\pm\frac{t}{T}\right]+\phi_0
+\right),
+\end{equation*}
+onde os vários símbolos têm o significado já introduzido e o sinal a tomar no
+parentesis reto é o oposto ao de $v_x$.
+
+
+
+%Frequentemente, a função de onda harmónica encontra-se parametrizada numa forma
+%alternativa à apresentada na eq.~\eqref{eq:hwav}:
+%\begin{equation*}
+%  \psi(x,t)=A\cos\left(kx\pm\omega t+\phi_0\right).
+%\end{equation*}
+%Os parâmetros $k$ e $\omega$, chamados respetivamente \emph{vetor de
+%onda}\footnote{Mas em discussões unidimensionais é mais comum a designação de
+%\emph{número de onda.}} e \emph{frequência angular,} relacionam\-\mbox{-se} com o
+%comprimento de onda e com o período como
+%\begin{align*}
+%  k&=\frac{2\pi}{\lambda}&\omega=\frac{2\pi}{T}=2\pi f.
+%\end{align*}
+%O primeiro destes parâmetros representa a taxa espacial de variação da fase
+%(\emph{quanto é que a fase varia por unidade de comprimento, num dado instante});
+%a segunda, representa a taxa temporal de variação da fase (\emph{quanto é que a
+%fase varia por unidade de tempo, num dado local}).
+%
+%Podemos calcular facilmente a velocidade de propagação de uma onda harmónica
+%dividindo o seu comprimento de onda pelo tempo que ela demora a percorrer essa
+%distância, ou seja, pelo seu período:
+%\begin{equation*}
+%  v=\frac{\lambda}{T} = \lambda f=\frac{\omega}{k}.
+%\end{equation*}
+
+\section{Representação complexa de ondas sinusoidais}
 \subsection{Números complexos}
 Seja \iu~um número não real a que chamamos \emph{unidade imaginária,} definido
 como
@@ -677,9 +742,9 @@ $a+\iu b$ e $| z|\exp(\iu\theta)$, com
 $| z|=\sqrt{a^2+b^2}$ e $\theta=\arctan(b/a)$, são representações
 equivalentes desse número.
 
-\subsection{A representação de funções harmónicas}
+\subsection{A representação de funções sinusoidais}
 \label{sec:complexharm}
-A representação complexa de funções harmónicas consiste em fazer a substituição
+A representação complexa de funções sinusoidais consiste em fazer a substituição
 \begin{equation*}
   \cos\phi \rightarrow \e^{\iu \phi}.
 \end{equation*}
@@ -698,7 +763,7 @@ onde o símbolo $\stackrel{!}{=}$ indica que apenas a parte real da expressão n
 lado direito deve ser considerada na igualdade. Daqui para a frente, esse
 cuidado será subentendido, pelo que não voltaremos a usar este símbolo.
 
-A representação complexa das ondas harmónicas é usada porque simplifica imenso
+A representação complexa das ondas sinusoidais é usada porque simplifica imenso
 algumas operações analíticas. Por exemplo, as derivações em ordem a $t$ ou em
 ordem a $x$ de uma onda harmónica traduzem-se simplesmente na multiplicação por
 um fator:
@@ -830,10 +895,10 @@ perpendicular. Assim, as duas representações na Figura~\ref{fig:oof040} podem
 também interpretar-se como representações das \emph{mesmas} frentes de onda, em
 diferentes instantes.
 
-\subsection{Função de onda de ondas planas harmónicas}
+\subsection{Função de onda de ondas planas sinusoidais}
 As ondas planas têm frentes de onda planas. Por definição de frente de onda, o
 valor da função de onda em todos os pontos de uma mesma frente de onda é
-o mesmo. Então, a função de onda depende do espaço apenas pela variação com a
+o mesmo. Então, a função de onda depende da posição apenas pela variação com a
 posição \emph{ao longo} da direção perpendicular às frentes de onda, ou seja, ao
 longo da direção de propagação.
 
@@ -844,14 +909,14 @@ onda é plana e que a orientação da propagação é a do versor $\hat k$ signi
 dizer que as suas frentes de onda são planas, perpendiculares a $\hat k$ e que
 o seu movimento tem a orientação de $\hat k$. Logo, como discutimos no parágrafo
 anterior, a função de onda depende do espaço apenas pela dependência da
-coordenada orientada ao longo de $\hat k$. Seja $s$ essa coordenada (ver a
+coordenada orientada ao longo de $\hat k$. Seja $q$ essa coordenada (ver a
 Figura~\ref{fig:f050}).  Por outro lado, dizer que esta onda é harmónica
 significa que tem uma forma geral que se pode escrever como
 \begin{equation}\label{eq:eq0}
-  \psi(x,y,z,t)=A\cos\left(ks-\omega t+\phi_0\right),
+  \psi(x,y,z,t)=A\cos\left(kq-\omega t+\phi_0\right),
 \end{equation}
 com $k=2pi/\lambda$. Seja $P$ um ponto de uma das frentes de onda, e
-$\vec r=(x,y,z)$ o seu vetor posição. O valor da coordenada $s$ para este ponto
+$\vec r=(x,y,z)$ o seu vetor posição. O valor da coordenada $q$ para este ponto
 é facilmente calculado como
 \begin{figure}[htb]
   {\centering
@@ -874,23 +939,26 @@ $\vec r=(x,y,z)$ o seu vetor posição. O valor da coordenada $s$ para este pont
 
       \draw (o)+(10:0.6) arc(10:35:0.6) node [shift={(2.0mm,-0.5mm)}]{$\theta$};
       \draw (p)+(10:0.6) arc(10:35:0.6) node [xshift=2.5mm]{$\theta$};
-      \draw [thin, ->] (o) -- (10:3.5) node [above] {$s$};
+      \draw [thin, ->] (o) -- (10:3.5) node [above] {$q$};
     \end{tikzpicture}\par
   }
   \caption{\label{fig:f050}Onda plana monocromática que se propaga na direção de
-    um vetor unitário $\hat k$. O eixo coordenado da coordenada $s$ está
+    um vetor unitário $\hat k$. O eixo coordenado da coordenada $q$ está
     orientado segundo a direção de propagação. Em cada frente de onda, o valor
-  de $s$ é uniforme.}
+  de $q$ é uniforme.}
 \end{figure}
 \begin{equation*}
-  s = r\cos\theta = \hat k\cdot\vec r,
+  q = r\cos\theta = \hat k\cdot\vec r,
 \end{equation*}
 onde $\theta$ é o ângulo entre $\vec r$ e $\vec k$.  Definindo o vetor (já não
-unitário) $\vec k=2\pi/\lambda\,\hat k$, chamado \emph{vetor de onda}, o produto
-$ks$ que aparece na expressão da fase na eq.~\eqref{eq:eq0} pode então
+unitário) $\vec k=2\pi/\lambda\,\hat k$, chamado \emph{vetor de
+onda}\footnote{O vetor $\vec k$ é a versão tridimensional da
+variável $k_x$ definida na Secção~\ref{sec:hamonicwaves}, a que demos o mesmo
+nome. Obviamente, $k_x$ é a componente $x$ do vetor $\vec k$ agora introduzido.}
+o produto $ks$ que aparece na expressão da fase na eq.~\eqref{eq:eq0} pode então
 escrever-se como função das coordenadas do ponto $P$ na forma
 \begin{equation*}
-  ks=k\hat k\cdot \vec r=\vec k\cdot\vec r.
+  kq=k\hat k\cdot \vec r=\vec k\cdot\vec r.
 \end{equation*}
 Por fim, substituindo na eq.~\eqref{eq:eq0}, obtemos a forma geral de uma onda
 plana harmónica com vetor de propagação $\vec k$:
@@ -911,7 +979,7 @@ que ela se faz segundo o sentido do eixo dos $x$), a única componente não nula
 deste vetor é a primeira, que deve ter o valor $k=2\pi/\lambda$. Isto é, $\vec
 k=(k,0,0)$; logo, $\vec k\cdot\vec r=kx$.  Substituindo este resultado na
 expressão da eq.~\eqref{eq:plwav} obtemos justamente a forma unidimensional das
-ondas harmónicas da eq.~\eqref{eq:hwav}.
+ondas sinusoidais da eq.~\eqref{eq:hwav}.
 
 Naturalmente, a versão desta função de onda em representação complexa é
 \begin{equation}\label{eq:phwfexp}
@@ -951,7 +1019,7 @@ ou seja, na notação que temos usado,
 \end{equation}
 Esta é a equação diferencial que todas as ondas planas que se propagam com
 velocidade uniforme sem alteração de forma devem satisfazer. Fica como exercício
-demonstrar que as ondas planas harmónicas das eqs.~\eqref{eq:plwav}
+demonstrar que as ondas planas sinusoidais das eqs.~\eqref{eq:plwav}
 e~\eqref{eq:phwfexp} satisfazem a equação de onda~\eqref{eq:weq3d}.
 
 A soma das duplas derivadas de uma função em ordem às coordenadas cartesianas
@@ -977,7 +1045,7 @@ circulares concentricas formadas quando uma pedra cai na superfície de um lago
 são o equivalente a ondas esféricas no espaço 2D definido pela superfície da
 água.
 
-Uma vez que as fretes de onda de uma onda esférica têm a forma de esféricas
+Uma vez que as frentes de onda de uma onda esférica têm a forma de esféricas
 com centro num ponto comum (a fonte), a fase só deve depender da distância a
 esse centro. Assim, a forma geral da função de onda de uma onda
 esférica deve ser [compare com a eq.~\eqref{eq:phwfexp}]
@@ -985,15 +1053,15 @@ esférica deve ser [compare com a eq.~\eqref{eq:phwfexp}]
 \psi(\vec r,t)=\psi(r,t),
 \end{equation*}
 onde $\vec r$ é o vetor posição de um ponto arbitrário do espaço, relativamente
-à posição da fonte. No caso de ondas harmónicas, esta expressão toma a forma
-mais concreta
+à posição da fonte. No caso de ondas sinusoidais, esta expressão toma a forma
 \begin{equation}
-\psi(\vec r,\,t)=\frac{A}{r}e^{\iu(kr-\omega t+\phi_0)}.
+\psi(\vec r,\,t)=A(r)e^{\iu(kr-\omega t+\phi_0)}.
 \end{equation}
-A amplitude é dividida pela distância à fonte ($r$) para dar conta do facto da
-intensidade das ondas eféricas diminuir com o quadrado dessa distância. Uma vez
-que a intensidade é proprcional ao quadrado da função de onda, esta modificação
-da amplitude é a adequada para se descrever esse efeito.
+A amplitude é agora considerada uma função (decrescente) da distância à fonte
+porque se verifica empiricamente que a amplitude das ondas esféricas diminui à
+medida que que se afastam da fonte. Isto acontece porque nesse afastamento, a
+energia que a onda transporta é distribuída por uma área cada vez maior.
+
 
 \section{Princípio de Huygens}
 Na propagação de uma onda, a causa directa para que a perturbação ondulatória se

@@ -163,14 +163,13 @@ V=b\cos\phi A = c \|\vec a\times\vec b\| \cos\phi=
 
 \section{Sistemas de coordenadas e bases de vetores}
 Um sistema de coordenadas é uma forma de especificar numericamente a posição de
-cada ponto no espaço. Porque o espaço em que nos movemos é tridimensional (as
-porções do espaço podem ter largura, comprimento e altura), são em geral necessários
-três números (três coordenadas) para definir completamente a posição de cada
-ponto. Em certas situações, a posição dos objetos considerados pode estar
-constrangida de algum modo e, por isso, bastarem dois (como a latitude e a
-longitude de um ponto na superfície da Terra) ou apenas um (o \emph{quilómetro}
-onde se dá um acidente numa autoestrada) para a especificar; nestes
-casos, o espaço considerado é apenas bi- ou unidimensional.
+cada ponto no espaço. Porque o espaço em que nos movemos é tridimensional, são
+em geral necessários três números (três coordenadas) para definir completamente
+a posição de cada ponto. Em certas situações, a posição dos objetos considerados
+pode estar constrangida de algum modo e, por isso, bastarem dois (como a
+latitude e a longitude de um ponto na superfície da Terra) ou apenas um (o
+\emph{quilómetro} onde se dá um acidente numa autoestrada) para a especificar;
+nestes casos, o espaço considerado é apenas bi- ou unidimensional.
 
 O sistema de coordenadas usado em cada problema é definido como for considerado
 mais conveniente. Qualquer problema pode ser analisado com qualquer sistema de
@@ -276,7 +275,7 @@ $(\rho,\,z,\,\phi)$ (à direita).\label{fig:10-015}}
 \end{figure}
 
 Escolhendo para eixo polar o eixo da coordenada cartesiana $z$ e o plano de
-referência polar coincidente com o plano $zx$, as relações entre as coordenadas
+referência azimutal coincidente com o plano $zx$, as relações entre as coordenadas
 cartesianas e as coordenadas polares esféricas (colunas da esquerda) e
 cilíndricas (colunas da direita) são
 \begin{align}
@@ -421,7 +420,7 @@ podem, escolhendo apropriadamente o sistema de coordenadas, ser exploradas para
 simplificar a sua formulação e resolução. Vejamos alguns exemplos.
 \begin{examples}
 \item A forma de uma superfície esférica com raio $a$ e centro na origem, em
-  coordenadas cartesinas e em coordenadas esféricas.\\
+  coordenadas cartesianas e em coordenadas esféricas.\\
   Os pontos da superfície esférica estão todos à mesma distância do centro, ou
   seja, da origem do sistema de coordenadas. Assim, em coordenadas esféricas
   dizemos que a superfície é formada pelos pontos do conjunto
@@ -877,7 +876,7 @@ com derivadas espaciais de funções de várias variáveis, que estudaremos a
 seguir. Acontece que todas essas variáveis podem ser expressas de forma simples
 e familiar introduzindo um operador vetorial diferencial chamado \emph{nabla},
 expresso em coordenadas cartesianas como
-\begin{equation}
+\begin{equation}\label{eq:cartnabla}
 \vec \nabla = \he_x\pd{}{x}+ \he_y\pd{}{y}+ \he_z\pd{}{z}.
 \end{equation}
 Introduzido este símbolo, o gradiente de uma função escalar $f$ escreve-se
@@ -1438,26 +1437,25 @@ a divergência de um campo vetorial $\vec V$ é dada por
 \begin{equation}\label{eq:divcart}
   \div\vec V=\pd{V_x}{x} + \pd{V_y}{y}+\pd{V_z}{z}.
 \end{equation}
-Introduzindo agora o símbolo vetorial ``nabla'' 
-\begin{equation*}
-  \vec \nabla = (\pd{}{x},\, \pd{}{y},\, \pd{}{z}),
-\end{equation*}
-a divergência de $\vec V$ pode ainda escrever-se de forma mais condensada como
-o produto escalar de nabla e $\vec V$:
+Esta expressão é formalmente semelhante ao produto escalar do operador vetorial
+$\vec\nabla$ da eq.~\eqref{eq:cartnabla} com $\vec V$, e por isso pode també
+escrever-se
 \begin{equation}
   \div\vec V=\vec\nabla\cdot\vec V.
 \end{equation}
+o produto escalar de nabla e $\vec V$:
 
-Em coodenadas polares cilíndricas $(r,\,\varphi,\,z)$, a divergência de um campo
+Em coodenadas polares cilíndricas $(\rho,\,\varphi,\,z)$, a divergência de um campo
 vetorial $\vec V=V_r\he_r+V_\varphi\he_\varphi+V_z\he_z$ tem a forma
 \begin{equation}
-\div\vec V=\frac{1}{r}\pd{(rV_r)}{r}+\pd{V_\varphi}{\varphi}+\pd{A_z}{z}
+\div\vec V=\frac{1}{\rho}\pd{(\rho V_\rho)}{\rho}
+    +\pd{V_\varphi}{\varphi}+\pd{V_z}{z}
 \end{equation}
 e, em coordenadas polares esféricas $(r,\,\theta,\,\varphi)$, 
 \begin{equation}
-\div \vec A=\frac{1}{r^2}\pd{(r^2A_r)}{r}+
-    \frac{1}{r\sin\theta}\pd{}{\theta}(A_\theta\sin\theta)+
-    \frac{1}{r\sin\theta}\pd{A_\varphi}{\theta}
+\div \vec V=\frac{1}{r^2}\pd{(r^2V_r)}{r}+
+    \frac{1}{r\sin\theta}\pd{}{\theta}(V_\theta\sin\theta)+
+    \frac{1}{r\sin\theta}\pd{V_\varphi}{\theta}
 \end{equation}
 
 \subsection*{Rotacional de um campo vetorial}
@@ -1483,15 +1481,15 @@ Usando a primeira das igualdades da eq.~\eqref{eq:tcp}, encontramos uma
 expressão para o rotacional do rotacional de um campo vetorial, que será útil
 quando estuidarmos as ondas eletromagnéticas:
 \begin{align}
-\rot\rot \vec A&=\vec\nabla\times\vec\nabla\times\vec V=
+\rot\rot \vec V&=\vec\nabla\times\vec\nabla\times\vec V=
 \vec \nabla(\vec\nabla\cdot\vec V)-\nabla^2\vec V\nonumber\\
 &=\grad\div \vec V-\lap\vec V,
 \end{align}
-onde $\lap\vec A$ representa o \emph{laplaciano} do campo vetorial$\vec V$, um
+onde $\lap\vec A$ representa o \emph{laplaciano} do campo vetorial $\vec V$, um
 operador diferencial de segunda ordem, igual à soma das duplas derivadas não
 cruzadas do campo,
 \begin{equation}
-\lap X =
+\lap F =
 \pdd{F}{x}+
 \pdd{F}{y}+
 \pdd{F}{z},\qquad\text{para qualquer função escalar ou vetorial $F$}
