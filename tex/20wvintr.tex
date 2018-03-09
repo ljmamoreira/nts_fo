@@ -757,7 +757,8 @@ final tomemos a parte real do resultado, descartando assim a parte imaginária
 que não nos interessa. Assim, no caso da função de onda, iremos frequentemente
 representá-la como
 \begin{equation*}
-  \psi(x,t)\stackrel{!}{=}A\e^{\iu(kx\pm\omega t+\phi_0)}
+  \psi(x,t)=A\cos(kx-\omega t+\varphi_0)
+    \stackrel{!}{=}A\e^{\iu(kx-\omega t+\varphi_0)}
 \end{equation*}
 onde o símbolo $\stackrel{!}{=}$ indica que apenas a parte real da expressão no
 lado direito deve ser considerada na igualdade. Daqui para a frente, esse
@@ -768,7 +769,7 @@ algumas operações analíticas. Por exemplo, as derivações em ordem a $t$ ou 
 ordem a $x$ de uma onda harmónica traduzem-se simplesmente na multiplicação por
 um fator:
 \begin{align*}
-  \pd{}{t}\psi(x,t)&=\pm\iu\omega\psi(x,t)\\
+  \pd{}{t}\psi(x,t)&=-\iu\omega\psi(x,t)\\
   \pd{}{x}\psi(x,t)&=\iu k\psi(x,t).
 \end{align*}
 
@@ -797,16 +798,17 @@ $z$. Como descrever ondas 3D como estas?
 
 \subsection{Frentes de onda}
 \subsubsection*{Superfícies de nível de funções do espaço}
-As funções contínuas de duas variáveis $x$ e $y$ podem ser caracterizadas pelas
-chamadas \emph{curvas de nível}, linhas do plano $xy$ nas quais a função tem
-valor uniforme. Encontramos estas curvas em cartas topográficas para indicar a
+Como discutimos na Secção~\ref{sec:surfgraf}, as funções contínuas de duas
+variáveis $x$ e $y$ podem ser representadas graficamente pelas chamadas
+\emph{curvas de nível}, linhas do plano $xy$ nas quais a função tem valor
+uniforme. Encontramos estas curvas em cartas topográficas para indicar a
 altitude do terreno, ou em cartas meteorológicas, normalmente para representar a
 pressão atmosférica ou a temperatura. Do mesmo modo, as funções de três
 variáveis $x$, $y$ e $z$ são caraterizadas por \emph{superfícies de nível,}
 formadas por pontos onde a função apresenta um mesmo valor. Por exemplo, as
 superfícies de nível do potencial gravítico na vizinhança da superfície
-terrestre ($U=g(z-z_0$) são planos horizontais; as da intensidade luminosa
-(veremos mais tarde como se define, mas para já serve uma noção intuitiva) em
+terrestre ($U=g(z-z_0$)) são planos horizontais; as da intensidade luminosa
+(veremos mais tarde como se define, mas para já serve a noção intuitiva) em
 torno da chama de uma vela têm forma aproximadamente esférica, com centro na
 chama.
 
@@ -1060,8 +1062,22 @@ onde $\vec r$ é o vetor posição de um ponto arbitrário do espaço, relativam
 A amplitude é agora considerada uma função (decrescente) da distância à fonte
 porque se verifica empiricamente que a amplitude das ondas esféricas diminui à
 medida que que se afastam da fonte. Isto acontece porque nesse afastamento, a
-energia que a onda transporta é distribuída por uma área cada vez maior.
+energia que a onda transporta é distribuída por uma área cada vez maior. Pode
+provar-se (resolvendo a equação de onda em coordenadas esféricas) que esta
+função decrescente é inversamente proporcional à distância ao centro para ondas
+3D, como as da luz de fontes pontuais, ou seja,
+\begin{equation*}
+A(r)=\frac{C}{r},\qquad\text{Ondas esféricas 3D.}
+\end{equation*}
+Nas ondas esféricas 2D (como as ondas circulares que se formam na superfície
+calma de um lago quando deixamos nela cair uma pedra) a amplitude é inversamente
+proporcional à raiz quadrada da distância ao centro:
+\begin{equation*}
+A(r)=\frac{C}{\sqrt r},\qquad\text{Ondas esféricas 2D.}
+\end{equation*}
 
+\section{Polarização}
+\tobedone{}
 
 \section{Princípio de Huygens}
 Na propagação de uma onda, a causa directa para que a perturbação ondulatória se
@@ -1070,13 +1086,28 @@ outras palavras, a fonte da perturbação ondulatória num dado local é a próp
 perturbação na vizinhança desse local. Esta constatação inspirou o chamado
 \emph{princípio de Huygens}:
 \begin{quote}
-    \textsl{Cada ponto numa frente de onda é fonte de ondas secundárias cuja
-    interferência mútua determina a forma da frente de onda em instantes
-    posteriores.}
+    \textsl{Cada ponto numa frente de onda é fonte de ondas secundárias com
+    forma esférica; a frente de onda propagada para um instante posterior tem a
+    forma do envelope destas ondas secundárias.}
 \end{quote}
-Usando este princípio é possível demonstrar as leis da óptica geométrica e ainda
-compreender os fenómenos em que a natureza ondulatória da luz se manifesta e que
-constituem o assunto deste capítulo.
+Usando este princípio é possível demonstrar as leis da óptica geométrica. Por
+exemplo, as construções que permitem compreender as leis da reflexão e da
+refração estão apresentadas na Figura~\ref{fig:f060}.
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=0.45\linewidth]{figs/huygens_reflection.png}\hfill
+\includegraphics[width=0.45\linewidth]{figs/huygens_refraction.png}
+\end{center}
+\caption{Contruções geométricas para compreender, nos termos do princípio de
+Huygens, a reflexão (esquerda) e a refração (direita) da luz. As linhas retas a
+tracejado representam o envelope das ondas esféricas
+secundárias.\label{fig:f060}}
+\end{figure}
+
+O Princípio de Huygens é fácil de compreender nos termos da interferência das
+ondas secundárias produzidas em cada ponto de uma frente de onda. Voltaremos a
+este assunto no Capítulo~\ref{chpt:superp}, quando estudarmos a sobreposição de
+ondas.
 
 
 \newpage
@@ -1087,7 +1118,7 @@ constituem o assunto deste capítulo.
     \begin{align*}
       \psi(x,t)&=A\cos\left(2\pi\left[\frac{x}{\lambda}\pm\frac{t}{T}\right]+
                 \phi_0\right)\\
-               &=A\cos\left(kx\pm\omega t+\phi_0\right)\\
+               &=A\cos\left(kx\pm\omega t-\phi_0\right)\\
                &=Ae^{\iu (kx\pm\omega t+\phi_0)}
     \end{align*}
     com
@@ -1125,7 +1156,7 @@ constituem o assunto deste capítulo.
     \end{tabular}
     \end{center}
   \item Frequência: $f=1/T$. Unidades: ciclos por segundo ou Hz (hertz);
-    representa a taxa de variação temporal da fase, expressa em ciclos por
+    representa a taxa temporal de variação da fase, expressa em ciclos por
     segundo.
     \begin{align*}
       f&=\frac{1}{T}&\omega&=\frac{2\pi}{T}&k&=\frac{2\pi}{\lambda}

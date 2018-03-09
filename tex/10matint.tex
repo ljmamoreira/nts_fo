@@ -478,6 +478,7 @@ simplificar a sua formulação e resolução. Vejamos alguns exemplos.
 \end{examples}
 
 \section{Representações gráficas de funções da posição}
+\label{sec:surfgraf}
 As representações gráficas de funções da posição numa superfície ou no espaço
 são complicadas porque há sempre mais variáveis envolvidas do que dimensões no
 plano onde se desenha a representação. No caso de funções escalares definidas
@@ -650,7 +651,7 @@ Esta notação permite escrever muitas expressões de forma mais compacta. Por
 exemplo,
 \begin{equation}\label{eq:drcart}
   \delta\vec r= \delta x\he_x+\delta y\he_y+\delta z\he_z
-  =x_1\he_1+ x_2\he_2+ x_3\he_3=\sum_{i=1}^3x_i\he_i.
+  =x_1\he_1+ x_2\he_2+ x_3\he_3=\sum_{i=1}^3\delta x_i\he_i.
 \end{equation}
 
 Introduzindo-se um outro sistema de coordenadas $(v_1, v_2, v_3)$, podemos
@@ -1438,15 +1439,16 @@ a divergência de um campo vetorial $\vec V$ é dada por
   \div\vec V=\pd{V_x}{x} + \pd{V_y}{y}+\pd{V_z}{z}.
 \end{equation}
 Esta expressão é formalmente semelhante ao produto escalar do operador vetorial
-$\vec\nabla$ da eq.~\eqref{eq:cartnabla} com $\vec V$, e por isso pode també
+$\vec\nabla$ da eq.~\eqref{eq:cartnabla} com $\vec V$, e por isso pode também
 escrever-se
-\begin{equation}
+\begin{equation}\label{eq:div}
   \div\vec V=\vec\nabla\cdot\vec V.
 \end{equation}
-o produto escalar de nabla e $\vec V$:
 
-Em coodenadas polares cilíndricas $(\rho,\,\varphi,\,z)$, a divergência de um campo
-vetorial $\vec V=V_r\he_r+V_\varphi\he_\varphi+V_z\he_z$ tem a forma
+A eq.~\eqref{eq:div} pode ser usada para deduzir as expressões da divergência em
+outros sistemas de coordenadas, substituindo nela as expressões correspondentes
+do operador nabla e das componentes da função $\vec V$. Em coodenadas polares
+cilíndricas $(\rho,\,\varphi,\,z)$, obtém-se
 \begin{equation}
 \div\vec V=\frac{1}{\rho}\pd{(\rho V_\rho)}{\rho}
     +\pd{V_\varphi}{\varphi}+\pd{V_z}{z}
@@ -1476,32 +1478,42 @@ Em termos do símbolo vetorial nabla, fica, mais sucintamente,
 \begin{equation}
   \rot\vec V=\vec\nabla\times\vec V.
 \end{equation}
+Como para a divergência, esta expressão pode ser usada para determinar com
+alguma facilidade as expressões do rotacional noutros sistemas de coordenadas.
 
 Usando a primeira das igualdades da eq.~\eqref{eq:tcp}, encontramos uma
 expressão para o rotacional do rotacional de um campo vetorial, que será útil
-quando estuidarmos as ondas eletromagnéticas:
+quando estudarmos as ondas eletromagnéticas:
 \begin{align}
 \rot\rot \vec V&=\vec\nabla\times\vec\nabla\times\vec V=
 \vec \nabla(\vec\nabla\cdot\vec V)-\nabla^2\vec V\nonumber\\
 &=\grad\div \vec V-\lap\vec V,
 \end{align}
 onde $\lap\vec A$ representa o \emph{laplaciano} do campo vetorial $\vec V$, um
-operador diferencial de segunda ordem, igual à soma das duplas derivadas não
-cruzadas do campo,
+operador diferencial de segunda ordem, dado por
 \begin{equation}
-\lap F =
+\lap F = \nabla^2 F=\div\grad F,\qquad\text{para qualquer função escalar ou
+vetorial $F$},
+\end{equation}
+quem em coordenadas cartesianas é simplesmente igual à soma das duplas derivadas
+não cruzadas do campo,
+\begin{equation}
+\lap F = 
 \pdd{F}{x}+
 \pdd{F}{y}+
-\pdd{F}{z},\qquad\text{para qualquer função escalar ou vetorial $F$}
+\pdd{F}{z}.
 \end{equation}
+
+\vspace{20mm}
 {\small%
-  Feita esta abreviadíssima explicação sobre os operadores $\div$ e $\rot$,
-  talvez não seja pior referir alguns factos mais básicos da ``vida secreta
-  das derivadas''. Uma função crescente tem uma variação positiva quando a
-  variável de que depende sofre um acréscimo; logo, a sua taxa de variação
-  (variação da função a dividir pelo acréscimo da variável) é positiva, logo a
-  sua derivada (outro nome para a taxa de variação) é positiva. Do mesmo modo,
-  uma função decrescente tem derivada negativa. Uma função constante não é
+\noindent
+  Feita esta abreviadíssima explicação sobre os operadores $\grad$, $\div$,
+  $\rot$ e $\lap$, talvez não seja pior referir alguns factos mais básicos da
+  ``vida secreta das derivadas''. Uma função crescente tem uma variação positiva
+  quando a variável de que depende sofre um acréscimo; logo, a sua taxa de
+  variação (variação da função a dividir pelo acréscimo da variável) é positiva,
+  logo a sua derivada (outro nome para a taxa de variação) é positiva. Do mesmo
+  modo, uma função decrescente tem derivada negativa. Uma função constante não é
   crescente nem decrescente; logo, não tem derivada positiva nem negativa, tem
   derivada nula.  Uma função que atinge um valor extremo (máximo ou mínimo) para
   um dado valor da variável de que depende, nesse ponto não é crescente nem
@@ -1521,11 +1533,12 @@ cruzadas do campo,
   A derivada de uma função de várias variáveis em ordem a uma delas é ainda, em
   geral, uma função dessas mesmas variáveis. Como tal, pode fazer sentido
   derivá-la novamente, em ordem à mesma variável ou em ordem a outra qualquer. O
-  teorema de Swartz garante que esta derivada não depende da ordem com que se
+  teorema de Shwartz garante que esta derivada não depende da ordem com que se
   fazem cada uma das derivações:
   \begin{equation*}
     \cpdd{f}{x}{y}=
-    \cpdd{f}{y}{x},\qquad\text{qualquer que seja a função $f$}
+    \cpdd{f}{y}{x},\qquad\text{qualquer que seja a função $f$ e as variáveis $x$
+    e $y$.}
   \end{equation*}
 }
 
