@@ -10,11 +10,11 @@ pelas leis fundamentais do eletromagnetismo, as equações de Maxwell.
 As quatro equações de Maxwell para os campos elétrico ($\vec E$) e magnético
 ($\vec B$) são as seguintes:
 \begin{align*}
-  \div\vec E&=\frac{\rho}{\epsilon_0}&\div\vec B&=0\\
+  \div\vec E&=\frac{\rho}{\varepsilon_0}&\div\vec B&=0\\
   \rot\vec E&=-\pd{\vec B}{t}&
-  \rot\vec B&=\mu_0\vec j+\mu_0\epsilon_0\pd{\vec E}{t}.
+  \rot\vec B&=\mu_0\vec j+\mu_0\varepsilon_0\pd{\vec E}{t}.
 \end{align*}
-Nestas expressões, $\epsilon_0=\simeq8,8542\times10^{-12}$\,F/m representa a
+Nestas expressões, $\varepsilon_0=\simeq8,8542\times10^{-12}$\,F/m representa a
 permitividade elétrica do vácuo, $\mu_0=4\pi\times10^{-7}$\,H/m a permeabilidade
 magnética do vácuo, $\rho$ a densidade de carga (carga por unidade de volume)
 total em cada ponto e $\vec j$ a densidade de corrente (corrente elétrica por
@@ -22,19 +22,19 @@ unidade de área) total em cada ponto.
 
 Interessam-nos particularmente nestes apontamentos campos variáveis em locais
 afastados de cargas e correntes (que constituem, veremos, ondas eletromagnéticas
-afastadas das suas fontes). Por isso vamos considerar, para já pelo menos, a
-densidade de carga $\rho$ e a densidade de corrente $\vec j$ ambas nulas. As
-equações de Maxwell assumem então a forma, mais simétrica, que iremos, quase
-sempre, considerar nesta disciplina,\footnote{Para falicitar a referência,
-  ordenamos aqui estas equações em ordem crescente da esquerda para a direita e
-  de cima para baixo. Assim, chamremos ``primeira equação de Maxwell'' à que
-  apresenta a divergência do campo elétrico (lei de Gauss), ``terceira equação
-  de Maxwell'' à que envolve o rotacional do mesmo campo (lei de Faraday), etc.}
+afastadas das suas fontes). Por isso, vamos considerar a densidade de carga
+$\rho$ e a densidade de corrente $\vec j$ ambas nulas. As equações de Maxwell
+assumem então a forma, mais simétrica, que iremos, quase sempre, considerar
+nesta disciplina,\footnote{Para falicitar a referência, ordenamos aqui estas
+equações em ordem crescente da esquerda para a direita e de cima para baixo.
+Assim, chamremos ``primeira equação de Maxwell'' à que apresenta a divergência
+do campo elétrico (lei de Gauss), ``terceira equação de Maxwell'' à que envolve
+    o rotacional do mesmo campo (lei de Faraday), etc.}
 \begin{equation}\label{eq:meqs}
   \begin{aligned}
     \div\vec E&=0& \div\vec B&=0\\
     \rot\vec E&=-\pd{\vec B}{t}& \qquad\qquad
-      \rot\vec B&=\mu_0\epsilon_0\pd{\vec E}{t}.
+      \rot\vec B&=\mu_0\varepsilon_0\pd{\vec E}{t}.
   \end{aligned}
 \end{equation}
 
@@ -43,7 +43,7 @@ Procuremos soluções destas equações. A mais simples de todas é a trivial:
   \vec E&=0&\vec B=0.
 \end{align*}
 É pouco interessante, convenhamos. A seguir, em ordem crescente de complexidade,
-consideremos um campo eletromagnético constante e uniforme, isto um campo
+consideremos um campo eletromagnético constante e uniforme, isto é, um campo
 elétrico que tem em todos os pontos a mesma intensidade e orientação e que
 mantêm essas características inalteradas em todos os instantes, e o mesmo para o
 campo magnético. Estes campos têm derivadas todas nulas em todos os pontos e em
@@ -51,8 +51,8 @@ todos os instantes e, assim, são também solução das equações de Maxwell. M
 uma certa quantidade de energia associada ao campo, e um campo uniforme (ou
 seja, definido em todo o espaço com uma mesma intensidade e orientação) tem uma
 energia infinita. São, assim, soluções não realistas das equações de
-Maxwell e por isso não a consideraremos (excepto se $\vec E$ e $\vec B$ forem
-constante e uniformemente nulos, caso que já tratámos). Resumindo:
+Maxwell e por isso não as consideraremos (excepto se $\vec E$ e $\vec B$ forem
+constante e uniformemente nulos, caso que já tratámos). 
 
 Consideremos agora o caso dos campos que dependem de ponto para ponto, mas são
 constantes (independentes do tempo). Suponhamos, por exemplo, que o campo
@@ -93,8 +93,8 @@ significa dizer que se anulam as derivadas \emph{de cada componente} do campo
 elétrico.
 
 Tendo em conta a expressão da divergência de um campo vetorial da
-\eqref{eq:divcart}, a primeira das equações de Mawell pode também escrever-se
-como
+eq.~\eqref{eq:divcart}, a primeira das equações de Mawell pode também
+escrever-se como
 \begin{equation*}
   \pd{E_x}{x}+\pd{E_y}{y}+\pd{E_z}{z}=0,
 \end{equation*}
@@ -119,9 +119,9 @@ cartesianas da eq.~\eqref{eq:rotcart}, podem escrever-se como
 \begin{align}
   0&=-\pd{B_x}{t}&        \pd{B_z}{y}-\pd{B_y}z&=0\label{eq:meqx}\\
   \pd{E_z}{x}&=\pd{B_y}{t}&  \pd{B_x}{z}-\pd{B_z}{x}&=
-    \epsilon_0\mu_0\pd{E_y}{t} \label{eq:meqy}\\
+    \varepsilon_0\mu_0\pd{E_y}{t} \label{eq:meqy}\\
   \pd{E_y}{x}&=-\pd{B_z}{t}& 
-    \pd{B_y}{x}-\pd{B_y}{x}&=\epsilon_0\mu_0\pd{E_z}{t}\label{eq:meqz}
+    \pd{B_y}{x}-\pd{B_x}{y}&=\varepsilon_0\mu_0\pd{E_z}{t}\label{eq:meqz}
 \end{align}
 \end{subequations}
 Tomemos a igualdade no lado esquerdo da eq.~\eqref{eq:meqy} e derivêmo-la em
@@ -129,13 +129,13 @@ ordem a $x$. Resulta
 \begin{equation*}
   \pdd{E_z}{x}=\pd{}{t}\pd{B_y}{x}.
 \end{equation*}
-Mas a igualdade no lado direito da eq.~\eqref{eq:meqy} pode escrever-se como
+Mas a igualdade no lado direito da eq.~\eqref{eq:meqz} pode escrever-se como
 \begin{equation*}
-  \pd{B_y}{x}=\pd{B_y}{x}+\epsilon_0\mu_0\pd{E_z}{t}.
+  \pd{B_y}{x}=\pd{B_x}{y}+\varepsilon_0\mu_0\pd{E_z}{t}.
 \end{equation*}
 Substituindo em cima, obtemos
 \begin{equation*}
-  \pdd{E_z}{x}=\pd{}{t}\pd{B_y}{x}+\epsilon_0\mu_0\pdd{E_z}{t}
+  \pdd{E_z}{x}=\pd{}{t}\pd{B_x}{y}+\varepsilon_0\mu_0\pdd{E_z}{t}
 \end{equation*}
 O primeiro termo no lado direito desta igualdade é nulo:
 \begin{equation*}
@@ -144,12 +144,12 @@ O primeiro termo no lado direito desta igualdade é nulo:
 de acordo com a equação no lado esquerdo da primeira linha. Obtemos então, por
 fim,
 \begin{equation*}
-  \pdd{E_z}{x}=\epsilon_0\mu_0\pdd{E_z}{t}.
+  \pdd{E_z}{x}=\varepsilon_0\mu_0\pdd{E_z}{t}.
 \end{equation*}
 Mas repare-se que esta é a equação diferencial satisfeita em geral por ondas que
 se propagam ao longo do eixo dos $x$ sem alteração de forma (veja a
 eq.~\eqref{eq:waveq}), com velocidade
-$v=1/\sqrt{\mu_0\epsilon_0}=3,00\times10^{8}$\,m/s.  Verificamos assim que as
+$v=1/\sqrt{\mu_0\varepsilon_0}=3,00\times10^{8}$\,m/s.  Verificamos assim que as
 equações de Maxwell admitem soluções que representam ondas que se propagam sem
 alteração de forma com a velocidade da luz. Nesta análise, constatámos também que a
 componente $x$ do campo elétrico é nula. Mas a direção do eixo dos $x$ é a
@@ -167,7 +167,7 @@ esquerda na eq.~\eqref{eq:meqs}:
 Mas o rotacional do campo magnético é dado pela quarta equação de Maxwell.
 Substibuindo aqui, obtemos
 \begin{equation*}
-  \rot\rot\vec E=-\epsilon_0\mu_0\pdd{\vec E}{t}.
+  \rot\rot\vec E=-\varepsilon_0\mu_0\pdd{\vec E}{t}.
 \end{equation*}
 O rotacional duplo do lado esquerdo desta igualdade pode simplificar-se
 aplicando um teorema da análise de funções de várias variáveis segundo o qual
@@ -178,13 +178,13 @@ para qualquer função vetorial $\vec A$ se tem
 No caso que estudamos, o primeiro termo é nulo porque, de acordo com a primeira
 equação de Maxwell, $\div \vec E=0$. Resulta então, por fim,
 \begin{equation}\label{eq:efplw}
-  \lap\vec E=\epsilon_0\mu_0\pdd{\vec E}{t}.
+  \lap\vec E=\varepsilon_0\mu_0\pdd{\vec E}{t}.
 \end{equation}
 Mas esta é a equação geral das ondas planas em três dimensões, que deduzimos no
 capítulo anterior (veja a eq.~\eqref{eq:plweq3d}). Concluímos assim, com toda a
 generalidade, que o campo elétrico pode existir no vazio em configurações não
 triviais, na forma de ondas planas que se propagam à velocidade da luz
-$c=1/\sqrt{\epsilon_0\mu_0}$ sem alteração de forma.
+$c=1/\sqrt{\varepsilon_0\mu_0}$ sem alteração de forma.
 
 Poderíamos ter começado por calcular o rotacional da quarta equação de Maxwell.
 Chegaríamos a uma equação semelhante à eq.~\eqref{eq:efplw} mas envolvendo agora
@@ -195,19 +195,20 @@ equação de onda, podemos descrever o campo elétrico (e o campo magnético tam
 com as fuções de onda harmónicas, que já vimos serem soluções da dita equação de
 onda. Assim, seja o campo elétrico dado por
 \begin{equation}\label{eq:hpwef}
-  \vec E(\vec r,t)=\vec E_0\,\e^{\iu(\vec k\cdot\vec r-\omega t+\phi_0)}.
+  \vec E(\vec r,t)=\vec E_0\,\e^{\iu(\vec k\cdot\vec r-\omega t+\varphi_0)}.
 \end{equation}
-Nesta expressão, os símbolos $\vec k$, $\omega$ e $\phi_0$ têm o significado que
+Nesta expressão, os símbolos $\vec k$, $\omega$ e $\varphi_0$ têm o significado que
 já lhes atribuímos no capítulo anterior\footnote{$\vec k$ é o vetor de onda, com
   a direção e o sentido da propagação e com módulo $k=2\pi/\lambda$,
-$\omega=2\pi/T$ é a frequência angular da onda e $\phi_0$ é a constante de
+$\omega=2\pi/T$ é a frequência angular da onda e $\varphi_0$ é a constante de
 fase.}, mas na amplitude amplitude ($\vec E_0$) talvez se estranhe o caráter
-vetorial explicitado pela setinha. Bem, como discutimos no primeiro capítulo, a
-amplitude de uma onda harmónica tem a natureza da função de onda, tanto quanto
-às dimensões e unidades, como quanto ao caráter escalar/vetorial. Como a função
-de onda é o campo elétrico e como este é um vetor, a amplitude desta onda
-harmónica é igualmente um vetor. Chama-se \emph{direção de polarização} da onda
-à direção do vetor amplitude dessa onda.
+vetorial explicitado pela setinha. Bem, como discutimos na
+Secção~\ref{sec:polariz1}, a amplitude de uma onda harmónica tem a natureza da
+função de onda, tanto quanto às dimensões e unidades, como quanto ao caráter
+escalar/vetorial. Como a função de onda é o campo elétrico e como este é um
+vetor, a amplitude desta onda harmónica é igualmente um vetor. Como ficou dito
+na Secção~\ref{sec:polariz1}, chama-se \emph{direção de polarização} da onda à
+direção do vetor amplitude dessa onda.
 
 Vamos agora estudar as propriedades desta onda de campo elétrico, analisando-a à
 luz das equações de Maxwell. Antes, porém, vejamos como atuam os operadores
@@ -220,21 +221,21 @@ $\vec k$, com componentes $(k_x,\,k_y,\,k_z)$ e do vetor posição
 $\vec r=(x,\,y,\,z)$. Assim, $\vec k\cdot\vec r=k_xx+k_yy+k_zz$;
 logo,
 \begin{align*}
-  \pd{}{x}\e^{\iu(\vec k\cdot\vec r-\omega t+\phi_0)}&=
-  \iu k_x\e^{\iu(\vec k\cdot\vec r-\omega t+\phi_0)}
+  \pd{}{x}\e^{\iu(\vec k\cdot\vec r-\omega t+\varphi_0)}&=
+  \iu k_x\e^{\iu(\vec k\cdot\vec r-\omega t+\varphi_0)}
 \end{align*}
 e, do mesmo modo,
 \begin{align*}
-  \pd{}{y}\e^{\iu(\vec k\cdot\vec r-\omega t+\phi_0)}&=
-  \iu k_y\e^{\iu(\vec k\cdot\vec r-\omega t+\phi_0)}&
-  \pd{}{z}\e^{\iu(\vec k\cdot\vec r-\omega t+\phi_0)}&=
-  \iu k_z\e^{\iu(\vec k\cdot\vec r-\omega t+\phi_0)}
+  \pd{}{y}\e^{\iu(\vec k\cdot\vec r-\omega t+\varphi_0)}&=
+  \iu k_y\e^{\iu(\vec k\cdot\vec r-\omega t+\varphi_0)}&
+  \pd{}{z}\e^{\iu(\vec k\cdot\vec r-\omega t+\varphi_0)}&=
+  \iu k_z\e^{\iu(\vec k\cdot\vec r-\omega t+\varphi_0)}
 \end{align*}
 As derivadas do campo elétrico da eq.~\eqref{eq:hpwef} são, então, dadas por
 expressões simples. Por exemplo, a derivada em ordem a $x$ fica
 \begin{equation*}
-  \pd{}{x}\vec E=\vec E_0\pd{}{x}\e^{\iu(\vec k\cdot\vec r-\omega t+\phi_0)}=
-  \iu k_x\vec E_0\e^{\iu(\vec k\cdot\vec r-\omega t+\phi_0)}=
+  \pd{}{x}\vec E=\vec E_0\pd{}{x}\e^{\iu(\vec k\cdot\vec r-\omega t+\varphi_0)}=
+  \iu k_x\vec E_0\e^{\iu(\vec k\cdot\vec r-\omega t+\varphi_0)}=
   \iu k_x \vec E.
 \end{equation*}
 Expressões semelhantes obtêm-se para as restantes derivadas. Em resumo,
@@ -243,6 +244,14 @@ Expressões semelhantes obtêm-se para as restantes derivadas. Em resumo,
   \pd{\vec E}{y}&=\iu k_y\vec E&
   \pd{\vec E}{z}&=\iu k_z\vec E&
   \pd{\vec E}{t}&=-\iu \omega\vec E.
+\end{align*}
+De modo semelhante, demonstram-se as expressões seguintes para as primitivas da
+função de onda das ondas planas na forma complexa
+\begin{align*}
+\int \vec E dx&=\frac{1}{\iu k_x}\vec E&
+\int \vec E dy&=\frac{1}{\iu k_y}\vec E&
+\int \vec E dz&=\frac{1}{\iu k_z}\vec E&
+\int \vec E dt&=\frac{1}{-\iu \omega}\vec E.
 \end{align*}
 Essencialmente, é a simplicidade destas expressões que torna a representação das
 funções harmónicas com exponenciais complexas vantajosa. Se mantivessemos a
@@ -265,17 +274,17 @@ seja, é perpendicular à direção de propagação.
 Consideremos agora a terceira equação de Maxwell:
 \begin{align*}
   \pd{\vec B}{t}&=-\rot\vec E\\
-                &=-\rot \vec E_0\e^{\iu(\vec k\cdot\vec r-\omega t+\phi_0)}
-  =-\vec \nabla\times\vec E_0\e^{\iu(\vec k\cdot\vec r-\omega t+\phi_0)}\\
-  &=-\iu\vec k\times\vec E_0\e^{\iu(\vec k\cdot\vec r-\omega t+\phi_0)}.
+                &=-\rot \vec E_0\e^{\iu(\vec k\cdot\vec r-\omega t+\varphi_0)}
+  =-\vec \nabla\times\vec E_0\e^{\iu(\vec k\cdot\vec r-\omega t+\varphi_0)}\\
+  &=-\iu\vec k\times\vec E_0\e^{\iu(\vec k\cdot\vec r-\omega t+\varphi_0)}.
 \end{align*}
 Então o campo magnético pode obter-se primitivando em ordem ao tempo o lado
 direito, ou seja,
 \begin{align}
   \vec B&=-\iu\vec k\times\vec E_0\int\e^{\iu(\vec k\cdot\vec r-\omega
-          t+\phi_0)}dt\nonumber\\
+          t+\varphi_0)}dt\nonumber\\
           &=-\iu\vec k\times\vec E_0\frac{1}{-i\omega}
-            \e^{\iu(\vec k\cdot\vec r-\omega t+\phi_0)}\nonumber\\
+            \e^{\iu(\vec k\cdot\vec r-\omega t+\varphi_0)}\nonumber\\
             \vec B&=\frac{1}{\omega}\vec k\times \vec E.\label{eq:mf}
 \end{align}
 Vemos assim que o campo magnético associado a uma onda plana eletromagnética é
@@ -286,7 +295,7 @@ entre si.
 
 De acordo com a eq.~\eqref{eq:mf}, o campo magnético pode escrever-se como
 \begin{equation*}
-  \vec B=\vec B_0\,\e^{\iu(\vec k\cdot\vec r-\omega t+\phi_0)},\qquad
+  \vec B=\vec B_0\,\e^{\iu(\vec k\cdot\vec r-\omega t+\varphi_0)},\qquad
   \text{ com } 
   \vec B_0=\frac{1}{\omega}\vec k\times\vec E_0.
 \end{equation*}
@@ -302,8 +311,8 @@ produto vetorial é igual ao produto dos módulos dos dois vetores e, assim,
 onde $c$ representa a velocidade de propagação da onda.
 
 A Figura~\ref{fig:plemwave} ilustra a orientação relativa do campo elétrico, do
-campo magnético e da direção de propagação, para uma direção de polarização
-coincidente com o eixo dos $y$.
+campo magnético e da direção de propagação (no sentido positivo do eixo dos
+$x$), para uma direção de polarização coincidente com o eixo dos $y$.
 \begin{figure}[htb]
   {\centering
       \begin{tikzpicture}[x={(-20:1cm)},y={(90:1cm)},z={(210:1cm)}]
@@ -330,8 +339,9 @@ coincidente com o eixo dos $y$.
     }
     \caption{Onda eletromagnética plana e harmónica que se propaga no sentido
     positivo do eixo dos $x$, com direção de polarização (a direção do campo
-  elétrico) segundo o eixo dos $y$ e campo magnético paralelo ao eixo dos $z$.
-  (Adaptado de um artigo no \LaTeX{} StackExchange.)\label{fig:plemwave}}
+  elétrico) segundo o eixo dos $y$. Note que o campo magnético é paralelo ao
+  eixo dos $z$.  (Adaptado de um artigo no \LaTeX{}
+  StackExchange.)\label{fig:plemwave}}
 \end{figure}
 
 \section{O vetor de Poynting e a irradiância}
@@ -346,7 +356,8 @@ O transporte de energia pelo campo é completamente caracterizado pelo
   \vec S=\frac{1}{\mu_0}\vec E\times\vec B.
 \end{equation}
 A orientação deste vetor é a do fluxo de energia; o seu módulo é a quantidade de
-energia transportada por unidade de tempo e de área perpendicular a esse fluxo.
+energia transportada pela onda por unidade de tempo e de área perpendicular a
+esse fluxo.
 
 Numa onda de luz, o módulo do vetor de Poynting oscila com frequência muito
 elevada, e por isso é mais informativo tomar médias temporais. A
@@ -360,31 +371,31 @@ campos $\vec E$ e $\vec B$ são perpendiculares. Assim, o módulo do vetor de
 Poynting é dado por
 \begin{align*}
   S&=\|\vec S\|=\frac{1}{\mu_0}EB=
-  \frac{E_0B_0}{\mu_0}\cos^2\left(\vec k\cdot\vec r-\omega t+\phi_0\right)\\
+  \frac{E_0B_0}{\mu_0}\cos^2\left(\vec k\cdot\vec r-\omega t+\varphi_0\right)\\
   &=
-  \frac{E^2_0}{\mu_0c}\cos^2\left(\vec k\cdot\vec r-\omega t+\phi_0\right),
+  \frac{E^2_0}{\mu_0c}\cos^2\left(\vec k\cdot\vec r-\omega t+\varphi_0\right),
 \end{align*}
 onde $E_0$ e $B_0$ representam respetivamente os módulos das amplitudes dos
 campos elétrico e magnético e se usou a igualdade~\eqref{eq:b0e0}. Note-se que
 não podemos aqui usar a representação complexa, porque a expressão envolve um
 produto de duas funções trignométricas; ocorre aqui, por isso, a ``infeção'' da
 parte real da representação (com significado físico) pela sua parte imaginária
-(aqui irrelevante) que foi referida na secção secção~\ref{sec:complexharm}.  O
+(aqui irrelevante) que foi referida na secção~\ref{sec:complexharm}.  O
 valor médio desta função calculado ao longo de um período é
 \begin{equation*}
   I=\overline S=\frac{1}{T}\int_{0}^TS(t)dt=\frac{E_0^2}{\mu_0cT}
-  \int_0^T\cos^2\left(\vec k\cdot\vec r-\omega t+\phi_0\right)dt.
+  \int_0^T\cos^2\left(\vec k\cdot\vec r-\omega t+\varphi_0\right)dt.
 \end{equation*}
 Mas $\cos^2\theta=(1+\cos2\theta)/2$; então,
 \begin{equation*}
   I=\frac{E_0^2}{2\mu_0cT}
-  \int_0^T\left[1+\cos2\left(\vec k\cdot\vec r-\omega t+\phi_0\right)\right]dt.
+  \int_0^T\left[1+\cos2\left(\vec k\cdot\vec r-\omega t+\varphi_0\right)\right]dt.
 \end{equation*}
 O integral da primeira parcela é, simplesmente, $T$; o segundo, sendo o integral
 da função cosseno ao longo de um período completo, anula-se. Então, resulta por
 fim
 \begin{equation}
-  I=\frac{E_0^2}{2\mu_0c}=\frac{1}{2}\epsilon_0cE_0^2.
+  I=\frac{E_0^2}{2\mu_0c}=\frac{1}{2}\varepsilon_0cE_0^2.
 \end{equation}
 
 
@@ -393,7 +404,7 @@ fim
 
 \section{O espetro eletromagnético}
 A luz é então uma onda eletromagnética. Mas nem todas as ondas eletromagnéticas
-são luz (visível). Os nosso sistema visual (olhos e cérebro) produz sensações
+são luz (visível). O nosso sistema visual (olhos e cérebro) produz sensações
 visuais quando na retina incidem ondas eletromagnéticas com comprimento de onda
 compreendido entre cerca de 400\,nm e 700\,nm (os valores exatos variam de
 pessoa para pessoa). Mas podem produzir-se ondas eletromagnéticas com
@@ -455,10 +466,10 @@ Como se pode verificar nesta figura, a parte do espectro eletromagnético a que
 os nossos olhos são sensíveis, aquilo a que chamamos luz visível, é uma fatia
 estreita de comprimentos de onda.
 
-Dentro da gama visível, diferentes comprimentos produzem esstímulos visuais que
-correspodem a diferentes sensações de cor. Considerando uma ordem crescente de
-comprimentos de onda temos sucessivamente sensações visuais correspondentes às
-cores violeta, azul, verde, amarelo, laranja e vermelho.
+Dentro da gama visível, diferentes comprimentos de onda produzem estímulos
+visuais que correspodem a diferentes sensações de cor. Considerando uma ordem
+crescente de comprimentos de onda temos sucessivamente sensações visuais
+correspondentes às cores violeta, azul, verde, amarelo, laranja e vermelho.
 
 
 
@@ -478,7 +489,7 @@ pelas equações de Maxwell, não foi abandonada.
 As partículas de luz (ou seja, os fotões) têm aspetos particulares que as
 distinguem dos corpos materiais mais vulgares. Em primeiro lugar, movem-se
 sempre com velocidade igual à velocidade da luz no vazio,
-$c=1/\sqrt{\epsilon_0\mu_0}$; depois, têm massa nula; e a sua energia cinética
+$c=1/\sqrt{\varepsilon_0\mu_0}$; depois, têm massa nula; e a sua energia cinética
 depende apenas da frequência da radiação:
 \begin{equation*}
     \varepsilon=hf.

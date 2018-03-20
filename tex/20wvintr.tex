@@ -1076,8 +1076,43 @@ proporcional à raiz quadrada da distância ao centro:
 A(r)=\frac{C}{\sqrt r},\qquad\text{Ondas esféricas 2D.}
 \end{equation*}
 
-\section{Polarização}
-\tobedone{}
+\section{Polarização. Ondas longitudinais e ondas transversais}
+\label{sec:polariz1}
+Até agora, temos descrito as ondas recorrendo sempre a funções de onda
+escalares. Isso é suficiente em problemas unidimensionais ou quando a variável
+que representa a perturbação ondulatória é escalar (como a pressão numa onda de
+som). Mas quando essa variável é vetorial, uma descrição usando funções escalares
+não chega. Por exemplo, consideremos as ondas de vibração numa corda de
+guitarra. A perturbação ondulatória, nesta situação, é o deslocamento
+relativamente à posição de equilíbrio, e esse deslocamento é um vetor do plano
+transversal à corda (se considerarmos apenas as vibrações trasversais mais
+perceptíveis), ou um vetor do espaço (considerando a possibilidade de vibrações
+longiudinais).  Ora, uma função de onda vetorial tem, em cada ponto do seu
+domínio espacial e em cada instante, uma grandeza (ou intensidade ou módulo)
+mas, para além disso, tem também uma orientação. A \emph{polarização} de uma
+onda vetorial é a propriedade da onda que caracteriza essa orientação.  
+
+Algumas ondas têm polarição (isto é, orientação da função de onda) dirigida
+semple ao longo da direção de propagação. Essas ondas chamam-se \emph{ondas
+longitudinais.} Por exemplo, quando uma onda de som se propaga num gás, as
+vibrações das moléculas do gás ocorrem na direção em que o som se propaga. Por
+isso dizemos que as ondas de som são transversais. Outras ondas têm polarização
+sempre perpendicular à direção de propagação (por exemplo, as vibrações de uma
+corda esticada). Essas ondas dizem-se \emph{transversais}.
+
+Uma onda com polarização arbitrária pode sempre ser descrita como a sobreposição
+de uma onda longitudinal e de outra transversal, separando as componentes
+correspondentes da função de onda. Esta separação é quase sempre muito útil até
+porque, quese sempre os mecanismos físicos que gerem a propagação das duas
+componentes são diferentes.
+
+Nas ondas longitudinais, a direção da perturbação ondulatória coincide sempre
+com a direção de propagação. Assim, normalmente o problema da polarização nem
+se põe, já que se pode descrever a perturbação apenas considerando o seu módulo,
+já que a direção está determinada. Por isso, a polarização de uma onda só se
+costuma referir para as ondas transversais (como as ondas eletromagnéticas e, em
+particular, a luz). Voltaremos a este assunto no próximo capítulo.
+
 
 \section{Princípio de Huygens}
 Na propagação de uma onda, a causa directa para que a perturbação ondulatória se
@@ -1105,9 +1140,10 @@ secundárias.\label{fig:f060}}
 \end{figure}
 
 O Princípio de Huygens é fácil de compreender nos termos da interferência das
-ondas secundárias produzidas em cada ponto de uma frente de onda. Voltaremos a
-este assunto no Capítulo~\ref{chpt:superp}, quando estudarmos a sobreposição de
-ondas.
+ondas secundárias produzidas em cada ponto de uma frente de onda. Ao mesmo
+tempo, é muito útil para compreender os fenómenos que envolvem a interferência.
+Voltaremos a este assunto no Capítulo~\ref{chpt:superp}, quando estudarmos a
+sobreposição de ondas.
 
 
 \newpage
@@ -1117,9 +1153,9 @@ ondas.
     Função de onda de ondas harmónicas unidimensionais:
     \begin{align*}
       \psi(x,t)&=A\cos\left(2\pi\left[\frac{x}{\lambda}\pm\frac{t}{T}\right]+
-                \phi_0\right)\\
-               &=A\cos\left(kx\pm\omega t-\phi_0\right)\\
-               &=Ae^{\iu (kx\pm\omega t+\phi_0)}
+                \varphi_0\right)
+               =A\cos\left(kx-\omega t-\varphi_0\right)\stackrel{!}{=}
+               Ae^{\iu (kx-\omega t+\varphi_0)}
     \end{align*}
     com
     \begin{center}
@@ -1137,7 +1173,7 @@ ondas.
         \parbox[t]{0.3\textwidth}{\rule{0mm}{4ex}Intervalo de tempo entre a
         passagem, num ponto fixo, de dois máximos da função de onda sucessivos}
     \\
-    $\phi_0$&Constante de fase&Adimensional&
+    $\varphi_0$&Constante de fase&Adimensional&
         \parbox[t]{0.3\textwidth}{\rule{0mm}{4ex}Fase da função de onda na
         origem do sistema de coordenadas, no instante $t=0$}\\
     $k$&Vetor de onda&
@@ -1167,11 +1203,17 @@ v=\frac{\lambda}{T}=\lambda f=\lambda \omega/2\pi=\frac\omega k
 \end{equation*}
 \item Ondas planas em 3D:
   \begin{align*}
-    \psi(\vec r,t)&=A\cos(\vec k\cdot \vec r-\omega t+\phi_0)\\
-                  &=A\e^{\iu(\vec k\cdot \vec r-\omega t+\phi_0)}
+    \psi(\vec r,t)&=A\cos(\vec k\cdot \vec r-\omega t+\varphi_0)\stackrel{!}{=}
+                  A\e^{\iu(\vec k\cdot \vec r-\omega t+\varphi_0)}
   \end{align*}
   O vetor de onda $\vec k$ tem a direção e o sentido da propagação da onda. O
   seu módulo é $k=\|\vec k\|=2\pi/\lambda$.
+\item
+    Ondas esféricas em 3D:
+    \begin{equation*}
+    \psi(\vec r,t)=\frac{A}{r}\cos(kr-\omega t+\varphi_0)\stackrel{!}{=}
+    \frac{A}{r}e^{\iu(kr-\omega t+\varphi_0)}
+    \end{equation*}
 
 \end{itemize}
 
