@@ -399,8 +399,6 @@ fim
 \end{equation}
 
 
-\section{Polarização}
-\tobedone{}
 
 \section{O espetro eletromagnético}
 A luz é então uma onda eletromagnética. Mas nem todas as ondas eletromagnéticas
@@ -484,31 +482,207 @@ entre a matéria e a radiação, considerando que a própria radiação existia
 apenas numa forma discretizada, como grãos ou partículas de luz com energia
 proporcional à sua frequência. A hipótese corpuscular de Newton voltou assim a
 emergir, mas agora numa forma híbrida, já que a teoria ondulatória, suportada
-pelas equações de Maxwell, não foi abandonada.
+pelas equações de Maxwell, não foi abandonada, como veremos já de seguida. Com a
+hipótese corpuscular foi possível compreender aspetos aparentemente paradoxais
+do efeito fotoelétrico. Pouco depois, a nova teoria foi usada no estudo da
+interação da radiação com eletrões quase livres e também clarificou detalhes
+do efeito que, no quadro de uma teoria puramente ondulatória, eram
+incompreensíveis. A teoria corpuscular da luz valeu a Einstein o Prémio Nobel, e
+abriu as portas para o desenvolvimento da teoria quântica.
 
-As partículas de luz (ou seja, os fotões) têm aspetos particulares que as
-distinguem dos corpos materiais mais vulgares. Em primeiro lugar, movem-se
-sempre com velocidade igual à velocidade da luz no vazio,
-$c=1/\sqrt{\varepsilon_0\mu_0}$; depois, têm massa nula; e a sua energia cinética
-depende apenas da frequência da radiação:
-\begin{equation*}
-    \varepsilon=hf.
-\end{equation*}
-A constante de proporcionalidade chama-se \emph{constante de Plank} e tem o
-valor $h\simeq6,626\times10^{-3}$\,J\,s.
+
+As partículas de luz (chamadas \emph{fotões}) têm aspetos particulares que as
+distinguem radicalmente dos corpos materiais mais vulgares.  Na verdade, os
+fotões \emph{não são} como as outras partículas, como bolas de bilhar, grãos de
+areia da praia, átomos ou mesmo eletrões. Em primeiro lugar, a massa dos fotões
+é nula; para além disso, movem-se \emph{sempre} com velocidade igual à
+velocidade da luz no vazio, $c=1/\sqrt{\varepsilon_0\mu_0}$; a energia cinética
+e o momento do fotão são diretamente proporcionais à frequência angular e ao
+módulo do vetor de onda da radiação que constituem,
+\begin{align}\label{eq:plank}
+    E_\text{c}&=\hbar\omega&p&=\hbar k\qquad
+\end{align}
+o que mostra que a descrição ondulatória não é substituída por esta teoria
+corpuscular. De algum modo que não é ainda claro, a radiação eletromagnética
+tem as duas naturezas, ondulatória e corpuscular, manifestando uma ou outra (ou
+ambas, por vezes) em diferentes fenómenos.
+A constante de proporcionalidade nas eqs.~\eqref{eq:plank} chama-se
+\emph{constante de Plank reduzida} e tem o valor
+$h=h/2\pi\simeq1,0546\times10^{-34}$\,J\,s. 
 
 Numa abordagem corpuscular, consideramos que são os fotões os responsáveis pelo
-transforte de energia num feixe de radiação. Nesse caso, eles devem ser em
+transporte de energia num feixe de radiação. Nesse caso, eles devem ser em
 quantidade apropriada para promover esse transporte. Assim, deve verificar-se
 que a irradiância do feixe (energia transportada por unidade de tempo e de área)
 deve ser igual à densidade de fluxo de fotões (fotões por unidade de tempo e de
 área), multiplicada pela energia de cada fotão, ou seja, para radiação
 monocromática,
 \begin{equation}
-    I=hfn,
+    I=\hbar\omega n,
 \end{equation}
 onde $n$ representa a densidade de fluxo de fotões.
 
+\section{Interações entre a radiação e a matéria}
+Nos termos da teoria corpuscular, as interações entre matéria e radiação são
+fáceis de descrever de um ponto de vista qualitativo: a matéria pode absorver
+fotões, pode emitir fotões e pode dispersar fotões. A Figura~\ref{fig:phot_int}
+ilustra estes três processos esquematicamente.
+\begin{figure}[htb]
+{\centering
+\begin{tikzpicture}
+\begin{scope}[xshift=-3cm]
+	\draw (220:1) -- (0,0) -- (15:1);
+	\draw [thin,->] (220:1) -- (220:0.5);
+	\draw [thin,->] (0,0) -- (15:0.5);
+	\draw [decorate, decoration={snake,segment length=2.75mm, pre length=1pt}] (140:1) -- (0,0);
+\end{scope}
+\begin{scope}
+	\draw (190:1) -- (0,0) -- (-15:1);
+	\draw [thin,->](190:1) -- (190:0.5);
+	\draw [thin,->] (0,0) -- (-15:0.5);
+	\draw [decorate, decoration={snake,segment length=2.75mm,pre length=1pt}] (0,0)--(50:1);
+\end{scope}
+\begin{scope}[xshift=3cm]
+	\draw (200:1) -- (0,0) -- (-20:1);
+	\draw [thin,->](200:1) -- (200:0.5);
+	\draw [thin,->] (0,0) -- (-20:0.5);
+	\draw [decorate, decoration={snake,segment length=2.75mm,post length=0.5pt}] (150:1) -- (0,0);
+	\draw [decorate, decoration={snake,segment length=2.75mm,pre length=2pt}](0,0) -- (40:1);
+\end{scope}
+\end{tikzpicture}
 
+}
+\caption{Os três processos de interação matéria-radiação: absorção de fotões
+(à esquerda), emissão de fotões (centro) e dispersão de fotões (direita). Nestes
+diagramas, os fotões são representados por linhas onduladas e a matéria por
+linhas direitas. Em cada diagrama, a direção esquerda-direita representa o
+passar do tempo, no sentido em que os objetos representados (matéria ``normal''
+e fotões) se movem do lado esquerdo para o direito dos
+diagramas.\label{fig:phot_int}}
+\end{figure}
+
+Os processos de emissão ou absorção de partículas nunca são elásticos, isto é,
+neles não se conserva a energia cinética dos participantes\footnote{Que isto é
+assim, é fácil constatar analizando oo processo no referencial do centro de
+massa; por exemplo, na emissão de um fotão por um átomo, o átomo começa por
+estar imóvel, com energia cinética nula; o fotão emitido tem energia cinética,
+dada pela equação de Plank, e o próprio átomo fica também animado de um ténue
+movimento de recuo; ou seja, a energia cinética do sistema após a emissão do
+fotão já não é zero, como era antes dessa emissão.}. Nos processos inelásticos
+ocorre transformação da energia cinética dos intervenientes em alguma forma de
+energia interna\footnote{Por exemplo, as bolas de \emph{Squash,} que ressaltam pouco --- são
+pouco elásticas --- aquecem muito apreciavelmente durante um jogo.}. Para que
+possam ocorrer processos de emissão ou absorção de fotões, é portanto necessário
+que o objeto que os emite ou absorve tenha uma estrutura interna (com a
+correspondente estrutura de níveis de energia) capaz de absorver ou fornecer a
+variação de energia cinética que ocorre no processo. Este facto condiciona
+notavelmente os processos de emissão e absorção de fotões, verificando-se
+diferenças muito apreciáveis consoanto o estado físico do objeto envolvido.
+
+Para se compreender estas diferenças, analisemos alguns casos.
+\begin{enumerate}
+\item
+    \textbf{Emissão ou absorção de fotões por uma partícula elementar isolada}\\
+    Uma partícula elementar (um eletrão, por exemplo) não tem, por definição,
+    estrutura interna; logo, não tem energia interna. Logo, não pode emitir ou
+    absorver fotões por não ter como acomodar a variação de energia cinética
+    verificada no processo de emissão ou absorção. Uma partícula elementar
+    isolada não emite nem absorve radiação.
+\item
+    \textbf{Emissão ou absorção de fotões por um corpo sólido}\\
+    Esta situação é de certa forma o oposto da anterior: não só os átomos que
+    constituem o corpo têm estrutura interna, com diferentes níveis de energia,
+    como as próprias ligações entre os átomos podem ser excitadas, aumentando ou
+    diminuindo a amplitude das vibrações atómicas (ou seja, aumentando ou
+    diminuindo a temperatura do corpo). Um corpo sólido pode, em princípio,
+    emitir ou absorver qualquer tipo de radiação.
+\item
+    \textbf{Emissão ou absorção de fotões por átomos ou moléculas isoladas}\\
+    Os átomos e moléculas têm estrutura interna, e por isso podem encontrar-se
+    em diferentes estados e configurações. Sabemos que nos átomos e nas
+    moléculas não muito complexas, esses estados são bem definidos, distintos
+    entre si, tomando a energia do átomo ou da molécula valores bem determinados
+    em cada estado, característicos de cada átomo e molécula. São os
+    \emph{níveis de energia atómicos} estudados no ensino secundário, e que
+    caracterizam também as moléculas. Esta estrutura de níveis de energia
+    discreto permite acomodar as variações de energia cinética associadas à
+    absorção e emissão de fotões, desde que ocorra, simultaneamente com o
+    processo de emissão ou absorção, uma modificação do estado interno do átomo
+    ou da molécula, sofrendo assim a sua energia interna uma variação simétrica
+    da variação de energia potencial. Ora, isso só acontece se o fotão absorvido
+    ou emitido tiver energia cinética igual à diferença entre as energias do
+    estado inicial e final do átomo ou molécula envolvido no processo. Ou seja,
+    átomos e moléculas isolados só podem emitir ou absorver fotões com energias
+    iguais à diferença entre as energias de dois estados atómicos ou moleculares
+    possíveis pela sua estrutura interna. Por fim, como a energia cinética dos
+    fotões está relacionada com a frequência (ou o comprimento de onda) da
+    radiação que compõem, concluímos que átomos e moléculas isoladas só emitem
+    ou absorvem radiação eletromagnética com frequências bem definidas,
+    características desse átomo ou molécula.
+\end{enumerate}
+
+Em resumo, a matéria condensada (sólidos, líquidos ou gases fortemente
+comprimidos) pode emitir e absorver radiação eletromagnética com qualquer
+comprimento de onda; a matéria rarefeita (gases a baixa pressão) só podem emitir
+e absorver radiação eletromagnética com comprimentos de onda bem determinados,
+característicos dos átomos ou moléculas envolvidos.
+
+A Figura~\ref{fig:spectrums} ilustra estas duas possibilidades. À esquerda,
+apresenta-se o espectro de emissão do hidrogénio atómico; à direita, o espectro
+da luz solar. Apesar de o Sol ser constituído quase só por hidrogénio, e ainda
+mais a zona periférica que produz a luz que nos ilumina, os dois
+espectros são muito diferentes porque o hidrogénio solar está fortemente
+comprimido, funcionando para este efeito como um sólido. Nota-se forte atenuação
+para alguns comprimentos de onda, em resultado da absorção da radiação solar
+pelas camadas, muito mais rarefeitas, da atmosfera terreste.
+\begin{figure}[htb]
+{\centering
+    \raisebox{-0.5\height}{%
+    \includegraphics[width=0.45\linewidth]{figs/500px-Hydrogen_spectrum.png}
+    }
+    \hfill
+    \raisebox{-0.5\height}{%
+    \includegraphics[width=0.45\linewidth]{figs/Solar_Spectrum.png}
+    }
+}\par
+\caption{Espectro de emissão do hidrogénio atómico (esquerda) e da luz solar
+(direita), ilustrando a natureza discreta do primeiro e a natureza contínua do
+segundo. (Adaptado do artigo da Wikipedia ``Discrete spectrum''.)
+\label{fig:spectrums}}
+\end{figure}
+
+\newpage
 \section*{Ondas eletromagnéticas --- Resumo}
-
+\begin{itemize}
+\item
+    As equações de Maxwell na ausência de cargas e correntes admitem soluções
+    para os campos elétrico e magnético com a forma de ondas que se propagam sem
+    alteração de forma com velocidade $c=1/\sqrt{\varepsilon_0\mu_0}$.
+\item
+    Numa onda eletromagnética, os campos elétrico e magnético são
+    perpendiculares entre si e ambos perpendiculares à direção de propagação.
+\item
+    Numa onda eletromagnética plana sinusoidal, a relação entre os campos
+    elétrico e magnético é
+    \begin{equation*}
+    \vec B=\frac{1}{\omega}\vec K\times\vec E.
+    \end{equation*}
+\item
+    A irradiância luminosa de uma onda eletromagnética é a energia média
+    transportada pela onda por unidade de tempo e de área perpendicular ao
+    sentido do transporte. É proporcional ao quadrado do módulo da amplitude do
+    campo elétrico dessa onda:
+    \begin{equation*}
+    I=\frac{1}{2}\varepsilon_0cE_0^2.
+    \end{equation*}
+\item
+    A radiação tem também uma natureza corpuscular. As ``partículas'' de luz
+    chamam-se \emph{fotões}. Têm energia cinética e momento linear dados por
+    \begin{align*}
+    E_\text{c}&=\hbar\omega&p&=\hbar\|\vec k\|.
+    \end{align*}
+\item
+    Os sólidos e líquidos podem emitir e absorver radiação com qualquer
+    comprimento de onda; os gases emitem e absorvem radiação com comprimentos de
+    onda bem determinados, característicos do átomo ou molécula envolvido.
+\end{itemize}
