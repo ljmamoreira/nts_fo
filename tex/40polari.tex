@@ -72,18 +72,22 @@ de propagação, completando uma volta completa ao longo de um comprimento de
 onda. Nesse caso dizemos que a onda tem polarização elítica. Vamos já de seguida
 estudar estas duas situações.
 
-\section{Polarização linear e polarização elítica}
+\section{Polarização linear, polarização circular, polarização elítica}
 Numa onda plana com polarização linear, a orientação do plano de polarização
 é constante, ou seja, a direção de polarização (que é, recordemos mais uma vez,
 a do campo elétrico) deve ser a mesma em todos os pontos do trajeto da onda e em
 todos os instantes.
 
-Consideremos uma onda plana sinusoidal com vetor de onda $\vec k$ e
-frequência $\omega$. Para simplificar a linguagem, escolhemos a origem dos
-tempos de tal modo que a constante de fase é nula e adotamos um referencial com
-o eixo dos $z$ orientado segundo o vetor de onda. O plano $xy$ é então
-perpendicular à direção de propagação. Seja $E_0$ o módulo da amplitude do campo
-elétrico desta onda e $\theta$ o ângulo que a direção de polarização faz com o
+Consideremos uma onda plana sinusoidal com vetor de onda $\vec k$ e frequência
+$\omega$. Para simplificar a linguagem, adotamos um referencial com o eixo dos
+$z$ orientado segundo o vetor de onda. O plano $xy$ é então perpendicular à
+direção de propagação e deve conter o vetor campo elétrico em todos os pontos e
+instantes. 
+
+
+Seja $E_0$ o módulo
+da amplitude do campo elétrico desta onda e $\theta$ o ângulo que a direção de
+polarização faz com o
 eixo dos $x$. Então, o vetor amplitude desta onda é $\vec
 E_0=E_0(\cos\theta,\,\sin\theta,\,0)= E_0(\cos\theta\,\he_x+\sin\theta\,\he_y)$,
 e a função de onda assume a forma
@@ -102,8 +106,8 @@ segundo as direções coordenadas $x$ e $y$ (ver a Figura~\ref{fig:pollin}):
 \end{equation}
 \begin{figure}[htb]
 {\centering
-  \def\zangle{210}
-  \def\xangle{-10}
+  \def\zangle{320}
+  \def\xangle{10}
   \begin{tikzpicture}[x=(\xangle:1cm), y=(90:1cm), z=(\zangle:1.5cm),
                       >=stealth, line cap=round
                      ]
@@ -111,30 +115,31 @@ segundo as direções coordenadas $x$ e $y$ (ver a Figura~\ref{fig:pollin}):
     \pgfmathsetmacro{\npts}{192}
     \pgfmathsetmacro{\nwvs}{2}
     \pgfmathsetmacro{\dang}{360*\nwvs/\npts}
-    \pgfmathsetmacro{\phi}{120}
+    \pgfmathsetmacro{\phi}{55}
     \pgfmathsetmacro{\cosphi}{cos \phi}
     \pgfmathsetmacro{\sinphi}{sin \phi}
 
     \draw [very thin,->](0,-1,0) -- (0,1,0) node [right]{$y$};
     \draw [very thin,->](-1,0,0) -- (1,0,0) node [below]{$x$};
-    \draw [->] (0,0,0) -- (0,0,\nwvs+0.25) node[below right] {$z$};
+    \draw [->] (0,0,0) -- (0,0,\nwvs+0.25) node[below] {$z$};
     \fill [fill=gray!25, fill opacity=0.5]
-        (-1.1,-1,\nwvs+1) -- (1.1,-1.1,\nwvs+1) --
-        (1.1,1.1,\nwvs+1) -- (-1.1,1,\nwvs+1) -- cycle;
+        (-1.1,-1.05,\nwvs+1) -- (1.,-1.,\nwvs+1) --
+        (1.,1.,\nwvs+1) -- (-1.1,1.1,\nwvs+1) -- cycle;
     \draw [ultra thin] (-1,0,\nwvs+1)--(1,0,\nwvs+1);
     \draw [ultra thin] (0,-0.97,\nwvs+1)--(0,0.97,\nwvs+1);
-    \draw [<->] (-\cosphi,-\sinphi,\nwvs+1) coordinate(e1)--(\cosphi,\sinphi,\nwvs+1)coordinate(e2) node[left]{$\vec E$};
-    \draw [<->] (-\cosphi,0,\nwvs+1) coordinate(x1) -- (\cosphi,0,\nwvs+1) coordinate(x2);
+    \draw [<->] (-\cosphi,-\sinphi,\nwvs+1)
+    coordinate(e1)--(\cosphi,\sinphi,\nwvs+1)coordinate(e2) node[below right]{$\vec E$};
+    \draw [<->,red] (-\cosphi,0,\nwvs+1) coordinate(x1) -- (\cosphi,0,\nwvs+1) coordinate(x2);
     \draw [ultra thin, dashed] (e1)--(x1);
     \draw [ultra thin, dashed] (e2)--(x2) node[yshift=-4mm]{$\vec E_x$};
-    \draw [<->] (0,-\sinphi,\nwvs+1)coordinate(y1) -- (0,\sinphi,\nwvs+1)coordinate(y2);
+    \draw [<->,blue] (0,-\sinphi,\nwvs+1)coordinate(y1) -- (0,\sinphi,\nwvs+1)coordinate(y2);
     \draw [ultra thin, dashed] (e1)--(y1);
-    \draw [ultra thin, dashed] (e2)--(y2) node[below right]{$\vec E_y$};
+    \draw [ultra thin, dashed] (e2)--(y2) node[below left]{$\vec E_y$};
 
-    \draw [ultra thin] (0.3,0,\nwvs+1) arc(0:\phi:0.3);
+    \draw [thin] (0.3,0,\nwvs+1) arc(0:\phi:0.3);
     \path (0.5,0,\nwvs+1) arc(0:\phi/2:0.5) node{$\theta$};
-    \draw [ultra thin] (0.3,0,0) arc(0:\phi:0.3);
-    \path (0.5,0,0) arc(0:\phi/2:0.5) node{$\theta$};
+    \draw [thin] (0.8,0,0) arc(0:\phi:0.8);
+    \path (0.95,0,0) arc(0:\phi/2:0.95) node{$\theta$};
 
     \foreach \k [evaluate={%
           \d=int(\k+1/4);
@@ -146,7 +151,13 @@ segundo as direções coordenadas $x$ e $y$ (ver a Figura~\ref{fig:pollin}):
           }]
         in {0,...,192}{
 
-        \draw [semithick](\cosphi*cos \a, \sinphi*cos \a, \i/360) -- 
+        \draw [red](\cosphi*cos \a, 0, \i/360) -- 
+          (\cosphi*cos \b, 0, \j/360);
+
+        \draw [blue](0, \sinphi*cos \a, \i/360) -- 
+          (0, \sinphi*cos \b, \j/360);
+
+        \draw [very thick](\cosphi*cos \a, \sinphi*cos \a, \i/360) -- 
           (\cosphi*cos \b, \sinphi*cos \b, \j/360);
 
         \ifnum\c=1
@@ -157,42 +168,95 @@ segundo as direções coordenadas $x$ e $y$ (ver a Figura~\ref{fig:pollin}):
 
   \end{tikzpicture}\par
 }
-\caption{Decomposição ortogonal da polarização linear de uma onda. Podemos ver
+\caption{Decomposição ortogonal da polarização linear de uma onda. Representa-se
 uma onda com polarização linar arbitrária como a soma de duas ondas com
 polarizações lineares segundo as direções coordenadas com diferença de fase
-nula.\label{fig:pollin}}
+nula (linhas finas, representadas a azul e vermelho em impressões a
+cores).\label{fig:pollin}}
 \end{figure}
 
-A eq.~\eqref{eq:lpdec} apresenta uma onda eletromagnética com polarização linear
-como a sobreposição de duas ondas com a mesma frequência e a mesma fase,
-polarizadas linearmente em duas direções ortogonais. Trata-se de um exemplo
-particular (para o caso de iguais frequências e fases) da sobreposição de
-movimentos oscilatórios ortogonais, cuja resultante é, em geral, conhecido como
-\emph{figura de Lissajous.}
+A eq.~\eqref{eq:lpdec} mostra que se pode ver uma onda eletromagnética plana
+sinusoidal com polarização linear como a sobreposição de duas ondas com iguais
+frequência, vetor de onda e constante de fase, polarizadas linearmente em
+duas direções ortogonais do plano perpendicular à direção de propagação.
+Estudemos estas sobreposições com mais algum detalhe. Sejam $\vec E_x$ e $\vec
+E_y$ duas ondas planas sinusoidais com amplitudes com módulos iguais, com igual
+vetor de onda (tomando na direção do eixo dos $z$) e igual frequência,
+polarizadas linearmente, respetivamente segundo as direções dos eixos dos $x$ e
+dos $y$,
+\begin{align*}
+\vec E_x(\vec r,t)&=\he_x E_0\cos(\vec k\cdot\vec r-\omega t),\\
+\vec E_y(\vec r,t)&=\he_y E_0\cos(\vec k\cdot\vec r-\omega t - \delta\varphi).
+\end{align*}
+Como é a polarização da onda resultante, em função da diferença entre as suas
+fases, $\delta\varphi$?
+\begin{description}[leftmargin=0pt,labelindent=0pt]
+\item[\textbf{Caso 1, $\bm{\delta \varphi=0}$}]\hfill\\
+\begin{minipage}[t]{0.85\linewidth}
+Esta é a situação descrita na eq.~\eqref{eq:lpdec}, tomando ondas com amplitudes
+com módulos iguais. Neste caso, as duas ondas ortogonais têm em cada ponto e em
+cada instante, módulos iguais, e por isso o resultado é uma onda polarizada
+linearmente numa direção que faz com o eixo dos $x$ um ângulo de 45$^\circ$, nos
+primeiro e terceiro quadrantes.
+\end{minipage}\hfill
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+\def\ll{0.8}
+\draw (-\ll,0) -- (\ll,0);
+\draw (0,-\ll) -- (0,\ll);
+\draw [<->] (-0.8*\ll,0)--(0.8*\ll,0);
+\draw [<->] (0,-0.8*\ll)--(0,0.8*\ll);
+\draw [,thick, <->] (-0.8*\ll,-0.8*\ll) -- (0.8*\ll,0.8*\ll);
+\end{tikzpicture}
 
-As duas componentes da decomposição da polarização linear descrita na
-eq.~\eqref{eq:lpdec} têm diferença de fases nula, e resulta da sobreposição uma
-onda polarizada linearmente. Mas consideremos agora o que acontece quando as
-duas componentes ortogonais da polarização têm uma diferença de fase
-$\delta\varphi\neq0$. A diferença de fase entre as duas componentes geram uma
-sobreposição com orientação que roda em torno da direção de propagação,
-completando num dado ponto uma volta completa durante um período ou, num dado
-instante, realizando uma rotação ao longo de um comprimento de onda. Porque o
-plano de polarização vai rodando ao longo da direção de propagação, a
-extremidade do vetor amplitude desenha, no plano perpendicular a essa direção
-uma figura fechada com a forma de uma elipse. Por esta razão, dizemos que ondas
-com este comportamento têm \emph{polarização elíptica.} A excentricidade desta
-elipse depende das amplitudes das duas componentes do campo e também da
-diferença entre as as fases das duas ondas. A Figura~\ref{fig:circpol} tenta
-ilustrar esta rotação da direção de polarização nas ondas com polarização
-elíptica. Note-se que a figura representa apenas a \emph{amplitude} do campo
-elétrico, não a parte que depende mais explicitamente do tempo e da posição. 
+\item[\textbf{Caso 2, $\bm{\delta\varphi=\pm\pi}$}]\hfill\\
+As duas ondas a considerar agora são
+\begin{align*}
+\vec E_x(\vec r,t)&=\he_x E_0\cos(\vec k\cdot\vec r-\omega t),\\
+\vec E_y(\vec r,t)&=\he_y E_0\cos(\vec k\cdot\vec r-\omega t \mp \pi)=
+-\he_y E_0\cos(\vec k\cdot\vec r-\omega t),
+\end{align*}
+\begin{minipage}[t]{0.85\linewidth}
+já que adicionar (ou subtrair) $\pi$ ao argumento do cosseno é equivalente a
+trocar o sinal ao resultado. As duas ondas têm agora componentes escalares
+iguais mas com sinais opostos, de forma que a sua sobreposição é ainda (como no
+caso anterior) uma onda polarizada linearmente, numa direção que faz
+ainda um ângulo de 45$^\circ$ com o eixo dos $x$, mas agora nos segundo e quarto
+quadrantes.
+\end{minipage}\hfill
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+\def\ll{0.8}
+\draw (-\ll,0) -- (\ll,0);
+\draw (0,-\ll) -- (0,\ll);
+\draw [<->] (-0.8*\ll,0)--(0.8*\ll,0);
+\draw [<->] (0,-0.8*\ll)--(0,0.8*\ll);
+\draw [,thick, <->] (-0.8*\ll,0.8*\ll) -- (0.8*\ll,-0.8*\ll);
+\end{tikzpicture}
+
+\item[\textbf{Caso 3, $\bm{\delta\varphi=\pi/2}$}]\hfil\\
+A coisa torna-se agora mais interessante. As duas sondas a sobrepor são
+\begin{equation}\label{eq:circpol}
+\begin{aligned}
+\vec E_x(\vec r,t)&=\he_x E_0\cos(\vec k\cdot\vec r-\omega t),\\
+\vec E_y(\vec r,t)&=\he_y E_0\cos(\vec k\cdot\vec r-\omega t - \pi/2)=
+\he_y E_0\sin(\vec k\cdot\vec r-\omega t),
+\end{aligned}
+\end{equation}
+uma vez que $\cos(x-\pi/2)=\sin x$.
+Agora, a razão entre as componentes escalares das duas ondas não é constante, o
+que significa que a direção do campo elétrico resultante vai variar de ponto
+para ponto e de instante para instante. A onda resultante \emph{não tem}
+polarização linear, apesar de ser a sobreposição de duas ondas com polarização
+linear. Em cada ponto o vetor campo elétrico vai rodando em torno da direção de
+propagação no sentido horário, realizando uma volta completa ao fim de um
+período.  A Figura~\ref{fig:circpol} tenta ilustrar o campo elétrico em
+diferentes pontos do trajeto da onda, num dado instante.
 \begin{figure}[htb]
 {\centering
-\def\zangle{220}
-\def\xangle{-10}
+\def\zangle{210}
+\def\xangle{-20}
 \begin{tikzpicture}[x=(\xangle:1cm), y=(90:1cm), z=(\zangle:1.25cm),
-                      				>=stealth, line cap=round
+                      				>=stealth, line cap=round,
+                              scale=0.8
                      			   ]
 \small
 \pgfmathsetmacro{\n}{200}
@@ -205,17 +269,15 @@ elétrico, não a parte que depende mais explicitamente do tempo e da posição.
 \draw [very thin,->](-1,0,0) -- (1,0,0) node [below]{$x$};
 \draw [thick,->] (0,0,0) -- (0,0,1.1*\zm) node[below right] {$z$};
 
-\foreach \k 
-[evaluate={
+\foreach \k [evaluate={
 						\t = \k*\dt;
 						\tp = \dt*(\k+1);
 						\z=\k*\dz;
 						\flag=int(mod(\k,4)==0);
-						}]
- in {0,...,\n}{
-		\draw [semithick]({cos(\t)},{sin(\t)},\z)--({cos(\tp)},{sin(\tp)},{\z+\dz});
+						}] in {0,...,\n}{
+		\draw [thin]({cos(\t)},{sin(\t)},\z)--({cos(\tp)},{sin(\tp)},{\z+\dz});
 		\ifnum\flag=1
-			\draw [ultra thin] (0,0,\z) -- ({cos(\t)},{sin(\t)},\z);
+			\draw [thin,->] (0,0,\z) -- ({cos(\t)},{sin(\t)},\z);
 		\fi
 	}
     \fill [fill=gray!25, fill opacity=0.5]
@@ -223,163 +285,492 @@ elétrico, não a parte que depende mais explicitamente do tempo e da posição.
         (1.1,1.1,\zm+1.5) -- (-1.1,1,\zm+1.5) -- cycle;
 		\draw (0,0,\zm+1.5) circle (1);
 		\draw [->] (0,0,\zm+1.5) -- ({cos(\tm)},{sin(\tm)},\zm+1.5)
-        node[yshift=-4mm]{$\vec E_0$};
+        node[yshift=-4mm]{$\vec E$};
+		\draw [<-] ({1.1*cos(\tm-10)},{1.1*sin(\tm-10},\zm+1.5) 
+        arc(\tm-10:\tm+10:1.1);
+\end{tikzpicture}\par
+}
+\caption{Rotação do plano de polarização numa onda com polarização circular
+esquerda ($\delta\varphi=\pi/2$).  Note que o módulo do campo elétrico é
+uniforme, apenas a sua orientação varia, rodando em torno da direção de
+polarização e completando uma volta completa ao longo de um comprimento de onda. 
+\label{fig:circpol}}
+\end{figure}
+(Esta figura foi produzida fixando $t=0$ nas eqs.~\eqref{eq:circpol} e
+atribuindo diferentes valores à coordenada $z$ do vetor posição $\vec r$.)
+Note-se que, ao contrário do que acontece nas ondas polarizadas linearmente, a
+magnitude do campo elétrico permanece constante, apenas a sua orientação varia
+de instante para instante e de ponto para ponto. A extremidade da seta que
+representa o campo elétrico na onda resultante em cada ponto desenha um círculo,
+razão pela qual se chama a este tipo de polarização \emph{polarização circular.}
+
+\item[Caso 4, $\bm{\delta\varphi=-\pi/2}$]\hfill\\
+No caso 3, que acabámos de estudar, a fase da componente $x$ estava avançada
+relativamente à da componente $y$ em $\pi/2$. Agora temos a situação oposta, é a
+componente $y$ que tem a fase avançada. As duas ondas ortogonais são agora
+\begin{equation*}
+\begin{aligned}
+\vec E_x(\vec r,t)&=\he_x E_0\cos(\vec k\cdot\vec r-\omega t)\\
+\vec E_y(\vec r,t)&=\he_y E_0\cos(\vec k\cdot\vec r-\omega t + \pi/2)=
+-\he_y E_0\sin(\vec k\cdot\vec r-\omega t)
+\end{aligned}
+\end{equation*}
+Os resultados são semelhantes aos obtidos no caso anterior, mas o plano da
+polarização da onda resultante roda agora no sentido anti-horário (veja a
+Figura~\ref{fig:circpolR})
+\begin{figure}[htb]
+{\centering
+\def\zangle{210}
+\def\xangle{-20}
+\begin{tikzpicture}[x=(\xangle:1cm), y=(90:1cm), z=(\zangle:1.25cm),
+                      				>=stealth, line cap=round,
+                              scale=0.8
+                     			   ]
+\small
+\pgfmathsetmacro{\n}{200}
+\pgfmathsetmacro{\tm}{850}
+\pgfmathsetmacro{\dt}{\tm/\n}
+\pgfmathsetmacro{\zm}{4}
+\pgfmathsetmacro{\dz}{\zm/\n}
+
+\draw [very thin,->](0,-1,0) -- (0,1,0) node [right]{$y$};
+\draw [very thin,->](-1,0,0) -- (1,0,0) node [above]{$x$};
+\draw [thick,->] (0,0,0) -- (0,0,1.1*\zm) node[above] {$z$};
+
+\foreach \k [evaluate={
+						\t = \k*\dt;
+						\tp = \dt*(\k+1);
+						\z=\k*\dz;
+						\flag=int(mod(\k,4)==0);
+						}] in {0,...,\n}{
+		\draw [thin]({cos(\t)},-{sin(\t)},\z)--({cos(\tp)},-{sin(\tp)},{\z+\dz});
+		\ifnum\flag=1
+			\draw [thin,->] (0,0,\z) -- ({cos(\t)},-{sin(\t)},\z);
+		\fi
+	}
+    \fill [fill=gray!25, fill opacity=0.5]
+        (-1.1,-1,\zm+1.5) -- (1.1,-1.1,\zm+1.5) --
+        (1.1,1.1,\zm+1.5) -- (-1.1,1,\zm+1.5) -- cycle;
+		\draw (0,0,\zm+1.5) circle (1);
+		\draw [->] (0,0,\zm+1.5) -- ({cos(\tm)},{-sin(\tm)},\zm+1.5)
+        node[yshift=2mm]{$\vec E$};
 		\draw [->] ({1.1*cos(\tm-10)},{1.1*sin(\tm-10},\zm+1.5) 
         arc(\tm-10:\tm+10:1.1);
 \end{tikzpicture}\par
 }
-\caption{Rotação do plano de polarização numa onda com polarização elítica.
-Para manter a figura o mais clara possível, apenas está representada a amplitude
-do campo elétrico e não o campo elétrico propiamente dito, que inclui ainda o
-usual fator ondulatório $\cos(\vec k\cdot r-\omega t)$.\label{fig:circpol}}
+\caption{Rotação do plano de polarização numa onda com polarização circular
+direita ($\delta\varphi=-\pi/2$).  \label{fig:circpolR}}
+\end{figure}
+Na situação agora estudada, o sentido da rotação do plano de polarização
+relaciona-se com o da propagação da onda pela regra da mão direita. Por isso,
+diz-se que neste caso a polarização é \emph{polarização circular direita;} no
+caso anterior, em que o plano da polarização roda no sentido horário, falamos de
+\emph{polarização circular esquerda.}
+
+\item[Caso genérico, $\bm{\delta\varphi}$ qualquer]\hfill\\
+Num caso genérico, com $\delta\varphi$ arbitrário, o resultado da sobreposição
+de duas ondas polarizadas linearmente em direções ortogonais é uma onda em que o
+campo elétrico roda em torno da direção de propagação como na polarização
+linear, mas sobreposta a essa rotação ocorre também uma oscilação (com a
+frequência da onda) no módulo do vetor campo elétrico. Assim, a extremidade da
+seta que representa em cada ponto o campo desenha uma elipse centrada nesse
+ponto. Se as duas ondas a sobrepor têm amplitudes de igual módulo, o eixo maior
+da elipse está inclinado 45$^\circ$ relativamente ao eixo dos $x$, nos
+quadrantes 1 e 3 ou nos quadrantes 2 e 4 (conforme o valor da diferença de fase
+$\delta\varphi$) e esta elipse pode ser percorrida no sentido horário ou
+anti-horário, em função também do valor da diferença de fase. Neste caso (ou
+quando as as amplitudes das duas componentes da onda resultante não são iguais,
+independentemente da diferença de fase), falamos de \emph{polarização elíptica}
+A Figura~\ref{fig:elipol} tenta representar uma onda com polarização elíptica.
+\begin{figure}[htb]
+{\centering
+\def\zangle{210}
+\def\xangle{-10}
+\begin{tikzpicture}[x=(\xangle:1cm), y=(90:1cm), z=(\zangle:1.25cm),
+                      				>=stealth, line cap=round,
+                              scale=0.8
+                     			   ]
+\small
+\pgfmathsetmacro{\n}{125}
+\pgfmathsetmacro{\tm}{750}
+\pgfmathsetmacro{\dt}{\tm/\n}
+\pgfmathsetmacro{\zm}{4}
+\pgfmathsetmacro{\dz}{\zm/\n}
+
+\draw [very thin,->](0,-1,0) -- (0,1,0) node [right]{$y$};
+\draw [very thin,->](-1,0,0) -- (1,0,0) node [above]{$x$};
+\draw [thick,->] (0,0,0) -- (0,0,1.1*\zm) node[above] {$z$};
+
+\def\stot{0.707107}
+\foreach \k [evaluate={
+						\t = \k*\dt;
+						\tp = \dt*(\k+1);
+						\z=\k*\dz;
+						\flag=int(mod(\k,4)==0);
+						\x = \stot*(0.6*cos(\t)-sin(\t));
+						\y = \stot*(0.6*cos(\t)+sin(\t));
+						\xp = \stot*(0.6*cos(\tp)-sin(\tp));
+						\yp = \stot*(0.6*cos(\tp)+sin(\tp));
+						}] in {0,...,\n}{
+		%line
+		\draw [thin]({\x},{\y},{\z})--({\xp},{\yp},{\z+\dz});
+		%arrows
+		\ifnum\flag=1
+			\draw [thin,->] (0,0,\z) -- ({\x},{\y},\z);
+		\fi
+	}
+	%Projection plane%%%%%%%%%%%%%%%%%%%%%%%%%
+    \fill [fill=gray!25, fill opacity=0.5]
+        (-1.,-1,\zm+1.5) -- (1.,-1.1,\zm+1.5) --
+        (1.,1.1,\zm+1.5) -- (-1.,1,\zm+1.5) -- cycle;
+		%\draw [red] (-1,1,\zm+1.5) -- (1,-1.0,\zm+1.5);
+		\begin{scope}[rotate around={45:(0,0,\zm+1.5)}]
+		%elipse
+		\draw (0,0,\zm+1.5) ellipse (0.6 and 1);
+		%Little arrow on the projection plane
+		\draw [thin,<-] ({0.6*cos(0)},{sin(0},\zm+1.5) 
+        arc(0:25:0.6 and 1);
+		\end{scope}
+		\draw [thin,->] (-1,0,\zm+1.5) -- ++(2,0,0);
+		\draw [thin,->] (0,-1,\zm+1.5) -- ++(0,2,0);
+		\draw [thin, dashed] (-1,1,\zm+1.5) -- (1,-1,\zm+1.5);
+\end{tikzpicture}\par
+}
+\caption{Onda com polarização elíptica esquerda. Como na polarização circular, o
+campo elétrico roda em torno da direção de propagação ao longo de um período.
+Mas, simultaneamente, dá-se uma oscilação do módulo do campo.\label{fig:elipol}}
+\end{figure}
+\end{description}
+
+Os vários casos estudados estão ilustrados na Figura~\ref{fig:allort}, para os
+diferentes valores da diferença de fase $\delta\varphi$.
+\begin{figure}[htb]
+{\centering
+\begin{tikzpicture}
+\draw [->](-4.5cm,-0.6) -- (4.75cm,-0.6) node[right] {$\delta\varphi$};
+\begin{scope}[xshift=-4cm]
+\draw [<->] (-0.4,0.4) -- (0.4,-0.4);
+\node at (0,-1) {$-\pi$};
+\end{scope}
+%
+\begin{scope}[xshift=-3cm]
+\draw [rotate=-45] (0,0) ellipse(0.4 and 0.2);
+\draw [thin,->,rotate=-45] (0,0.2) arc (90:110:0.4 and 0.2);
+\end{scope}
+%
+\begin{scope}[xshift=-2cm]
+\draw (0,0) circle (0.35);
+\draw [thin,->] (45:0.35) arc (45:55:0.35);
+\node at (0,-1) {$-\frac{\pi}{2}$};
+\end{scope}
+%
+\begin{scope}[xshift=-1cm]
+\draw [rotate=45] (0,0) ellipse(0.4 and 0.2);
+\draw [thin,->,rotate=45] (0,-0.2) arc (270:280:0.4 and 0.2);
+\end{scope}
+%
+\begin{scope}[xshift=0cm]
+\draw [<->] (-0.4,-0.4) -- (0.4,0.4);
+\node at (0,-1) {$0$};
+\end{scope}
+%
+\begin{scope}[xshift=1cm]
+\draw [rotate=45] (0,0) ellipse(0.4 and 0.2);
+\draw [thin,->,rotate=45] (0,-0.2) arc (270:260:0.4 and 0.2);
+\end{scope}
+%
+\begin{scope}[xshift=2cm]
+\draw (0,0) circle (0.35);
+\draw [thin,->] (45:0.35) arc (45:35:0.35);
+\node at (0,-1) {$\frac{\pi}{2}$};
+\end{scope}
+%
+\begin{scope}[xshift=3cm]
+\draw [rotate=-45] (0,0) ellipse(0.4 and 0.2);
+\draw [thin,->,rotate=-45] (0,0.2) arc (90:80:0.4 and 0.2);
+\end{scope}
+%
+\begin{scope}[xshift=4cm]
+\draw [<->] (-0.4,0.4) -- (0.4,-0.4);
+\node at (0,-1) {$\pi$};
+\end{scope}
+\end{tikzpicture}\par
+}
+\caption{Diferentes possibilidades para a polarização da sobreposição de duas
+ondas com a mesma amplitude, frequência e comprimento de onda, polarizadas
+linearmente em duas direções ortogonais, como função da diferença entre as suas
+fases.\label{fig:allort}}
 \end{figure}
 
-Em geral, a sobreposição das duas componentes ortogonais do campo elétrico é
-semelhante à construção matemática que produz as chamadas figuras de Lissajous,
-com frequências iguais. Veja a Secção~\ref{sec:lissajous} para uma revisão rápida das figuras
-de Lissajous.
-
 \section{Filtros polarizadores e Lei de Malus}
-\tobedone{}
-\section{Polarização por reflexão e por difusão}
-\tobedone{}
-\section{Birefrigência}
+Um filtro polarizador é qualquer dispositivo ótico que é mais ou menos opaco
+conforme o estado de polarização da luz que o atravessa. Os filtros
+polarizadores mais simples (aqueles em que nos vamos concentrar nesta secção)
+absorvem as componentes da luz incidente com polarização linear numa determinada
+direção, mas há também filtros polarizadores para as polarizações circulares.
+
+Um filtro polarizador linear ideal transmite (isto é, \emph{deixa passar})
+\emph{toda} a luz incidente com polarização linear numa dada direção (a do
+chamado \emph{eixo de transmissão} do filtro) e absorve \emph{toda} a radiação
+com polarização linear perpendicular a essa direção\footnote{Na verdade, os filtros
+\emph{reais} absorvem alguma da radiação polarizada na direção do eixo de
+trasmissão e transmitem alguma da radiação perpendicular a essa direção; mas
+vamos supor que estas ineficiências são desprezáveis.}. Muito resumidamente, o
+funcionamento destes fitros resulta do facto de serem eletricamente condutores
+apenas numa direção; o campo elétrico da luz incidente polarizada nessa direção
+acelera os eletrões no filtro, estabelecendo uma corrente elétrica, processo no
+qual perde energia, o que se traduz numa diminuição da intensidade da luz;
+assim, a luz polarizada na direção em que o filtro é condutor
+é absorvida. Em contrapartida, a luz polarizada na direção perpendicular não
+gera corrente elétrica (porque nessa direção o filtro é isolador), não fornece
+energia ao meio, ou seja, não é absorvida.
+
+Consideremos um feixe de luz polarizada linearmente com intensidade $I_0$ que
+incide num filtro polarizador linear. Seja $\theta$ o ângulo entre a direção de
+polarização da luz do feixe e a do eixo de transmissão do filtro.
+\begin{figure}[htb]
+{\centering
+\colorlet{crystal}{blue!75}
+\def\zangle{-20}
+\def\xangle{20}
+\begin{tikzpicture}[x=(\xangle:0.75cm), y=(90:1cm), z=(\zangle:1.5cm),
+									>=stealth, line cap=round, line join=round,
+    								lines/.style={gray!50, thick}, 
+    								axis/.style={black, thick},
+    								plate/.style={fill, opacity=0.875},
+    								markers/.style={orange, thick}]
+	\pgfmathsetmacro{\npts}{100}
+	\pgfmathsetmacro{\fz}{0}
+	\pgfmathsetmacro{\ff}{720}
+	\pgfmathsetmacro{\fff}{\ff+720}
+	\pgfmathsetmacro{\zf}{2}
+	\pgfmathsetmacro{\q}{50}
+
+	\draw [lines] (-1,-1,0) -- (-1,1,0) -- (1,1,0) -- (1,-1, 0) -- cycle;
+	\draw [thin,gray](-1,0,0) -- (1,0,0);
+	\draw [thin,gray](0,-1,0) -- (0,1,0);
+	\draw (\q:0.6) arc(\q:90:0.6) node [above right,inner sep=2] {$\theta$};
+	\draw [-] (0,0,0) -- (0,0,1.*\zf);
+	\foreach \k [evaluate={
+						 \z = \k * \zf / (\npts);
+						 \zn= \z + \zf/(\npts);
+						 \f = (\ff - \fz)/(\npts)*\k;
+						 \fn = \f +  (\ff - \fz)/(\npts);
+						 \x = cos(\q) * cos(\f);
+						 \y = sin(\q) * cos(\f);
+						 \xn = cos(\q) * cos(\fn);
+						 \yn = sin(\q) * cos(\fn);
+						 \c=int(mod(\k,5)==0)
+						}] in {0,...,\npts} {
+		\ifnum\c=1
+			\draw [->](0,0,\z) -- (\x,\y,\z);
+		\fi
+		\draw [thick] (\x,\y,\z) -- (\xn,\yn,\zn);
+	}
+
+    \path [crystal!25, plate] 
+        (-1,-1,\zf) -- (-1,1,\zf) -- (1,1,\zf) -- (1,-1, \zf) -- cycle;
+    \path [crystal!50, plate] 
+        (-1,-1,\zf) -- (-1,-1,\zf-0.0625) -- (-1,1,\zf-0.0625) -- (-1,1, \zf) -- 
+        cycle;
+    \path [crystal!75, plate] 
+        (-1,1,\zf) -- (-1,1,\zf-0.0625) -- (1,1,\zf-0.0625) -- (1,1, \zf) -- cycle;
+    \node [yslant=tan(\xangle), text=crystal!80, below, font=\small] at 
+        (-0.4,-1,\zf){Polarizador};
+	\draw [blue,thick] (0,-1,\zf)--(0,1,\zf);
+	\draw [dashed] ({cos(\q)},{sin(\q)},\zf) -- (0,{sin(\q)},\zf);
+	\draw [<->, thin,black!60] ({-cos(\q)},{-sin(\q)},\zf) -- ({cos(\q)},{sin(\q)},\zf);
+	\draw [->](0,0,\zf) -- (0,0,2.15*\zf);
+	\foreach \k [evaluate={
+						 \z =\zf + \zf * \k / \npts;
+						 \zn = \z + \zf/\npts;
+						 \f = \ff+(\fff-\ff)/\npts * \k;
+						 \fn = \f +  (\fff-\ff)/\npts;
+						 \y = sin(\q) * cos(\f);
+						 \yn = sin(\q) * cos(\fn);
+						 \c=int(mod(\k,5)==0)
+						}] in {0,...,\npts} {
+		\draw [thick] (0,\y,\z) -- (0,\yn,\zn);
+		\ifnum\c=1
+			\draw [->](0,0,\z) -- (0,\y,\z);
+		\fi
+
+	}
+\end{tikzpicture}\par
+}
+\caption{Efeito de um filtro polarizador sobre luz
+polarizada.\label{fig:polaroid}}
+\end{figure}
+Tal como fizemos na secção anterior, podemos escrever a onda incidente como a
+sobreposição de duas ondas linearmente polarizadas em direções ortogonais, uma
+paralela ao eixo de transmissão e a outra perpendicular. Temos então
+\begin{equation*}
+\vec E_0= \he_\parallel E_0\cos\theta+\he_\perp E_0\sin\theta,
+\end{equation*}
+onde $E_0$ representa o módulo da amplitude da onda incidente, $\hat
+e_\parallel$ e $\he_\perp$ é um versor paralelo ao eixo de transmissão do filtro
+e $\he_\perp$ um versor perpendicular a esse eixo. De acordo com a
+definição de filtro polarizador apresentada acima, a primeira destas
+componentes vai ser trnasmitida, e a segunda absorvida. Assim, o campo elétrico
+da onda transmitida pelo filtro é dado por
+\begin{equation}\label{eq:analized}
+\vec E_\text{t}=\he_\parallel E_0\cos\theta,
+\end{equation}
+com amplitude de módulo $E_\text{t}=E_0\cos\theta$. Se elevarmos aos quadrado os
+dois lados desta igualdade e os multiplicarmos por $c\varepsilon_0/2$, obtemos
+$c\varepsilon_0 E^2_\text{t}/2=c\varepsilon_0 E^2_0\cos^2\theta\,/2$. Mas o
+termo no primeiro membro é a irradiância da onda transmitida
+(eq.~\eqref{eq:irradiance}) e no segundo aparece a da onda incidente. Concluímos
+assim que a intensidade da luz trasmitida por um filtro polarizador é uma fração
+da da incidente igual ao quadrado do ângulo entre a direção de polarização da
+luz incidente e a do eixo de transmissão do filtro,
+\begin{equation*}
+I_\text{t}=I_0\cos^2\theta.
+\end{equation*}
+Esta constatação tem o nome de \emph{Lei de Malus.}
+
+%Repare-se bem que a luz transmitida por um filtro polarizador está polarizada na
+%direção do eixo de transmissão do filtro, como mostra a
+%eq.~\eqref{eq:analized}.
+
+
+\section{Polarização por reflexão. Ângulo de Brewster}
 \tobedone{}
 \section{Aplicações na optometria}
 \tobedone{}
 
-\section{Apêndice: figuras de Lissajous com frequência única}
-\label{sec:lissajous}
-Consideremos o movimento de um ponto material no plano $xy$ cujas coordenadas
-são dadas por 
-\begin{align}\label{eq:mcu}
-x(t)&=r\cos\omega t&y(t)=r\sin\omega t,
-\end{align}
-com $r$ e $\omega$ constantes positivas. É claro que este ponto descreve um
-movimento circular uniforme, com raio $r$ e velocidade angular $\omega$ (veja a
-Figura~\ref{fig:mcu}).
-\begin{figure}[htb]
-{\centering
-\begin{tikzpicture}
-  \small
-  \coordinate (O) at (0,0);
-  \draw [->] (-1.5,0) -- (1.5,0);
-  \draw [->] (0,-1.5) -- (0,1.5);
-  \def\r{1.2}
-  \def\theta{50}
-  \draw [thin] (O) circle (\r);
-  \fill (\theta:\r) coordinate(P) circle(0.1);
-  \draw [thin,->] (0:\r+.185) arc (0:\theta:\r+.185);
-  \node at (0.5*\theta:\r+0.2) [anchor=west] {$\omega t$};
-  \draw [thin, densely dashed] (O-|P)node[below]{$x$} -- (P) --
-        (P-|O) node [left]{$y$};
-  \draw [thin] (O) -- (P) node [midway, shift={(-.1,.1)}] {$r$};
-\end{tikzpicture}\par
-}
-\caption{Movimento circular e uniforme de um ponto com coordenadas que dependem
-do tempo de acordo com as eqs.~\eqref{eq:mcu}.\label{fig:mcu}}
-\end{figure}
-Tendo em conta que $\sin\theta=\cos(\theta-\pi/2)$, as expressões das
-coordenadas do ponto em estudo, das eqs.~\eqref{eq:mcu}, podem também
-escrever-se como
-\begin{align}
-x(t)&=r\cos\omega t& y(t)&=r\cos(\omega t-\pi/2).
-\end{align}
-
-Façamos agora uma generalização destas expressões, substituindo o valor $\pi/2$
-na segunda igualdade por um parâmetro genérico $\varphi,$ e analisemos as
-trajetórias da família definida pelas igualdades
-\begin{align}\label{eq:mcu2}
-x(t)&=r\cos\omega t& y(t)&=r\cos(\omega t-\varphi).
-\end{align}
-O caso $\varphi=\pi/2$ é o que já vimos. A trajetória correspondente é uma
-circunferência descrita no sentido anti horário. Mas há outras possibilidades.
-Por exemplo, com $\varphi=0$ tem-se $x(t)=y(t);$ a trajetória resultante é então
-um segmento de reta com inclinação 45$^\circ$, percorrido pelo ponto material
-alternadamente num sentido e no sentido inverso.  Com $\varphi=\pi$, a situação
-é muito semelhante (mas agora $y(t)=-x(t)$); resulta uma trajetória também
-retilínea, mas com inclinação $-45^\circ$. Para $\varphi=-\pi/2$ resulta
-novamente uma trajetória circular, mas descrita em sentido horário. Mais em
-geral, a trajetória resultante é uma elipse mais ou menos excêntrica, com uma
-inclinação $\pm45^\circ$\footnote{O applet geogebra \texttt{lissajous} em
-\texttt{https://ggbm.at/zbC56YsK} ajuda na exploração
-das várias possibilidades.}.  A Figura~\ref{fig:lsjx_examples} ilustra os casos
-agora referidos e ainda o caso $\varphi=\pi/4$.
-\begin{figure}[htb]
-{\centering
-\begin{tikzpicture}
-    \small
-	\def\r{0.8}
-	\def\q{40}
-	\begin{scope}[xshift=-5cm]
-		\draw [->,thin] (-1,0) -- (1,0);
-		\draw [->,thin] (0,-1) -- (0,1);
-		\draw [thin] (0,0) circle(0.8);
-		\fill(\q:\r) circle(0.05);
-		\draw [->] (\q-10:\r+0.2) arc(\q-10:\q+10:\r+.2);
-		\node at (0,-1.2) {$\varphi=\pi/2$};
-	\end{scope}
-	\begin{scope}[xshift=-2.5cm]
-		\draw [->,thin] (-1,0) -- (1,0);
-		\draw [->,thin] (0,-1) -- (0,1);
-		\draw [thin] (0,0) circle(0.8);
-		\fill(\q:\r) circle(0.05);
-		\draw [->] (\q+10:\r+0.2) arc(\q+10:\q-10:\r+.2);
-		\node at (0,-1.2) {$\varphi=-\pi/2$};
-	\end{scope}
-	\begin{scope}[xshift=0cm]
-		\draw [->,thin] (-1,0) -- (1,0);
-		\draw [->,thin] (0,-1) -- (0,1);
-		\draw (225:\r) -- (45:\r);
-		\fill (45:0.5)coordinate(p) circle(0.05);
-		\path (p)--++(225:0.2)--++(135:0.15) coordinate(q);
-		\draw [<->] (q) --++(45:0.4);
-		\node at (0,-1.2) {$\varphi=0$};
-	\end{scope}
-	\begin{scope}[xshift=2.5cm]
-		\draw [->,thin] (-1,0) -- (1,0);
-		\draw [->,thin] (0,-1) -- (0,1);
-		\draw (135:\r) -- (315:\r);
-		\fill (135:0.5)coordinate(p) circle(0.05);
-		\path (p)--++(315:0.2)--++(45:0.15) coordinate(q);
-		\draw [<->] (q) --++(135:0.4);
-		\node at (0,-1.2) {$\varphi=\pi$};
-	\end{scope}
-	\begin{scope}[xshift=5cm]
-		\draw [->,thin] (-1,0) -- (1,0);
-		\draw [->,thin] (0,-1) -- (0,1);
-    \draw [domain=0:360,samples=50,variable=\t] 
-      plot ({\r*cos(\t)},{\r*cos(\t-30)});
-    \fill ({\r*cos(72)},{\r*cos(42)}) circle(0.05);
-
-    \draw [->,domain=72:88,samples=5,variable=\t] 
-        plot ({(\r+.2)*cos(\t)},{(\r+.2)*cos(\t-30)});
-		\node at (0,-1.2) {$\varphi=\pi/6$};
-    \draw [thin,dashed]
-    ({\r*cos(195)},{\r*cos(165)})--({\r*cos(15)},{\r*cos(-15)});
-    \draw (0:0.6) arc(0:45:0.6) node [shift=({1mm,0.75mm}),anchor=north west]
-            {$45^\circ$};
-	\end{scope}
-\end{tikzpicture}\par
-}
-\caption{Alguns exemplos de sobreposição ortogonal de dois movimentos
-oscilatórios com a mesma frequência e amplitude.\label{fig:lsjx_examples}}
-\end{figure}
-
-As figuras planas resultantes de sobreposição de movimentos oscilatórios em
-direções perpendiculares chama-se \emph{Figuras de Lissajous.} Nestes
-apontamentos consideramos apenas o caso em que as frequências de ambos os
-movimentos são iguais, por ser o relevante para o estudo da polarização elítica.
-
-Estudámos aqui a situação mais simples, em que as amplitudes dos dois movimentos
-oscilatórios são iguais. Mas, no essencial, as coisas não se alteram grandemente
-quando as amplitudes são diferentes, excepto no seguinte:
-\begin{enumerate}
-\item
-  Se as amplitudes dos dois movimentos são diferrentes, a trajetória resultante
-  nunca chega a ser exatamente circular, permanece sempre elítica acom maior ou
-  menor excentricidade;
-\item
-  Se as amplitudes dos dois movimentos são diferentes, a inclinação do eixo da
-  elipse pode tomar outros valores para além de $\pm45^\circ$, obtidos acima.
-\end{enumerate}
+%\section{Apêndice: figuras de Lissajous com frequência única}
+%\label{sec:lissajous}
+%Consideremos o movimento de um ponto material no plano $xy$ cujas coordenadas
+%são dadas por 
+%\begin{align}\label{eq:mcu}
+%x(t)&=r\cos\omega t&y(t)=r\sin\omega t,
+%\end{align}
+%com $r$ e $\omega$ constantes positivas. É claro que este ponto descreve um
+%movimento circular uniforme, com raio $r$ e velocidade angular $\omega$ (veja a
+%Figura~\ref{fig:mcu}).
+%\begin{figure}[htb]
+%{\centering
+%\begin{tikzpicture}
+%  \small
+%  \coordinate (O) at (0,0);
+%  \draw [->] (-1.5,0) -- (1.5,0);
+%  \draw [->] (0,-1.5) -- (0,1.5);
+%  \def\r{1.2}
+%  \def\theta{50}
+%  \draw [thin] (O) circle (\r);
+%  \fill (\theta:\r) coordinate(P) circle(0.1);
+%  \draw [thin,->] (0:\r+.185) arc (0:\theta:\r+.185);
+%  \node at (0.5*\theta:\r+0.2) [anchor=west] {$\omega t$};
+%  \draw [thin, densely dashed] (O-|P)node[below]{$x$} -- (P) --
+%        (P-|O) node [left]{$y$};
+%  \draw [thin] (O) -- (P) node [midway, shift={(-.1,.1)}] {$r$};
+%\end{tikzpicture}\par
+%}
+%\caption{Movimento circular e uniforme de um ponto com coordenadas que dependem
+%do tempo de acordo com as eqs.~\eqref{eq:mcu}.\label{fig:mcu}}
+%\end{figure}
+%Tendo em conta que $\sin\theta=\cos(\theta-\pi/2)$, as expressões das
+%coordenadas do ponto em estudo, das eqs.~\eqref{eq:mcu}, podem também
+%escrever-se como
+%\begin{align}
+%x(t)&=r\cos\omega t& y(t)&=r\cos(\omega t-\pi/2).
+%\end{align}
+%
+%Façamos agora uma generalização destas expressões, substituindo o valor $\pi/2$
+%na segunda igualdade por um parâmetro genérico $\varphi,$ e analisemos as
+%trajetórias da família definida pelas igualdades
+%\begin{align}\label{eq:mcu2}
+%x(t)&=r\cos\omega t& y(t)&=r\cos(\omega t-\varphi).
+%\end{align}
+%O caso $\varphi=\pi/2$ é o que já vimos. A trajetória correspondente é uma
+%circunferência descrita no sentido anti horário. Mas há outras possibilidades.
+%Por exemplo, com $\varphi=0$ tem-se $x(t)=y(t);$ a trajetória resultante é então
+%um segmento de reta com inclinação 45$^\circ$, percorrido pelo ponto material
+%alternadamente num sentido e no sentido inverso.  Com $\varphi=\pi$, a situação
+%é muito semelhante (mas agora $y(t)=-x(t)$); resulta uma trajetória também
+%retilínea, mas com inclinação $-45^\circ$. Para $\varphi=-\pi/2$ resulta
+%novamente uma trajetória circular, mas descrita em sentido horário. Mais em
+%geral, a trajetória resultante é uma elipse mais ou menos excêntrica, com uma
+%inclinação $\pm45^\circ$\footnote{O applet geogebra \texttt{lissajous} em
+%\texttt{https://ggbm.at/zbC56YsK} ajuda na exploração
+%das várias possibilidades.}.  A Figura~\ref{fig:lsjx_examples} ilustra os casos
+%agora referidos e ainda o caso $\varphi=\pi/4$.
+%\begin{figure}[htb]
+%{\centering
+%\begin{tikzpicture}
+%    \small
+%	\def\r{0.8}
+%	\def\q{40}
+%	\begin{scope}[xshift=-5cm]
+%		\draw [->,thin] (-1,0) -- (1,0);
+%		\draw [->,thin] (0,-1) -- (0,1);
+%		\draw [thin] (0,0) circle(0.8);
+%		\fill(\q:\r) circle(0.05);
+%		\draw [->] (\q-10:\r+0.2) arc(\q-10:\q+10:\r+.2);
+%		\node at (0,-1.2) {$\varphi=\pi/2$};
+%	\end{scope}
+%	\begin{scope}[xshift=-2.5cm]
+%		\draw [->,thin] (-1,0) -- (1,0);
+%		\draw [->,thin] (0,-1) -- (0,1);
+%		\draw [thin] (0,0) circle(0.8);
+%		\fill(\q:\r) circle(0.05);
+%		\draw [->] (\q+10:\r+0.2) arc(\q+10:\q-10:\r+.2);
+%		\node at (0,-1.2) {$\varphi=-\pi/2$};
+%	\end{scope}
+%	\begin{scope}[xshift=0cm]
+%		\draw [->,thin] (-1,0) -- (1,0);
+%		\draw [->,thin] (0,-1) -- (0,1);
+%		\draw (225:\r) -- (45:\r);
+%		\fill (45:0.5)coordinate(p) circle(0.05);
+%		\path (p)--++(225:0.2)--++(135:0.15) coordinate(q);
+%		\draw [<->] (q) --++(45:0.4);
+%		\node at (0,-1.2) {$\varphi=0$};
+%	\end{scope}
+%	\begin{scope}[xshift=2.5cm]
+%		\draw [->,thin] (-1,0) -- (1,0);
+%		\draw [->,thin] (0,-1) -- (0,1);
+%		\draw (135:\r) -- (315:\r);
+%		\fill (135:0.5)coordinate(p) circle(0.05);
+%		\path (p)--++(315:0.2)--++(45:0.15) coordinate(q);
+%		\draw [<->] (q) --++(135:0.4);
+%		\node at (0,-1.2) {$\varphi=\pi$};
+%	\end{scope}
+%	\begin{scope}[xshift=5cm]
+%		\draw [->,thin] (-1,0) -- (1,0);
+%		\draw [->,thin] (0,-1) -- (0,1);
+%    \draw [domain=0:360,samples=50,variable=\t] 
+%      plot ({\r*cos(\t)},{\r*cos(\t-30)});
+%    \fill ({\r*cos(72)},{\r*cos(42)}) circle(0.05);
+%
+%    \draw [->,domain=72:88,samples=5,variable=\t] 
+%        plot ({(\r+.2)*cos(\t)},{(\r+.2)*cos(\t-30)});
+%		\node at (0,-1.2) {$\varphi=\pi/6$};
+%    \draw [thin,dashed]
+%    ({\r*cos(195)},{\r*cos(165)})--({\r*cos(15)},{\r*cos(-15)});
+%    \draw (0:0.6) arc(0:45:0.6) node [shift=({1mm,0.75mm}),anchor=north west]
+%            {$45^\circ$};
+%	\end{scope}
+%\end{tikzpicture}\par
+%}
+%\caption{Alguns exemplos de sobreposição ortogonal de dois movimentos
+%oscilatórios com a mesma frequência e amplitude.\label{fig:lsjx_examples}}
+%\end{figure}
+%
+%As figuras planas resultantes de sobreposição de movimentos oscilatórios em
+%direções perpendiculares chama-se \emph{Figuras de Lissajous.} Nestes
+%apontamentos consideramos apenas o caso em que as frequências de ambos os
+%movimentos são iguais, por ser o relevante para o estudo da polarização elítica.
+%
+%Estudámos aqui a situação mais simples, em que as amplitudes dos dois movimentos
+%oscilatórios são iguais. Mas, no essencial, as coisas não se alteram grandemente
+%quando as amplitudes são diferentes, excepto no seguinte:
+%\begin{enumerate}
+%\item
+%  Se as amplitudes dos dois movimentos são diferrentes, a trajetória resultante
+%  nunca chega a ser exatamente circular, permanece sempre elítica acom maior ou
+%  menor excentricidade;
+%\item
+%  Se as amplitudes dos dois movimentos são diferentes, a inclinação do eixo da
+%  elipse pode tomar outros valores para além de $\pm45^\circ$, obtidos acima.
+%\end{enumerate}
