@@ -3,15 +3,15 @@
 
 \noindent
 O termo ``polarização'' refere-se à direção da função de onda, quando a onda é
-descrita por funções vetoriais. No caso das ondas eletromagnéticas, a
-direção do campo elétrico que usamos para descrever a onda (mas o mesmo se passa
-com o campo magnético) é perpendicular à direção de propagação, e por isso
-dizemos que as ondas eletromagnéticas são transversais. Dentro do plano
-perpendicular à direção de propagação em que está confinada, a orientação da
-polarização de uma onda eletromagnética pode ainda variar continuamente e pode
-até variar com o tempo e com a posição ao longo do caminho da onda.  Chama-se
-\emph{plano de polarização} de uma onda eletromagnética ao plano definido pelas
-direções de polarização e de propagação (veja a Figura~\ref{fig:polpln}).
+descrita por funções vetoriais. No caso das ondas eletromagnéticas, esta
+direção é a do campo elétrico, e é perpendicular à direção de propagação (como o
+é, também, a do campo magnético). Por isso, dizemos que as ondas
+eletromagnéticas são transversais. Dentro do plano perpendicular à direção de
+propagação em que está confinada, a polarização de uma onda eletromagnética pode
+estar orientada em qualquer direção, e pode até variar com o tempo e com a
+posição ao longo do caminho da onda.  Chama-se \emph{plano de polarização} de
+uma onda eletromagnética ao plano definido pelas direções de polarização e de
+propagação (veja a Figura~\ref{fig:polpln}).
 \begin{figure}[htb]
     \small
     \sffamily
@@ -69,8 +69,8 @@ Quando a orientação do plano de polarização de uma onda eletromagnética se
 mantém constante, dizemos que a onda está polarizada linearmente. Mas também
 pode acontecer que o plano de polarização sofra uma rotação em torno da direção
 de propagação, completando uma volta completa ao longo de um comprimento de
-onda. Nesse caso dizemos que a onda tem polarização elítica. Vamos já de seguida
-estudar estas duas situações.
+onda. Nesses casos dizemos que a onda tem polarização circular ou, mais
+geralmente, elítica. Vamos já de seguida estudar estas possibilidades.
 
 \section{Polarização linear, polarização circular, polarização elítica}
 Numa onda plana com polarização linear, a orientação do plano de polarização
@@ -175,21 +175,23 @@ nula (linhas finas, representadas a azul e vermelho em impressões a
 cores).\label{fig:pollin}}
 \end{figure}
 
-A eq.~\eqref{eq:lpdec} mostra que se pode ver uma onda eletromagnética plana
-sinusoidal com polarização linear como a sobreposição de duas ondas com iguais
-frequência, vetor de onda e constante de fase, polarizadas linearmente em
+A eq.~\eqref{eq:lpdec} mostra que é possível descrever uma onda eletromagnética
+plana sinusoidal com polarização linear como a sobreposição de duas ondas com
+iguais frequência, vetor de onda e constante de fase, polarizadas linearmente em
 duas direções ortogonais do plano perpendicular à direção de propagação.
 Estudemos estas sobreposições com mais algum detalhe. Sejam $\vec E_x$ e $\vec
-E_y$ duas ondas planas sinusoidais com amplitudes com módulos iguais, com igual
-vetor de onda (tomando na direção do eixo dos $z$) e igual frequência,
+E_y$ duas ondas planas sinusoidais com amplitudes com módulos iguais\footnote{Esta
+restrição de igualdade dos módulos das amplitudes permite simplificar a álgebra,
+sacrificando-se ligeiramente a generalidade da discussão.}, com igual
+vetor de onda (tomado na direção do eixo dos $z$) e igual frequência,
 polarizadas linearmente, respetivamente segundo as direções dos eixos dos $x$ e
 dos $y$,
 \begin{align*}
 \vec E_x(\vec r,t)&=\he_x E_0\cos(\vec k\cdot\vec r-\omega t),\\
 \vec E_y(\vec r,t)&=\he_y E_0\cos(\vec k\cdot\vec r-\omega t - \delta\varphi).
 \end{align*}
-Como é a polarização da onda resultante, em função da diferença entre as suas
-fases, $\delta\varphi$?
+Como é a polarização da onda resultante da sobreposição destas duas ondas, em
+função da diferença entre as suas fases, $\delta\varphi$?
 \begin{description}[leftmargin=0pt,labelindent=0pt]
 \item[\textbf{Caso 1, $\bm{\delta \varphi=0}$}]\hfill\\
 \begin{minipage}[t]{0.85\linewidth}
@@ -380,7 +382,7 @@ quadrantes 1 e 3 ou nos quadrantes 2 e 4 (conforme o valor da diferença de fase
 $\delta\varphi$) e esta elipse pode ser percorrida no sentido horário ou
 anti-horário, em função também do valor da diferença de fase. Neste caso (ou
 quando as as amplitudes das duas componentes da onda resultante não são iguais,
-independentemente da diferença de fase), falamos de \emph{polarização elíptica}
+independentemente da diferença de fase), falamos de \emph{polarização elíptica.}
 A Figura~\ref{fig:elipol} tenta representar uma onda com polarização elíptica.
 \begin{figure}[htb]
 {\centering
@@ -502,6 +504,49 @@ linearmente em duas direções ortogonais, como função da diferença entre as 
 fases.\label{fig:allort}}
 \end{figure}
 
+\section{Luz ``despolarizada'' e luz parcialmente polarizada}
+A produção de luz por fontes ``naturais'' (Sol, chamas, lâmpadas de diferentes
+tipos, etc) tem sempre uma certa extensão espacial (a luz produzida tem origem
+em diferentes pontos do espaço) e temporal (a luz produzida tem origem em
+diferentes instantes). Assim, a luz que recebemos de uma dada fonte é a
+sobreposição da luz produzida em diferentes pontos da fonte e em diferentes
+instantes, em circunstâncias mais ou menos independentes (consoante o tipo
+particular de fonte usada). Estas diferentes contribuições para a luz produzida
+por uma fonte têm, em geral diferentes características: diferentes comprimentos
+de onda (embora as fontes LED e os laser possam ser altamente monocromáticos),
+diferentes amplitudes, diferentes fases (também aqui os laser são excepção, uma
+vez que os vários processos elementares de emissão ocorrem em fase) e, com
+especial relevância para o que agora nos ocupa, diferentes polarizações.
+Por esta razão, a polarização da luz natural é quase sempre inobservável; num
+raio de luz natural coexistem em sobreposição componentes com diferentes tipos
+de polarização e com diferentes orientações, resultando uma média mais ou menos
+isotrópica (igual em todas as direções). A direção do campo elétrico num raio de
+luz natural (ou seja, a sua polarização) é, assim, inobservável. Chamamos luz
+\emph{despolarizada} a uma destas misturas isotrópicas de contribuições de
+diferentes polarizações.
+
+Considerando ainda estas sobreposições de luz com diferentes polarizações, pode
+também acontecer que a mistura não seja completamente homogénia. As diferentes
+componentes com diferentes polarizações podem ter intensidades diferentes,
+resultando um feixe que se diz \emph{parcialmente polarizado.} A luz polarizada
+e a luz despolarizadas são dois casos particulares extremos (e opostos) de luz
+parcialmente polarizada: a primeira, é constituída por uma sobreposição com
+100\% de um tipo de polarização e 0\% de todas as outras; a segunda é uma
+mistura com iguais frações de \emph{todos} os tipos de polarização.
+
+A luz natural é, em geral, despolarizada. Mas alguns processos óticos operam de
+forma diferente consoante o tipo ou a orientação da polarização da luz que neles
+participa, podendo, por isso, ficar polarizada. Por exemplo, alguns meios
+absorvem mais eficientemente luz com determinadas polarizações; a luz que
+atravessa esses meios sofre uma atenuação especial das componentes
+correspondentes, ou seja, polariza-se.  Outro exemplo, quando a luz incide numa
+superfície que separa dois meios distintos dá-se, como sabemos, a reflexão e a
+refração da luz; na reflexão são atenuadas as componentes da luz incidente que
+pertencem ao plano de incidência, ficando a luz parcialmente polarizada numa
+direção paralela à superfície; na refração ocorre o efeito contrário, e a luz
+refratada está parcialmente polarizada numa direção do plano de refração.  Nas
+próximas secções estudamos alguns destes processos.
+
 \section{Filtros polarizadores e Lei de Malus}
 Um filtro polarizador é qualquer dispositivo ótico que é mais ou menos opaco
 conforme o estado de polarização da luz que o atravessa. Os filtros
@@ -546,7 +591,7 @@ polarização da luz do feixe e a do eixo de transmissão do filtro.
 	\pgfmathsetmacro{\zf}{2}
 	\pgfmathsetmacro{\q}{50}
 
-	\draw [lines] (-1,-1,0) -- (-1,1,0) -- (1,1,0) -- (1,-1, 0) -- cycle;
+	\draw [lines] (-1,-1.05,0) -- (-1,1.05,0) -- (1,1,0) -- (1,-1, 0) -- cycle;
 	\draw [thin,gray](-1,0,0) -- (1,0,0);
 	\draw [thin,gray](0,-1,0) -- (0,1,0);
 	\draw (\q:0.6) arc(\q:90:0.6) node [above right,inner sep=2] {$\theta$};
@@ -569,12 +614,12 @@ polarização da luz do feixe e a do eixo de transmissão do filtro.
 	}
 
     \path [crystal!25, plate] 
-        (-1,-1,\zf) -- (-1,1,\zf) -- (1,1,\zf) -- (1,-1, \zf) -- cycle;
+        (-1,-1.05,\zf) -- (-1,1.05,\zf) -- (1,1,\zf) -- (1,-1, \zf) -- cycle;
     \path [crystal!50, plate] 
-        (-1,-1,\zf) -- (-1,-1,\zf-0.0625) -- (-1,1,\zf-0.0625) -- (-1,1, \zf) -- 
-        cycle;
+        (-1,-1.05,\zf) -- (-1,-1.05,\zf-0.0625) -- (-1,1.05,\zf-0.0625) --
+        (-1,1.05, \zf) -- cycle;
     \path [crystal!75, plate] 
-        (-1,1,\zf) -- (-1,1,\zf-0.0625) -- (1,1,\zf-0.0625) -- (1,1, \zf) -- cycle;
+        (-1,1.05,\zf) -- (-1,1.05,\zf-0.0625) -- (1,1,\zf-0.0625) -- (1,1, \zf) -- cycle;
     \node [yslant=tan(\xangle), text=crystal!80, below, font=\small] at 
         (-0.4,-1,\zf){Polarizador};
 	\draw [blue,thick] (0,-1,\zf)--(0,1,\zf);
@@ -603,42 +648,283 @@ polarizada.\label{fig:polaroid}}
 \end{figure}
 Tal como fizemos na secção anterior, podemos escrever a onda incidente como a
 sobreposição de duas ondas linearmente polarizadas em direções ortogonais, uma
-paralela ao eixo de transmissão e a outra perpendicular. Temos então
+paralela ao eixo de transmissão do filtro e a outra perpendicular. Temos então
 \begin{equation*}
 \vec E_0= \he_\parallel E_0\cos\theta+\he_\perp E_0\sin\theta,
 \end{equation*}
 onde $E_0$ representa o módulo da amplitude da onda incidente, $\hat
-e_\parallel$ e $\he_\perp$ é um versor paralelo ao eixo de transmissão do filtro
+e_\parallel$ é um versor paralelo ao eixo de transmissão do filtro
 e $\he_\perp$ um versor perpendicular a esse eixo. De acordo com a
 definição de filtro polarizador apresentada acima, a primeira destas
-componentes vai ser trnasmitida, e a segunda absorvida. Assim, o campo elétrico
+componentes vai ser transmitida, e a segunda absorvida. Assim, o campo elétrico
 da onda transmitida pelo filtro é dado por
 \begin{equation}\label{eq:analized}
-\vec E_\text{t}=\he_\parallel E_0\cos\theta,
+\vec E_t=\he_\parallel E_0\cos\theta,
 \end{equation}
-com amplitude de módulo $E_\text{t}=E_0\cos\theta$. Se elevarmos aos quadrado os
+estando pois polarizado na direção do eixo de transmissão do filtro, e tem
+amplitude de módulo $E_t=E_0\cos\theta$. Se elevarmos ao quadrado os
 dois lados desta igualdade e os multiplicarmos por $c\varepsilon_0/2$, obtemos
-$c\varepsilon_0 E^2_\text{t}/2=c\varepsilon_0 E^2_0\cos^2\theta\,/2$. Mas o
+$c\varepsilon_0 E^2_t/2=c\varepsilon_0 E^2_0\cos^2\theta\,/2$. Mas o
 termo no primeiro membro é a irradiância da onda transmitida
 (eq.~\eqref{eq:irradiance}) e no segundo aparece a da onda incidente. Concluímos
 assim que a intensidade da luz trasmitida por um filtro polarizador é uma fração
 da da incidente igual ao quadrado do ângulo entre a direção de polarização da
 luz incidente e a do eixo de transmissão do filtro,
 \begin{equation*}
-I_\text{t}=I_0\cos^2\theta.
+I_t=I_0\cos^2\theta.
 \end{equation*}
 Esta constatação tem o nome de \emph{Lei de Malus.}
 
-%Repare-se bem que a luz transmitida por um filtro polarizador está polarizada na
-%direção do eixo de transmissão do filtro, como mostra a
-%eq.~\eqref{eq:analized}.
+\subsection{Transmissão de luz não polarizada}
+Um feixe luminoso genérico é, em princípio, uma mistura de raios de luz com
+diferentes polarizações. Seja $g_0(\theta)d\theta$ a irradiância das
+componentes do feixe com polarização segundo direções que fazem com alguma
+direção de referência previamente fixada um ângulo compreendido entre $\theta$ e
+$\theta+d\theta$. A irradiância total do feixe é a soma destas irradiâncias
+parciais, ou seja,
+\begin{equation}\label{eq:poldensity}
+I_0=\int_0^{\pi} g_0(\theta) d\theta.
+\end{equation}
+Quando este feixe atravessa um filtro polarizador com o eixo de transmissão
+paralelo à direção de referência referida acima, cada uma das suas componentes
+será mais ou menos absorvida conforme a orientação da sua polarização. Seja
+agora $g_t(\theta)d\theta$ a irradiância da componente do feixe transmitido
+com polarização fazendo um ângulo entre $\theta$ e $\theta+d\theta$ com a 
+direção do eixo de transmissão do filtro. De acordo com a lei de Malus, temos
+\begin{equation*}
+g_t(\theta)d\theta=g_0(\theta)d\theta\,cos^2\theta.
+\end{equation*}
+A intensidade total do feixe transmitido é então
+\begin{equation}\label{eq:poltdens}
+I_t=\int_0^\pi g_t(\theta)d\theta=\int_0^\pi g_0(\theta)\cos^2\theta d\theta.
+\end{equation}
+Supondo que o feixe inicial está depolarizado, a função $g_0(\theta)$ é
+constante (o feixe incidente tem iguais intensidades de \emph{todas} as
+polarizações), $g_0(\theta)=g_0$, e fazendo o integral (neste caso trivial) da
+eq.~\eqref{eq:poldensity}, resulta $g_0=I_0/\pi$. Substituindo na
+eq.~\eqref{eq:poltdens}, obtemos
+\begin{equation*}
+I_t=\int_0^\pi g_0\cos^2\theta d\theta=\frac{I_0}{\pi}\int_0^\pi\cos^2\theta
+d\theta=\frac12 I_0.
+\end{equation*}
+Ou seja, quando luz não polarizada incide num filtro polarizador, o feixe
+transmitido tem uma irradiância igual a metade da do feixe incidente.
 
 
 \section{Polarização por reflexão. Ângulo de Brewster}
-\tobedone{}
-\section{Aplicações na optometria}
-\tobedone{}
+Como é bem sabido, quando a luz incide na superfície de separação de dois meios
+distintos ocorrem os processos da reflexão e da refração. A irradiância do feixe
+incidente distribui-se pelos feixes refletido e refratado, de uma forma que
+depende do ângulo de incidência, mas que depende também da polarização. Para
+simplificar a discussão que se segue, recordemos alguns termos:
+\begin{itemize}[itemsep=-1pt,topsep=1pt,parsep=0pt,
+                leftmargin=*,
+                %itemindent=-1.3em,
+                %listparindent=0pt,
+]
+\item Direções de \emph{incidência,} de \emph{reflexão} e de \emph{refração} são
+respetivamente as direções dos raios incidente, refletido e refratado.
+\item \emph{Normal} é a direção perpendicular à superfície de separação dos dois
+meios no ponto onde se dá a incidência.
+\item \emph{Plano de incidência} é o plano que contêm a direção de incidência e
+a normal. Este plano contem também as direções de reflexão e de refração e é
+perpendicular, no ponto de incidência, à superfície de separação dos dois meios.
+\end{itemize}
+\begin{figure}[htb]
+{\centering
+\def\zangle{-20}
+\def\xangle{20}
+\begin{tikzpicture}[x=(\xangle:0.95), y=(90:1), z=(\zangle:0.95cm)]
+\small\sffamily
+\clip (-4.1,-1.) rectangle (4.1,1.15);
+\coordinate(F1) at (0,0,-9);
+\coordinate(F2) at (9,0,0);
+\coordinate (O) at (0,0,-0.2);
+%\draw [->] (-1,0,0) -- (1,0,0) node[right]{$x$};
+%\draw [->] (0,-1,0) -- (0,1,0) node[right]{$y$};
+%\draw [->] (0,0,-1) -- (0,0,1) node[right]{$z$};
 
+\def\lx{1.85}
+\def\ly{1.75}
+\def\lz{2.5}
+\def\lyn{-1.0}
+\coordinate (zzp) at (0,0,\lz);
+\coordinate (zzn) at (0,0,-\lz);
+\coordinate (pzz) at (\lx,0,0);
+\coordinate (nzz) at (-\lx,0,0);
+\coordinate (zpz) at (0,\ly,0);
+\coordinate (znz) at (0,\lyn,0);
+
+%incident plane, upper part
+\path (F1) -- ($ (F1)!1.5!(zpz) $) coordinate (ypg);
+\coordinate (zpn) at (intersection of zzn--(0,2,-\lz) and F1--ypg);
+\coordinate (zpp) at (intersection of zzp--(0,2,\lz) and F1--ypg);
+%surface, negative x part
+\path (F1) -- ($ (F1)!1.5!(nzz) $) coordinate (xng);
+\path (F2) -- ($ (F2)!1.5!(zzn) $) coordinate (zng);
+\path (F2) -- ($ (F2)!1.5!(zzp) $) coordinate (zpg);
+\coordinate (nzn) at (intersection of F1--xng and F2--zng);
+\coordinate (nzp) at (intersection of F1--xng and F2--zpg);
+%surface, positive x part
+\path (F1) -- ($ (F1)!1.5!(pzz) $) coordinate (xpg);
+\coordinate (pzn) at (intersection of F1--xpg and F2--zng);
+\coordinate (pzp) at (intersection of F1--xpg and F2--zpg);
+%incident plane, lower part
+\path (F1) -- ($ (F1)!1.5!(znz) $) coordinate (yng);
+\coordinate (znn) at (intersection of zzn--(0,-2,-\lz) and F1--yng); 
+\coordinate (znp) at (intersection of zzp--(0,-2,\lz) and F1--yng);
+%
+\path (zpn) --++(0,0.0,-0.1) node [anchor=south west, yslant=-0.12] {Plano de incid\^encia};
+%incidence plane, negative z
+\fill [gray!20, fill opacity=0.7] (zzn) -- (znn) -- (znp) -- (zzp) -- cycle;
+%surface, positive x
+\fill [gray!70, fill opacity=0.7] (zzn) -- (pzn) -- (pzp) -- (zzp) -- cycle;
+\draw [thin] (zzn) -- (pzn) -- (pzp) -- (zzp);
+\draw (O) -- ($ (znz)!0.3!(znp) $) coordinate(p);
+\draw [thin,->] (O) -- ($ (O)!0.4!(p) $);
+%incidence plane, positive z
+\fill [gray!20, fill opacity=0.7] (zzn) -- (zpn) -- (zpp) -- (zzp) -- cycle;
+%normal
+\draw [dashed] (0,\lyn,-0.2) -- (0,\ly,-0.2);
+%surface, negative x
+\fill [gray!70, fill opacity=0.7] (zzn) -- (nzn) -- (nzp) -- (zzp) -- cycle;
+\draw [thin] (zzn) -- (nzn) -- (nzp) -- (zzp);
+\coordinate (a) at ($ (zpn)!0.4!(O) $);
+\draw [->] (a) -- ($ (a)!0.4cm!(F2) $); 
+\coordinate (b) at ($ (O)!0.6!(zpp) $);
+\draw [->] (b) -- ($ (b)!0.4cm!(F2) $);
+%Incident polarization
+\draw [->] (a) -- ($ (a)!-0.4cm!(F2) $) node [left,inner sep=1] {\scriptsize$\epsilon_n$};
+\draw [->] (a) -- +(40:0.35) node [above,inner sep=1] {\scriptsize$\epsilon_p$};
+\draw [->] (a) -- +(220:0.35);
+%reflected polarization
+\draw [->] (b) -- ($ (b)!-0.4cm!(F2) $) node [above, inner sep=3]
+    {\scriptsize$\epsilon_n$};
+\draw [->] (b) --+(115:0.3) node[above left,inner sep=1]{\scriptsize$\epsilon_p$};
+\draw [->] (b) --+(295:0.3);
+%incident and reflected rays
+\draw (zpn) -- (O) -- (zpp);
+\draw [thin,->] (zpn) -- ($ (zpn)!0.75!(O) $);
+\draw [thin,->] (O) -- ($ (O)!0.3!(zpp) $);
+\path (nzn) -- (nzp) node [midway, below, sloped, yslant=-0.025] {Superf\'icie refletora};
+\end{tikzpicture}\par
+}
+\caption{Refração e reflexão da luz numa interface entre meios distintos. Estão
+representadas a direção normal (a tracejado) os raios incidente, refratado e
+refletido e duas componentes da polarição de dois dos raios, na direção
+perpendicular ao plano de incidência ($\epsilon_n$) e na perpendicular à
+propagação dentro desse plano ($\epsilon_p$).\label{fig:rfl_rfr}}
+\end{figure}
+Os três raios envolvidos neste processo (incidente, refletido e refratado) estão
+todos no plano de incidência. As suas polarizações (quer os raios estejam
+polarizados, parcialmente polarizados ou não polarizados) são perpendiculares ao
+próprio raio. Para as escrever, podemos decompô-las numa direção perpendicular
+ao plano de incidência (componente~$n$) e noutra que, pertencendo ao plano de
+incidência, é ainda assim perpendicular ao raio em causa (componente~$p$). As
+componentes da polarizção nestas duas direções estão representadas na
+Figura~\ref{fig:rfl_rfr} (identificadas com os símbolos $\epsilon_n$ e
+$\epsilon_p$) para os raios incidente e refletido.
+
+Por razões que se prendem com detalhes da interação entre a matéria e a radiação
+(e que não serão aqui discutidas), as componentes~$p$ da polarização do raio
+incidente são perferencialmente transmitidas ao raio refratado. O raio refletido
+tem, por isso, essas componentes especialmente atenuadas. Se a luz incidente é
+luz despolarizada, então o raio refletido estará parcialmente polarizado
+na direção~$n$, a direção perpendicular ao plano de incidência. Assim, os
+reflexos da luz natural na superfície dos lagos ou do mar, as nossas imagens
+refletidas nos espelhos, o brilho das bolas de bilhar, etc, são todos
+constituidos por luz parcialmente polarizada.
+
+A intensidade deste efeito de encaminhamento das componentes~$p$ da polarização
+da luz incidente para o raio refratado, reduzindo por essa via a sua presença no
+raio refletido, depende do ângulo de incidência. Para uma dada interface entre
+dois meios, há uma direção de incidência da luz para a qual as componentes~$p$
+da polarização da radiação incidente são \emph{totalmente} transmitidas ao raio
+refratado. Quando isto acontece, o raio refletido fica, naturalmente, totalmente
+polarizado, com polarização linear na direção~$n$. O ângulo de incidência para o
+qual esta situação ocorre chama-se \emph{ângulo de Brewster}. 
+
+Por razões que se prendem também com o mecanismo que causa este processo
+de distribuição diferenciada das polarizações~$p$ e~$n$ pelos raios refletido e
+refratado, acontece que quando a incidência se faz segundo o ângulo de Brester
+(e, portanto, quando o raio refletido resulta totalmente polarizado), as
+direções de refração e reflexão são perpendiculares. Este facto permite deduzir
+facilmente uma expressão para o valor do ângulo de Brewster para uma dada
+interface, que vamos fazer já a seguir.
+
+\noindent
+\begin{minipage}[t]{0.75\linewidth}
+Consideremos dois meios contíguos com
+índices de refração~$n_1$ e~$n_2$, e um raio de luz que propagando-se no
+primeiro, incide num dado ponto da superfície de contacto que os separa, segundo
+uma direção que faz com a normal no ponto de incidência um ângulo igual ao
+ângulo de Brewster (veja a figura ao lado).
+De acordo com a lei de Snell, a relação entre o ângulo de incidência
+($\theta_B$) e de refração ($\theta_r$) é
+\begin{equation*}
+n_1\sin\theta_B=n_2\sin\theta_r.
+\end{equation*}
+\end{minipage}\hfill
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+\small
+\draw [thick] (1.5,0)--(-1.5,0) node [anchor=south west]{$n_1$} node[anchor=north west]{$n_2$};
+\draw [dashed] (0,-1.4)--+(0,2.5);
+\draw [->-] (150:1.5) -- (0,0); \draw [->-] (0,0) -- (30:1.5);
+\draw [thin](0,0.6) arc (90:150:0.6) node [shift={(0.5mm,4mm)}]{$\theta_B$};
+\draw [thin](0,0.5) arc (90:30:0.5) node [shift={(-0.3mm,3.5mm)}] {$\theta_B$};
+\draw [->-] (0,0)--(300:1.5);
+\draw [thin] (0,-0.5) arc(270:300:0.5) node [shift={(-0mm,-3mm)}] {$\theta_r$};
+\coordinate (q) at (345:1.4142*0.3);
+\draw [thin] (300:0.3) -- (q) --(30:0.3);
+\end{tikzpicture}\\[3mm]
+Mas, como as direções de reflexão e de refração são perpendiculares (e como,
+pela lei da reflexão, o ângulo de reflexão é tabém igual a $\theta_B$), 
+\begin{equation*}
+\theta_B+90^\circ+\theta_r=180^\circ\implies
+\theta_r=90^\circ-\theta_B\implies
+\sin\theta_r=\sin(90\circ-\theta_B)=\cos\theta_B.
+\end{equation*}
+Substituindo acima, obtemos
+\begin{equation*}
+n_1\sin\theta_B=n_2\cos\theta_B,
+\end{equation*}
+ou seja,
+\begin{equation*}
+\tan\theta_B=\frac{n_2}{n_1}.
+\end{equation*}
+
+
+
+
+\section{Aplicações na optometria e para as imagens~3D}
+Porque na reflexão especular ocorre polarização (parcial ou total) da luz, o
+brilho da luz do sol refletida nas superfícies dos lagos ou do mar ou nas
+carroçarias dos carros é constituído por luz polarizada. Como as superfícies
+que produzem estes reflexos tendem a estar mais ou menos horizontais, a luz
+refletida tem polarização mais ou menos horizontal também e pode ser fortemente
+atenuada usando filtros polarizadores com o eixo de transmissão orientado
+verticalmente. Esta possibilidade é aproveitada por diversos modelos de óculos
+de sol comerciais. É igualmente usada em alguns modelos de oftalmoscópio e
+outros instrumentos para exame visual do interior do globo ocular, para
+atenuar os reflexos muito intensos da córnea.
+
+A técnologia atualmente mais difundida para a visualização de filmes 3D usa
+também luz polarizada. No ecrã da sala de cinema, são projetados
+simultaneamente \emph{dois} filmes ligeiramente diferentes, que mostram a ação
+tal como ela seria percebida por cada olho de uma pessoa que a testemunhasse, e
+cada um destes filmes é projetado com luz polarizada: para um usa-se luz
+polarizada circularmente no sentido dextro, para o outro luz polarizada
+circfularmente no sentido esquerdo. Por outro lado, as lentes dos óculos que se
+usam para ver esses filmes têm lentes polarizadoras circulares com orientações
+simétricas também.  Deste modo, cada olho do espetador só vê um dos filmes a ser
+projetado, cada olho só vê o que veria se o espetador estivesse efetivamente
+presente na cena. A partir daqui, entra em ação a parte neurológica do sistema
+visual, e o cérebro constrói a partir das imagens (ligeiramente
+diferentes) captadas pelos dois olhos a sensação de profundidade.
+
+\newpage
+\section*{Ondas eletromagnéticas --- Resumo}
+\tobedone{}
 %\section{Apêndice: figuras de Lissajous com frequência única}
 %\label{sec:lissajous}
 %Consideremos o movimento de um ponto material no plano $xy$ cujas coordenadas
