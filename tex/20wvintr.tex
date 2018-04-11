@@ -419,7 +419,7 @@ duas, isto é,
 \section{Ondas sinusoidais}\label{sec:hamonicwaves}
 As funções de onda podem ter formas muito variadas. Por exemplo, a
 Figura~\ref{fig:20-cello} ilustra a forma como a pressão atmosférica varia com o
-tempo em duas ondas de som, uma produzida por um diapasão, ao outra por um
+tempo em duas ondas de som, uma produzida por um diapasão, a outra por um
 violoncelo, ambos a tocar a mesma nota (Lá 4).
 \begin{figure}[htb]
 {\centering
@@ -446,22 +446,23 @@ formalismo matemático. As ondas sinusoidais (que também são conhecidas como
 funções da posição e do tempo com a forma genérica
 \begin{equation}\label{eq:hwav}
     \psi(x,t)=A\cos\left(\frac{2\pi}{\lambda}\left[x-v_xt\right]+
-            \phi_0\right)
+            \varphi_0\right)
 \end{equation}
 Nesta equação $x$ e $t$ representam, respetivamente, a posição e o tempo, e
-$v_x$ a componente escalar da velocidade de propagação da onda.\footnote{Dizer
-que $v_x$ é a componente escalar da velocidade de propagação significa dizer que
-é um número real que pode ser positivo (quando a propagação se faz no sentido
-positivo do eixo dos $x$) ou negativo (quando se faz no sentido oposto).}
+$v_x$ a componente escalar da velocidade de propagação da onda.\footnote{Recorde
+que dizer que $v_x$ é a componente escalar da velocidade de propagação significa
+dizer que é um número real que pode ser positivo (quando a propagação se faz no
+sentido positivo do eixo dos $x$) ou negativo (quando se faz no sentido
+oposto).}
 Note-se que esta expressão para uma onda harmónica satisfaz a condição geral das
 ondas que se propagam sem alteração da forma da eq.~\eqref{eq:constformwave}.
 
 Os parâmetros que caracterizam a função de onda têm os nomes
 \emph{amplitude} ($A$), \emph{comprimento de onda} ($\lambda$), e
-\emph{constante de fase} ($\phi_0$). A propósito, chama-se \emph{fase} da onda
+\emph{constante de fase} ($\varphi_0$). A propósito, chama-se \emph{fase} da onda
 ao argumento da função trignométrica, ou seja, à função da posição e do tempo
 \begin{equation}\label{eq:harmonicphase}
-\phi(x,t)=\frac{2\pi}{\lambda}(x-v_xt)+\phi_0.
+\phi(x,t)=\frac{2\pi}{\lambda}(x-v_xt)+\varphi_0.
 \end{equation}
 Os argumentos das funções transcendentes (como é o caso da função cosseno) devem
 ser adimensionais; assim, a fase de uma onda não tem dimensões, pelo que
@@ -473,25 +474,25 @@ dimensões, como já foi dito.
 Vejamos o significado e o efeito de cada um destes parâmetros\footnote{O que a
 seguir se afirma pode, \emph{e deve,} ser verificado com uma calculadora
 gráfica ou uma folha de cálculo. Programe a forma da função de onda
-substituindo os parâmetros $A$, $\lambda$, $v_x$ e $\phi_0$ por valores
+substituindo os parâmetros $A$, $\lambda$, $v_x$ e $\varphi_0$ por valores
 constantes à sua escolha e dando a $t$ um valor fixo; veja o que acontece para
 valores de $t$ crescentes; veja o que acontece gráfico quando altera algum dos
 parâmetros.}.
 Na Figura~\ref{fig:20-050} apresentam\--se os gráficos de uma função harmónica
 como função de $x$, em três instantes $t=0$ (linha contínua), $t=0,15$\,s (linha
 a tracejado) e $t=0,3$\,s (linha a pontilhado). Na função de onda representada, os
-valores dos parâmetros são $A=0,75$, $\lambda=1,5$\,m, $v_x=1,5$\,m/s e $\phi_0=0$.
-Observando o gráfico, notamos que o valor da amplitude, $0,75$, é o módulo dos
-extremos de variação da função; notamos também que a distância entre os picos
-sucessivos da onda, num determinado instante, tem o valor que atribuímos ao
-comprimento de onda $\lambda$.
+valores dos parâmetros são $A=0,75$, $\lambda=1,5$\,m, $v_x=1,5$\,m/s e
+$\varphi_0=0$.  Observando o gráfico, notamos que o valor da amplitude, $0,75$,
+é o módulo dos extremos de variação da função; notamos também que a distância
+entre os picos sucessivos da onda, num determinado instante, tem o valor que
+atribuímos ao comprimento de onda $\lambda$.
 \begin{figure}[htb]
 {\centering
     \input{figs/f20-050.pgf}\par
 }
 \caption{Gráficos da função de onda
-$\psi(x,t)=A\cos(2\pi[x-v_xt]/\lambda+\phi)$, com $A=0,75$, $\lambda=1,5$,
-$v_x=1,5$\,m/s e $\phi=0$, para $t=0$ (linha a cheio), $t=0,15$\,s (linha a
+$\psi(x,t)=A\cos(2\pi[x-v_xt]/\lambda+\varphi_0)$, com $A=0,75$, $\lambda=1,5$,
+$v_x=1,5$\,m/s e $\varphi_0=0$, para $t=0$ (linha a cheio), $t=0,15$\,s (linha a
 tracejado) e $t=0,3$\,s (linha a pontilhado).\label{fig:20-050}}
 \end{figure}
 A figura também mostra que, à medida que o tempo avança, a função de onda
@@ -517,12 +518,12 @@ representado com a letra $T$.  Desta análise concluímos o seguinte:
     intervalo de tempo entre a passagem de dois máximos sucessivos da onda num
     ponto dado.
 \end{itemize}
-Falta discutir o significado da constante de fase $\phi_0$. Este parâmetro está
+Falta discutir o significado da constante de fase $\varphi_0$. Este parâmetro está
 relacionado com o valor inicial (para $t=0$) da onda na origem (em $x=0$).
-Escolhendo, como fizemos acima, $\phi=0$, resulta $\psi(x=0,\,t=0)=A$. Caso a onda
+Escolhendo, como fizemos acima, $\varphi=0$, resulta $\psi(x=0,\,t=0)=A$. Caso a onda
 que queremos descrever se anulasse (por exemplo) no instante inicial e na
-origem, escolheríamos $\phi=\pi/2$. Para uma dada onda, podemos sempre escolher
-$\phi=0$ definindo de forma conveniente as origens espacial e temporal. Para
+origem, escolheríamos $\varphi=\pi/2$. Para uma dada onda, podemos sempre escolher
+$\varphi_0=0$ definindo de forma conveniente as origens espacial e temporal. Para
 além disso, podemos escolher a função seno ou a função cosseno na descrição da
 onda, ajustando convenienemente o valor da constante de fase, dado que $\sin
 x=\cos(x-\pi/2),\ \forall x\in \mathbb{R}$. Ou seja, enquanto que a amplitude, o
@@ -548,9 +549,9 @@ v_x=sv,\qquad\text{ com }s^2=1.
 Usando estas igualdades na expressão da fase da eq.~\eqref{eq:harmonicphase},
 podemos reescrevê-la como
 \begin{align}
-    \phi(x,t)&=\frac{2\pi}{\lambda}(s^2x-svt)+\phi_0=
-    \frac{2\pi}{\lambda}s(sx-vt)+\phi_0\nonumber\\
-&=s(k_xx-\omega t)+\phi_0,\label{eq:hrmonicphase}
+    \phi(x,t)&=\frac{2\pi}{\lambda}(s^2x-svt)+\varphi_0=
+    \frac{2\pi}{\lambda}s(sx-vt)+\varphi_0\nonumber\\
+&=s(k_xx-\omega t)+\varphi_0,\label{eq:hrmonicphase}
 \end{align}
 onde
 \begin{equation}
@@ -567,14 +568,14 @@ frequência da onda, expressa em radianos por segundo em vez de em ciclos por
 segundo. Substituindo agora a expressão da fase da eq.~\eqref{eq:hrmonicphase}
 na função de onda da eq.~\eqref{eq:hwav}, obtemos
 \begin{equation*}
-\psi(x,t)=A\cos(s[k_xx-\omega t] +\phi_0),
+\psi(x,t)=A\cos(s[k_xx-\omega t] +\varphi_0),
 \end{equation*}
 e podemos ``deixar cair'' o sinal $s$ ajustando convenientemente
 o valor da constante de fase, resultando uma forma muito usual
 (bastante mais frequente que a da eq.~\eqref{eq:hwav}) da expressão da função de
 onda harmónica sinusoidal:
 \begin{equation}\label{eq:hwav2}
-\psi(x,t)=A\cos([k_xx-\omega t] +\phi_0).
+\psi(x,t)=A\cos([k_xx-\omega t] +\varphi_0).
 \end{equation}
 
 Para completar esta já longa secção sobre a representação matemática das funções
@@ -582,7 +583,7 @@ sinusoidais, deixo como exercício a demonstração da equivalência com as
 eqs.~\eqref{eq:hwav} e~\eqref{eq:hwav2} de uma terceira expressão para as ondas
 sinusoidais:
 \begin{equation*}
-\psi(x,t) = A\cos\left(2\pi\left[\frac{x}{\lambda}\pm\frac{t}{T}\right]+\phi_0
+\psi(x,t) = A\cos\left(2\pi\left[\frac{x}{\lambda}\pm\frac{t}{T}\right]+\varphi_0
 \right),
 \end{equation*}
 onde os vários símbolos têm o significado já introduzido e o sinal a tomar no
@@ -905,7 +906,7 @@ posição \emph{ao longo} da direção perpendicular às frentes de onda, ou sej
 longo da direção de propagação.
 
 Consideremos uma onda plana harmónica com comprimento de onda $\lambda$,
-frequência angular $\omega$, constante de fase $\phi_0$ e amplitude $A$, e seja
+frequência angular $\omega$, constante de fase $\varphi_0$ e amplitude $A$, e seja
 $\hat k$ um vetor unitário com a direção e sentido da propagação. Dizer que
 onda é plana e que a orientação da propagação é a do versor $\hat k$ significa
 dizer que as suas frentes de onda são planas, perpendiculares a $\hat k$ e que
@@ -915,9 +916,9 @@ coordenada orientada ao longo de $\hat k$. Seja $q$ essa coordenada (ver a
 Figura~\ref{fig:f050}).  Por outro lado, dizer que esta onda é harmónica
 significa que tem uma forma geral que se pode escrever como
 \begin{equation}\label{eq:eq0}
-  \psi(x,y,z,t)=A\cos\left(kq-\omega t+\phi_0\right),
+  \psi(x,y,z,t)=A\cos\left(kq-\omega t+\varphi_0\right),
 \end{equation}
-com $k=2pi/\lambda$. Seja $P$ um ponto de uma das frentes de onda, e
+com $k=2\pi/\lambda$. Seja $P$ um ponto de uma das frentes de onda, e
 $\vec r=(x,y,z)$ o seu vetor posição. O valor da coordenada $q$ para este ponto
 é facilmente calculado como
 \begin{figure}[htb]
@@ -965,7 +966,7 @@ escrever-se como função das coordenadas do ponto $P$ na forma
 Por fim, substituindo na eq.~\eqref{eq:eq0}, obtemos a forma geral de uma onda
 plana harmónica com vetor de propagação $\vec k$:
 \begin{equation} \label{eq:plwav}
-\psi(x,y,z,t)=A\cos(\vec k\cdot\vec r-\omega t+\phi_0)
+\psi(x,y,z,t)=A\cos(\vec k\cdot\vec r-\omega t+\varphi_0)
 \end{equation}
 
 Como exercício, considere o caso em que a onda se propaga ao longo do eixo dos
@@ -985,7 +986,7 @@ ondas sinusoidais da eq.~\eqref{eq:hwav}.
 
 Naturalmente, a versão desta função de onda em representação complexa é
 \begin{equation}\label{eq:phwfexp}
-  \psi(\vec r,t)=A\e^{\iu(\vec k\cdot \vec r-\omega t+\phi_0)}.
+  \psi(\vec r,t)=A\e^{\iu(\vec k\cdot \vec r-\omega t+\varphi_0)}.
 \end{equation}
 
 \subsubsection{Equação de onda para ondas planas em três dimensões}
@@ -1057,7 +1058,7 @@ esférica deve ser [compare com a eq.~\eqref{eq:phwfexp}]
 onde $\vec r$ é o vetor posição de um ponto arbitrário do espaço, relativamente
 à posição da fonte. No caso de ondas sinusoidais, esta expressão toma a forma
 \begin{equation}
-\psi(\vec r,\,t)=A(r)e^{\iu(kr-\omega t+\phi_0)}.
+\psi(\vec r,\,t)=A(r)e^{\iu(kr-\omega t+\varphi_0)}.
 \end{equation}
 A amplitude é agora considerada uma função (decrescente) da distância à fonte
 porque se verifica empiricamente que a amplitude das ondas esféricas diminui à
