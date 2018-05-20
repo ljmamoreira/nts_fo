@@ -1,4 +1,4 @@
-\chapter{Ondas --- Introdução}
+\chapter{Ondas --- Introdução}\label{sec:wvintr}
 \textsl{{\sffamily(Versão: \today)}}
 
 \noindent
@@ -440,6 +440,7 @@ comportamento e propriedades das funções de onda com forma sinusoidal (isto é
 com a forma do seno ou do cosseno), pois qualquer outra função de onda pode ser
 construída com sobreposições dessas funções.
 
+\subsection{``Anatomia'' de uma onda sinusoidal}
 Consideremos por enquanto o caso unidimensional, para introduzir pouco a pouco o
 formalismo matemático. As ondas sinusoidais (que também são conhecidas como
 \emph{ondas harmónicas} ou \emph{ondas monocro\-máticas}) unidimensionais são
@@ -578,7 +579,7 @@ onda harmónica sinusoidal:
 \psi(x,t)=A\cos([k_xx-\omega t] +\varphi_0).
 \end{equation}
 
-Para completar esta já longa secção sobre a representação matemática das funções
+Para encerrar esta já longa secção sobre a representação matemática das funções
 sinusoidais, deixo como exercício a demonstração da equivalência com as
 eqs.~\eqref{eq:hwav} e~\eqref{eq:hwav2} de uma terceira expressão para as ondas
 sinusoidais:
@@ -588,6 +589,35 @@ sinusoidais:
 \end{equation*}
 onde os vários símbolos têm o significado já introduzido e o sinal a tomar no
 parentesis reto é o oposto ao de $v_x$.
+
+\subsection{Diferença entre as fases de uma onda em dois pontos do seu trajeto}
+\label{sec:dfidx}
+Veremos mais tarde que a diferença entre as fases de duas ondas tem uma grande
+importância nos fenómenos de interferência.  Em muitas situações, as duas ondas
+que interferem resultam de uma mesma onda, e a diferença de fase entre elas é
+gerada por percorrerem diferentes caminhos até ao ponto onde se sobrepõem.  Por
+isso, é importante saber calcular a variação na fase de uma onda de um ponto
+para outro do seu trajeto.  Sejam $x_1$ e $x_2$ as coordenadas de dois pontos no
+eixo dos $x$ e consideremos uma onda harmónica genérica que se propaga segundo
+esse eixo, dada por
+\begin{equation*}
+\psi(x,t)=A\
+    cos\left(2\pi\left[\frac{x}{\lambda}-\frac{t}{T}\right]+\phi\right).
+\end{equation*}
+A fase que esta onda apresenta nos dois pontos num dado instante é
+\begin{align*}
+\phi_1&=2\pi\left(\frac{x_1}{\lambda}-\frac{t}{T}\right)+\phi\\
+\phi_2&=2\pi\left(\frac{x_2}{\lambda}-\frac{t}{T}\right)+\phi.
+\end{align*}
+A variação de fase é, então,
+\begin{align}
+  \delta\phi&=\phi_2-\phi_1=2\pi\frac{x_2-x_1}{\lambda}\nonumber\\
+            &= 2\pi\frac{\delta x}{\lambda}.\label{eq:deltaphix}
+\end{align}
+A diferença de fases de uma onda em dois pontos do seu trajeto é, assim, uma
+medida do número de oscilações da onda que cabem no segmento compreendido entre
+os dois pontos, expressa em radianos.  Esta fórmula será usada repetidamente no
+Capítulo~\ref{chpt:superp}.
 
 
 
@@ -885,11 +915,10 @@ plana (à esquerda) e de frentes de onda de uma onda esférica (à direita).
       instantes diferentes) de uma onda plana que se propaga na direção do eixo
       dos $x$ (à esquerda). À direita apresentam-se diferentes frentes de onda
       (ou a mesma frente de onda em diferentes instantes de uma onda esférica.
-      Note que em diferentes pontos da frente de onda de ma onda esférica, a
-      direção de propagação é diferente. ({\small\textsf{A imagem da direita foi
-          adaptada de uma apresentada num post no \LaTeX{} Stack Exchange,
-          disponível em
-      \protect\url{http://tex.stackexchange.com/questions/262015/drawing-wave-propagation-using-tikz}}.})
+      Note que em diferentes pontos da frente de onda de uma onda esférica, a
+      direção de propagação é diferente. (A imagem da direita foi adaptada de
+      uma apresentada num post no \LaTeX{} Stack Exchange, disponível em
+      \protect\url{http://tex.stackexchange.com/questions/262015/drawing-wave-propagation-using-tikz}.)
       \label{fig:oof040}}\par
   }
 \end{figure}
@@ -1116,6 +1145,7 @@ particular, a luz). Voltaremos a este assunto no próximo capítulo.
 
 
 \section{Princípio de Huygens}
+\label{sec:huygens}
 Na propagação de uma onda, a causa directa para que a perturbação ondulatória se
 manifeste num dado ponto é que ela se tenha manifestado nos pontos vizinhos. Por
 outras palavras, a fonte da perturbação ondulatória num dado local é a própria
@@ -1148,7 +1178,7 @@ sobreposição de ondas.
 
 
 \newpage
-\section{Introdução às ondas --- Resumo}
+\section*{Introdução às ondas --- Resumo}
 \begin{itemize}
 \item
     Função de onda de ondas harmónicas unidimensionais:

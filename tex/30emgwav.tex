@@ -157,7 +157,7 @@ direção de propagação.  Assim, constatamos que o campo elétrico, neste exem
 é transversal. Veremos que se trata de uma propriedade geral do campo elétrico
 (e também do magnético) numa onda eletromagnética.
 
-\subsection{Análise mais geral}
+\subsection*{Análise mais geral}
 Depois de apresentado o exemplo anterior, vejamos isto com maior generalidade.
 Calculemos o rotacional da terceira equação de Maxwell, na linha de baixo e à
 esquerda na eq.~\eqref{eq:meqs}:
@@ -259,7 +259,7 @@ representação com funções trignométricas, o cálculo das derivadas parciais
 função de onda seria muito mais complexo\footnote{Mas é um bom exercício
 fazê-lo.  Força!}.
 
-\subsection{As ondas eletromagnéticas são ondas transversais}
+\subsection*{As ondas eletromagnéticas são ondas transversais}
 De acordo com a primeira equação de Maxwell, a divergência do campo elétrico é
 nula. Mas, dada a expressão geral da divergência em coordenadas cartesianas 
 (eq.~\eqref{eq:divcart}) e as igualdades que acabámos de demonstrar, temos
@@ -344,61 +344,93 @@ $x$), para uma direção de polarização coincidente com o eixo dos $y$.
   StackExchange.)\label{fig:plemwave}}
 \end{figure}
 
-\section{O vetor de Poynting e a irradiância}
-O campo elétromagnético armazena e transporta energia. Isto é, é necessário
-dispender energia para criar os campos elétrico e/ou magnético definidos numa
-região do espaço e esses campos podem transportar energia para outras regiões do
-espaço. 
-
-O transporte de energia pelo campo é completamente caracterizado pelo
-\emph{vetor de Poynting,}
-\begin{equation}
+\section{O vetor de Poynting e a irradiância}\label{sec:irradiance}
+As ondas eletromagnéticas transportam energia. A grandeza deste transporte é
+avaliada por uma quantidade chamada \emph{intensidade luminosa} ou
+\emph{irradiância,} definida como a energia transportada pela onda por undade de
+tempo e de área perpendicular ao transporte. A irradiância fica completamente
+caracterizada pelo \emph{vetor de Poynting,}
+\begin{equation}\label{eq:poynting}
   \vec S=\frac{1}{\mu_0}\vec E\times\vec B.
 \end{equation}
-A orientação deste vetor é a do fluxo de energia; o seu módulo é a quantidade de
-energia transportada pela onda por unidade de tempo e de área perpendicular a
-esse fluxo.
-
-Numa onda de luz, o módulo do vetor de Poynting oscila com frequência muito
-elevada, e por isso é mais informativo tomar médias temporais. A
-\emph{irradiância} (ou \emph{densidade de fluxo radiante}) é uma destas médias.
-Define-se como a potência (energia por unidade de tempo) transferida por unidade
-de área e é o valor médio do módulo do vetor de Poynting ao longo de um período
-da sua oscilação.
-
-Numa onda harmónica plana como as que estudámos na secção anterior, os dois
-campos $\vec E$ e $\vec B$ são perpendiculares. Assim, o módulo do vetor de
-Poynting é dado por
-\begin{align*}
-  S&=\|\vec S\|=\frac{1}{\mu_0}EB=
-  \frac{E_0B_0}{\mu_0}\cos^2\left(\vec k\cdot\vec r-\omega t+\varphi_0\right)\\
-  &=
-  \frac{E^2_0}{\mu_0c}\cos^2\left(\vec k\cdot\vec r-\omega t+\varphi_0\right),
-\end{align*}
-onde $E_0$ e $B_0$ representam respetivamente os módulos das amplitudes dos
-campos elétrico e magnético e se usou a igualdade~\eqref{eq:b0e0}. Note-se que
-não podemos aqui usar a representação complexa, porque a expressão envolve um
-produto de duas funções trignométricas; ocorre aqui, por isso, a ``infeção'' da
-parte real da representação (com significado físico) pela sua parte imaginária
-(aqui irrelevante) que foi referida na secção~\ref{sec:complexharm}.  O
-valor médio desta função calculado ao longo de um período é
+A orientação deste vetor é a do fluxo de energia\footnote{Ou seja, a da
+propagação da onda. Verifique isto usando a regra da mão direita e a
+eq.~\eqref{eq:mf}.}; o seu módulo é a quantidade de energia transportada pela
+onda por unidade de tempo e de área perpendicular a esse fluxo. Ainda assim, o
+módulo do vetor de Poynting não serve como medida da irradiância, porque
+numa onda de luz, os campos $\vec E$ e $\vec B$ oscilam com uma frequência muito
+elevada (tipicamente, $10^{14}$ a $10^{15}$ ciclos por segundo), e,
+consequentemente, o mesmo acontece com as variáveis que dependem desses campos,
+como o vetor de Poynting. Qualquer observação ou medida instrumental da
+intensidade luminosa é feita durante um intervalo de tempo no qual se sucedem um
+número enorme dessas oscilações. Assim, os resultados dessas observações ou
+medidas são as médias temporais da intensidade luminosa instantânea tomadas ao
+longo do intervalo de tempo característico do processo de observação ou medida
+usado. Por isso mesmo, define-se irradiância ou intensidade luminosa de uma onda
+eletromagnética como a média temporal $\langle S\rangle_\tau$ do módulo do vetor
+de Poynting,
+\begin{equation}\label{eq:irrad}
+I=\langle S\rangle_\tau
+=\frac{1}{\tau}\int_0^\tau S\,dt,
+\end{equation}
+onde $\tau$ é a duração característica do processo de observação ou medição.
+Vamos fazer o cálculo deste valor médio. Mas antes, notemos que que usando a
+igualdade da eq.~\eqref{eq:mf}, o vetor de Poynting da eq.\eqref{eq:poynting}
+pode ainda escrever-se como
 \begin{equation*}
-  I=\overline S=\frac{1}{T}\int_{0}^TS(t)dt=\frac{E_0^2}{\mu_0cT}
-  \int_0^T\cos^2\left(\vec k\cdot\vec r-\omega t+\varphi_0\right)dt.
+\vec S=\frac{1}{\mu_0\omega}\vec E\times(\vec k\times\vec E).
 \end{equation*}
-Mas $\cos^2\theta=(1+\cos2\theta)/2$; então,
+Recorrendo agora à primeira das eqs.~\eqref{eq:tcp} para o produto triplo, temos
 \begin{equation*}
-  I=\frac{E_0^2}{2\mu_0cT}
-  \int_0^T\left[1+\cos2\left(\vec k\cdot\vec r-\omega t+\varphi_0\right)\right]dt.
+\vec E\times(\vec k\times\vec E)=E^2\vec k - (\vec E\cdot\vec k)\vec E,
 \end{equation*}
-O integral da primeira parcela é, simplesmente, $T$; o segundo, sendo o integral
-da função cosseno ao longo de um período completo, anula-se. Então, resulta por
-fim
-\begin{equation}\label{eq:irradiance}
-  I=\frac{E_0^2}{2\mu_0c}=\frac{1}{2}\varepsilon_0cE_0^2.
+mas como o segundo termo no lado direito se anula, porque $\vec E$ e $\vec k$
+são perpendiculares, resulta apenas $\vec E\times(\vec k\times\vec E)=E^2\vec k$
+e vem então para o vetor $\vec S$
+\begin{equation*}
+\vec S=\frac{1}{\mu_0\omega}E^2\,\vec k=\frac{k}{\mu_0\omega}E^2\,\hat k
+    =\frac{1}{\mu_0c}E^2\,\hat k=\varepsilon_0c E^2\,\hat k;
+\end{equation*}
+logo,
+\begin{equation}
+S=\|\vec S\|=\varepsilon_0c E^2,
+\end{equation}
+e substituindo este resultado na eq.~\eqref{eq:irrad} resulta
+\begin{equation}\label{eq:irrad2}
+I=\varepsilon_0c\langle E^2\rangle_\tau.
 \end{equation}
 
-
+Considerando ondas planas sinusoidais,\footnote{Como devemos calcular o valor
+médio do \emph{quadrado} da função de onda (operação não linear) é preciso
+cuidados especiais quando usamos a forma exponencial complexa. Para evitar esses
+cuidados, fazemos o cálculo com a forma trignométrica.} temos
+\begin{equation*}
+\vec E=\vec E(\vec r,t)=\vec E_0
+    \cos\left(\vec k\cdot \vec r-\omega t+\varphi_0\right);
+\end{equation*}
+logo,
+\begin{equation*}
+E^2=\|\vec E\|^2=E_0^2\cos^2(\vec k\cdot\vec r-\omega t+\varphi_0)
+=\frac{1}{2}E_0^2\left\{1+
+    \cos\left[2(\vec k\cdot\vec r-\omega t+\varphi_0)\right]\right\},
+\end{equation*}
+onde se usou a igualdade trignométrica $\cos^2\theta=(1+\cos2\theta)/2$.
+Substituindo na eq.~\eqref{eq:irrad2}, resulta
+\begin{equation}
+I=\frac{1}{2}\epsilon_0 cE_0^2\left(\strut1+
+    \left\langle
+        \cos\left[2(\vec k\cdot\vec r-\omega t+\varphi_0)\right]\right)
+    \right\rangle_\tau.
+\end{equation}
+O valor médio no lado direito é muito aproximadamente zero, porque a função
+cosseno oscila de forma simétrica em torno de zero. Uma vez que o intervalo de
+tempo considerado para a média é muito maior do que o período da oscilação, as
+contribuições para a média das alturas em que o cosseno é positivo cancelam as
+dos períodos em que ele é negativo. Assim, a irradiância de uma onda
+eletromagnética plana e sinusoidal resulta
+\begin{equation}\label{eq:plwvirrad}
+I=\frac{1}{2}\varepsilon_0c E_0^2.
+\end{equation}
 
 \section{O espetro eletromagnético}
 A luz é então uma onda eletromagnética. Mas nem todas as ondas eletromagnéticas
@@ -466,7 +498,7 @@ estreita de comprimentos de onda.
 
 Dentro da gama visível, diferentes comprimentos de onda produzem estímulos
 visuais que correspodem a diferentes sensações de cor. Considerando uma ordem
-crescente de comprimentos de onda temos sucessivamente sensações visuais
+crescente de comprimentos de onda, temos sucessivamente sensações visuais
 correspondentes às cores violeta, azul, verde, amarelo, laranja e vermelho.
 
 
@@ -498,9 +530,9 @@ areia da praia, átomos ou mesmo eletrões. Em primeiro lugar, a massa dos fotõ
 é nula; para além disso, movem-se \emph{sempre} com velocidade igual à
 velocidade da luz no vazio, $c=1/\sqrt{\varepsilon_0\mu_0}$; a energia cinética
 e o momento do fotão são diretamente proporcionais à frequência angular e ao
-módulo do vetor de onda da radiação que constituem,
+vetor de onda da radiação que constituem,
 \begin{align}\label{eq:plank}
-    E_\text{c}&=\hbar\omega&p&=\hbar k\qquad
+    E_\text{c}&=\hbar\omega&\vec p&=\hbar \vec k\qquad
 \end{align}
 o que mostra que a descrição ondulatória não é substituída por esta teoria
 corpuscular. De algum modo que não é ainda claro, a radiação eletromagnética
@@ -561,23 +593,25 @@ e fotões) se movem do lado esquerdo para o direito dos
 diagramas.\label{fig:phot_int}}
 \end{figure}
 
-Os processos de emissão ou absorção de partículas nunca são elásticos, isto é,
-neles não se conserva a energia cinética dos participantes\footnote{Que isto é
-assim, é fácil constatar analizando oo processo no referencial do centro de
-massa; por exemplo, na emissão de um fotão por um átomo, o átomo começa por
-estar imóvel, com energia cinética nula; o fotão emitido tem energia cinética,
-dada pela equação de Plank, e o próprio átomo fica também animado de um ténue
-movimento de recuo; ou seja, a energia cinética do sistema após a emissão do
-fotão já não é zero, como era antes dessa emissão.}. Nos processos inelásticos
-ocorre transformação da energia cinética dos intervenientes em alguma forma de
-energia interna\footnote{Por exemplo, as bolas de \emph{Squash,} que ressaltam pouco --- são
-pouco elásticas --- aquecem muito apreciavelmente durante um jogo.}. Para que
-possam ocorrer processos de emissão ou absorção de fotões, é portanto necessário
-que o objeto que os emite ou absorve tenha uma estrutura interna (com a
-correspondente estrutura de níveis de energia) capaz de absorver ou fornecer a
-variação de energia cinética que ocorre no processo. Este facto condiciona
-notavelmente os processos de emissão e absorção de fotões, verificando-se
-diferenças muito apreciáveis consoanto o estado físico do objeto envolvido.
+\subsection{Emissão e absorsão de radiação}
+Os processos de emissão ou absorção de partículas (incluindo os fotões) nunca
+são elásticos, isto é, neles não se conserva a energia cinética dos
+participantes\footnote{Que isto é assim, é fácil constatar analizando oo
+processo no referencial do centro de massa; por exemplo, na emissão de um fotão
+por um átomo, o átomo começa por estar imóvel, com energia cinética nula; o
+fotão emitido tem energia cinética, dada pela equação de Plank, e o próprio
+átomo fica também animado de um ténue movimento de recuo; ou seja, a energia
+cinética do sistema após a emissão do fotão já não é zero, como era antes dessa
+emissão.}. Nos processos inelásticos ocorre transformação da energia cinética
+dos intervenientes em alguma forma de energia interna\footnote{Por exemplo, as
+bolas de \emph{Squash,} que ressaltam pouco --- são pouco elásticas --- aquecem
+muito apreciavelmente durante um jogo.}. Para que possam ocorrer processos de
+emissão ou absorção de fotões, é portanto necessário que o objeto que os emite
+ou absorve tenha uma estrutura interna (com a correspondente estrutura de níveis
+de energia) capaz de absorver ou fornecer a variação de energia cinética que
+ocorre no processo. Este facto condiciona notavelmente os processos de emissão e
+absorção de fotões, verificando-se diferenças muito apreciáveis consoanto o
+estado físico do objeto envolvido.
 
 Para se compreender estas diferenças, analisemos alguns casos.
 \begin{enumerate}
@@ -651,6 +685,21 @@ segundo. (Adaptado do artigo da Wikipedia ``Discrete spectrum''.)
 \label{fig:spectrums}}
 \end{figure}
 
+\subsection{Dispersão de radiação}
+As considerações precedentes sobre a inelasticidade dos processos de emissão e
+absorção não se aplicam à dispersão de radiação (o diagrama da direita na
+Figura~\ref{fig:phot_int}). A dispersão de radiação pode ocorrer de forma
+elástica, isto é, sem variação da energia interna das partículas que dispersam a
+luz. Logo, a luz é em geral dispersada pela matéria, qualquer que seja
+o seu estado de organização. Mas as mesmas leis de conservação da energia, do
+momento linear e do momento angular que regem os processos de emissão e
+absorção aplicam-se também à dispersão, e determinam que a radiação dispersada
+tem frequência e comprimento de onda muito próximos dos da radiação incidente
+(os valores dependem do ângulo entre as direções de incidência e dispersão). O
+espectro da radiação dispersada é, por isso, muito menos informativo do que o da
+radiação emitida ou absorvida.
+
+
 \newpage
 \section*{Ondas eletromagnéticas --- Resumo}
 \begin{itemize}
@@ -679,7 +728,7 @@ segundo. (Adaptado do artigo da Wikipedia ``Discrete spectrum''.)
     A radiação tem também uma natureza corpuscular. As ``partículas'' de luz
     chamam-se \emph{fotões}. Têm energia cinética e momento linear dados por
     \begin{align*}
-    E_\text{c}&=\hbar\omega&p&=\hbar\|\vec k\|.
+    E_\text{c}&=\hbar\omega&\vec p&=\hbar \vec k.
     \end{align*}
 \item
     Os sólidos e líquidos podem emitir e absorver radiação com qualquer

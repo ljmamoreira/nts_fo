@@ -1,139 +1,164 @@
-\chapter{Sobreposição de ondas}
+\chapter{Interferência}
 \label{chpt:superp}
 \textsl{{\sffamily(Versão: \today)}}
 
-\section{Sobreposição de ondas harmónicas com iguais comprimento de onda e
-período}
+\noindent
+Como a equação de onda~\eqref{eq:plweq3d} é linear (não inclui potências de
+$\psi$ de grau superior a 1) e homogénea (não inclui potências de $\psi$ de grau
+inferior a 1), as suas soluções satisfazem um princípio de sobreposição: a
+combinação linear de duas soluções é também uma solução da equação de onda. Isto
+significa que se num dado ponto do espaço coincidem duas ondas (da mesma
+natureza, claro), então o valor da perturbação nesse ponto, num dado instante, é
+a soma dos valores de cada uma das ondas, nesse ponto e nesse instante. No caso
+das ondas eletromagnéticas, verifica\-\mbox{-se} que o campo elétrico e o campo
+magnético resultantes da sobreposição de duas ondas são, em cada ponto e em cada
+instante, respetivamente as somas dos campos elétricos e magnéticos das 
+ondas que coincidem nesse ponto e nesse instante.
+
+Neste capítulo vamos analisar a sobreposição de ondas e estudar alguns
+fenómenos em que ela desempenha um papel importante. Os aspetos mais
+interessantes da sobreposição de ondas são independentes da natureza específica
+das ondas consideradas e, assim, são comuns às ondas de luz, de som, às ondas do
+mar, etc.  Para demonstrar esses efeitos e ao mesmo tempo pôr em evidência a
+simplicidade dos mecanismos físicos que os geram, começamos o capítulo com o
+estudo da sobreposição de duas ondas sinusoidais unidimensionais com a mesma
+frequência.  Em seguida, consideraremos a sobreposição de duas ondas planas
+escalares arbitrárias, o que permite treinar as técnicas matemáticas da
+sobreposição evitando ainda as complicações decorrentes da polarização.  Por
+fim, já munidos de uma maior destreza matemática, repetiremos o estudo com ondas
+com função de onda vetorial, como as ondas eletromagnéticas.
+
+\section{Sobreposição de ondas 1D com iguais comprimento de onda e período}
 \label{sec:sobrpos}
 Sejam $\psi_1(x,t)$ e $\psi_2(x,t)$ duas ondas harmónicas com comprimento de
 onda $\lambda$ e período $T$, que se propagam no sentido positivo do eixo dos
 $x$, dadas por
 \begin{align*}
-\psi_1(x,t)&=A_1\cos\left(\Theta(x,t)+\phi_1\right)\\
-\psi_2(x,t)&=A_2\cos\left(\Theta(x,t)+\phi_2\right),
+\psi_1(x,t)&=A_1\cos\left(\Theta(x,t)+\varphi_1\right)&
+\psi_2(x,t)&=A_2\cos\left(\Theta(x,t)+\varphi_2\right),
 \end{align*}
 onde, para aligeirar a notação, se introduziu o símbolo
-$\Theta\equiv\Theta(x,t)=2\pi(x/\lambda-t/T)$. De acordo com o princípio da
-sobreposição, a resultante da sobreposição destas duas ondas é uma onda com
-expressão geral
+$\Theta\equiv\Theta(x,t)=kx-\omega t,$ com $k=2\pi/\lambda$ e $\omega=2\pi/T$.
+De acordo com o princípio da sobreposição, a resultante da sobreposição destas
+duas ondas é uma onda com expressão geral
 \begin{align*}
 \psi(x,t)&=\psi_1(x,t)+\psi_2(x,t)\\
-&=A_1\cos(\Theta+\phi_1)+A_2\cos(\Theta+\phi_2)
+&=A_1\cos(\Theta+\varphi_1)+A_2\cos(\Theta+\varphi_2)
 \end{align*}
 Usando aqui a igualdade trigonométrica
 $\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$, esta expressão
 pode reescrever-se como
 \begin{equation*}
-\psi(x,t)=(A_1\cos\phi_1+A_2\cos\phi_2)\cos\Theta-
-(A_1\sin\phi_1+A_2\sin\phi_2)\sin\Theta.
+\psi(x,t)=(A_1\cos\varphi_1+A_2\cos\varphi_2)\cos\Theta-
+(A_1\sin\varphi_1+A_2\sin\varphi_2)\sin\Theta.
 \end{equation*}
-Introduzimos agora dois números reais, $A$ e $\phi$, definidos como
+Introduzimos agora dois números reais, $A$ e $\varphi$, definidos como
 \begin{align*}
-A\cos\phi&=A_1\cos\phi_1+A_2\cos\phi_2\\
-A\sin\phi&=A_1\sin\phi_1+A_2\sin\phi_2.
+A\cos\varphi&=A_1\cos\varphi_1+A_2\cos\varphi_2\\
+A\sin\varphi&=A_1\sin\varphi_1+A_2\sin\varphi_2.
 \end{align*}
-Substituindo acima e de novo usando a igualdade trigonométrica para o cosseno da
-soma de dois ângulos, obtemos
-\begin{equation*}
-\psi(x,t)=A\cos\left(\Theta+\phi\right)=
-A\cos\left(2\pi\left[\frac{x}{\lambda}-\frac{t}{T}\right]+\phi\right).
-\end{equation*}
+Substituindo acima e invocando de novo a igualdade trigonométrica para o cosseno
+da soma de dois ângulos já usada, obtemos
+\begin{equation}
+\psi(x,t)=A\cos\left(\Theta+\varphi\right)=
+A\cos\left(kx-\omega t+\varphi\right).
+\end{equation}
 Assim, concluímos que a sobreposição de duas ondas harmónicas com iguais período
 e comprimento de onda é ainda uma onda harmónica, com o mesmo período e com o
-mesmo comprimento de onda, com amplitude e constante de fase que dependem das amplitudes
-e das constantes de fase de cada uma das ondas que se sobrepõem.
+mesmo comprimento de onda, com amplitude e constante de fase que dependem das
+amplitudes e das constantes de fase de cada uma das ondas que se sobrepõem.
 
-Os números reais $A$ e $\phi$ (a amplitude e a constante de fase da onda
+Os números reais $A$ e $\varphi$ (a amplitude e a constante de fase da onda
 resultante) satisfazem as equações
 \begin{align*}
-A\cos\phi&=A_1\cos\phi_1+A_2\cos\phi_2\\
-A\sin\phi&=A_1\sin\phi_1+A_2\sin\phi_2.
+A\cos\varphi&=A_1\cos\varphi_1+A_2\cos\varphi_2\\
+A\sin\varphi&=A_1\sin\varphi_1+A_2\sin\varphi_2.
 \end{align*}
 Elevando estas duas equações ao quadrado, somando os resultados e usando a
 igualdade fundamental da trigonometria, obtemos para $A$ a expressão
-\begin{equation*}
-A^2=A_1^2 + A_2^2 + 2A_1A_2(\cos\phi_1\cos\phi_2+\sin\phi_1\sin\phi_2)
-\end{equation*}
-Mas a combinação entre parentesis é igual a $\cos(\phi_1-\phi_2)$, que é a
+\begin{equation}
+A^2=A_1^2 +
+  A_2^2 + 2A_1A_2(\cos\varphi_1\cos\varphi_2+\sin\varphi_1\sin\varphi_2)
+\end{equation}
+Mas a combinação entre parentesis é igual a $\cos(\varphi_1-\varphi_2)$, que é a
 diferença de fase das duas ondas. A amplitude da sobreposição pode então
 escrever-se como\footnote{Já agora, é fácil nesta altura demonstrar que a
 quantidade real $A$ existe mesmo (até aqui, apenas podíamos garantir que $A^2$
-existe. Mas, se acontecer $A^2<0$, então $A$ não pode ser
-real.) Com efeito, uma vez que $\cos\delta\phi=\cos(\phi_1-\phi_2)\geq-1$,
-segue-se que $A_1^2+A_2^2+2A_1A_2\cos\delta\phi\geq
-A_1^2+A_2^2-2A_1A_2=(A_1-A_2)^2\geq 0$. Logo, $A^2\geq0$, ou seja, $A\in
+existe. Mas, se acontecer $A^2<0$, então $A$ não pode ser real.) Com efeito, uma
+vez que $\cos\delta\varphi=\cos(\varphi_1-\varphi_2)\geq-1$, segue-se que
+$A_1^2+A_2^2+2A_1A_2\cos\delta\varphi\geq A_1^2+A_2^2-2A_1A_2=(A_1-A_2)^2\geq
+0$. Logo, $A^2\geq0$, ou seja, $A\in
 \mathbb{R}$.}
-\begin{equation*}
-A=\sqrt{A_1^2+A_2^2+2A_1A_2\cos\delta\phi}.
-\end{equation*}
+\begin{equation}
+A=\sqrt{A_1^2+A_2^2+2A_1A_2\cos\delta\varphi},\qquad
+\delta\varphi=\varphi_1-\varphi_2.
+\end{equation}
 %
 A constante de fase da onda resultante pode agora também ser facilmente
 calculada através de
-\begin{align*}
-\cos\phi&=\frac{A_1\cos\phi_1+A_2\cos\phi_2}{A}&
-\sin\phi&=\frac{A_1\sin\phi_1+A_2\sin\phi_2}{A}.
-\end{align*}
+\begin{align}
+\cos\varphi&=\frac{A_1\cos\varphi_1+A_2\cos\varphi_2}{A}&
+\sin\varphi&=\frac{A_1\sin\varphi_1+A_2\sin\varphi_2}{A}.
+\end{align}
 
 \subsection{Interferência construtiva e destrutiva}
 \label{sec:condint}
-Acabámos de demonstrar que a amplitude da sobreposição de duas ondas harmónicas
-com o mesmo comprimento de onda e o mesmo período depende não só das amplitudes
-de cada uma, mas também da diferença de fase entre elas. Chamam especial atenção
-dois casos particularmente interessantes:
+Em virtualmente todas as situações com interesse físico, a potência transportada
+pela onda é proporcional ao quadrado da sua amplitude (já o vimos para o caso
+das ondas eletromagnéticas, na Secção~\ref{sec:irradiance}). Representando a
+constante desta proporcionalidade por $\alpha$, temos então
+\begin{align}
+I=\alpha A^2&=\alpha A_1^2+\alpha A_2^2 + 2\alpha A_1 A_2\cos\delta\varphi
+\nonumber\\
+&=I_1+I_2+2\sqrt{I_1I_2}\cos\delta\varphi.\label{eq:superp1}
+\end{align}
+A intensidade da onda resultante da sobreposição de duas ondas é então igual à
+soma das suas intensidades, mais uma contribuição dita de \emph{interferência.}
+Como o termo de interferência pode ser positivo ou negativo, em função do valor
+do cosseno da diferença de fases, a intensidade da sobreposição pode ser maior
+ou menor do que a soma das intensidades das duas ondas que se sobrepõem.  Quando
+se verifica a primeira possibilidade, falamos de \emph{interferência
+construtiva;} quando se dá o segundo, de \emph{interferência destrutiva.}
+Chamam especial atenção os dois casos extremos, particularmente interessantes:
 \begin{itemize}
-\item \textbf{Interferência construtiva}\\
+\item \textbf{Interferência totalmente construtiva}\\
 Quando a diferença entre as fases das duas ondas é um múltiplo inteiro de $2\pi$,
 isto é, quando
 \begin{equation*}
-\delta\phi = 2k\pi,\quad k=0,\pm1,\pm2,\ldots,
+\delta\varphi = 2n\pi,\quad n=0,\pm1,\pm2,\ldots,
 \end{equation*}
-o seu cosseno vale um, e assim a amplitude da sobreposição resulta
+dizemos que as duas ondas que se sobrepõem estão \emph{em fase.} Nestas
+condições, $\cos\delta\varphi=1$, e assim a intensidade da sobreposição resulta
 \begin{equation*}
-A=\sqrt{A_1^2 + A_2^2+2A_1A_2}=\sqrt{(A_1+A_2)^2}=A_1+A_2.
+I=I_1 + I_2+2\sqrt{I_1I_2}.
 \end{equation*}
-Ou seja, quando a diferença de fase é um múltiplo inteiro de $2\pi$ a amplitude
-da sobre\-posição é igual à soma das amplitudes das duas ondas que se sobrepõem;
-as duas ondas reforçam-se mutuamente resultando uma onda de amplitude maior do
-que a de qualquer das duas. Dizemos nestas condições que as duas ondas estão
-\emph{em fase} e que \emph{interferem construtivamente.}
-\item \textbf{Interferência destrutiva}\\
+Nesta situação o reforço da intensidade das duas ondas é máximo. Se as duas ondas
+tiverem intensidades iguais $I_0$, a intensidade da resultante será $4I_0$, ou
+seja duas vezes maior do que a soma das intensidades das duas ondas.
+\item \textbf{Interferência totalmente destrutiva}\\
 Quando a diferença entre as fases das duas ondas é um múltiplo semi-inteiro de
 $2\pi$, ou seja, quando
 \begin{equation*}
-\delta\phi = 2\left(k+\frac{1}{2}\right)\pi,\quad k=0,\pm1,\pm2,\ldots,
+\delta\varphi = 2\left(n\pm\frac{1}{2}\right)\pi,\quad n=0,\pm1,\pm2,\ldots,
 \end{equation*}
-então o seu cosseno vale agora $-1$ e obtemos para a amplitude da sobreposição
+dizemos que as duas ondas estão em \emph{oposição de fase.} Agora temos
+$\cos\delta\varphi=-1$ e obtemos para a intensidade da sobreposição
 \begin{equation*}
-A=\sqrt{A_1^2 + A_2^2 - 2A_1A_2} = \sqrt{(A_1-A_2)^2}=\left|A_1-A_2\right|.
+I=I_1 + I_2 - 2\sqrt{I_1I_2}
 \end{equation*}
-Agora, verifica-se que a amplitude da sobreposição das duas ondas é menor do que
-a maior das duas; as duas ondas interferem atenuando-se. Dizemos agora que as
-duas ondas se encontram em \emph{oposição de fase} e que \emph{interferem
-destrutivamente.}
+Agora é máxima a atenuação da intensidade da sobreposição. De facto, se as duas
+ondas tiverem intensidades iguais, a intensidade da resultante é nula!
 \end{itemize}
-Note-se que a atenuação que ocorre quando há interferência destrutiva pode ser
-total. Se as amplitudes das duas ondas que interferem forem iguais, e se elas
-estiverem em oposição de fase, então a amplitude resultante é nula: a onda
-resultante não existe.
-
-Vimos que o valor da constante de fase de uma onda é, no essencial, fixado
-por nós arbitrariamente, já que depende da escolha que fazemos para a posição da
-origem do sistema de coordenadas e para o isntante que consideramos inicial.
-Nessa medida, a constante de fase parece não ter um significado físico muito
-relevante. É verdade, mas o mesmo não se pode dizer da \emph{diferença de fase}
-de duas ondas (e, se elas tiverem o mesmo comprimento de onda e a mesma
-frequência, essa diferença é igual à diferença entre as suas constantes de
-fase). O resultado da sobreposição de duas ondas depende dramaticamente da
-diferença entre as suas fases. Ou seja, a diferença entre as duas irrelevâncias
-é muitíssimo relevante.
+A Figura~\ref{fig:icd} ilustra estes dois casos extremos de sobreposição de ondas
+unidimensionais harmónicas com igual frequência e comprimento de onda.
 \begin{figure}[htb]
   {\centering
     \begin{tikzpicture}
       \small
       \begin{scope}[xshift=-4.0cm]
-      \begin{axis}[domain=0:4.4*pi,samples=40,xmax=18,
+      \begin{axis}[domain=0:4.4*pi,samples=40,xmax=18,ymax=2.6,
         legend style={at={(1,0.4)}},ylabel=$\psi$,
-        xlabel=$x$,height=4cm,width=7.5cm,
+        xlabel=$x$,height=4.1cm,width=7.5cm,
         axis lines=middle,ticks=none,
         xticklabels={},yticklabels={}]
         \addplot [dashed, mark=none,smooth] {cos(deg(x+0.4))};
@@ -143,9 +168,9 @@ diferença entre as suas fases. Ou seja, a diferença entre as duas irrelevânci
       \end{axis}
       \end{scope}
       \begin{scope}[xshift=4.0cm]
-      \begin{axis}[domain=0:4.4*pi,samples=40,xmax=18,
+      \begin{axis}[domain=0:4.4*pi,samples=40,xmax=18,ymax=2.6,ymin=-2.6,
         legend style={at={(1,0.4)}},ylabel=$\psi$,
-        xlabel=$x$,height=4cm,width=7.5cm,
+        xlabel=$x$,height=4.1cm,width=7.5cm,
         axis lines=middle,
         xticklabels={},yticklabels={}]
         \addplot [dashed, mark=none,smooth] {cos(deg(x+0.4))};
@@ -156,39 +181,742 @@ diferença entre as suas fases. Ou seja, a diferença entre as duas irrelevânci
       \end{scope}
     \end{tikzpicture}\par
   }
-  \caption{Interferência construtiva (à esquerda) e interferência destrutiva (à
-  direita) de duas ondas $\psi_1$ e $\psi_2$ com igual frequência e comprimento
-  de onda.\label{fig:icd}}
+  \caption{Interferência totalmente construtiva (à esquerda) e interferência
+  totalmente destrutiva (à direita) de duas ondas $\psi_1$ e $\psi_2$ com igual
+  frequência e comprimento de onda.\label{fig:icd}}
 \end{figure}
 
-\subsection{Diferença entre as fases de uma onda em dois pontos do seu trajeto}
-\label{sec:dfidx}
-Uma vez que a diferença de fase desempenha um papel tão importante nos fenómenos
-de interferência, é importante saber calculá-la em diferentes situações.
-Frequentemente, a diferença de fase entre as duas ondas resulta de terem
-percorrido caminhos com comprimento diferente e, assim, é importante saber
-calcular a variação na fase de uma onda de um ponto para outro. 
-Sejam $x_1$ e $x_2$ as coordenadas de dois pontos no eixo dos $x$ e consideremos
-uma onda harmónica genérica que se propaga segundo esse eixo, dada por
-\begin{equation*}
-\psi(x,t)=A\
-    cos\left(2\pi\left[\frac{x}{\lambda}-\frac{t}{T}\right]+\phi\right).
-\end{equation*}
-A fase que esta onda apresenta nos dois pontos num dado instante é
-\begin{align*}
-\phi_1&=2\pi\left(\frac{x_1}{\lambda}-\frac{t}{T}\right)+\phi\\
-\phi_2&=2\pi\left(\frac{x_2}{\lambda}-\frac{t}{T}\right)+\phi.
-\end{align*}
-A variação de fase é, então,
-\begin{equation*}
-  \delta\phi=\phi_2-\phi_1=2\pi\frac{x_2-x_1}{\lambda} = 2\pi\frac{\delta
-  x}{\lambda}.
-\end{equation*}
+Vimos na Secção~\ref{sec:hamonicwaves} que o valor da constante de fase de uma
+onda é, no essencial, fixado por nós arbitrariamente, já que depende da escolha
+que fazemos para a posição da origem do sistema de coordenadas e para o instante
+que consideramos inicial.  Nessa medida, a constante de fase parece não ter um
+significado físico muito relevante. É verdade, mas o mesmo não se pode dizer da
+\emph{diferença de fase} de duas ondas (e, se elas tiverem o mesmo comprimento
+de onda e a mesma frequência, essa diferença é igual à diferença entre as suas
+constantes de fase). Como acabámos de constatar, o resultado da sobreposição de
+duas ondas depende dramaticamente da diferença entre as suas fases. Ou seja, a
+diferença entre as duas irrelevâncias é muitíssimo relevante: determina a
+intensidade da sobreposição das duas ondas.
 
+
+\section{Sobreposição de ondas escalares 3D}\label{sec:scalarsuperp}
+Agora que estudámos a sobreposição de ondas no caso mais simples (ondas
+unidimensionais com iguais frequências e comprimentos de onda), vamos abordar o
+mesmo problema de forma mais geral, considerando ondas com frequências e
+comprimentos de onda não necessariamente iguais no espaço normal tridimensional.
+
+Consideremos duas ondas planas sinusoidais 3D com função de onda escalar
+$\psi_1(\vec r,t)$ e $\psi_2(\vec r,t)$, com frequências $\omega_1$ e $\omega_2$
+e vetores de onda $\vec k_1$ e $\vec k_2$, definidas numa mesma região do
+espaço.  Estas ondas não são (nem pretendem ser) ondas de luz, que têm função de
+onda vetorial mas, se pretendemos com esta análise extrair conclusões aplicáveis
+à luz, $\psi_1$ e $\psi_2$ devem partilhar o maior número posssível das
+características da luz. São funções escalares, porque assim o queremos para
+simplificar os cálculos mas, em tudo o resto, devem semelhantes às ondas de luz.
+Em particular, a frequência, o comprimento de onda e o módulo da amplitude devem
+ter os valores típicos das ondas de luz. Suponhamos que a intensidade destas
+ondas é, como a das ondas eletromagnéticas (ver a Secção~\ref{sec:irradiance}),
+proporcional à média temporal, tomada ao longo de um intervalo de tempo com
+duração razoável\footnote{Por \emph{duração razoável} deve entender-se a
+necessária para se fazer uma observação. Como as ondas de luz têm frequências
+muito altas, as operações de medida ou de observação têm sempre uma duração
+muito maior do que o período das oscilações da função de onda.  Assim, deve
+considerar-se \emph{duração razoável} a de qualquer intervalo de tempo muito
+maior que o período das funções $\psi_1$ e $\psi_2$.} $[0,\,\tau],\ \tau>>T$, do
+quadrado da função de onda,
+\begin{equation*}
+I=\alpha \langle \psi^2\rangle_\tau,
+\end{equation*}
+onde $\alpha$ é alguma constante característica das ondas consideradas e
+\begin{equation*}
+\langle X\rangle_\tau =\frac{1}{\tau}\int_0^\tau X\,dt
+\end{equation*}
+representa a média temporal da função $X$ no intervalo de tempo $[0,\,\tau]$.
+Assim, temos
+\begin{align*}
+I_1&=\alpha\langle\psi_1^2\rangle_\tau&
+I_2&=\alpha\langle\psi_2^2\rangle_\tau,
+\end{align*}
+e, claro está,
+\begin{align}
+I&=\alpha\langle\psi^2\rangle_\tau=
+  \alpha\langle(\psi_1+\psi_2)^2\rangle_\tau\nonumber\\
+&=I_1+I_2+I_{12},\label{eq:superp2}
+\end{align}
+onde
+\begin{equation*}
+I_{12}=2\alpha\langle\psi_1\psi_2\rangle_\tau.
+\end{equation*}
+Assim, e à semelhança do que verificámos no estudo mais simplificado da
+Secção~\ref{sec:sobrpos}, a intensidade da onda resultante da sobreposição de
+$\psi_1$ e $\psi_2$ não é em geral apenas a soma das intensidades de cada uma,
+há ainda uma contribuição adicional, dita de \emph{interferência,} traduzida
+pelo termo $I_{12}$. Este termo de interferência pode ser positivo ou negativo;
+logo, a intensidade da onda resultante pode ser maior ou menor do que a soma das
+intensidades das ondas que se sobrepõem. Em geral, estas duas possibilidades
+ocorrem em simultâneo, verificando-se um reforço da intensidade nuns pontos e
+uma atenuação noutros. 
+
+Podemos explicitar melhor o termo de interferência atribuindo expressões
+concretas para as duas ondas que se sobrepõem. Por hipótese, temos estado a
+considerar ondas planas sinusoidais; então,
+\begin{align*}
+\psi_1(\vec r,t)&=A_1\cos\left(\vec k_1\cdot\vec r-\omega_1 t+\varphi_1\right)&
+\psi_2(\vec r,t)&=A_2\cos\left(\vec k_2\cdot\vec r-\omega_2 t+\varphi_2\right).
+\end{align*}
+Para aliviar a notação, introduzam-se as funções da posição $\phi_i=\phi_i(\vec
+r)=\vec k_i\cdot r+\varphi_i,\ i=1,2$. Substituindo estas expressões de
+$\psi_1$, $\psi_2$ na expressão do termo de interferência e usando a seguir a
+igualdade trignométrica elementar
+$\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$, resulta
+\begin{align}
+I_{12}&=2\alpha A_1A_2
+  \langle\cos(\phi_1-\omega_1t)\cos(\phi_2-\omega_2t)\rangle_\tau\nonumber\\
+  &=2\alpha A_1A_2 \left\langle
+    (\cos\phi_1\cos\omega_1t+\sin\phi_1\sin\omega_1t)
+    (\cos\phi_2\cos\omega_2t+\sin\phi_2\sin\omega_2t)
+  \right\rangle_\tau\nonumber\\
+&=2\alpha A_1A_2 \left\{
+    \cos\phi_1\cos\phi_2\langle\cos\omega_1t\cos\omega_2t\rangle_\tau+
+    \cos\phi_1\sin\phi_2\langle\cos\omega_1t\sin\omega_2t\rangle_\tau+\right.
+    \nonumber\\
+&\hspace{2cm}\left.
+    \sin\phi_1\cos\phi_2\langle\sin\omega_1t\cos\omega_2t\rangle_\tau+
+    \sin\phi_1\sin\phi_2\langle\sin\omega_1t\sin\omega_2t\rangle_\tau\right\}
+    \label{eq:i12}
+\end{align}
+Devemos agora estimar o valor das quatro médias temporais no lado direito desta
+igualdade. Tenha presente que, por hipótese, o intervalo de tempo considerado
+para estas médias tem uma duração $\tau$ muito maior do que o período de
+qualquer das ondas $\psi_1$ e $\psi_2$. Note também que as funções do tempo
+cujas médias queremos calcular são o produto de duas funções seno e/ou cosseno.
+Ora, os produtos destas funções podem escrever-se como médias aritméticas de
+funções seno e cosseno, de acordo com as igualdadades trignométricas elementares
+seguintes:
+\begin{align*}
+\cos\alpha\cos\beta&=\frac{1}{2}
+    \left[\cos(\alpha+\beta)+\cos(\alpha-\beta)\right]\\
+\sin\alpha\sin\beta&=-\frac{1}{2}
+    \left[\cos(\alpha+\beta)-\cos(\alpha-\beta)\right]\\
+\sin\alpha\cos\beta&=\frac{1}{2}
+    \left[\sin(\alpha+\beta)+\sin(\alpha-\beta)\right]
+\end{align*}
+Assim sendo, tomando por exemplo a primeira das médias na eq.~\eqref{eq:i12},
+temos
+\begin{equation*}
+\langle\cos\omega_1t\cos\omega_2t\rangle_\tau=
+\frac{1}{2}\langle\cos(\omega_1+\omega_2)t\rangle_\tau+
+\frac{1}{2}\langle\cos(\omega_1-\omega_2)t\rangle_\tau.
+\end{equation*}
+A primeira média no lado direito desta igualdade tem um valor desprezável,
+porque o cosseno é uma função que realiza oscilações simétricas em torno de
+zero; a sua média num número muito grande de oscilações é igual ao valor do
+centro dessas oscilações, ou seja, zero. Assim,
+\begin{equation*}
+\langle\cos(\omega_1+\omega_2)t\rangle_\tau\simeq0;
+\end{equation*}
+O mesmo argumento aplica-se à segunda média, mas agora devemos considerar a
+possibilidade de $\omega_1=\omega_2$. Neste caso $\cos(\omega_1-\omega_2)t=1$, e
+a média resulta então igual a 1. Assim, juntando estes dois resultados, podemos
+escrever
+\begin{equation*}
+\langle\cos\omega_1t\cos\omega_2t\rangle_\tau=
+\begin{cases}
+  0,&\text{ se }\omega_1\neq\omega_2\\
+  1/2,&\text{ se }\omega_1=\omega_2.
+\end{cases}
+\end{equation*}
+Com argumentos semelhantes, demonstra-se também que
+\begin{align*}
+\langle\sin\omega_1t\sin\omega_2t\rangle_\tau&=
+\begin{cases}
+  0,&\text{ se }\omega_1\neq\omega_2\\
+  1/2,&\text{ se }\omega_1=\omega_2
+\end{cases}, &
+\langle\sin\omega_1t\cos\omega_2t\rangle_\tau&=
+\langle\cos\omega_1t\sin\omega_2t\rangle_\tau=0.
+\end{align*}
+Substituindo estes resultados na eq.~\eqref{eq:i12}, obtemos
+\begin{equation*}
+I_{12}=\alpha A_1A_2\left\{\cos\phi_1\cos\phi_2+\sin\phi_1\sin\phi_2\right\},
+\quad\text{se }\omega_1=\omega_2,
+\end{equation*}
+ou seja, por fim,
+\begin{equation}\label{eq:interf1}
+I_{12}=
+\begin{cases}
+\alpha A_1A_2\cos(\phi_1-\phi_2) & \text{se }\omega_1=\omega_2\\
+0 & \text{se } \omega_1\neq\omega_2
+\end{cases}
+\qquad
+\text{com }\phi_i=\vec k_i\cdot\vec r+\varphi_i,\ i=1,\,2.
+\end{equation}
+
+Podemos ainda dar uma forma mais familiar ao termo de interferência. A
+intensidade da onda $\psi_1$ é
+\begin{equation*}
+I_1=\alpha\langle\psi_1^2\rangle_\tau=\alpha
+A_1^2\langle\cos^2(\phi_1-\omega_1t),
+\end{equation*}
+onde, recorde-se, $\phi_1=\vec k_1\cdot\vec r+\varphi_1$ é a primeira das
+duas funções introduzidas no início desta discussão para aligeirar a notação.
+Usando a igualdade trignométrica $\cos^2\theta=(1+\cos2\theta)/2,$ a expressão
+da intensidade de $\psi_1$
+\begin{equation*}
+  I_1=\frac{1}{2}\alpha A_1^2\left[\langle1\rangle_\tau+
+    \langle\cos2(\phi_1-\omega_1t)\rangle_\tau\right].
+\end{equation*}
+O primeiro valor médio no lado direito é, obviamente, 1; o segundo é nulo, pelas
+razões já invocadas: o valor médio das funções seno ou cosseno ao longo de um
+intervalo de tempo muito maior do que o período da oscilação é nulo. Assim,
+resulta
+\begin{align}\label{eq:scalarwvint}
+I_1&=\frac{1}{2}\alpha A_1^2 &
+I_2&=\frac{1}{2}\alpha A_2^2.
+\end{align}
+(A igualdade da direita resulta da aplicação, à função $\psi_2$, dos mesmos
+passos que nos trouxeram à da esquerda.) Substituindo estes resultados na
+eq.~\eqref{eq:interf1}, obtemos
+\begin{equation}\label{eq:interft}
+I_{12}=
+\begin{cases}
+2\sqrt{I_1I_2}\cos(\phi_1-\phi_2) & \text{se }\omega_1=\omega_2\\
+0 & \text{se } \omega_1\neq\omega_2
+\end{cases}
+\qquad
+\text{com }\phi_i=\vec k_i\cdot\vec r+\varphi_i,\ i=1,\,2,
+\end{equation}
+expressão em tudo semelhante à que o termo de interferência tem na
+eq.~\eqref{eq:superp1}, que obtivémos no estudo simplificado da
+Secção~\ref{sec:sobrpos}.
+
+Tal como na Secção~\ref{sec:condint}, dizemos que a interferência de duas ondas
+é construtiva se a irradiância da onda resultante for maior do que a soma das
+irradiâncias de cada uma, e destrutiva se for menor. Também como na
+Secção~\ref{sec:condint}, é a diferença entre as fases das duas ondas que se
+sobrepõem que determina se a interferência é construtiva ou destrutiva. Mas
+agora a diferença de fases é uma função da posição:
+\begin{equation}
+\phi_1-\phi_2=(\vec k_1\cdot\vec r+\varphi_1) - (\vec k_2\cdot\vec
+r+\varphi_2)=(\vec k_1-\vec k_2)\cdot\vec r+\delta\varphi.
+\end{equation}
+Assim, na sobreposição de duas ondas 3D\footnote{Só o verificámos para ondas
+escalares, mas veremos que esta conclusão se mantém para ondas
+eletromagnéticas.} há regiões do espaço em que a interferência é construtiva e
+onde, por isso, a irradiância é elevada, e outras regiões onde a interferência é
+destrutiva, nas quais a irradiância é reduzida ou nula. A distribuição no espaço
+destas regiões chama-se um \emph{padrão de interferência.} 
+
+\section{Condições para a interferência. Coerência}
+Numa utilização vulgar do termo, diz-se que há interferência na sobreposição de
+duas ondas quando a intensidade da sobreposição não é identicamente igual à soma
+das intensidades das duas ondas que se sobrepõem. Vimos nas secções anteriores
+que isto acontece quando o termo de interferência [eqs.~\eqref{eq:superp1}
+e~\eqref{eq:interft}] na expressão da intensidade da onda resultante não se
+anula\footnote{Isto verifica-se também com ondas eletromagnéticas, como veremos
+daqui a pouco.}.  Aprofundemos um pouco mais esta questão, que é muito relevante
+quando se estuda a interferência de ondas de luz. Na secção anterior\footnote{As
+ondas que considerámos na secção anterior não são ondas de luz. Mas, para os
+efeitos agora pretendidos, isso não é relevante. Todos os argumentos podem
+aplicar-se igualmente com ondas eletromagnéticas.} vimos que a interferência na
+sobreposição de duas ondas só acontece se elas tiverem a mesma frequência. Na
+verdade, a irradiância \emph{instantânea} da resultante de duas ondas com
+frequências diferentes não é, em cada ponto e em cada instante, igual à soma das
+irradiâncias instantâneas de cada uma das ondas que se sobrepõem nesse ponto e
+nesse instante. Nesse sentido, quase poderíamos dizer que ocorre interferência.
+Mas a irradiância da onda resultante em cada ponto varia com grande rapidez de
+instante para instante. Num dado instante, pode ocorrer reforço das intensidades
+das duas ondas que se sobrepõem (interferência construtiva) num dado ponto,
+para, logo a seguir, ocorrer nesse mesmo ponto atenuação (interferência
+destrutiva), e estas condições sucedem-se no tempo com grande rapidez, tão
+grande que nenhum dispositivo instrumental as consegue resolver. A intensidade
+luminosa que podemos observar e medir é aquela média temporal ao longo de
+intervalos de tempo com durações muito maiores do que o período das ondas
+sobrepostas, que considerámos na secção anterior. É essa média temporal que
+constitui o termo de interferência, e é essa média temporal que se anula quando
+as frequências das ondas que se sobrepõem não são iguais.
+
+Note-se ainda que a igualdade de frequências acima referida deve verificar-se
+com enorme precisão para ser perceptível a interferência da sobreposição de duas
+ondas. Com efeito, uma diferença de frequências de apenas 1 parte num milhão (um
+erro relativo de apenas $10^{-4}$\%), corresponde a uma frequência das
+oscilações da irradiância instantânea de $5\times10^8$\,Hz (tomando para a
+frequência o valor no centro do espectro visível de $5\times10^{14}$\,Hz), o que
+é ainda rápido demais para pemitir a perceção de fenómenos de interferência
+pelos nossos sentidos ou pela instrumentação laboratorial usual. 
+
+Para que os efeitos da interferência da luz sejam perceptíveis, as frequências
+das ondas que se sobrepõem devem ser iguais com um grau tão elevado de precisão
+que é praticamente impossível demonstrar a interferência da luz com duas ondas
+produzidas por fontes independentes. Por muito semelhantes que as duas fontes
+sejam, por muito preciso que tenha sido o seu fabrico, as frequências de duas
+fontes nunca são exatamente iguais; logo, os padrões de interferência que elas
+produzem alteram-se rapidamente com o tempo, tornando-os imperceptíveis, excepto
+em condições muito especiais preparadas em laboratório. 
+Por isso, para demonstrar em laboratório a interferência da luz, usa-se luz
+produzida por uma mesma fonte, separada em dois feixes por algum mecanismo. Por
+exemplo, podem-se sobrepor os dois raios de luz que atravessam duas aberturas
+próximas num obstáculo opaco iluminado por uma única fonte, ou os dois feixes
+que, partindo de um único feixe incidente, são refletidos pelas duas faces de
+uma película fina, etc.
+
+\subsection{Radiação coerente e incoerente}
+Há ainda outra questão que devemos considerar nesta discussão. A luz natural não
+é, em geral, uma onda sinusoidal única, com uma dada amplitude, comprimento de
+onda, frequência e constante de fase. A luz produzida por qualquer fonte é
+sempre o resultado de um número enorme de processos de emissão elementares que
+ocorrem em pontos e instantes diferentes e que, em geral, são independentes uns
+dos outros\footnote{Uma excepção a esta afirmação é a da luz laser. Como
+veremos, os processos de emissão elementares de um laser estão correlacionados:
+as ondas neles produzidas têm iguais comprimento de onda, frequência, direção de
+propagação e estão em fase.}. Por isso, a radiação
+resultante é uma mistura de ondas com diferentes comprimentos de onda,
+frequências e constantes de fase, totalmente independentes umas das outras.
+Mesmo fontes monocromáticas (como os leds monocromáticos ou fontes vulgares
+equipadas com filtros que selecionam um dado comprimento de onda), produzem luz
+que é ainda uma mistura de ondas com diferentes constantes de fase. Este tipo de
+sobreposições, muito diferentes das que temos estudado neste capítulo, chamam-se
+\emph{sobreposições incoerentes} e a radiação resultante diz-se também
+incoerente. A fase dum feixe de luz incoerente num dado ponto e instante não
+está correlacionada com a fase que apresenta noutro ponto próximo e/ou noutro
+instante. Assim, toda a discussão sobre os efeitos da interferência, sobre o ser
+construtiva ou destrutiva, que dependem essencialmente da diferença de fase das
+ondas que se sobrepõem, ficam sem base de sustentação. Luz incorerente não
+demonstra efeitos de interferência.
+
+Na verdade o parágrafo anterior é uma simplificação exagerada. Um feixe de luz
+real não é coerente ou incoerente, é antes, em geral, \emph{mais ou menos}
+coerente (ou, equivalentemente, mais ou menos incoerente). Num extremo temos as
+ondas planas sinusoidais que temos considerado. Têm uma regularidade
+periódica infinita, estendendo-se indefinidamente em todas as direções, para o
+futuro e para o passado. Esta radiação é totalmente coerente, claro: conhecida a
+fase num dado instante e num dado ponto, podemos determiná-la em qualquer outro
+ponto e instante (desde que conheçamos o comprimento de onda, a frequência e a
+direção de propagação). No extremo oposto, imaginemos uma onda cuja constante de
+fase se altera aleatória e descontinuamente, de instante para instante e de
+ponto para ponto. Luz assim é totalmente incoerente, isto é, conhecer a fase da
+onda num ponto e num instante não permite dizer nada sobre a fase noutro ponto
+e/ou noutro instante qualquer.  Nem um, nem o outro destes dois exemplos
+extremos existem na realidade. A luz vulgar é um misto destes dois extremos,
+mais coerente (mais parecida com uma onda sinusoidal) ou menos coerente,
+consoante a situação.
+
+Há dois modos de referir a coerência da luz. A questão da coerência prende-se
+com a correlação de fase em pontos e instantes diferentes. Quando discutimos a
+correlação da fase de uma onda em dois instantes diferentes falamos de
+\emph{coerência temporal;} quando queremos referir a correlação de fase em
+pontos diferentes, falamos antes de \emph{coerência espacial.}
+
+
+\subsection{Coerência temporal. Tempo de coerência e comprimento de coerência}
+Luz com coerência temporal apresenta um valor bem determinado da diferença entre
+as fases em dois instantes diferentes, num dado ponto. Por exemplo, se se trata
+de uma onda plana sinusoidal (totalmente coerente) com frequência $\omega$, essa
+diferença de fases tem o valor $\omega\delta t$, onde $\delta t$ é o intervalo
+de tempo considerado. Note-se que este valor não depende diretamente dos
+instantes em que é calculado, apenas da duração do intervalo de tempo entre
+eles. Num feixe de luz com coerência temporal parcial, esta diferença de fase
+tem um valor constante (ou lentamente variável) apenas para intervalos de tempo
+pequenos. Chama-se \emph{tempo de coerência} de um feixe de luz à duração máxima
+de um intervalo de tempo para o qual a diferença de fases permanece
+aproximadamente constante.  Considerando intervalos de tempo maiores do que o
+tempo de coerência, o feixe de luz comporta-se como incoerente e não demonstra
+efeitos de interferência; para intervalos de tempo menores do que o tempo de
+coerência, a luz funciona como luz coerente.
+
+Não considerando o caso do laser, a coerência temporal da luz está, em parte,
+ligada com a duração dos processos de emissão elementares que ocorrem na fonte.
+Em cada um destes processos é produzido um pulso de ondas com uma duração
+finita\footnote{Por exemplo, nas emissões que ocorrem em transições atómicas
+para estados de menor energia, os pulsos de luz têm normalmente durações de
+cerca de $10^{-9}$\,s.} (veja a Figura~\ref{fig:emission}).
+\begin{figure}[htb]
+  {\centering
+    \begin{tikzpicture}
+    \draw [->] (0,-1.) -- +(0,2) node [left]{$\psi$};
+    \draw [->] (-0.5,0) -- +(7,0) node [below] {$t$};
+    \draw [domain=-0.3:6, samples=400, variable=\t] 
+      plot ({\t},{cos(\t*750)*exp(-(\t-3)^2)});
+    \draw [<->] (1.4,-1.3) -- +(3.3,0) node[midway,fill=white,inner sep=4] {$\delta t$};
+    \begin{scope}[xshift=-3cm]
+      \draw [very thick] (-1,0.5) node[above] {$E^*$} -- (1,0.5);
+      \draw [very thick] (-1,-0.5) node[above] {$E_0$} -- (1,-0.5);
+      \draw [->] (0,0.45) -- (0,-0.45) node [midway, left]{$\delta t$};
+      \draw [decorate,decoration={snake, amplitude=1mm,segment length=3mm,post length=1mm},->] (0.1,0) -- (1.,0);
+    \end{scope}
+  \end{tikzpicture}\par
+  }
+  \caption{Emissão de luz num processo de elementar (usou-se como exemplo aqui a
+  emissão que acompanha uma transição atómica). Estes processos têm uma duração
+  limitada. O pulso de ondas produzido tem uma duração
+  semelhante. Só há correlação de fase dentro de cada pulso; logo, o tempo de
+  coerência não pode exceder a sua duração.\label{fig:emission}}
+\end{figure}
+Paralelamente, outros pulsos são produzidos por outros processos que vão
+ocorrendo na fonte de forma independente. Se as várias ondas produzidas deste
+modo são independentes, elas não estão correlacionadas umas com as outras.
+Assim, quaisquer correlações de fase podem apenas estabelecer-se dentro de
+cada pulso de onda e por isso não podem manter-se ao longo de um intervalo de
+tempo maior do que a própria duração do pulso. Assim, o tempo de coerência de
+uma fonte luminosa tradicional (não laser) é, no máximo, igual à duração dos
+pulsos gerados nos processos de emissão elementar que nela ocorrem.
+
+Chama-se \emph{comprimento de coerência} à distância percorrida pela onda
+durante o um intervalo de tempo igual ao tempo de coerência,
+\begin{equation*}
+l_c=c\tau_c,
+\end{equation*}
+onde $\tau_c$ é o tempo de coerência. Tendo em conta o parágrafo anterior,
+deduzimos que o comprimento de coerência de um feixe de luz é o comprimento dos
+pulsos de onda emitidos nos processos elementares de emissão que o geraram. O
+significado físico do comprimento de coerência é semelhante ao do tempo de
+coerência: a diferença de fases, num dado instante, de dois pontos dispostos
+longitudinalmente no trajeto da onda tem um valor bem determinado ou muito
+lentamente variável se a distância entre os pontos for inferior ao comprimento
+de coerência; nessas condições a luz comporta-se como luz coerente. Se, ao
+contrário,  distância entre os dois pontos considerados for maior que o
+comprimento de coerência, então a diferença de fases é muito rapidamente
+variável, ou seja, a luz comporta-se como incoerente.
+
+\subsection{Coerência espacial. Raio de coerência}
+Na secção anterior introduziu-se a coerência temporal de um feixe de luz e uma
+noção com ela relacionada, a que pode dar-se o nome de \emph{coerência
+longitudinal,} medida pelo valor do comprimento de coerência. Mas há ainda outro
+parâmetro importante na descrição a coerência da luz. Há fenómenos de
+interferência que envolvem pontos de uma mesma frente de onda, dispostos,
+portanto, transversalmente à direção de propagação. A questão da coerência
+nestes casos não se coloca em instantes diferentes nem (equivalentemente) em
+pontos situados no trajeto da onda e, por isso, o tempo de coerência ou o
+comprimento de coerência não servem para avaliar a correlação de fases que aqui
+é relevante. 
+
+Mas a situação é, em traços gerais, semelhante: se os dois pontos considerados
+(recorde, estão situados transversalmente à direção de propagação) estiverem
+suficientemente próximos um do outro, então a difereça de fases da onda nos dois
+pontos é constante (se eles estiverem mesmo dispostos perpendicularmente à
+propagação, até será nula) ou muito lentamente variável, mas essa constância
+desaparece se eles se afastarem. O valor limiar da distância que separa estes
+dois casos chama-se \emph{raio de coerência}.
+
+Luz absolutamente coerente tem tempo de coerência, comprimento de coerência e
+raio de coerência com valores infinitos. A luz das fontes tradicionais
+(incoerente) tem comprimento e raio de coerência de apenas alguns nanómetros.
+Entre estes dois extremos, a luz laser tem comprimentos de coerência muito
+variados, que podem ir dos micrómetros (apontadores laser baratos) até às
+dezenas de quilómetros.
+
+Mais adiante neste capítulo, quando se discutirem fenómenos de interferência
+concretos, será feita referência à coerência da luz envolvida e indicado qual o
+parâmetro (comprimento de coerência ou raio de coerência) mais relevante em cada
+caso.
+
+\subsection{Interferência com radiação policromática}
+Vimos já que só ocorre interferência\footnote{No sentido usual do termo, isto é,
+com o estabelecimento de um padrão de interferência.} entre duas ondas
+sinusoidais que se sobrepõem se elas tiverem a mesma frequência. Mas as ondas
+verdadeiramente sinusoidais são uma idealização simplificadora, sem existência
+real.  As ondas que encontramos no dia a dia e em laboratório não são
+sinusoidais, mas podem ser descritas como a sobreposição de ondas sinusoidais
+com diferentes frequências. Por exemplo, a luz do Sol é composta de diferentes
+tipos de ondas eletromagnéticas sinusoidais, com frequências de toda a gama da
+região visível do espectro (e mais infra-vermelho, rádio e um pouco de ultravioleta).
+
+Uma onda não monocromática pode sempre ser escrita como uma soma de duas ou
+mais ondas sinusoidais com diferentes frequências. Pode até ser necessário
+considerar um número infinito, numerável ou não numerável, de componentes
+sinusoidais.  Isto é, podemos escrever as duas ondas não sinusoidais que se
+sobrepõem como
+\begin{align*}
+\Psi_1(\vec r,t)&=S_\omega\,\psi^{(1)}_\omega(\vec r,t)&
+\Psi_2(\vec r,t)&=S_\omega\,\psi^{(2)}_\omega(\vec r,t),
+\end{align*}
+onde o símbolo $S_\omega f_\omega$ significa ``soma para todos os valores
+relevantes de $\omega$ das quantidades $f_\omega$'' (esta soma pode ser um
+somatório para valores discretos de $\omega$ e/ou um integral nos intervalos em
+que $\omega$ varia continuamente) e $\psi_\omega(\vec r,t)$ representa uma
+função sinusoidal com frequência $\omega$. Mas a onda resultante da sobreposição
+destas duas ondas ondas num dado ponto e num dado instante é a \emph{adição} dos
+valores que elas apresentam nesse ponto e nesse instante. Ora, a
+adição é uma operação associativa, de forma que podemos escrever
+\begin{align*}
+\Psi(\vec r,t)&=\Psi_1(\vec r,t)+\Psi_2(\vec r,t)=
+S_\omega\,\psi^{(1)}_\omega(\vec r,t)+
+S_\omega\,\psi^{(2)}_\omega(\vec r,t)\\
+&=S_\omega\,\left[\psi^{(1)}_\omega(\vec r,t)+
+  \psi^{(2)}_\omega(\vec r,t)\right].
+\end{align*}
+Note-se que o termo entre parêntesis retos é o resultado da sobreposição das
+componentes sinusoidais com frequência dada $\omega$ de cada uma das ondas;
+ou seja, o resultado da sobreposição de duas ondas policromáticas pode
+calcular-se somando os resultados da sobreposição das componentes de igual
+frequência de cada onda.
+
+Assim, na sobreposição de sinais policromáticos pode ocorrer interferência,
+embora também possa não ocorrer (se os dois sinais não tiverem frequências em
+comum, por exemplo). Como as condições de interferência construtiva ou
+destrutiva dependem da frequência, os (eventuais) padrões de interferência da
+sobreposição de feixes policromáticos costumam ter regiões distintas de
+interferência construtiva ou destrutiva consoante a frequência. No caso da luz,
+a diferentes frequências correspondem diferentes comprimentos de onda, logo,
+diferentes cores. Assim, na interferência de luz policromática (por exemplo, de
+luz branca) geram-se normalmente distribuições espaciais de cores diferentes.
+Um exemplo destes padrões é ilustrado na Figura~\ref{fig:soapbubble}, que mostra
+o reflexo da luz do céu numa bola de sabão.  A interferência que aqui ocorre (e
+que estudaremos daqui a pouco) resulta da sobreposição dos reflexos na face
+exterior e interior da película de água e sabão que forma a bolha.
+\begin{figure}[htb]
+{\centering
+\includegraphics[width=0.3\linewidth]{figs/soap_bubble.jpg}\par
+}
+\caption{Padrão de cores resultante da interferência dos reflexos nas faces
+exterior e interior da película de água que delimita uma bola de
+sabão. (Retirado de
+\protect\url{https://commons.wikimedia.org/wiki/File:Soap_bubble_sky.jpg}.)
+\label{fig:soapbubble}}
+\end{figure}
+
+
+\section{Sobreposição de ondas eletromagnéticas}
+Após esta interrupção no caminho que seguíamos para a discussão sobre a
+coerência da secção anterior, retomemos o estudo da sobreposição de ondas,
+considerando finalmente as que mais interessam na Ótica Física, as ondas de luz.
+Nesta secção vamos essencialmente repetir o cálculo da
+Secção~\ref{sec:scalarsuperp} com ondas de amplitude vetorial.
+
+Consideremos então duas ondas eletromagnéticas planas sinusoidais com campo
+elétrico $\vec E_1$ e $\vec E_2$, com as expressões características deste tipo
+de onda,
+\begin{align*}
+\vec E_1=\vec E_1(\vec r,t)&=\vec A_1\cos(\vec k_1\cdot \vec r-\omega_1
+t+\varphi_1)\\
+\vec E_2=\vec E_2(\vec r,t)&=\vec A_2\cos(\vec k_2\cdot \vec r-\omega_2
+t+\varphi_2).
+\end{align*}
+O campo elétrico resultante em cada ponto e instante é
+\begin{equation*}
+\vec E(\vec r, t)=\vec E_1(\vec r,t)+\vec E_2(\vec r,t).
+\end{equation*}
+Como vimos na Secção~\ref{sec:irradiance}, a irradiância de uma onda
+eletromagnética é proporcional à média temporal do quadrado do campo elétrico,
+tomada ao longo de um intervalo de tempo $\tau$ com a duração necessária para se
+fazer a observação ou medição, muito mais longo do que o período das oscilações
+das ondas de luz. Assim, representando a constante de proporcionalidade por
+$\alpha$, podemos escrever
+\begin{align}
+I&=\alpha\langle E^2 \rangle_tau=
+  \alpha\langle E_1^2 \rangle_\tau+
+  \alpha\langle E_2^2 \rangle_\tau+
+  2\alpha\langle \vec E_1\cdot\vec E_2 \rangle_\tau\nonumber\\
+  &=I_1+I_2+I_{12},\label{eq:resirrad}
+\end{align}
+recuperando-se assim a eq.~\eqref{eq:superp2} que deduzimos na
+Secção~\ref{sec:scalarsuperp}, mas com um termo de interferência que agora é
+\begin{equation}
+  I_{12}=2\alpha\langle \vec E_1\cdot\vec E_2\rangle_\tau.
+\end{equation}
+Ainda antes de continuar o cálculo podemos já establecer uma nova condição de
+interferência para as ondas eletromagnéticas: não há interferência\footnote{No
+sentido que demos a esta expressão: não se gera um padrão de interferência, com
+regiões de reforço (interferência construtiva) e outras de atenuação
+(interferência destrutiva) da intensidade luminosa.} se as duas ondas estiverem
+polarizadas perpendicularmente, pois, nesse caso, $\vec E_1\cdot\vec E_2=0$ e o
+termo de interferência anula-se.
+
+A continuação do cálculo segue agora os mesmos passos que foram dados na
+Secção~\ref{sec:scalarsuperp} para a sobreposição de ondas escalares.
+Repetindo-os, obtemos\footnote{Omite-se o caso $\omega_1\neq\omega_2$ para aliviar a
+notação; como para as ondas escalares, se as frequências são diferentes, o termo
+de interferência anula-se.}
+\begin{equation}
+  I_{12}=\alpha \vec A_1\cdot\vec A_2\cos(\phi_1-\phi_2)=\alpha
+  A_1A_2\cos\theta_{12}\cos(\phi_1-\phi_2),\qquad\text{ se }\omega_1=\omega_2,
+\end{equation}
+onde $\theta_{12}$ é o ângulo definido pelas direções de polarização das duas
+ondas (é o ângulo entre $\vec E_1$ e $\vec E_2$). Tendo em conta as igualdades
+da eq.~\eqref{eq:scalarwvint} (que foram deduzidas considerando ondas escalares
+mas que, verifique-o, se mantêm com ondas electromagnéticas), o termo de
+interferência pode ainda escrever-se numa forma em tudo semelhante à da
+eq.~\eqref{eq:interft},
+\begin{equation}\label{eq:interfvec}
+  I_{12}=
+  \begin{cases}
+    2\sqrt{I_1I_2}\cos\theta_{12}\cos(\phi_1-\phi_2) & \text{ se
+    }\omega_1=\omega_2\\
+    0& \text{ se } \omega_1\neq\omega_2.
+  \end{cases}
+\end{equation}
+Concluímos que as condições para a interferência de ondas de luz são semelhantes
+às que establecemos para as ondas escalares, acrescentadas da condição de não
+perpendicularidade das polarizações. Verificando-se interferência, ela é mais
+perceptível se as polarizações das duas ondas tiverem a mesma orientação, uma ve
+que é nessa situação que o produto escalar $\vec A_1\cdot\vec A_2$ (ou,
+equivalentemente, o fator $\cos\theta_{12}$) tem o valor máximo. 
+
+Ainda sobre a influência da polarização, note-se que dois raios de luz
+não polarizados podem interferir, mesmo se não tem sentido, nesse caso, comparar
+as orientações das suas polarizações. Mas passa-se aqui algo semelhante ao que
+se referiu quando discutimos a interferência de radiação policromática, no final
+da secção anterior: o resultado da sobreposição de dois raios de luz
+despolarizados é a resultante das sobreposições das componentes de cada feixe
+com igual polarização. Assim, quando se analiza a sobreposição de luz não
+polarizada pode-se fazer a substituição $\cos\theta_{12}\rightarrow 0$. Pode
+nestas condições ocorrer interferência (isto é, a
+formação de um padrão de interferência), ou não, dependendo de outras
+circunstâncias que não apenas a (des)polarização dos dois feixes.
+
+Substituindo o resultado da eq.~\eqref{eq:interfvec} na eq.~\eqref{eq:resirrad},
+resulta, para a irradiância da sobreposição,
+\begin{equation}\label{eq:superp3}
+  I=I_1+I_2+
+  \begin{cases}
+    2\sqrt{I_1I_2}\cos\theta_{12}\cos(\phi_1-\phi_2) & \text{ se
+    }\omega_1=\omega_2\\
+    0& \text{ se } \omega_1\neq\omega_2.
+  \end{cases}
+\end{equation}
+Também agora notamos que, dados dois feixes de luz que se sobrepõem, a variável
+determinante para a ocorrência numa dada região do espaço (e do tempo) de
+interferência construtiva ou destrutiva é a diferença entre as suas fases em
+cada ponto e instante dessa região.
+
+%\textbf{Mudar isto. Irradiância proporcional ao valor médio do quadrado de E.}\\
+%Consideremos duas ondas eletromagnéticas harmónicas planas numa região do
+%espaço. Os campos elétrico e magnético da onda resultante são, de acordo com o
+%princípio da sobreposição, as somas dos campos correspondentes de cada uma, isto
+%é,
+%\begin{align*}
+%\vec E(\vec r,t)&=\vec E_1(\vec r,t)+\vec E_2(\vec r,t)&
+%\vec B(\vec r,t)&=\vec B_1(\vec r,t)+\vec B_2(\vec r,t).
+%\end{align*}
+%A intensidade luminosa da onda resultante deve ser calculada como fizemos na
+%Secção~\ref{sec:irradiance}, onde a definimos como a média temporal ao longo de
+%um intervalo de tempo com duração razoável
+%do módulo do vetor de Poynting, \begin{equation*}
+%\vec S(\vec r,t)=\frac{1}{\mu_0}\vec E\times\vec B.
+%\end{equation*}
+%Dadas as expressões dos campos $\vec E$ e $\vec B$, o vetor de Poynting da
+%sobreposição é
+%\begin{align*}
+%\vec S&=\frac{1}{\mu_0}(\vec E_1+\vec E_2)\times(\vec B_1+\vec B_2)=
+%\frac{1}{\mu_0}\left(
+%\vec E_1\times \vec B_1
+%+\vec E_2\times \vec B_2
+%+\vec E_1\times \vec B_2
+%+\vec E_2\times \vec B_1
+%\strut
+%\right)\\
+%&=\vec S_1+\vec S_2+\frac{1}{\mu_0}\left(
+%\vec E_1\times \vec B_2
+%+\vec E_2\times \vec B_1\right),
+%\end{align*}
+%onde $\vec S_1$ e $\vec S_2$ são os vetores de Poynting de cada onda.
+%Mas nas ondas eletromagnéticas o campo magnético é determinado pelo campo
+%elétrico (e vice versa); de acordo com a eq.~\eqref{eq:mf}, nas ondas planas
+%temos
+%\begin{equation*}
+%\vec B = \frac{1}{\omega}\vec k\times\vec E=\frac{k}{\omega}\hat k\times\vec E=
+%\frac{1}{c}\hat k\times\vec E,
+%\end{equation*}
+%onde $k=\|\vec k\|$ representa o módulo do vetor de onda e $\hat k=\vec k/k$ o
+%versor (vetor unitário) com a orientação do vetor de onda. Substituindo acima,
+%resulta
+%\begin{equation*}
+%\vec S=\vec S_1+\vec S_2+ \frac{1}{\mu_0c}\left[
+%  \vec E_1\times\left(\hat k_2\times\vec E_2\right)
+%  +\vec E_2\times\left(\hat k_1\times\vec E_1\right)
+%  \right].
+%\end{equation*}
+%O produto vetorial triplo nestas expressões satisfaz as igualdades da
+%eq.~\eqref{eq:tcp}, em particular,
+%\begin{equation*}
+%\vec a\times(\vec b\times\vec c)=\vec b\,(\vec a\cdot\vec c) - 
+%\vec c\,(\vec a\cdot \vec b);
+%\end{equation*}
+%assim,
+%\begin{align*}
+%%\vec E_n\times\left(\hat k_n\times \vec E_n\right)&=
+%%E_n^2\hat k_n-\vec E_n\,(\vec E_n\cdot\hat k_n)=E_n^2\,\hat k_n,\quad n=1,\,2\\
+%\vec E_n\times\left(\hat k_m\times \vec E_m\right)&=
+%(\vec E_n\cdot\vec E_m)\, \hat k_m-\vec E_m\,(\vec E_n\cdot\hat k_m),
+%\quad n,\,m=1,\,2,\ m\neq n.
+%\end{align*}
+%O vetor de Poynting da sobreposição das duas ondas fica então com a forma
+%\begin{equation*}
+%\vec S=\vec S_1+\vec S_2 +\frac{1}{\mu_0c}\vec E_1\cdot\vec E_2(\hat k_1+\hat k_2)-
+%\frac{1}{\mu_0c}
+%  \left[\vec E_1\left(\vec E_2\cdot\hat k_1\right)+
+%        \vec E_2\left(\vec E_1\cdot\hat k_2\right)\right]
+%\end{equation*}
+%
+%Consideremos a situação particular (mas com muito interesse nas aplicações que
+%estudaremos de seguida) em que as direções de propagação das duas ondas são
+%praticamente iguais. Então os vetores $\vec S_1$, $\vec S_2$, $\hat k_1$ e $\hat
+%k_2$ são quase paralelos; além disso o último termo no lado direito da equação
+%acima pode desprezar-se porque, sendo comuns as direções de propagação das duas
+%ondas, o campo elétrico de uma é também perpendicular ao vetor de onda da outra.
+%Então, tem-se
+%\begin{align*}
+%\vec S&=\vec S_1+\vec S_2+\frac{2}{\mu_0c}\vec E_1\cdot\vec E_2\,\hat k,
+%\end{align*}
+%com $\hat k=\hat k_1=\hat k_2$. Uma vez que todos os vetores no lado direito têm
+%a mesma direção (a da propagação de ambas as ondas), é trivial obter a expressão
+%do módulo de $\vec S$,
+%\begin{equation*}
+%S=\|\vec S\|=S_1+S_2+\frac{2}{\mu_0c}\vec E_1\cdot\vec E_2.
+%\end{equation*}
+%Para obter a intensidade luminosa da sobreposição das duas ondas devemos agora
+%calcular a média temporal desta expressão, resultando
+%\begin{align}
+%I&=\langle S_1\rangle+\langle S_2\rangle +
+%  \frac{2}{\mu_0c}\left\langle\vec E_1\cdot\vec E_2\right\rangle\nonumber\\
+%  &=I_1+I_2+ \frac{2}{\mu_0c}\left\langle\vec E_1\cdot\vec E_2\right\rangle,
+%  \label{eq:interf}
+%\end{align}
+%onde a notação $\langle X\rangle$ representa a média temporal da função $X$.
+%Esta igualdade mostra a intensidade luminosa da sobreposição de duas ondas não
+%apenas soma das intensidades de cada uma, há ainda uma contribuição adicional,
+%dita de \emph{interferência,} traduzida pelo terceiro termo no lado direito da
+%eq.~\eqref{eq:interf}.
+%
+%Foquemo-nos no termo de interferência. A média temporal do produto escalar dos
+%dois campos ao longo de um intervalo de tempo $0<t<\tau$ (que, recorde, deve ter
+%uma duração $\tau$ muito maior do que operíodo da oscilação $T$) é
+%\begin{equation*}
+%\langle \vec E_1\cdot\vec E_2\rangle_\tau=\frac{1}{\tau}\int_0^\tau\vec
+%E_1\cdot\vec E_2\,dt.
+%\end{equation*}
+%Os dois campos são, por hipótese, ondas planas, pelo que se podem escrever como
+%\begin{align*}
+%\vec E_1&=\vec A_1\cos(\Phi_1-\omega_1 t)&
+%\vec E_2&=\vec A_2\cos(\Phi_2-\omega_2 t),
+%\end{align*}
+%ondese introduziram os símbolos $\Phi_i=\Phi_i(\vec r)=\vec k_i\cdot\vec r+\varphi_i,\
+%i=1,\,2$. Então, substituindo em cima e desenvolvendo os cossenos usando
+%fórmulas trignométricas elementares, temos
+%\begin{align*}
+%\langle\vec E_1\cdot\vec E_2\rangle_\tau&=\frac{1}{\tau}\vec A_1\cdot\vec A_2
+%  \int_0^\tau\cos(\Phi_1-\omega_1 t)\cos(\Phi_2-\omega_2 t)\,dt\\
+%  &=\frac{1}{\tau}\vec A_1\cdot\vec A_2\int
+%    \left[\cos\Phi_1\cos\omega_1t+\sin\Phi_1\sin\omega_1t\right]
+%    \left[\cos\Phi_2\cos\omega_2t+\sin\Phi_2\sin\omega_2t\right]\,dt\\
+%  &=\vec A_1\cdot\vec A_2
+%    \left[
+%          \cos\Phi_1\cos\Phi_2\,\frac{1}{\tau}\int_0^\tau\cos\omega_1t\cos\omega_2t\,dt+\right.\\
+%      &\hspace{2cm}
+%         +\cos\Phi_1\sin\Phi_2\,\frac{1}{\tau}\int_0^\tau\cos\omega_1t\sin\omega_2t\,dt+\\
+%      &\hspace{2cm}
+%         +\sin\Phi_1\cos\Phi_2\,\frac{1}{\tau}\int_0^\tau\sin\omega_1t\cos\omega_2t\,dt+\\
+%      &\hspace{2cm}+\left.
+%          \sin\Phi_1\sin\Phi_2\,\frac{1}{\tau}\int_0^\tau\sin\omega_1t\sin\omega_2t\,dt
+%    \right]
+%\end{align*}
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Experiência de Young}
 A natureza ondulatória da luz foi demonstrada no final do séc.~XVIII por um
 conjunto de observações, de que se destaca uma experiência de interferência da
-luz que atravessa duas fendas paralelas realizada por Young nos primeiros anos
+luz que atravessa duas fendas paralelas, realizada por Young nos primeiros anos
 do séc.~XIX.
 
 Nesta experiência, faz-se incidir luz monocromática num alvo opaco com duas
@@ -198,17 +926,17 @@ fendas num ecrã colocado atrás do alvo (veja a Figura~\ref{fig:40-020}).
 \begin{figure}[htb]
 {\centering
 \includegraphics{figs/f40-020.png}
-\caption{Experiência de dupla fenda de Young e Fresnel.\label{fig:40-020}}
-
-}
+}\par
+\caption{Experiência para demonstrar a interferência de dupla fenda de Young.
+\label{fig:40-020}}
 \end{figure}
 Numa primeira abordagem, considerando apenas a lei da propagação retilínea da
-luz, poderíamos pensar que o resultado desta experiência consiste na projecção
+luz, poderíamos pensar que o resultado desta experiência consiste na projeção
 da sombra do alvo no ecrã, ficando nele definidas duas zonas iluminadas pela luz
 que passa através de cada uma das fendas. No entanto, se as duas fendas
 estiverem muito próximas uma da outra (a não mais do que uma ou duas décimas de
-milímetro) vemos aparecer no ecrã uma série de faixas iluminadas paralelas, em
-vez de duas apenas como se tenta ilustrar na Figura~\ref{fig:40-030}.
+milímetro) vemos aparecer no ecrã uma série de faixas iluminadas paralelas,
+como se tenta ilustrar na Figura~\ref{fig:40-030}.
 \begin{figure}[htb]
     {\centering
         \includegraphics{figs/f40-030.png}
@@ -217,19 +945,22 @@ vez de duas apenas como se tenta ilustrar na Figura~\ref{fig:40-030}.
 
     }
 \end{figure}
-Este resultado pode ser compreendido à luz do princípio de Huygens. A onda
-luminosa que se propaga para trás do alvo e que atinge o ecrã é a sobreposição
-das duas ondas que têm origem em cada uma das fendas. Nalgumas direções, essa
-sobreposição é construtiva, noutras é destrutiva e daí resulta a sucessão de
-zonas iluminadas e obscuras no ecrã. Tentemos analisar isto em mais detalhe.
+Este resultado pode ser compreendido à luz do princípio de Huygens (ver a
+Secção~\ref{sec:huygens}). A onda luminosa que se propaga para trás do alvo e que
+atinge o ecrã é a sobreposição das duas ondas cilíndricas que têm origem em cada
+uma das fendas. Nalgumas direções, essa sobreposição é construtiva, noutras é
+destrutiva e daí resulta a sucessão de zonas iluminadas e obscuras no ecrã.
+Tentemos analisar isto em mais detalhe.
 
 Seja $\lambda$ o comprimento de onda da radiação usada, $a$ a distância entre
 as duas fendas e $O$ um ponto situado sobre o alvo a igual distância ($a/2$, é
 claro) de ambas. Seja $F$ a localização da fonte, considerada pontual. A direção
 $FO$, que une a fonte ao ponto $O$ é a direção de incidência ou direção frontal.
 Seja ainda $O'$ o ponto onde esta direção interseta o ecrã (veja a
-Figura~\ref{fig:40-040}).  As ondas originadas em cada fenda têm, aí, a mesma
-fase (que é da onda que nelas incidiu). Mas, até atingirem o ponto $P$,
+Figura~\ref{fig:40-040}). Suponhamos que tanto a fonte de luz como o ecrã estão
+muito afastados do alvo com as duas fendas, a distâncias muito maiores que
+$\lambda$ ou $a$. As ondas originadas em cada fenda têm, aí, a mesma
+fase (que é a da onda que nelas incidiu). Mas, até atingirem o ponto $P$,
 percorrem distâncias diferentes. Logo, chegam a esse ponto com fases diferentes.
 Calculemos esta diferença de fases. As distâncias percorridas pelas duas ondas,
 que são as distâncias que separam cada fenda do ponto $P$, são dadas por
@@ -261,30 +992,34 @@ onde $s=\overline{OP}=\sqrt{d^2+y^2}$ representa a distância entre o ponto $O$ 
 o ponto $P$.
 
 Seja $\varphi_0$ a fase inicial (comum, já o constatámos) das duas ondas. As
-fases com que atingem o ponto $P$, de acordo com a fórmula deduzida na
-Secção~\ref{sec:dfidx}, são então dadas por
+fases com que atingem o ponto $P$, de acordo com a eq.~\eqref{eq:deltaphix}, são
+então dadas por 
+%fórmula deduzida na Secção~\ref{sec:dfidx}, são então dadas por
 \begin{align*}
-\varphi_1 &= \varphi_0+2\pi\frac{s_1}{\lambda}\\
-\varphi_2 &= \varphi_0+2\pi\frac{s_2}{\lambda}.
+\varphi_1 &= \varphi_0+2\pi\frac{s_1}{\lambda}&
+\varphi_2 &= \varphi_0+2\pi\frac{s_2}{\lambda};
 \end{align*}
-A diferença de fase com que atingem o ponto $P$ é, assim,
-\begin{equation*}
+logo, a diferença de fase com que atingem o ponto $P$ resulta
+\begin{equation}\label{eq:youngdf1}
 \delta\varphi = \varphi_2-\varphi_1 =2\pi\frac{s_2-s_1}{\lambda}=
-2\pi\frac{y}{s}\frac{a}{\lambda}.
-\end{equation*}
-Mas $y/s=\sin\theta$, de forma que se obtém, por fim,
-\begin{equation*}
+2\pi\frac{a}{\lambda}\,\frac{y}{s},
+\end{equation}
+ou, como função de $\sin\theta=y/s$,
+\begin{equation}\label{eq:youngdf2}
 \delta\varphi = 2\pi\frac{a}{\lambda}\sin\theta.
-\end{equation*}
+\end{equation}
 
 Agora que temos uma expressão para a diferença de fase das duas ondas que
-atingem um ponto arbitrário no ecrã, podemos usar a fórmula deduzida na
-Secção~\ref{sec:sobrpos} para calcular a amplitude da onda resultante. Mas
-mais interessante que o valor da amplitude é perceber em que direções é que
-ocorre interferência construtiva (direções em que aquela amplitude tem um valor
-elevado) ou destrutiva (aquelas onde a amplitude se anula). Para isso, chega
-aplicar neste caso as condições que estabelecemos na Secção~\ref{sec:condint}.
-Constatamos então o seguinte
+atingem um ponto arbitrário no ecrã, podemos aplicar as condições que
+estabelecemos na Secção~\ref{sec:condint} e ver em que direções ocorre
+interferência construtiva (reforço da irradiância) ou destrutiva (atenuação da
+radiância)
+%usar a fórmula deduzida na
+%Secção~\ref{sec:sobrpos} para calcular a amplitude da onda resultante. Mas neste
+%momento é mais interessante perceber em que direções ocorre interferência
+%construtiva (direções em que aquela amplitude tem um valor elevado) ou
+%destrutiva (aquelas onde a amplitude se anula). Para isso, chega 
+Temos então o seguinte
 \begin{itemize}
 \item
     \textbf{Direções em que ocorre interferência construtiva}\\
@@ -295,17 +1030,17 @@ Constatamos então o seguinte
     \end{align*}
     ou seja, aquelas que fazem com a direção de incidência um ângulo $\theta$
     dado por
-    \begin{equation*}
+    \begin{equation}\label{eq:youngconstr}
         \sin\theta=k\frac\lambda a,\quad k=0,\pm1,\pm2,\ldots
-    \end{equation*}
+    \end{equation}
 \item
     \textbf{Direções em que ocorre interferência destrutiva}\\
     Nestas direções a diferença de fase deve ser um múltiplo semi-inteiro de
     $2\pi$, isto é,
-    \begin{equation*}
+    \begin{equation}
         \delta\varphi=2\pi\frac{a}{\lambda}\sin\theta=2\left(k+\frac12\right)
         \pi,\quad k=0,\pm1,\pm2,\ldots,
-    \end{equation*}
+    \end{equation}
     de onde resulta
     \begin{equation*}
         \sin\theta=\left(k+\frac12\right)\frac\lambda a,\quad
@@ -313,10 +1048,287 @@ Constatamos então o seguinte
     \end{equation*}
 \end{itemize}
 
-\pagebreak
+A intensidade luminosa incidente no ecrã pode calcular-se substituindo a
+expressão da diferença de fase da eq.~\eqref{eq:youngdf1} na
+eq.~\eqref{eq:superp3}. Pela simetria da exposição das duas fendas, devemos
+tomar iguais as irradiâncias das duas ondas, $I_1=I_2=I_f$ ($I_f$ representa
+aqui a irradiância da luz que atravessa cada fenda); além disso, as frequências
+das duas ondas que se sobrepõem são iguais à frequência da luz usada na
+experiência, $\omega_1=\omega_2=\omega$; por fim, as ondas que atravessam as
+duas fendas têm também a mesma polarização (ou são ambdas despolarizadas), igual
+à da luz incidente no alvo com as fendas. Assim, nesta situação a
+eq.~\eqref{eq:superp3} toma a forma
+\begin{align*}
+I&=2I_f+2I_f\cos\delta\varphi=
+  2I_f(1+\cos\delta\varphi)\\&=4I_f\cos^2\frac{\delta\varphi}{2},
+\end{align*}
+tendo-se usado a igualdade trignométrica $\cos\alpha=2\cos^2(\alpha/2)$. Com
+$\delta\varphi$ dado pela eq.~\eqref{eq:youngdf1}, obtemos
+\begin{equation*}
+I=4I_f\cos^2\left(\pi\frac{a}{\lambda}\frac{y}{s}\right).
+\end{equation*}
+Para pequenos desvios, $s\simeq d$; fazendo esta aproximação, resulta
+\begin{equation}\label{eq:youngint}
+I=4I_f\cos^2\left(\frac{\pi a}{\lambda d}\, y\right).
+\end{equation}
+A Figura~\ref{fig:yngint} ilustra o gráfico desta função, que mostra
+claramente que a intensidade da onda que chega ao ecrã oscila entre zero e
+$4I_f$. Do lado direito na mesma figura, ilustra-se com uma fotografia do ecrã
+numa experiência concreta o efeito que este padrão de interferência tem na sua
+iluminação.
+\begin{figure}[htb]
+  {\centering
+  \begin{tikzpicture}[]
+    \small
+    \draw [->] (-3,0)--(3,0) node [below] {$y$};
+    \draw [->] (0,-0.05) node [below] {0}-- (0,2) node [right]{$I$};
+    \draw [samples=200, domain=-2.8:2.75, thick, variable=\y]
+      plot ({\y},{1.5*(cos(\y*180))^2});
+    \draw (1,0.05) -- +(0,-0.1) node [below] {$\frac{\lambda d}{a}$};
+    \draw (2,0.05) -- +(0,-0.1) node [below] {$2\frac{\lambda d}{a}$};
+    \draw (-1,0.05) -- +(0,-0.1) node [below] {$-\frac{\lambda d}{a}$};
+    \draw (-2,0.05) -- +(0,-0.1) node [below] {$-2\frac{\lambda d}{a}$};
+    \node at (0,1.5) [left]{$4I_f$};
+    \node at (7,0.8) {\includegraphics[height=2.6cm]{figs/twoslitinterf.jpg}};
+  \end{tikzpicture}\par}
+  \caption{\label{fig:yngint}Gráfico da intensidade da interferência de Young (à
+    esquerda) e fotografia (disposta horizontalmente para poupar espaço) do
+    ecrã iluminado numa experiência concreta.  (Retirada de
+    \protect\url{http://www.okotech.com/lp-interference}.)}
+\end{figure}
 
 \section{Redes de difração 1} 
-\tobedone{}
+As redes de difração são dispositivos óticos interferométricos com muitas
+aplicações. As mais simples consistem num meio transparente no qual está gravada
+uma sucessão de riscos retilíneos, paralelos e opacos muito próximos (não mais
+do que poucas décimas de milímetro), entre os quais a luz pode
+passar\footnote{Redes como as que acabei de descrever são as mais simples e
+  vulgares. Outros tipos de rede podem ter riscos circulares concêntricos,
+  riscos retilíneos que divergem de um ponto, arranjos regulares de pequenas
+``janelas'' num fundo opaco, etc.}. Quando um
+feixe de luz incide numa rede de difração, as frentes de onda fragmentam-se,
+dividindo-se pelas faixas transparentes entre os riscos, e na luz transmitida
+ocorre interferência entre as diferentes ondas resultantes daquela fragmentação.
+Assim, uma destas rede de difração é um pouco como as fendas duplas da
+interferência de Young, à parte o facto de serem muitas fendas e não apenas
+duas. 
+
+O padrão de interferência produzido por uma rede de difração tem um aspeto em
+comum com o da interferência de fenda dupla: as direções em que ocorre
+interferência construtiva (aquelas onde se dá um reforço da intensidade
+luminosa) satisfazem uma relação em tudo idênctica à da
+eq.~\eqref{eq:youngconstr}, que deduzimos na secção anterior (o parâmetro $a$
+até mantém, ainda, o significado que já tinha, da distância entre as faixas por
+onde a luz passa). Mas as semelhanças acabam aí. Enquanto que a intensidade da
+interferência na experiência de Young é a função oscilante mas contínua da
+direção apresentada no gráfico da Figura~\ref{fig:yngint}, a da interferência
+numa rede de difração, sobretudo se tiver muitos riscos por unidade de
+comprimento, é descontínua; é nula em todas as direções, excepto naquelas em que
+ocorre interferência construtiva. O gráfico da Figura~\ref{fig:gratingi} ilustra
+a diferença entre as duas situações.
+\begin{figure}[htb]
+{\centering
+  \begin{tikzpicture}[]
+    \small
+    \draw [->] (-3,0)--(3,0) node [below] {$y$};
+    \draw [->] (0,-0.05) node [below] {0}-- (0,2) node [right]{$I$};
+    \draw [samples=200, domain=-2.8:2.75, thick, variable=\y]
+      plot ({\y},{1.5*(cos(\y*180))^2});
+    \draw (1,0.05) -- +(0,-0.1) node [below] {$\frac{\lambda d}{a}$};
+    \draw (2,0.05) -- +(0,-0.1) node [below] {$2\frac{\lambda d}{a}$};
+    \draw (-1,0.05) -- +(0,-0.1) node [below] {$-\frac{\lambda d}{a}$};
+    \draw (-2,0.05) -- +(0,-0.1) node [below] {$-2\frac{\lambda d}{a}$};
+    \node at (0,1.5) [left]{$4I_f$};
+	  \begin{scope}[xshift=7cm]
+      \draw [->] (-3,0)--(3,0) node [below] {$y$};
+      \draw [->] (0,-0.05) node [below] {0}-- (0,2) node [right]{$I$};
+      \draw [thick] (-2.8,0) -- (2.8,0);
+
+      \draw (1,0.05) -- +(0,-0.1) node [below] {$\frac{\lambda d}{a}$};
+      \draw (2,0.00) -- +(0,-0.1) node [below] {$2\frac{\lambda d}{a}$};
+      \draw (-1,0.00) -- +(0,-0.1) node [below] {$-\frac{\lambda d}{a}$};
+      \draw (-2,0.00) -- +(0,-0.1) node [below] {$-2\frac{\lambda d}{a}$};
+      \draw [samples=500, domain=-2.8:2.75, thick, variable=\y]
+        plot ({\y},{1.5*(exp(-500*(\y+2)^2)+
+                         exp(-500*(\y+1)^2)+
+                         exp(-500*(\y+0)^2)+
+                         exp(-500*(\y-2)^2)+
+                         exp(-500*(\y-1)^2))
+        });
+    \end{scope}
+  \end{tikzpicture}\par
+}
+\caption{\label{fig:gratingi}Intensidade da interferência numa fenda dupla de
+Young (à esquerda) e numa rede de difração (à direita). Quanto mais próximos
+forem os riscos na rede de difração, mais estreitos são os picos de
+interferência representados no gráfico da direita. Para $a\simeq 10\,\mu$m
+(ordem de grandeza bastante típica), estes picos teêm espessura imperceptível.
+Ou seja, nesses casos as redes de difração só transmitem luz com um dado
+comprimento de onda nalgumas direções bem determinadas.}
+\end{figure}
+
+
+Tentemos perceber a interferência numa rede de difração. Um feixe de luz
+monocromática com comprimento de onda $\lambda$ incide perpendicularmente numa
+rede de difração com riscos separadas por uma distância $a$, sendo iluminadas um
+grande número, $N,$ destas riscos. Numeremos as faixas entre os riscos, de modo
+a podermos facilmente referir uma faixa particular e a onda que nela tem origem.
+Por uma questão prática, atribuímos à faixa no centro da zona iluminada o número
+0, às duas faixas contíguas (uma de cada lado) os números $\pm1$, a seguir
+seguem-se (de cada lado também) as faixas $\pm3$ e assim sucessivamente, até às
+faixas números $\pm m$, com $m=(N-1)/2$ (ver a Figura~\ref{fig:grating}).
+\begin{figure}[htb]
+{\centering
+  \begin{tikzpicture}[scale=0.9]
+  \small
+    %Grating
+    \draw [line width=3] (0,-1.35)--(0,-1.15);
+    \foreach \i in {-1,...,2} {
+      \draw [line width=3] (0,\i+0.15) -- (0,\i+0.85);
+      \node at (-0.1,\i) [left]{\i};
+    }
+    %axis
+    \draw (-0.1,0) -- (9.5,0);
+    %central ray
+    \draw [->-](0,0) coordinate(o)-- (15:9) coordinate(p) node[midway,below] {$s_0$};
+    \node at (p) [above left] {$P$};
+    \draw (2,0) arc(0:15:2) node [below right] {$\theta$};
+    %other rays
+    \draw [->-](0,-1) -- (p) node [below, pos=0.6]{$s_{-1}$};
+    \draw [->-](0,1) -- (p) node [below, pos=0.4]{$s_{1}$};
+    \draw [->-](0,2) -- (p) node [below, pos=0.3]{$s_{2}$};
+    %screen
+    \path ($ (p)!-0.6cm!(p|-o) $) coordinate (s);
+    \draw [thick](s) -- +(0,-4.3cm);
+    %incident rays
+    \node at(-1.5,2.5) {Luz incidente};
+    \foreach \y in {-1,0,...,2} {
+      \draw [->] (-2,\y) --+(1,0);
+    }
+    %annotations
+    \draw [<->](0.1,-1.25) -- +(8.5,0) node [midway,fill=white] {$d$};
+    \draw [<->] (9,0.1) coordinate(x) -- ([yshift=-2] x|-p) node[midway,fill=white] {$y$};
+    \node at (0,-1.5) [below] {Rede};
+    \node at (8.6,-1.5)[below]{Ecr\~a};
+  \end{tikzpicture}\par
+  }
+  \caption{\label{fig:grating}Parte de uma rede de difração iluminada por luz
+  vinda do lado esquerdo. Cada faixa transparente na rede é origem de uma onda
+  cilindrica. A intensidade luminosa em cada ponto do ecrã é a resulta da
+  sobrepoição das ondas provenientes de cada faixa. (O desenho não está à
+  escala: a rede de difração está muito ampliada.)}
+\end{figure}
+A luz transmitida pela rede de difração, que a atravessa através das faixas
+transparentes entre riscos, vai depois incidir num ecrã, que vamos supor está
+a uma distância $d$ da rede de difração, muito grande quando comparada com as
+dimensões da zona iluminada da rede, ou seja,
+\begin{equation*}
+d>>Na.
+\end{equation*}
+A distância que separa a faixa transparente número $l$ da rede de difração de um
+ponto genérico $P$ no ecrã, desviado da direção de incidência por um ângulo
+$\theta$ a que corresponde uma distância transversal medida no ecrã de $y$ é dada
+por
+\begin{align*}
+s_l&=\sqrt{d^2+(y-la)^2}=\sqrt{d^2+y^2-2yla+l^2a^2}=
+  \sqrt{s_0^2-2yla+l^2a^2}\\
+  &=s_0\sqrt{1-2yla/s_0^2+(la/s_0)^2}.
+\end{align*}
+Uma vez que o ecrã se encontra muito afastado, $s_0>>Na$; logo, o último termo na
+raiz quadrada é desprezável face aos restantes. Assim,
+\begin{equation}\label{eq:gratdist}
+s_l\simeq s_0\sqrt{1-2yla/s_0^2}\simeq s_0\left(1-\frac{yla}{s_0^2}\right)=
+    s_0-la\frac{y}{s_0}=s_0-la\sin\theta,
+\end{equation}
+tendo-se usado o desenvolvimento de Taylor de 1ª ordem $\sqrt{1+x}\simeq1+x/2$,
+válido para pequenos valores de $x$, e feito a substituição óbvia
+$y/s_0=\sin\theta$.
+
+A onda que atravessa a faixa número $l$ da rede de difração tem, no ponto $P$
+do ecrã, função de onda\footnote{Não se considera aqui a natureza vetorial das
+  ondas eletromagnéticas porque, se a luz incidente na rede de difração estiver
+  polarizada, terão a mesma polarização as várias ondas transmitidas e, assim,
+  os vários fatores $\cos\theta_{12}$ na eq.\eqref{eq:superp3}; se a luz
+  incidente não for polarizada, ocorrerá interferência separada de cada
+  componente de polarização, tendo-se então, de novo, $\cos\theta_{12}=1$. Na
+  prática, assim, a polarização não é relevante neste processo, ou seja, podemos
+  descrevê-lo coom ondas escalares.}
+\begin{equation*}
+\psi_l(\vec r,t)=A_l\cos\left(ks_l-\omega t\right),
+\end{equation*}
+onde $\vec r$ é o vetor posição do ponto $P$, $k=2\pi/\lambda$ o módulo do vetor
+de onda e $A_l$ é a amplitude desta onda. Na verdade, esta onda tem forma
+cilíndrica e portanto a sua amplitude não é uniforme; em vez disso, ela deve
+decrescer em proporção com a raiz quadrada da distância $s_l$. Mas, estando o
+ecrã muito afastado, essa variação pode desprezar-se. Além disso, sendo as
+faixas transparentes por onde a luz atravessa a rede de difração iguais, devem
+também ser iguais as várias amplitudes.  Substituindo aqui a
+eq.~\eqref{eq:gratdist}, obtemos
+\begin{equation*}
+\psi_l(\vec r,t)=A_l\cos\left(ks_0-\omega t-lka\sin\theta\right).
+\end{equation*}
+Sejam agora $\Omega=\Omega(t)=ks_0-\omega t$ e $u=ka\sin\theta$. A função de
+onda acima escreve-se então como
+\begin{align*}
+\psi_l(\vec r,t)&=A_l\cos(\Omega-lu)=A_l(\cos\Omega\cos lu+\sin\Omega\sin lu).
+\end{align*}
+De acordo com o princípio da sobreposição, a função de onda resultante no ponto
+$P$ é a soma dos valores das funções de onda das várias ondas que nele
+coincidem,
+\begin{equation}\label{eq:gratpsi}
+\psi(\vec r,t)=\sum_{l=-m}^m\psi_l(\vec r,t)= A\left(
+  \cos\Omega\sum_{l=-m}^m\cos lu+ \sin\Omega\sum_{l=-m}^m\sin lu\right),
+\end{equation}
+onde, recorde-se, $m=(N-1)/2$ e se colocaram em evidência, em cada soma, os
+fatores constantes dependentes de $\Omega$. Como o seno é uma função ímpar, o
+segundo somatório no lado direito desta igualdade anula-se, uma vez que é
+constituido por parcelas simétricas duas a duas.  Quanto ao primeiro, pode
+provar-se (veja o apêndice na secção final deste capítulo) que, para $N>>1$, é
+dado por
+\begin{equation}\label{eq:sumcos}
+\sum_{l=-m}^m\cos lu\simeq
+\begin{cases}
+  N,&\text{se }u=2n\pi,\ n=0,\pm1,\pm2,\ldots\\
+  0,&\text{se a condição anterior não se verificar.}
+\end{cases}
+\end{equation}
+\begin{minipage}[t]{0.55\linewidth}
+O gráfico desta função é o ilustrado na figura ao lado. Repare-se que ela 
+se anula em todos os pontos do ecrã, excepto naqueles em que $u=kay/s_0=2n\pi$,
+com $n$ inteiro arbitrário. Como $k=2\pi/\lambda$, esta condição é satisfeita
+nos pontos onde $y=n\lambda s_0/a$. Só nestes pontos do ecrã é que a amplitude
+da função de onda\linebreak
+\vspace{-0.6\baselineskip}
+\end{minipage}\hfill
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+	\small
+	\draw [->] (-2.65,0)--(2.65,0) node [below] {$u$};
+	\draw [very thick] (-2.5,0) -- (2.5,0);
+	\draw [->] (0,-0.25)-- (0,1.3) node[right,yshift=-5]{$\sum\cos lu$};
+	\foreach \u in  {-2,...,2} {
+		\draw [very thick] (\u,0.75)--(\u,0);
+	}
+	\node at (0,0.75) [left,inner sep=1]{$N$};
+	\node at (-2,0) [below]{$-4\pi$};
+	\node at (2,0) [below]{$4\pi$};
+	\node at (-1,0) [below]{$-2\pi$};
+	\node at (1,0) [below]{$2\pi$};
+	\node at (0,0) [below right]{$0$};
+\end{tikzpicture}\\
+ resultante tem valores apreciáveis; nos restantes,
+ ela é nula.
+Ou seja, em vez de se notar um padrão de interferência contínuo, com zonas mais
+iluminadas sucedendo-se gradualmente a zonas escurecidas, observam-se no ecrã
+linhas bem iluminadas, separadas por faixas escurecidas, sem uma transição
+gradual de umas para outras.
+Considerando pequenos desvios, $y<<d$, temos $s_0\simeq d$. Nesta aproximação, o
+ecrã fica iluminado nos pontos com $y=nd\lambda/a$, justamente aqueles onde numa
+experiência de fenda dupla (com igual separação entre as fendas) a intensidade
+da interferência é máxima, ficando assim explicada a coincidência das posições
+dos máximos nas duas situações patente nos gráficos da
+Figura~\ref{fig:gratingi}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Interferência em reflexões múltiplas}
 \begin{wrapfigure}[10]{l}{0.3\textwidth}
@@ -466,7 +1478,7 @@ sabão) é maior do que o do ar, concluímos que
 \begin{equation*}
 \varphi_1=\varphi_0+\pi.
 \end{equation*}
-Já o raio que se reflete na face posta aquela onde se dá a incidência não sofre
+Já o raio que se reflete na face oposta aquela onde se dá a incidência não sofre
 qualquer variação de fase na reflexão, uma vez que ela se faz contra um meio
 (ar) com um índice de refração inferior ao daquele onde a luz se propaga
 (película). Assim, e porque não há quaisqer variações de fase nas refrações, a
@@ -491,214 +1503,78 @@ s&=\frac{k+1}{2n}\lambda.
 O menor valor de $s$ (ainda positivo, é claro) obtém-se nesta fórmula tomando
 $k=0$, resultando $s=\lambda/2n\simeq 195$\,nm.
 
-\section{Difração da luz}
-Um dos argumentos invocados por Newton na sua oposição à teoria da natureza
-ondulatória da luz foi o da propagação retilínea. Com efeito, dizia Newton, os
-fenómenos ondulatórios não se propagam sempre em linha reta. Por exemplo,
-podemos ouvir alguém que nos fala de detrás de uma árvore, e as ondulações da
-superfície do mar ou dos lagos não ficam totalmente bloqueadas por ilhas (ver a
-Figura~\ref{fig:40-070}).
-\begin{figure}[htb]
-    \begin{center}
-        \includegraphics{figs/f40-070.jpg}
-        \caption{Difração de ondas na superfície de um lago em torno de
-            uma ilhota de cascalho (fonte:
-            \protect\url{http://gravelbeach.blogspot.pt/2011/12/ala-spit_15.html}).
-        \label{fig:40-070} }
-\end{center}
-\end{figure}
-Estas ondas (pelo menos as de
-som e as do mar), têm a capacidade de se encurvarem, rodeando parcial ou
-totalmente os obstáculos que encontram no seu caminho, efeito que tem o nome de
-\emph{difração}. Ora, dizia ainda Newton, nada de parecido se podia observar
-para a luz, pelo que ela não podia, assim, ser considerada como um fenómeno
-ondulatório. 
-
-Mas a verdade é que a luz apresenta também fenómenos de difração, embora com
-muito menor intensidade do que o som ou as ondas do mar, pelo menos em condições
-habituais. Nesta secção estudaremos a difração da luz na passagem através de uma
-fenda fina aberta num obstáculo opaco. O ponto de partida é o princípio de
-Huyghens: cada ponto numa frente de onda é fonte de ondas esféricas que
-interferem mutuamente no avanço da frente de onda. Ou seja, o valor da função de
-onda em cada ponto e em cada instante é o que resulta da sobreposição das ondas
-originadas nos vários pontos da frente de onda em instantes anteriores.
-
-\subsection{Difração da luz numa fenda simples}
-Consideremos então radiação que incide num obstáculo opaco, onde se abriu uma
-fenda com largura $a$, centrada na origem (ver a Figura~\ref{fig:oof110}).
-Pretende-se determinar a função de onda difratada numa direção que faz com
-a direção de incidência (o eixo dos $x$, na figura) um ângulo $\theta$.
-\begin{figure}[htb]
-    \begin{center}
-        \small
-\begin{tikzpicture}[scale=1.5]
-\draw [ultra thin, ->](-0.5,0)--(1,0) node [right]{$x$};
-\draw [ultra thin, ->](0,-1.)--(0,1.) node [above]{$y$};
-\draw [very thick](-0.15,-1.5) -- (-0.15,-0.5) -- (0.15,-0.5) -- (0.15,-1.5);
-\draw [very thick](-0.15,1.5) -- (-0.15,0.5)--(0.15,0.5)--(0.15,1.5);
-\draw [ultra thin, dashed] (-0.5,0.5) node [left] {$a/2$}--(-0.15,0.5);
-\draw [ultra thin, dashed] (-0.5,-0.5) node [left] {$-a/2$}--(-0.15,-0.5);
-\draw [->](0,0)--(30:2) node [pos=0.6,fill=white] {$d_0$};
-\draw [->](0,0.3)--++(30:1.85) node[pos=0.6,fill=white] {$d(y)$};
-\draw(-0.035,0.2)--(0.035,0.2);
-\draw(-0.035,0.4)--(0.035,0.4);
-\draw[thick](0,0.2)--(0,0.4) node[midway,left]{$dy$};
-\node (D) at (1.8,1.45) [rotate=-60,right,draw] {Detetor};
-\draw [ultra thin](0,0.3)--++(-60:0.26);
-\draw [thick] (0,0)--(30:0.15);
-\draw (0.7,0) arc (0:30:0.7);
-\node at (15:0.85){$\theta$};
-\draw [very thin, ->] ++(30:0.075) .. controls (0.25,-0.2) and (-0.2,-0.3) ..(0.5,-0.4) node [right]{$y\sin\theta$};
-\draw [->] (-1.5, 0.70)--(-0.9,00.70);
-\draw [->] (-1.5, 0.35)--(-0.9, 0.35);
-\draw [->] (-1.5, 0.00)--(-0.9, 0.00);
-\draw [->] (-1.5,-0.35)--(-0.9,-0.35);
-\draw [->] (-1.5,-0.70)--(-0.9,-0.70);
-\end{tikzpicture}
-\end{center}
-\caption{Difração por uma fenda simples.\label{fig:oof110}}
-\end{figure}
-Seja $d_0$ a distância que separa o centro da fenda do ponto onde queremos
-determinar a função de onda e $d(y)$ a distância de um ponto da fenda com
-ordenada $y$ até esse mesmo ponto. A contribuição que a porção infinitesimal de
-fenda com comprimento $dy$ representada na figura dá para a função de onda no
-ponto onde a queremos determinar é 
+\section{Apêndice matemático: demonstração da eq.~\protect\eqref{eq:sumcos}}
+{\small
+Pretende-se demonstrar a igualdade
 \begin{equation*}
-    d\psi = \frac{A}{a}dy\cos\left(2\pi\left[\frac{d(y)}{\lambda}-\frac{t}{T}
-    \right]\right),
+\sum_{l=-m}^m\cos lu\simeq
+\begin{cases}
+  N,&\text{se }u=2n\pi,\ n=0,\pm1,\pm2,\ldots\\
+  0,&\text{se a condição anterior não se verificar,}
+\end{cases}
 \end{equation*}
-onde $A$ é um fator proporcional à amplitude da onda incidente\footnote{Este
-    fator depende ainda de outras variáveis, nomeadamente a distância ao
-    detetor, mas que não queremos agora considerar. O que queremos, de facto,
-    enfatizar, é que a amplitude da onda difratada na fenda é, em qualquer ponto
-do espaço, proporcional à amplitude da onda incidente.}, e $\lambda$ e $T$ são, respetivamente,
-o comprimento de onda e o período dessa onda e escolhemos nula a constante de
-fase.  Mas $d(y)=d_0-y\sin\theta$. Então
-\begin{equation}
-    d\psi = \frac{A}{a} dy\cos\left[\Omega(t)-\strut\phi(y)\right],\label{eq:oo010}
-\end{equation}
-tendo-se introduzido os símbolos
+com $m=(N-1)/2$.\\
+Comecemos com o primeiro caso, quando $u=2n\pi$, com $n$ inteiro. Nesse caso,
+$\cos lu=1$. Assim
+\begin{equation*}
+\sum_{l=-m}^m\cos lu = \sum_{l=-m}^m 1=2m+1=N,\text{ se }u=2n\pi,\text{ com $n$
+inteiro,}
+\end{equation*}
+o que termina a verificação. Vejamos agora o segundo caso, quando $u$ não é um
+múltiplo inteiro de $2\pi$, o valor do somatório deve ser nulo. Como o cosseno é
+uma função par (isto é, $\cos x=\cos(-x)$, as parcelas do somatório com índice
+$l$ simétrico são iguais. Então podemos agrupá-las aos pares e reescrever o
+somatório na forma
+\begin{equation*}
+\sum_{l=-m}^m\cos lu=1+ 2\sum_{l=1}^m\cos lu.
+\end{equation*}
+De acordo com a fórmula de Euler $e^{ix}=\cos x+i\sin x$, $\cos x$ é a  parte
+real de $e^{ix}$. Substituindo em cima, obtemos
+\begin{equation*}
+\sum_{l=-m}^m\cos lu=1+ 2\Re\sum_{l=1}^m e^{ilu}
+=1+ 2\Re\sum_{l=1}^m \left(e^{iu}\right)^l.
+\end{equation*}
+O somatório no lado direito representa a soma dos $m$ primeiros termos de uma
+progressão geométrica de razão $r=e^{iu}$, cujo valor é, como se demonstra
+adiante, $r(1-r^m)/(1-r)$ (se $r\neq 1$). Assim, temos
+\begin{equation*}
+1+2\Re\left(e^{iu}\frac{1-e^{ium}}{1-e^{iu}}\right),\quad\text{se }e^{iu}\neq1.
+\end{equation*}
+A condição $e^{iu}\neq1$ só não se verifica quando $u=2n\pi$. Assim, esta
+fórmula só não pode ser usada quando se verifica o primeiro caso, já resolvido.
+Verificando-se esta condição, podemos avançar. Note-se que
 \begin{align*}
-    \Omega(t)&=2\pi\left(\frac{d_0}{\lambda}-\frac{t}{T}\right)&
-    \phi(y)&=2\pi \frac y \lambda \sin\theta
+e^{ix}&=\frac{e^{ix}}{e^{-ix}}&
+1-e^{ix}&=e^{ix/2}\left(e^{-ix/2}-e^{ix/2}\right)=e^{ix/2}\,
+(-2i)\sin\frac{x}{2}.
 \end{align*}
-para aligeirar a notação. A função de onda resultante no ponto onde a queremos
-calcular é a soma de um número infinito de contribuições semelhantes à da
-eq.~\eqref{eq:oo010}, uma por cada ponto da frente de onda que atravessa a
-abertura, ou seja, uma por cada ponto do eixo dos $y$ no intervalo
-$[-a/2,\,a/2]$, ou seja ainda,
+Substituindo acima, resulta
+\begin{align}
+\sum_{l=-m}^m\cos lu &= 1+2\frac{\sin(um/2)}{\sin(u/2)}\Re e^{iu(m+1)/2}=
+1+2\frac{\sin(um/2)}{\sin(u/2)}\cos\left(\frac{m+1}{2}u\right)\nonumber\\
+&=1+ 2\frac{\sin\left(\frac{N-1}{4}u\right)}{\sin\left(\frac{u}{2}\right)}
+\cos\left(\frac{N+1}{4}u\right)\label{eq:frgt1}
+\end{align}
+Com $N$ suficientemente grande, o gráfico desta função é muito semelhante
+apresentado na figura junta à eq.~\eqref{eq:sumcos}, excepto para $u=2n\pi$,
+$n=0,\pm1,\pm2,\ldots$, onde a função não pode ser calculada por se anular o
+denominador na fração de senos no lado direito da eq.~\eqref{eq:frgt1}. Assim,
+esta função é nula em todos os pontos onde está definida, o que termina a
+verificação do segundo caso.  Fica assim demonstrada a igualdade da
+eq.~\eqref{eq:sumcos}.
+\subsection*{Soma dos $m$ primeiros termos de uma progressão geométrica}
+Seja $S_n$ a soma dos primeiros $n$ termos de uma progressão geométrica com
+razão $r$, isto é,
 \begin{equation*}
-    \psi=\int_{-a/2}^{a/2}\frac{A}{a}\cos\left[\strut\Omega(t)-\phi(y)\right]dy.
+S_n=\sum_{k=1}^nr^k=r+r^2+r^3+\ldots+r^n.
 \end{equation*}
-Usando a igualdade trigonométrica $\cos(a+b)=\cos a\cos b-\sin a\sin b$, este
-integral pode escrever-se como
-\begin{equation*}
-    \psi=\frac{A}{a}\cos\Omega(t)\int_{-a/2}^{a/2}\cos\phi(y)\,dy+
-         \frac{A}{a}\cos\Omega(t)\int_{-a/2}^{a/2}\sin\phi(y)\,dy,
-\end{equation*}
-uma vez que como o termo $\Omega(t)$ não depende de $y$, $\cos\Omega$ e
-$\sin\Omega$ podem ser postos em evidência nos respetivos integrais. Seja agora
-$\mu=2\pi/\lambda\;\sin\theta$. Então, para o primeiro destes integrais temos
+Obviamente, temos:
 \begin{align*}
-    \int_{-a/2}^{a/2}\cos\phi\,dy&=\int_{-a/2}^{a/2}\cos\mu y\,dy=
-    \left[\frac{1}{\mu}\sin\mu y\right]_{-a/2}^{a/2}=
-    \frac2{\mu}\sin\frac{\mu a}2.
+S_{n}&=S_{n-1}+r^{n}\\
+S_{n}&=r(1+S_{n-1}).
 \end{align*}
-Da mesma maneira, para o segundo,
-\begin{align*}
-    \int_{-a/2}^{a/2}\sin\phi\,dy&=\int_{-a/2}^{a/2}\sin\mu y\,dy=
-    \left[\frac{1}{\mu}\cos\mu y\right]_{-a/2}^{a/2}=0.
-\end{align*}
-Juntando estes dois resultados, obtemos, por fim,
+Eliminando $S_{n-1}$ nestas duas equações, obtemos a fórmula pretendida,
 \begin{equation*}
-    \psi = A\,\frac{\sin(\mu a/2)}{\mu a/2}\,\cos\Omega(t).
+S_n=r\frac{1-r^n}{1-r}.
 \end{equation*}
-Esta equação mostra que a natureza da onda não se altera quando atravessa a
-fenda, no sentido em que o seu comprimento de onda e período se mantêm (recorde
-que estes parâmetros estão integrados no termo $\Omega(t)$). No entanto, a
-direção de propagação deixa de ser única. Em vez disso, nota-se agora que a onda
-se espalha num leque de direções, tendo uma amplitude variável dada por
-\begin{equation*}
-    A(\theta)=A\frac{\sin(\mu a/2)}{\mu
-    a/2}=Aj_0(\pi\frac{a}{\lambda}\sin\theta),
-\end{equation*}
-onde se introduziu a chamada \emph{função esférica de Bessel de ordem zero}
-$j_0(x)=\sin x/x$. A intensidade do sinal ondulatório, que, como vimos, é
-proporcional ao quadrado da amplitude, é então
-\begin{equation}
-    I(\theta)= I_0 j_0^2(\pi\frac{a}{\lambda}\sin\theta),
-\end{equation}
-onde $I_0=I(\theta=0)$. A Figura~\ref{fig:oof120} mostra o gráfico da
-intensidade da difração como função do ângulo da direção da radiação difratada,
-para dois valores diferentes do quociente entre a largura da fenda e o
-comprimento de onda.
-\begin{figure}[htb]
-\begin{center}
-\begin{tikzpicture}
-    \begin{axis}[
-        enlargelimits=false,
-        xlabel=$\theta$ (graus),
-        ylabel=$I(\theta)$]
-        \addplot [
-            domain=-60:60,
-            samples=200,thick
-            ] {(sin(2*pi*x)/(2*pi^2*x/180))^2};
-        \addlegendentry{\small $a=2\lambda$}
-        \addplot [
-            domain=-60:60,
-            samples=250
-            ] {(sin(5*pi*x)/(5*x*pi^2/180))^2};
-        \addlegendentry{\small $a=10\lambda$}
-    \end{axis}
-\end{tikzpicture}
-\caption{Intensidade da radiação difratada numa fenda simples como função do
-ângulo da direção de difração (medido a partir da direção de incidência), para
-$a=2\lambda$ e $a=10\lambda$.%
-\label{fig:oof120}}
-\end{center}
-\end{figure}
-Pode ver-se que a intensidade é máxima para $\theta=0$, ou seja na direção de
-incidência, como seria de esperar intuitivamente, e que se reduz para zero,
-tanto mais rapidamente quanto maior for a largura da abertura. A intensidade
-atinge um primeiro valor mínimo mas depois apresenta oscilações com amplitude
-sucessivamente menor à medida que o ângulo aumenta. Os vários mínimos de
-intensidade ocorrem para ângulos $\theta_k$ dados por
-\begin{equation*}
-    \frac{\displaystyle%
-    \sin\left(\pi\frac a \lambda \sin\theta_k\right)}{%
-    \displaystyle \pi\frac a \lambda \sin\theta_k}=0.
-\end{equation*}
-Esta igualdade é satisfeita quando o numerador da fração se anula, sem se anular
-o denominador\footnote{Se os dois --- numerador e denominador --- se anulam,
-temos uma indeterminação do tipo 0/0, que, uma vez levantada, se revela
-representar o valor máximo da função, em $\theta=0$!}, ou seja para
-\begin{equation*}
-    \pi \frac a \lambda\sin\theta_k=k\pi,\quad k=\pm1,\;\pm2,\;\pm3,\;\ldots.
-\end{equation*}
-O primeiro mínimo, em particular, ocorre numa direcção que faz com a de
-incidência um ângulo de 
-\begin{equation*}
-    \theta_1 = \arcsin\frac{\lambda}{a}.
-\end{equation*}
-Assim, constatamos que se a largura da fenda é muito maior do que o comprimento
-de onda (como certamente é o caso quando tratamos com luz e fendas ``normais,''
-como janelas em paredes), então o ângulo do primeiro mínimo, que podemos tomar
-como medida do espalhamento por difração, é muito pequeno, é praticamente zero.
-Por isso é que não se notam, no dia a dia, efeitos da difração da luz. Mas ela
-existe e pode ser demonstrada em experiências relativamente simples. Por
-exemplo, a Figura~\ref{fig:40-080} mostra a sombra de uma lâmina de barbear
-iluminada com raios laser. São aí claramente visíveis vários mínimos de
-difração, na forma de contornos escuros em torno da sombra da lâmina.
-\begin{figure}[htb]
-    \begin{center}
-        \includegraphics[width=0.3\textwidth]{figs/f40-080.jpg}
-    \end{center}
-    \caption{Difração de luz laser numa lâmina de barbear. (Fonte:
-        \protect%
-        \url{http://micro.magnet.fsu.edu/primer/lightandcolor/diffractionintro.html})%
-    \label{fig:40-080}}
-\end{figure}
-
-\section{Redes de difração 2}
-\tobedone{}
-
+}

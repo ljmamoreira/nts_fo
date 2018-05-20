@@ -1,8 +1,12 @@
 \documentclass{report}
 \usepackage{mystyle}
+\usepackage{hyperref}
+\usepackage[color,final]{showkeys}
 
-%\includeonly{tex/40polari}
+%\includeonly{tex/00frontm, tex/50superp}
 \begin{document}
+\definecolor{refkey}{gray}{.75}
+\definecolor{labelkey}{gray}{.75}
 \setlength{\indentsp}{\parindent}
 
 \pagenumbering{roman}
@@ -14,5 +18,6 @@
 \include{tex/30emgwav}
 \include{tex/40polari}
 \include{tex/50superp}
+\include{tex/60difrac}
 
 \end{document}
