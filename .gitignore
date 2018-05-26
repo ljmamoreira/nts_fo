@@ -5,4 +5,8 @@
 .*.tex.*
 .directory
 .*.swp
+*.fdb_latexmk
+*fls
+*.out
+*.synctex.gz
 workbench/
