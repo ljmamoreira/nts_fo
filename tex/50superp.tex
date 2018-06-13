@@ -1079,9 +1079,9 @@ $\delta\varphi$ dado pela eq.~\eqref{eq:youngdf2}, obtemos
 I=4I_f\cos^2\left(\pi\frac{a}{\lambda}\sin\theta\right).
 \end{equation}
 O gráfico desta função está ilustrado na Figura~\ref{fig:yngint}. Notam-se
-oscilações regulares entre valores máximos ($4I_f$) e mínimos (0), para as
-direções (definidas pelos valores do ângulo $\theta$) previstas nas
-eqs.~\eqref{eq:youngc} e~\eqref{eq:youngd}, respetivmente.
+oscilações regulares entre valores máximos ($4I_f$) e mínimos (0), que ocorrem
+nas direções previstas nas eqs.~\eqref{eq:youngc} e~\eqref{eq:youngd},
+respetivmente.
 \begin{figure}[htb]
   {\centering
   \begin{tikzpicture}[]
@@ -1091,17 +1091,14 @@ eqs.~\eqref{eq:youngc} e~\eqref{eq:youngd}, respetivmente.
     \draw [->] (0,-0.05) node [below] {0}-- (0,2) node [right]{$I$};
     \draw [samples=200, domain=-1.55:1.55, thick, variable=\q]
       plot ({\s*\q},{1.5*
-              (cos(deg(pi*2.3*sin(deg(\q)))))^2});
+              (cos(deg(pi*2.5*sin(deg(\q)))))^2});
     \draw (\s*pi/2,0.05) -- +(0,-0.1) node [below] {$\frac\pi2$};
     \draw (-\s*pi/2,0.05) -- +(0,-0.1) node [below] {$-\frac\pi2$};
-    %\draw (2,0.05) -- +(0,-0.1) node [below] {$2\frac{\lambda d}{a}$};
-    %\draw (-1,0.05) -- +(0,-0.1) node [below] {$-\frac{\lambda d}{a}$};
-    %\draw (-2,0.05) -- +(0,-0.1) node [below] {$-2\frac{\lambda d}{a}$};
     \node at (0,1.5) [above left]{$4I_f$};
     \node at (7,0.8) {\includegraphics[height=2.6cm]{figs/twoslitinterf.jpg}};
   \end{tikzpicture}\par}
   \caption{\label{fig:yngint}Gráfico da intensidade da interferência de Young
-    com $a/\lambda=2,3$ (à esquerda) e fotografia do ecrã iluminado numa
+    com $a/\lambda=2,5$ (à esquerda) e fotografia do ecrã iluminado numa
     experiência concreta. (Desconheço os parâmetros desta experiência, a figura
     foi adaptada de \protect\url{http://www.okotech.com/lp-interference}.)}
 \end{figure}
@@ -1111,15 +1108,15 @@ muito aproximadamente equidistantes umas das outras. Para o verificar, note que
 $\sin\theta=y/d$ (reveja a Figura~\ref{fig:40-040}) e que, para pequenos
 ângulos, $s\simeq d$. Assim,
 \begin{equation*}
-  I=4If\cos^2\left(\pi\frac{a}{\lambda}\sin\theta\right)=
-  4If\cos^2\left(\pi\frac{a}{\lambda}\frac{y}{d}\right).
+  I=4If\cos^2\left(\pi\frac{a}{\lambda}\sin\theta\right)\simeq
+  4I_f\cos^2\left(\pi\frac{a}{\lambda}\frac{y}{d}\right).
 \end{equation*}
 À medida que $y$ aumenta a partir da posição central $y=0$, esta função oscila
 repetidamente entre os valores mínimo (0) e máximo ($4I_f$), encontrando-se os
 máximos sucessivos afastados de $2\lambda d/a$.  A Figura~\ref{fig:yngint}
 apresenta também, no lado direito, este padrão de máximos e mínimos
 equidistantes, fotografado numa experiência concreta de interferência de fenda
-dupla .
+dupla.
 
 \section{Redes de difração 1} 
 As redes de difração são dispositivos óticos interferométricos com muitas
@@ -1161,7 +1158,7 @@ Figura~\ref{fig:gratingi} ilustra a diferença entre as duas situações.
     \draw (2,0.05) -- +(0,-0.1) node [below] {$2\frac{\lambda d}{a}$};
     \draw (-1,0.05) -- +(0,-0.1) node [below] {$-\frac{\lambda d}{a}$};
     \draw (-2,0.05) -- +(0,-0.1) node [below] {$-2\frac{\lambda d}{a}$};
-    \node at (0,1.5) [left]{$4I_f$};
+    %\node at (0,1.5) [left]{$4I_f$};
 	  \begin{scope}[xshift=7cm]
       \draw [->] (-3,0)--(3,0) node [below] {$y$};
       \draw [->] (0,-0.05) node [below] {0}-- (0,2) node [right]{$I$};
@@ -1171,12 +1168,12 @@ Figura~\ref{fig:gratingi} ilustra a diferença entre as duas situações.
       \draw (2,0.00) -- +(0,-0.1) node [below] {$2\frac{\lambda d}{a}$};
       \draw (-1,0.00) -- +(0,-0.1) node [below] {$-\frac{\lambda d}{a}$};
       \draw (-2,0.00) -- +(0,-0.1) node [below] {$-2\frac{\lambda d}{a}$};
-      \draw [samples=500, domain=-2.8:2.75, thick, variable=\y]
-        plot ({\y},{1.5*(exp(-500*(\y+2)^2)+
-                         exp(-500*(\y+1)^2)+
-                         exp(-500*(\y+0)^2)+
-                         exp(-500*(\y-2)^2)+
-                         exp(-500*(\y-1)^2))
+      \draw [samples=229, smooth, domain=-2.8:2.8, thick, variable=\y]
+        plot ({\y},{1.5*(exp(-700*(\y+2)^2)+
+                         exp(-700*(\y+1)^2)+
+                         exp(-700*(\y+0)^2)+
+                         exp(-700*(\y-2)^2)+
+                         exp(-700*(\y-1)^2))
         });
     \end{scope}
   \end{tikzpicture}\par
@@ -1263,8 +1260,10 @@ difração.  Como se encontram igualmente espaçadas de uma distância $a$, temo
   y_l = y_0+la,
 \end{equation}
 onde $y_0$ é uma constante arbitrária relacionada com a posição do ponto que
-escolhemos como origem. A distância que separa um ponto $P$ arbitrário do ecrã
-com coordenadas $(d,y)$ da $l$-ésima fenda da rede de difração é
+escolhemos como origem\footnote{$y_0$ é apenas a coordenada $y$ de um ponto
+  situado uma distância $a$ abaixo da fenda número 1.}. A distância que separa
+um ponto $P$ arbitrário do ecrã com coordenadas $(d,y)$ da $l$-ésima fenda da
+rede de difração é
 \begin{equation*}
   s_l=\sqrt{d^2+(y-y_l)^2}=\sqrt{d^2 + y^2 - 2yy_l+y_l^2}.
 \end{equation*}
@@ -1356,11 +1355,10 @@ fenda da rede de difração.
 
 Fazendo $N=2$ na equação eq.~\eqref{eq:gratint} recuperamos, como seria de
 esperar, a fórmula que deduzimos para a experiência de Young, da
-eq.~\eqref{eq:yngi}\footnote{Fica como exercício fazer esta demonstração.
-  Sugestão: note que $\sin x=2\sin(x/2)\cos(x/2)$ e que $\sin\theta=y/s\simeq
-y/d$.}. A Figura~\ref{fig:gratint2} ilustra o gráfico da intensidade transmitida
-por uma rede de difração (com $a/\lambda=2,3$) como função de $\theta$ para
-diferentes valores de $N$.
+eq.~\eqref{eq:yngi}\footnote{Fica como exercício fazer esta dedução.
+  Sugestão: note que $\sin x=2\sin(x/2)\cos(x/2)$.}. A Figura~\ref{fig:gratint2}
+ilustra o gráfico da intensidade transmitida por uma rede de difração (com
+$a/\lambda=2,5$) como função de $\theta$ para diferentes valores de $N$.
 \begin{figure}[htb]
   {\centering
     \begin{tikzpicture}
@@ -1368,13 +1366,13 @@ diferentes valores de $N$.
       \foreach \n [count=\i from 0] in {2,3,4,5,10,15} {
         \pgfmathsetmacro{\x}{int(Mod(\i,3))}
         \pgfmathsetmacro{\y}{int(\i/3)}
-        \pgfmathsetmacro{\al}{pi*2.3}
+        \pgfmathsetmacro{\al}{pi*2.5}
         \begin{scope}[shift={(\x*3.5,-\y*2)}]
           \draw [thin, ->] (-1.6,0) -- (1.6,0) node [below]{$\theta$};
           \draw (1.3,0)--+(0,-0.1) node [below]{$\frac{\pi}{2}$};
           \draw (-1.3,0)--+(0,-0.05) node [below]{$-\frac{\pi}{2}$};
           \draw [thin, ->] (0,-0.05) node[below]{0} -- (0,1.2);
-          \draw [thin, domain=-1.3:1.3, variable=\x,smooth, samples=252]
+          \draw [thin, domain=-1.3:1.3, variable=\x,smooth, samples=151]
             plot (\x,
              {(sin(deg(\n*\al*sin(deg(\x))))/sin(deg(\al*sin(deg(\x))))/\n)^2});
           \node [fill=white, fill opacity=0.90, inner sep=1] at (-1.1,0.95)
@@ -1385,12 +1383,12 @@ diferentes valores de $N$.
     \par
   }
   \caption{\label{fig:gratint2}Intensidade da transmissão por uma rede de
-    difração como função do ângulo com a direção de incidência, para diferentes
-    valores do número de fendas da rede que participam no processo
-    interferométrico. Os máximos ocorrem para $\sin\theta=l\lambda/a$, $l=0,\
-    \pm1,\ \pm2, \ldots$, independentemente de $N$. Mas para $N$ grande, a
-    intensidade transmitida é nula em práticamente todas as direções, à exceção
-  daquelas que que se verificam os máximos.}
+    difração com $a/\lambda=5/2$ como função do ângulo com a direção de
+    incidência, para diferentes valores do número de fendas da rede que
+    participam no processo interferométrico. Os máximos ocorrem para
+    $\sin\theta=l\lambda/a$, $l=0,\ \pm1,\ \pm2, \ldots$, independentemente de
+    $N$. Mas para $N$ grande, a intensidade transmitida é nula em práticamente
+    todas as direções, à exceção daquelas que que se verificam os máximos.}
 \end{figure}
 Para $N=2$ resulta a oscilação regular já antes calculada para a experiência de
 Young (reveja a Figura~\ref{fig:yngint}). Mas nota-se que à medida que aumenta
@@ -1399,178 +1397,6 @@ resultante entre os máximos vai ficando cada vez menor, como se ilustrou na
 Figura~\ref{fig:gratingi}.
 
 
-
-
-
-
-%\vspace{5mm}
-%
-%\noindent\hrule
-%
-%\vspace{5mm}
-%
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
-%de modo
-%a podermos facilmente referir uma faixa particular e a onda que nela tem origem.
-%Por uma questão prática, atribuímos à faixa no centro da zona iluminada o número
-%0, às duas faixas contíguas (uma de cada lado) os números $\pm1$, a seguir
-%seguem-se (de cada lado também) as faixas $\pm3$ e assim sucessivamente, até às
-%faixas números $\pm m$, com $m=(N-1)/2$ .
-%\begin{figure}[htb]
-%{\centering
-%  \begin{tikzpicture}[scale=0.9]
-%  \small
-%    %Grating
-%    \draw [line width=3] (0,-1.35)--(0,-1.15);
-%    \foreach \i in {-1,...,2} {
-%      \draw [line width=3] (0,\i+0.15) -- (0,\i+0.85);
-%      \node at (-0.1,\i) [left]{\i};
-%    }
-%    %axis
-%    \draw (-0.1,0) -- (9.5,0);
-%    %central ray
-%    \draw [->-](0,0) coordinate(o)-- (15:9) coordinate(p) node[midway,below] {$s_0$};
-%    \node at (p) [above left] {$P$};
-%    \draw (2,0) arc(0:15:2) node [below right] {$\theta$};
-%    %other rays
-%    \draw [->-](0,-1) -- (p) node [below, pos=0.6]{$s_{-1}$};
-%    \draw [->-](0,1) -- (p) node [below, pos=0.4]{$s_{1}$};
-%    \draw [->-](0,2) -- (p) node [below, pos=0.3]{$s_{2}$};
-%    %screen
-%    \path ($ (p)!-0.6cm!(p|-o) $) coordinate (s);
-%    \draw [thick](s) -- +(0,-4.3cm);
-%    %incident rays
-%    \node at(-1.5,2.5) {Luz incidente};
-%    \foreach \y in {-1,0,...,2} {
-%      \draw [->] (-2,\y) --+(1,0);
-%    }
-%    %annotations
-%    \draw [<->](0.1,-1.25) -- +(8.5,0) node [midway,fill=white] {$d$};
-%    \draw [<->] (9,0.1) coordinate(x) -- ([yshift=-2] x|-p) node[midway,fill=white] {$y$};
-%    \node at (0,-1.5) [below] {Rede};
-%    \node at (8.6,-1.5)[below]{Ecr\~a};
-%  \end{tikzpicture}\par
-%  }
-%  \caption{Parte de uma rede de difração iluminada por luz
-%  vinda do lado esquerdo. Cada faixa transparente na rede é origem de uma onda
-%  cilindrica. A intensidade luminosa em cada ponto do ecrã é a resulta da
-%  sobreposição das ondas provenientes de cada faixa. (O desenho não está à
-%  escala: a rede de difração está muito ampliada.)}
-%\end{figure}
-%A luz transmitida pela rede de difração, que a atravessa através das faixas
-%transparentes entre riscos, vai depois incidir num ecrã, que vamos supor está
-%a uma distância $d$ da rede de difração, muito grande quando comparada com as
-%dimensões da zona iluminada da rede, ou seja,
-%\begin{equation*}
-%d>>Na.
-%\end{equation*}
-%A distância que separa a faixa transparente número $l$ da rede de difração de um
-%ponto genérico $P$ no ecrã, desviado da direção de incidência por um ângulo
-%$\theta$ a que corresponde uma distância transversal medida no ecrã de $y$ é dada
-%por
-%\begin{align*}
-%s_l&=\sqrt{d^2+(y-la)^2}=\sqrt{d^2+y^2-2yla+l^2a^2}=
-%  \sqrt{s_0^2-2yla+l^2a^2}\\
-%  &=s_0\sqrt{1-2yla/s_0^2+(la/s_0)^2}.
-%\end{align*}
-%Uma vez que o ecrã se encontra muito afastado, $s_0>>Na$; logo, o último termo na
-%raiz quadrada é desprezável face aos restantes. Assim,
-%\begin{equation}\label{eq:gratdist}
-%s_l\simeq s_0\sqrt{1-2yla/s_0^2}\simeq s_0\left(1-\frac{yla}{s_0^2}\right)=
-%    s_0-la\frac{y}{s_0}=s_0-la\sin\theta,
-%\end{equation}
-%tendo-se usado o desenvolvimento de Taylor de 1ª ordem $\sqrt{1+x}\simeq1+x/2$,
-%válido para pequenos valores de $x$, e feito a substituição óbvia
-%$y/s_0=\sin\theta$.
-%
-%A onda que atravessa a faixa número $l$ da rede de difração tem, no ponto $P$
-%do ecrã, função de onda\footnote{Não se considera aqui a natureza vetorial das
-%  ondas eletromagnéticas porque, se a luz incidente na rede de difração estiver
-%  polarizada, terão a mesma polarização as várias ondas transmitidas e, assim,
-%  os vários fatores $\cos\theta_{12}$ na eq.\eqref{eq:superp3}; se a luz
-%  incidente não for polarizada, ocorrerá interferência separada de cada
-%  componente de polarização, tendo-se então, de novo, $\cos\theta_{12}=1$. Na
-%  prática, assim, a polarização não é relevante neste processo, ou seja, podemos
-%  descrevê-lo coom ondas escalares.}
-%\begin{equation*}
-%\psi_l(\vec r,t)=A_l\cos\left(ks_l-\omega t\right),
-%\end{equation*}
-%onde $\vec r$ é o vetor posição do ponto $P$, $k=2\pi/\lambda$ o módulo do vetor
-%de onda e $A_l$ é a amplitude desta onda. Na verdade, esta onda tem forma
-%cilíndrica e portanto a sua amplitude não é uniforme; em vez disso, ela deve
-%decrescer em proporção com a raiz quadrada da distância $s_l$. Mas, estando o
-%ecrã muito afastado, essa variação pode desprezar-se. Além disso, sendo as
-%faixas transparentes por onde a luz atravessa a rede de difração iguais, devem
-%também ser iguais as várias amplitudes.  Substituindo aqui a
-%eq.~\eqref{eq:gratdist}, obtemos
-%\begin{equation*}
-%\psi_l(\vec r,t)=A_l\cos\left(ks_0-\omega t-lka\sin\theta\right).
-%\end{equation*}
-%Sejam agora $\Omega=\Omega(t)=ks_0-\omega t$ e $u=ka\sin\theta$. A função de
-%onda acima escreve-se então como
-%\begin{align*}
-%\psi_l(\vec r,t)&=A_l\cos(\Omega-lu)=A_l(\cos\Omega\cos lu+\sin\Omega\sin lu).
-%\end{align*}
-%De acordo com o princípio da sobreposição, a função de onda resultante no ponto
-%$P$ é a soma dos valores das funções de onda das várias ondas que nele
-%coincidem,
-%\begin{equation}\label{eq:gratpsi}
-%\psi(\vec r,t)=\sum_{l=-m}^m\psi_l(\vec r,t)= A\left(
-%  \cos\Omega\sum_{l=-m}^m\cos lu+ \sin\Omega\sum_{l=-m}^m\sin lu\right),
-%\end{equation}
-%onde, recorde-se, $m=(N-1)/2$ e se colocaram em evidência, em cada soma, os
-%fatores constantes dependentes de $\Omega$. Como o seno é uma função ímpar, o
-%segundo somatório no lado direito desta igualdade anula-se, uma vez que é
-%constituido por parcelas simétricas duas a duas.  Quanto ao primeiro, pode
-%provar-se (veja o apêndice na secção final deste capítulo) que, para $N>>1$, é
-%dado por
-%\begin{equation}\label{eq:sumcos}
-%\sum_{l=-m}^m\cos lu\simeq
-%\begin{cases}
-%  N,&\text{se }u=2n\pi,\ n=0,\pm1,\pm2,\ldots\\
-%  0,&\text{se a condição anterior não se verificar.}
-%\end{cases}
-%\end{equation}
-%\begin{minipage}[t]{0.55\linewidth}
-%O gráfico desta função é o ilustrado na figura ao lado. Repare-se que ela 
-%se anula em todos os pontos do ecrã, excepto naqueles em que $u=kay/s_0=2n\pi$,
-%com $n$ inteiro arbitrário. Como $k=2\pi/\lambda$, esta condição é satisfeita
-%nos pontos onde $y=n\lambda s_0/a$. Só nestes pontos do ecrã é que a amplitude
-%da função de onda\linebreak
-%\vspace{-0.6\baselineskip}
-%\end{minipage}\hfill
-%\begin{tikzpicture}[baseline=(current bounding box.north)]
-%	\small
-%	\draw [->] (-2.65,0)--(2.65,0) node [below] {$u$};
-%	\draw [very thick] (-2.5,0) -- (2.5,0);
-%	\draw [->] (0,-0.25)-- (0,1.3) node[right,yshift=-5]{$\sum\cos lu$};
-%	\foreach \u in  {-2,...,2} {
-%		\draw [very thick] (\u,0.75)--(\u,0);
-%	}
-%	\node at (0,0.75) [left,inner sep=1]{$N$};
-%	\node at (-2,0) [below]{$-4\pi$};
-%	\node at (2,0) [below]{$4\pi$};
-%	\node at (-1,0) [below]{$-2\pi$};
-%	\node at (1,0) [below]{$2\pi$};
-%	\node at (0,0) [below right]{$0$};
-%\end{tikzpicture}\\
-%resultante tem valores apreciáveis; nos restantes, ela é nula.
-%Ou seja, em vez de se notar um padrão de interferência contínuo, com zonas mais
-%iluminadas sucedendo-se gradualmente a zonas escurecidas, observam-se no ecrã
-%linhas bem iluminadas, separadas por faixas escurecidas, sem uma transição
-%gradual de umas para outras.
-%Considerando pequenos desvios, $y<<d$, temos $s_0\simeq d$. Nesta aproximação, o
-%ecrã fica iluminado nos pontos com $y=nd\lambda/a$, justamente aqueles onde numa
-%experiência de fenda dupla (com igual separação entre as fendas) a intensidade
-%da interferência é máxima, ficando assim explicada a coincidência das posições
-%dos máximos nas duas situações patente nos gráficos da
-%Figura~\ref{fig:gratingi}.
-%
-%Voltaremos ao assunto da transmissão de luz por redes de difração no próximo
-%capítulo, quando estudarmos a difração da luz.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Interferência em reflexões múltiplas}
 \begin{wrapfigure}[10]{l}{0.3\textwidth}
@@ -1745,82 +1571,6 @@ s&=\frac{k+1}{2n}\lambda.
 O menor valor de $s$ (ainda positivo, é claro) obtém-se nesta fórmula tomando
 $k=0$, resultando $s=\lambda/2n\simeq 195$\,nm.
 
-%\section{Apêndice matemático: demonstração da eq.~\protect\eqref{eq:sumcos}}
-%{\small
-%Pretende-se demonstrar a igualdade
-%\begin{equation*}
-%\sum_{l=-m}^m\cos lu\simeq
-%\begin{cases}
-%  N,&\text{se }u=2n\pi,\ n=0,\pm1,\pm2,\ldots\\
-%  0,&\text{se a condição anterior não se verificar,}
-%\end{cases}
-%\end{equation*}
-%com $m=(N-1)/2$.\\
-%Comecemos com o primeiro caso, quando $u=2n\pi$, com $n$ inteiro. Nesse caso,
-%$\cos lu=1$. Assim
-%\begin{equation*}
-%\sum_{l=-m}^m\cos lu = \sum_{l=-m}^m 1=2m+1=N,\text{ se }u=2n\pi,\text{ com $n$
-%inteiro,}
-%\end{equation*}
-%o que termina a verificação. Vejamos agora o segundo caso, quando $u$ não é um
-%múltiplo inteiro de $2\pi$, o valor do somatório deve ser nulo. Como o cosseno é
-%uma função par (isto é, $\cos x=\cos(-x)$, as parcelas do somatório com índice
-%$l$ simétrico são iguais. Então podemos agrupá-las aos pares e reescrever o
-%somatório na forma
-%\begin{equation*}
-%\sum_{l=-m}^m\cos lu=1+ 2\sum_{l=1}^m\cos lu.
-%\end{equation*}
-%De acordo com a fórmula de Euler $e^{ix}=\cos x+i\sin x$, $\cos x$ é a  parte
-%real de $e^{ix}$. Substituindo em cima, obtemos
-%\begin{equation*}
-%\sum_{l=-m}^m\cos lu=1+ 2\Re\sum_{l=1}^m e^{ilu}
-%=1+ 2\Re\sum_{l=1}^m \left(e^{iu}\right)^l.
-%\end{equation*}
-%O somatório no lado direito representa a soma dos $m$ primeiros termos de uma
-%progressão geométrica de razão $r=e^{iu}$, cujo valor é, como se demonstra
-%adiante, $r(1-r^m)/(1-r)$ (se $r\neq 1$). Assim, temos
-%\begin{equation*}
-%1+2\Re\left(e^{iu}\frac{1-e^{ium}}{1-e^{iu}}\right),\quad\text{se }e^{iu}\neq1.
-%\end{equation*}
-%A condição $e^{iu}\neq1$ só não se verifica quando $u=2n\pi$. Assim, esta
-%fórmula só não pode ser usada quando se verifica o primeiro caso, já resolvido.
-%Verificando-se esta condição, podemos avançar. Note-se que
-%\begin{align*}
-%e^{ix}&=\frac{e^{ix}}{e^{-ix}}&
-%1-e^{ix}&=e^{ix/2}\left(e^{-ix/2}-e^{ix/2}\right)=e^{ix/2}\,
-%(-2i)\sin\frac{x}{2}.
-%\end{align*}
-%Substituindo acima, resulta
-%\begin{align}
-%\sum_{l=-m}^m\cos lu &= 1+2\frac{\sin(um/2)}{\sin(u/2)}\Re e^{iu(m+1)/2}=
-%1+2\frac{\sin(um/2)}{\sin(u/2)}\cos\left(\frac{m+1}{2}u\right)\nonumber\\
-%&=1+ 2\frac{\sin\left(\frac{N-1}{4}u\right)}{\sin\left(\frac{u}{2}\right)}
-%\cos\left(\frac{N+1}{4}u\right)\label{eq:frgt1}
-%\end{align}
-%Com $N$ suficientemente grande, o gráfico desta função é muito semelhante
-%apresentado na figura junta à eq.~\eqref{eq:sumcos}, excepto para $u=2n\pi$,
-%$n=0,\pm1,\pm2,\ldots$, onde a função não pode ser calculada por se anular o
-%denominador na fração de senos no lado direito da eq.~\eqref{eq:frgt1}. Assim,
-%esta função é nula em todos os pontos onde está definida, o que termina a
-%verificação do segundo caso.  Fica assim demonstrada a igualdade da
-%eq.~\eqref{eq:sumcos}.
-%\subsection*{Soma dos $m$ primeiros termos de uma progressão geométrica}
-%Seja $S_n$ a soma dos primeiros $n$ termos de uma progressão geométrica com
-%razão $r$, isto é,
-%\begin{equation*}
-%S_n=\sum_{k=1}^nr^k=r+r^2+r^3+\ldots+r^n.
-%\end{equation*}
-%Obviamente, temos:
-%\begin{align*}
-%S_{n}&=S_{n-1}+r^{n}\\
-%S_{n}&=r(1+S_{n-1}).
-%\end{align*}
-%Eliminando $S_{n-1}$ nestas duas equações, obtemos a fórmula pretendida,
-%\begin{equation*}
-%S_n=r\frac{1-r^n}{1-r}.
-%\end{equation*}
-%}
-%
 \newpage
 \section*{Interferência --- Resumo}
 \tobedone{}
